@@ -1,3 +1,4 @@
+/* header.ejs -----footer.ejs */
 body {
     margin: 0;
 }
@@ -31,6 +32,7 @@ body {
     padding: 32px 24px 32px 24px;
     height: 88px;
     background-color: white;
+    position: relative;
 }
 
 .ul-continer {
@@ -54,8 +56,8 @@ body {
 
 .search-cart-user {
     position: absolute;
-    right: 223.6px;
-    top: 88px;
+    right: 133.600px;
+    top: 67px;
 }
 
 .vs-header-icons {
@@ -163,4 +165,113 @@ body {
     color: rgb(89, 89, 89);
     font-size: 14px;
     font-family: Lato, arial, sans-serif;
+}
+
+
+
+
+
+/* home.ejs */
+.img-launching {
+    width: 1232px;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+    background-color: #E3CF19;
+    position: relative;
+}
+
+.launching {
+    float: right;
+    height: 100%;
+    width: 34%;
+    background-color: rgba(254, 243, 217, 0.8);
+}
+
+.p_welcome {
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 16px;
+    font-family: Lato, arial, sans-serif;
+    color: rgb(133, 112, 28);
+    margin-top: 150px;
+}
+
+.h1_flat_discount {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 43px !important;
+    font-family: 'Cabin', arial, sans-serif;
+    color: rgb(21, 21, 21);
+    margin-bottom: 50px;
+
+}
+
+.a_launch_product {
+    position: relative;
+    margin: auto;
+    letter-spacing: 2px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Lato, arial, sans-serif;
+    color: rgb(133, 112, 28);
+    margin-top: 150px;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 1px;
+    padding: 15px;
+    margin: 107px;
+    transition: all 0.5s
+}
+
+.a_launch_product:hover {
+    background-color: rgb(207 175 50);
+    color: rgb(21, 21, 21);
+    border-color: rgb(207 175 50);
+}
+
+.about_us {
+    width: 1232px;
+    height: 500px;
+    display: block;
+    margin: 200px auto;
+    position: relative;
+}
+
+.us {
+    color: rgb(173, 146, 38);
+    font-family: 'Cabin', arial, sans-serif;
+    font-size: 43px;
+}
+
+.us_data {
+    font-family: Lato, arial, sans-serif;
+    font-size: 22px;
+    color: rgb(94, 94, 94);
+    margin-bottom: 100px;
+    margin-right: 530px;
+
+}
+
+.findoutmore {
+    text-decoration: none;
+    font-family: Lato, arial, sans-serif;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    font-weight: 700;
+    padding: 0 0 5px 0;
+    color: rgb(152 129 39);
+    letter-spacing: 2px;
+    transition: all 0.5s;
+}
+
+.findoutmore:hover {
+    letter-spacing: 4px;
+}
+
+.findoutmore_arrow {
+    font-size: 16px;
+    padding: 0 0 5px 10px;
+    color: rgb(152 129 39);
 }
