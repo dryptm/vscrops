@@ -4,9 +4,9 @@ body {
 }
 
 .banner {
-    height: 20.8px;
+    height: 1.3541666666666667vw;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.9114583333333334vw;
     margin: 0;
     padding: 4px 0;
     background-color: rgb(212, 180, 53);
@@ -23,14 +23,13 @@ body {
 
 .header-block {
     background-color: white;
-    height: 152px;
+    height: 9.895833333333334vw;
     width: 100%;
 }
 
 .header-block-container {
     margin: auto;
-    padding: 32px 24px 32px 24px;
-    height: 88px;
+    padding: 2.0833333333333335vw 1.5625vw;
     background-color: white;
     position: relative;
 }
@@ -42,33 +41,39 @@ body {
 
 .li-div {
     display: flex;
-    padding: 20px 320px;
+    padding: 1.3020833333333333vw 20.833333333333332vw;
 }
 
 .li-container {
     font-family: Lato, arial, sans-serif;
-    padding: 0 16px;
     text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 3px;
+    margin: 0 1.0416666666666667vw;
+    ;
+    font-size: 0.9114583333333334vw;
+    letter-spacing: 1.75px;
     color: rgb(87, 87, 87);
 }
 
 .search-cart-user {
     position: absolute;
-    right: 133.600px;
-    top: 67px;
+    right: 8.697916666666666vw;
+    top: 4.361979166666667vw;
 }
 
 .vs-header-icons {
     color: rgb(185 157 48);
-    padding: 10px;
-    font-size: 14px;
+    padding: 0.6510416666666666vw;
+    font-size: 0.9114583333333334vw;
+    transition: all 0.5s;
+}
+
+.vs-header-icons:hover {
+    color: rgb(113 96 33)
 }
 
 .footer {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 2.6041666666666665vw;
+    padding-bottom: 2.6041666666666665vw;
 }
 
 .toc-pp {
@@ -138,8 +143,8 @@ body {
 }
 
 .copyright {
-    margin: 0 199.6px;
-    padding: 0 24px;
+    margin: 0 12.994791666666666vw;
+    padding: 0 1.5625vw;
     letter-spacing: 1px;
     font-family: Lato, arial, sans-serif;
     color: rgb(89, 89, 89);
@@ -148,8 +153,8 @@ body {
 }
 
 .trademark {
-    margin: 0 199.6px;
-    padding: 0 24px;
+    margin: 0 12.994791666666666vw;
+    padding: 0 1.5625vw;
     letter-spacing: 1px;
     font-family: Lato, arial, sans-serif;
     color: rgb(89, 89, 89);
@@ -159,12 +164,21 @@ body {
 }
 
 .connect {
-    margin: 0 199.6px;
-    padding: 0 24px;
+    margin: 0 12.994791666666666vw;
+    padding: 0 1.5625vw;
     letter-spacing: 1px;
     color: rgb(89, 89, 89);
     font-size: 14px;
     font-family: Lato, arial, sans-serif;
+}
+.head_divider{
+    background-color: rgb(180, 155, 53);
+    height: 1px;
+    opacity: 30%;
+    display: flex;
+    width: 80.20833333333333vw;
+    margin: 0 auto;
+
 }
 
 
@@ -173,8 +187,8 @@ body {
 
 /* home.ejs */
 .img-launching {
-    width: 1232px;
-    height: 500px;
+    width: 80.20833333333333vw;
+    height: 32.552083333333336vw;
     display: block;
     margin: 0 auto;
     background-color: #E3CF19;
@@ -194,7 +208,7 @@ body {
     font-size: 16px;
     font-family: Lato, arial, sans-serif;
     color: rgb(133, 112, 28);
-    margin-top: 150px;
+    margin-top: 9.765625vw;
 }
 
 .h1_flat_discount {
@@ -203,24 +217,24 @@ body {
     font-size: 43px !important;
     font-family: 'Cabin', arial, sans-serif;
     color: rgb(21, 21, 21);
-    margin-bottom: 50px;
+    margin-bottom: 3.2552083333333335vw;
 
 }
 
 .a_launch_product {
     position: relative;
     margin: auto;
-    letter-spacing: 2px;
-    font-size: 16px;
+    letter-spacing: 0.13020833333333334vw;
+    font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
     color: rgb(133, 112, 28);
-    margin-top: 150px;
+    margin-top: 9.765625vw;
     text-decoration: none;
     border-style: solid;
     border-width: 1px;
-    padding: 15px;
-    margin: 107px;
+    padding: 0.9765625vw;
+    margin: 6.966145833333333vw;
     transition: all 0.5s
 }
 
@@ -231,10 +245,10 @@ body {
 }
 
 .about_us {
-    width: 1232px;
-    height: 500px;
+    width: 80.20833333333333vw;
+    height: 19.765625vw;
     display: block;
-    margin: 200px auto;
+    margin: 13.020833333333334vw auto;
     position: relative;
 }
 
@@ -275,3 +289,12 @@ body {
     padding: 0 0 5px 10px;
     color: rgb(152 129 39);
 }
+
+
+
+
+
+
+
+
+/* ourstory.ejs */
