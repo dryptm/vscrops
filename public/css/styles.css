@@ -48,7 +48,7 @@ body {
     font-family: Lato, arial, sans-serif;
     text-decoration: none;
     margin: 0 1.0416666666666667vw;
-    ;
+    padding: 3px;
     font-size: 0.9114583333333334vw;
     letter-spacing: 1.75px;
     color: rgb(87, 87, 87);
@@ -171,7 +171,8 @@ body {
     font-size: 14px;
     font-family: Lato, arial, sans-serif;
 }
-.head_divider{
+
+.head_divider {
     background-color: rgb(180, 155, 53);
     height: 1px;
     opacity: 30%;
@@ -298,3 +299,150 @@ body {
 
 
 /* ourstory.ejs */
+.main_box {
+    width: 80.20833333333333vw;
+    margin: 0 auto;
+    padding-top: 4.557291666666667vw;
+}
+
+.ourstory_head {
+    font-size: 43px;
+    font-family: 'Cabin', arial, sans-serif;
+    font-weight: 700;
+    color: rgb(173, 146, 38);
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.flexboxes {
+    display: flex;
+    width: 80.20833333333333vw;
+    margin: 0 auto;
+    padding-top: 4.557291666666667vw;
+    height: inherit;
+}
+
+.flexbox_1 {
+    display: flex;
+    width: 35%;
+    background-image: url(https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/HighRse.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:400,cg:true);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 0;
+    background-size: 100%;
+
+}
+
+.flexbox_2 {
+
+    display: flex;
+    width: 5%;
+}
+
+.flexbox_3 {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+
+    position: relative;
+}
+
+.journey {
+    font-size: 32px;
+    font-family: 'Cabin', arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgb(173, 146, 38);
+    margin: 0;
+}
+
+.journey_words {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Lato, arial, sans-serif;
+    color: rgb(94, 94, 94);
+
+}
+
+.about_vs {
+    font-size: 32px;
+    font-family: 'Cabin', arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgb(173, 146, 38);
+    margin: 0;
+    padding-top: 4.557291666666667vw;
+}
+
+.about_vs_words {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Lato, arial, sans-serif;
+    color: rgb(94, 94, 94);
+}
+
+
+
+/* founders note */
+.note_flex {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+
+.note_head {
+    font-size: 32px;
+    font-family: 'Cabin', arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgb(173, 146, 38);
+    margin: 0;
+    padding-top: 4.557291666666667vw;
+}
+
+.note_p {
+    font-size: 25px;
+    font-family: 'Cabin', arial, sans-serif;
+    color: rgb(173, 146, 38);
+}
+
+
+/* contact us */
+.contact_flex {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.contact_msg1 {
+    font-size: 22px;
+    font-family: Lato, arial, sans-serif;
+    font-weight: 400;
+    color: rgb(27, 27, 27);
+    letter-spacing: 0.045em;
+    padding-top: 50px;
+}
+
+.contact_msg2 {
+    font-size: 16px;
+    font-family: Lato, arial, sans-serif;
+    color: rgb(94, 94, 94);
+}
+
+.whatsapp {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-decoration: none;
+    padding: 20px;
+    width: 200px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    background-color: #35BC48;
+}
