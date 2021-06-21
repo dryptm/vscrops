@@ -10,7 +10,7 @@ When the whole process is done, open https://loacalhost:3000 in the browser.\
 
 Mongodb crdentials-\
 email - vishuddhacrop@gmail.com\
-password - vishuddha@prateek\
+password - vishuddha@prateek
 
 
 Use the following credentials to establish a connection with the database-\
