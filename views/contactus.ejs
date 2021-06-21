@@ -4,7 +4,7 @@
     <h3 class="contact_msg1">Its better to connect than speculate!</h3>
     <p class="contact_msg2">We love our customers, so feel free to connect during normal business hours.</p>
     <a class="whatsapp" href="https://wa.me/916386417658" target="_blank">
-        <i class="fab fa-whatsapp"></i> Message us onWhatsApp
+        <i class="fab fa-whatsapp"></i> Message us on WhatsApp
     </a>
     <h3 class="contact_msg1">www.vishuddhacrops.com</h3>
     <p class="contact_msg2">New Delhi, Delhi, India</p>
@@ -14,7 +14,14 @@
     <br>
     <a href="tel:+916386417658"
         style="text-decoration: none;color: rgb(138, 117, 34);font-family: Lato, arial, sans-serif;">+91 6386417658</a>
-    <h3 class="contact_msg1">Hours</h3>
+    <br>
+    <h3 class="contact_msg2" style="font-weight: 100;font-size: 40px;">Current Status: <span id="status"></span></h3>
+    <h3 class="contact_msg1" style="padding-top: 0;">Timings</h3>
+    <p style="text-decoration: none;color: rgb(138, 117, 34);font-family: Lato, arial, sans-serif;">Mon-Fri: 10:00am to
+        6:00pm</p>
+    <p style="text-decoration: none;color: rgb(138, 117, 34);font-family: Lato, arial, sans-serif;">Sat: 10:30am to
+        4:30pm</p>
+    <p style="text-decoration: none;color: rgb(138, 117, 34);font-family: Lato, arial, sans-serif;">Sun: Closed</p>
 </div>
 
 
@@ -28,4 +35,36 @@
     document.getElementById("contactus").style.borderBottom = "2px solid rgb(212, 180, 53)";
     document.getElementById("contactus").style.paddingBottom = "5px";
     document.getElementById("contactus").style.boxShadow = "0px 5px 5px #e8e8e8";
+
+                document.querySelectorAll("#status")[0].innerText = "Opening Soon";
+
+
+
+    // var d = new Date();
+    // var n = d.getDay();
+    // var n1 = d.getHours()
+    // var n2 = d.getMinutes()
+    // for (var i = 1; i < 6; i++) {
+    //     if (n == i) {
+    //         if (n1 >= 10 && n1 <= 17) {
+    //             document.querySelectorAll("#status")[0].innerText = "Open";
+    //         } else {
+    //             document.querySelectorAll("#status")[0].innerText = "Closed";
+    //         }
+    //     }
+    // }
+    // if (n == 6) {
+    //     if (n1 >= 10 && n2 >= 30) {
+    //         if (n1 <= 16 && n2 <= 30) {
+    //             document.querySelectorAll("#status")[0].innerText = "Open";
+    //         } else {
+    //             document.querySelectorAll("#status")[0].innerText = "Closed";
+    //         }
+    //     } else {
+    //         document.querySelectorAll("#status")[0].innerText = "Closed";
+    //     }
+    // }
+    // if (n == 7) {
+    //     document.querySelectorAll("#status")[0].innerText = "Closed";
+    // }
 </script>

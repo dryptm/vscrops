@@ -445,4 +445,8 @@ body {
     font-weight: 700;
     color: rgb(255, 255, 255);
     background-color: #35BC48;
+    border-radius: 5px;
+}
+.whatsapp:hover{
+    background-color: #309c3f;
 }
