@@ -26,28 +26,6 @@ var blogSchema = new mongoose.Schema({
 var Blog = mongoose.model('Blog', blogSchema);
 
 
-// var locations=[];
-// var schema = new mongoose.Schema({
-//   latitude: Number,
-//   longitude: Number,
-//   city:String,
-//   state:String,
-//   country:String,
-//   pluscode:String
-// });
-// var Location = mongoose.model("Location", schema);
-// let location1 = new Location({
-//   latitude: a,
-//   longitude: b,
-//   city:c,
-//   state:d,
-//   country:e,
-//   pluscode:f
-// });
-// location1.save();
-// locations.push(location1);
-
-
 
 
 
@@ -77,24 +55,29 @@ app.get("/ourstory", function (req, res) {
 
 })
 app.get("/blog", function (req, res) {
-  res.render("blog", {})
+  Blog.find({},function(err,post){
+    console.log(post.length)
+    res.render("blog", {post:post})
+  })
+ 
 
 })
+
 
 app.get("/blog/currentblog", function (req, res) {
-  res.render("currentblog", {})
-})
-
-app.get("/blog/currentblog2", function (req, res) {
   Blog.findOne({
-    heading: "KNOW THE REALITY OF REFINED OILS"
+    heading: "HOW TRANS FATS ARE INJURIOUS TO HEALTH?"
   }, function (err, post) {
-    res.render("currentblog2", {
-      title: post.heading,
-      date: post.date,
-      img:image_link,
-      data: post.blog_data
-  });
+
+    if (post) {
+      res.render("currentblog", {
+        title: post.heading,
+        date: post.date,
+        img: post.image_link,
+        data: post.blog_data.split("<br>")
+      });
+    }
+
   });
 })
 
@@ -111,7 +94,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
   // we're connected!
- 
+
   console.log("database connected!!!!");
 });
 

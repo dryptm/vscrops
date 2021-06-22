@@ -1,5 +1,32 @@
 <%- include('head-foot/header'); -%>
 
+<div class="main_box_blog_1">  
+    <%for(var i=0;i<post.length;i+=2){%>
+        <% if(i+1<post.length) { %>
+            
+            <div class="blog_number"> 
+                <div class="blog_left">
+                
+                </div>
+                <div class="blog_right">
+
+                </div>
+            </div>    
+        <% } %> 
+        <% if(i+1>=post.length) { %>
+           
+        <div class="blog_number"> 
+                <div class="blog_center">
+
+                </div>
+        </div>
+        <% } %> 
+    <%}%>
+
+</div>
+
+
+
 <%- include('head-foot/footer'); -%>
 
 

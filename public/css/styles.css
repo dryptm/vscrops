@@ -455,7 +455,39 @@ body {
 
 
 /* blogs */
+.main_box_blog_1 {
+    width: 80.20833333333333vw;
+    margin: 0 auto;
+    height: 100%;
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: aquamarine;
+}
 
+.blog_number {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    margin: 0 auto;
+    height: 10vh;
+    justify-content: space-between;
+    background-color: antiquewhite;
+}
+
+.blog_left {
+    height: 10vh;
+    width: 20%;
+    background-color: tomato;
+}
+
+.blog_right {
+    height: 10vh;
+    width: 20%;
+    background-color: tomato;
+}
 
 /* current blogs */
 
@@ -494,10 +526,7 @@ body {
 }
 
 .currentpost_image {
-    background-position: center;
-    height: 400px;
-    background-repeat: no-repeat;
-    background-size: 100%;
+    width: 100%;
 }
 
 .currentpost_data {
