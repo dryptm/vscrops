@@ -1,59 +1,120 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const mongoose = require("mongoose");
+
 
 const app = express();
-
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
-    extended: true
+  extended: true
 }));
 app.use(express.static("public"));
 
+// app.use(cors({
+//   origin: true
+// }));
+
+var blogSchema = new mongoose.Schema({
+  heading: String,
+  date: String,
+  image_link: String,
+  blog_data: String
+});
+
+var Blog = mongoose.model('Blog', blogSchema);
+
+
+// var locations=[];
+// var schema = new mongoose.Schema({
+//   latitude: Number,
+//   longitude: Number,
+//   city:String,
+//   state:String,
+//   country:String,
+//   pluscode:String
+// });
+// var Location = mongoose.model("Location", schema);
+// let location1 = new Location({
+//   latitude: a,
+//   longitude: b,
+//   city:c,
+//   state:d,
+//   country:e,
+//   pluscode:f
+// });
+// location1.save();
+// locations.push(location1);
+
+
+
+
 
 app.get("/", function (req, res) {
-    res.redirect("/home");
+  res.redirect("/home");
 })
 
-app.get("/home",function(req,res)
-{
-  res.render("home",{})
-  
+app.get("/home", function (req, res) {
+  res.render("home", {})
+
 })
 
-app.get("/products",function(req,res)
-{
-  res.render("products",{})
-  
+app.get("/products", function (req, res) {
+  res.render("products", {})
+
 })
-app.get("/contactus",function(req,res)
-{
-  res.render("contactus",{})
-  
+app.get("/contactus", function (req, res) {
+  res.render("contactus", {})
+
 })
-app.get("/foundersnote",function(req,res)
-{
-  res.render("foundersnote",{})
-  
+app.get("/foundersnote", function (req, res) {
+  res.render("foundersnote", {})
+
 })
-app.get("/ourstory",function(req,res)
-{
-  res.render("ourstory",{})
-  
+app.get("/ourstory", function (req, res) {
+  res.render("ourstory", {})
+
 })
-app.get("/blog",function(req,res)
-{
-  res.render("blog",{})
-  
+app.get("/blog", function (req, res) {
+  res.render("blog", {})
+
 })
 
+app.get("/blog/currentblog", function (req, res) {
+  res.render("currentblog", {})
+})
+
+app.get("/blog/currentblog2", function (req, res) {
+  Blog.findOne({
+    heading: "KNOW THE REALITY OF REFINED OILS"
+  }, function (err, post) {
+    res.render("currentblog2", {
+      title: post.heading,
+      date: post.date,
+      img:image_link,
+      data: post.blog_data
+  });
+  });
+})
 
 
 
 
 
+mongoose.connect('mongodb+srv://vishuddha_crops:vishuddha@prateek@cluster0.zmxnf.mongodb.net/blogs', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  // we're connected!
+ 
+  console.log("database connected!!!!");
+});
 
 app.listen(process.env.PORT || 3000, (req, res) => {
-    console.log("server started")
+  console.log("server started")
 })

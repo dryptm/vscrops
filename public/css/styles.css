@@ -447,6 +447,64 @@ body {
     background-color: #35BC48;
     border-radius: 5px;
 }
-.whatsapp:hover{
+
+.whatsapp:hover {
     background-color: #309c3f;
+}
+
+
+
+/* blogs */
+
+
+/* current blogs */
+
+.main_box_blog {
+    width: 80.20833333333333vw;
+    margin: 0 auto;
+    height: 100%;
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+}
+
+.data_flex {
+    padding-top: 10vh;
+    margin: 0 auto;
+    width: 55%;
+
+
+}
+
+
+
+
+.currentpost_title {
+    font-size: 32px;
+    font-family: Cabin, arial, sans-serif;
+    color: rgb(27, 27, 27);
+    letter-spacing: 1px;
+
+}
+
+.currentpost_date {
+    font-size: 14px;
+    font-family: Lato, arial, sans-serif;
+    color: rgb(89, 89, 89);
+
+}
+
+.currentpost_image {
+    background-position: center;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.currentpost_data {
+    color: rgb(94, 94, 94);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    font-family: Lato, arial, sans-serif;
+    padding-top: 10vh;
+
 }
