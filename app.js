@@ -55,19 +55,20 @@ app.get("/ourstory", function (req, res) {
 
 })
 app.get("/blog", function (req, res) {
-  Blog.find({},function(err,post){
-    console.log(post.length)
-    res.render("blog", {post:post})
+  Blog.find({}, function (err, post) {
+    res.render("blog", {
+      post: post
+    })
   })
- 
+
 
 })
 
 
 app.get("/blog/:np", function (req, res) {
-  var n_p=req.params.np
+  var n_p = req.params.np
   Blog.findOne({
-    _id:n_p
+    _id: n_p
   }, function (err, post) {
 
     if (post) {
