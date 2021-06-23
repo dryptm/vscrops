@@ -1,26 +1,42 @@
 <%- include('head-foot/header'); -%>
 
-<div class="main_box_blog_1">  
+<div class="main_box_blog_1">
     <%for(var i=0;i<post.length;i+=2){%>
-        <% if(i+1<post.length) { %>
+    <% if(i+1<post.length) { %>
+
+    <div class="blog_number">
+        <div class="blog_left">
+            <div class="x"><img class="blogimg" src="<%=post[i].image_link%>" alt=""></div>
             
-            <div class="blog_number"> 
-                <div class="blog_left">
-                
-                </div>
-                <div class="blog_right">
-
-                </div>
-            </div>    
-        <% } %> 
-        <% if(i+1>=post.length) { %>
-           
-        <div class="blog_number"> 
-                <div class="blog_center">
-
-                </div>
+            <p class="blogdate"><%=post[i].date%></p>
+            <h1 class="blogh1"><%= post[i].heading%></h1>
+            <a class="findoutmore_1" href="/blog/<%=post[i]._id%>">Read Blog </a><i class="fas fa-caret-right findoutmore_arrow"></i>
         </div>
-        <% } %> 
+        <div class="blog_right">
+            <img class="blogimg" src="<%=post[i+1].image_link%>" alt="">
+            <p class="blogdate"><%=post[i+1].date%></p>
+
+            <h1 class="blogh1"><%= post[i+1].heading%></h1>
+            <a class="findoutmore_1" href="/blog/<%=post[i+1]._id%>">Read Blog </a><i class="fas fa-caret-right findoutmore_arrow"></i>
+
+
+        </div>
+    </div>
+    <% } %>
+    <% if(i+1>=post.length) { %>
+
+    <div class="blog_number">
+        <div class="blog_center">
+            <img class="blogimg" src="<%=post[i].image_link%>" alt="">
+            <p class="blogdate"><%=post[i].date%></p>
+
+            <h1 class="blogh1"><%= post[i].heading%></h1>
+            <a class="findoutmore_1" href="/blog/<%=post[i]._id%>">Read Blog </a><i class="fas fa-caret-right findoutmore_arrow"></i>
+
+
+        </div>
+    </div>
+    <% } %>
     <%}%>
 
 </div>
@@ -34,8 +50,8 @@
 
 
 
-<script>
-    document.getElementById("blog").style.borderBottom = "2px solid rgb(212, 180, 53)";
-    document.getElementById("blog").style.paddingBottom = "5px";
-    document.getElementById("blog").style.boxShadow="0px 5px 5px #e8e8e8";
-</script>
+    <script>
+        document.getElementById("blog").style.borderBottom = "2px solid rgb(212, 180, 53)";
+        document.getElementById("blog").style.paddingBottom = "5px";
+        document.getElementById("blog").style.boxShadow = "0px 5px 5px #e8e8e8";
+    </script>

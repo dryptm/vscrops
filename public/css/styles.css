@@ -459,34 +459,114 @@ body {
     width: 80.20833333333333vw;
     margin: 0 auto;
     height: 100%;
-    padding-top: 5vh;
+    padding-top: 15vh;
     padding-bottom: 10vh;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    background-color: aquamarine;
 }
 
 .blog_number {
     display: flex;
     flex-direction: row;
-    width: 20%;
+    width: 90%;
     margin: 0 auto;
-    height: 10vh;
+    height: 100vh;
     justify-content: space-between;
-    background-color: antiquewhite;
 }
 
 .blog_left {
-    height: 10vh;
-    width: 20%;
-    background-color: tomato;
+    height: 75%;
+    width: 45%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(217 217 217);
+    transition: all 0.25s;
 }
 
+.blog_left:hover {
+    box-shadow: rgb(187 187 187) 0px 0px 28px -3px;
+}
+
+
 .blog_right {
-    height: 10vh;
-    width: 20%;
-    background-color: tomato;
+    height: 75%;
+    width: 45%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(217 217 217);
+    transition: all 0.25s;
+}
+
+.blog_right:hover {
+    box-shadow: rgb(187 187 187) 0px 0px 28px -3px;
+}
+
+
+.blog_center {
+    height: 75%;
+    width: 45%;
+    display: block;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(217 217 217);
+    transition: all 0.25s;
+}
+
+.blog_center:hover {
+    box-shadow: rgb(187 187 187) 0px 0px 28px -3px;
+}
+
+
+.blogimg {
+    width: 450px;
+    height: 300px;
+    margin: 0 5%;
+    margin-top: 5%;
+    object-fit: cover;
+}
+
+.blogh1 {
+    color: rgb(27, 27, 27);
+    font-size: 22px;
+    font-family: Lato, arial, sans-serif;
+    letter-spacing: 0.045em;
+    padding: 0 24px;
+}
+
+.blogdate {
+    padding: 10px 24px;
+    color: rgb(89, 89, 89);
+    font-size: 14px;
+    font-family: Lato, arial, sans-serif;
+
+}
+
+.findoutmore_1 {
+    text-decoration: none;
+    font-family: Lato, arial, sans-serif;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    font-weight: 700;
+    margin: 0 0 0 24px;
+    color: rgb(152 129 39);
+    letter-spacing: 2px;
+    transition: all 0.5s;
+}
+
+.findoutmore_1:hover {
+    letter-spacing: 4px;
+}
+
+.findoutmore_arrow {
+    font-size: 16px;
+    padding: 0 0 5px 10px;
+    color: rgb(152 129 39);
+}
+
+.x {
+    width: 100%;
 }
 
 /* current blogs */

@@ -64,9 +64,10 @@ app.get("/blog", function (req, res) {
 })
 
 
-app.get("/blog/currentblog", function (req, res) {
+app.get("/blog/:np", function (req, res) {
+  var n_p=req.params.np
   Blog.findOne({
-    heading: "HOW TRANS FATS ARE INJURIOUS TO HEALTH?"
+    _id:n_p
   }, function (err, post) {
 
     if (post) {
