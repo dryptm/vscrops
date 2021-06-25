@@ -291,10 +291,63 @@ body {
     color: rgb(152 129 39);
 }
 
+.productsontheway {
+    font-size: 43px;
+    font-family: 'Cabin', arial, sans-serif;
+    letter-spacing: 1px;
+    color: rgb(173, 146, 38);
+    margin-left: 9.348958333333334vw;
+}
 
+.oils_bottom_flex {
+    display: flex;
+    flex-direction: row;
+    width: 80.20833333333333vw;
+    margin: 0 auto;
 
+}
 
+.obf1 {
+    width: 48%;
+    margin: 0 auto 0 0;
 
+}
+
+.obf2 {
+    width: 48%;
+    margin: 0 0 0 auto;
+
+}
+
+.obf_image1 {
+    background-image: url("/images/img3.png");
+    background-position-x: center;
+    background-position-y: -140px;
+    background-size: 200%;
+    height: 600px;
+    background-repeat: no-repeat;
+
+}
+
+.obf_image2 {
+    background-image: url("/images/img4.png");
+    background-position-x: center;
+    background-size: 230%;
+    height: 600px;
+    background-repeat: no-repeat;
+}
+
+.obf-content2 {
+    background-color: #FEF3D9;
+    margin: 0;
+    height: 300px;
+}
+
+.obf-content1 {
+    background-color: #FEF3D9;
+    margin: 0;
+    height: 300px;
+}
 
 
 
@@ -519,8 +572,8 @@ body {
 
 
 .blogimg {
-    width: 450px;
-    height: 300px;
+    width: 29.296875vw;
+    height: 19.53125vw;
     margin: 0 5%;
     margin-top: 5%;
     object-fit: cover;
@@ -531,11 +584,11 @@ body {
     font-size: 22px;
     font-family: Lato, arial, sans-serif;
     letter-spacing: 0.045em;
-    padding: 0 24px;
+    padding: 0 1.5625vw;
 }
 
 .blogdate {
-    padding: 10px 24px;
+    padding: 0.6510416666666666vw 1.5625vw;
     color: rgb(89, 89, 89);
     font-size: 14px;
     font-family: Lato, arial, sans-serif;
@@ -549,7 +602,8 @@ body {
     border-style: solid;
     border-width: 0 0 1px 0;
     font-weight: 700;
-    margin: 0 0 0 24px;
+    margin: 0 0 0 1.5625vw;
+    padding-bottom: 5px;
     color: rgb(152 129 39);
     letter-spacing: 2px;
     transition: all 0.5s;
@@ -561,7 +615,7 @@ body {
 
 .findoutmore_arrow {
     font-size: 16px;
-    padding: 0 0 5px 10px;
+    padding: 0 0 0.3255208333333333vw 0.6510416666666666vw;
     color: rgb(152 129 39);
 }
 

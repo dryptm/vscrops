@@ -153,7 +153,7 @@ app.post('/register',(req,res)=>{
 
 app.get('/secret',ensureAuth,(req,res)=>{
   res.render('secret',{
-    user : req.user.username
+    user : req.user.name
   })
 })
 
