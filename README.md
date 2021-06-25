@@ -9,7 +9,7 @@ When the whole process is done, open https://localhost:3000 in the browser.
 
 
 Mongodb crdentials-\
-email - vishuddhacrop@gmail.com\
+email - vishuddhacrops@gmail.com\
 password - vishuddha@prateek
 
 
