@@ -6,7 +6,11 @@ const passport = require('passport')
 const mongoose = require("mongoose");
 const User = require('./models/users');
 const Product = require('./models/products');
-const { ensureAuth } = require("./config/auth");
+const mailinglist = require('./models/mailinglist');
+
+const {
+  ensureAuth
+} = require("./config/auth");
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -18,9 +22,9 @@ app.use(express.static("public"));
 
 require('./config/passport-config')(passport);
 app.use(session({
-    secret : "DontTellAnyOneThisIsASecret",
-    resave : false,
-    saveUninitialized: false
+  secret: "DontTellAnyOneThisIsASecret",
+  resave: false,
+  saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -51,13 +55,30 @@ app.get("/home", function (req, res) {
 
 })
 
+app.post("/submit", (req, res) => {
+  mailinglist.findOne({
+    email: req.body.mail
+  }, (err, found) => {
+    if (found) {
+      res.render("email_already_exist", {message:"Email already exists!"})
+    } else {
+      const mail = new mailinglist({
+        email: req.body.mail
+      });
+      mail.save();
+      res.render("email_already_exist", {message:"Thank you for the Subscription!"})
+    }
+  })
+})
+
 app.get("/products", function (req, res) {
-  
-  Product.find({},(err,found)=>{
-    if(found){
-      res.render("products",{
-        items : found
+
+  Product.find({}, (err, found) => {
+    if (found) {
+      res.render("products", {
+        post: found
       })
+
     }
   })
 
@@ -83,7 +104,7 @@ app.get("/blog", function (req, res) {
 
 
 })
-app.get('/logout',(req,res)=>{
+app.get('/logout', (req, res) => {
   req.logOut();
   res.redirect('/')
 })
@@ -107,53 +128,57 @@ app.get("/blog/:np", function (req, res) {
 })
 
 
-app.get('/login',(req,res)=>{
-  if(req.isAuthenticated()){
+app.get('/login', (req, res) => {
+  if (req.isAuthenticated()) {
     res.redirect('/secret')
-  }
-  else res.render('login')
+  } else res.render('login')
 })
 
-app.get('/register',(req,res)=>{
+app.get('/register', (req, res) => {
   res.render('register')
 })
-app.post('/login',(req,res)=>{
-  passport.authenticate("local")(req,res,function(){
+app.post('/login', (req, res) => {
+  passport.authenticate("local")(req, res, function () {
     res.redirect("/secret");
-})
+  })
 })
 
-app.post('/register',(req,res)=>{
- 
- User.register({username : req.body.username,name : req.body.fname+" "+req.body.lname, orders : [{
-    name : "item_1",
-   price : 100,
-   number : 5,
-   discount : 5
-   }, 
-     {
-       name : "item_2",
-       price : 200,
-       number : 4,
-       discount : 10
-     
-     }]},req.body.password,function(err){
-    if(err)
-    {
+app.post('/register', (req, res) => {
+
+  User.register({
+    username: req.body.username,
+    name: req.body.fname + " " + req.body.lname,
+    orders: [{
+        name: "item_1",
+        price: 100,
+        number: 5,
+        discount: 5
+      },
+      {
+        name: "item_2",
+        price: 200,
+        number: 4,
+        discount: 10
+
+      }
+    ]
+  }, req.body.password, function (err) {
+    if (err) {
       console.log("User already exists")
       res.redirect('/login')
+    } else {
+      passport.authenticate("local", {
+        failureRedirect: '/login'
+      })(req, res, function () {
+        res.redirect('/secret')
+      })
     }
-    else {
-        passport.authenticate("local",{failureRedirect:'/login'})(req,res,function(){
-           res.redirect('/secret')
-        })
-    }
-    });
+  });
 })
 
-app.get('/secret',ensureAuth,(req,res)=>{
-  res.render('secret',{
-    user : req.user.name
+app.get('/secret', ensureAuth, (req, res) => {
+  res.render('secret', {
+    user: req.user.name
   })
 })
 
@@ -161,16 +186,20 @@ app.get('/secret',ensureAuth,(req,res)=>{
 //************************* */
 // google auth
 app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile','email']}));
-  app.get("/auth/google/google_login", 
-  passport.authenticate('google', { failureRedirect: "/login" }),
-  function(req, res) {
+  passport.authenticate('google', {
+    scope: ['profile', 'email']
+  }));
+app.get("/auth/google/google_login",
+  passport.authenticate('google', {
+    failureRedirect: "/login"
+  }),
+  function (req, res) {
     // Successful authentication, redirect home.
     res.redirect("/secret");
-  }); 
+  });
 
 
-  
+
 
 
 

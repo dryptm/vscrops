@@ -47,6 +47,17 @@
         </div>
     </div>
 </div>
+<div>
+    <form action="/submit" method="POST" id="mail-list" class="mail-list">
+        <h3 class="joinmaillist">JOIN OUR MAILING LIST</h3>
+        <input class="mailinput" type="email" name="mail" type="text" placeholder="Email" required>
+        <button type="submit" id="a_launch_product_1" onclick="abc()" class="a_launch_product_1">SIGN UP</button>
+    </form>
+    <div id="mail-list-2" style="height:150px;width:100%;opacity: 0;">
+        <h3 style="text-align: center; font-size: 42px;   font-family: Lato, arial, sans-serif;font-weight: 100;margin-top: 0;">Thank you for Subscribing</h3>
+
+    </div>
+</div>
 
 
 
@@ -54,6 +65,14 @@
     document.getElementById("home").style.borderBottom = "2px solid rgb(212, 180, 53)";
     document.getElementById("home").style.paddingBottom = "5px";
     document.getElementById("home").style.boxShadow = "0px 5px 5px #e8e8e8";
+    
+    function abc(){
+        if(document.querySelector(".mailinput").value){
+            document.getElementById("mail-list").style.opacity=0;
+            document.getElementById("mail-list-2").style.opacity=1;
+        }
+    }
+
 </script>
 
 <%- include('head-foot/footer'); -%>
