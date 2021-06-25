@@ -1,8 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const session = require('express-session')
+const passport = require('passport')
 const mongoose = require("mongoose");
-
+const User = require('./models/users');
+const Product = require('./models/products');
+const { ensureAuth } = require("./config/auth");
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -11,6 +15,15 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
+
+require('./config/passport-config')(passport);
+app.use(session({
+    secret : "DontTellAnyOneThisIsASecret",
+    resave : false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // app.use(cors({
 //   origin: true
@@ -39,7 +52,14 @@ app.get("/home", function (req, res) {
 })
 
 app.get("/products", function (req, res) {
-  res.render("products", {})
+  
+  Product.find({},(err,found)=>{
+    if(found){
+      res.render("products",{
+        items : found
+      })
+    }
+  })
 
 })
 app.get("/contactus", function (req, res) {
@@ -63,7 +83,10 @@ app.get("/blog", function (req, res) {
 
 
 })
-
+app.get('/logout',(req,res)=>{
+  req.logOut();
+  res.redirect('/')
+})
 
 app.get("/blog/:np", function (req, res) {
   var n_p = req.params.np
@@ -84,10 +107,83 @@ app.get("/blog/:np", function (req, res) {
 })
 
 
+app.get('/login',(req,res)=>{
+  if(req.isAuthenticated()){
+    res.redirect('/secret')
+  }
+  else res.render('login')
+})
+
+app.get('/register',(req,res)=>{
+  res.render('register')
+})
+app.post('/login',(req,res)=>{
+  passport.authenticate("local")(req,res,function(){
+    res.redirect("/secret");
+})
+})
+
+app.post('/register',(req,res)=>{
+ 
+ User.register({username : req.body.username,name : req.body.fname+" "+req.body.lname, orders : [{
+    name : "item_1",
+   price : 100,
+   number : 5,
+   discount : 5
+   }, 
+     {
+       name : "item_2",
+       price : 200,
+       number : 4,
+       discount : 10
+     
+     }]},req.body.password,function(err){
+    if(err)
+    {
+      console.log("User already exists")
+      res.redirect('/login')
+    }
+    else {
+        passport.authenticate("local",{failureRedirect:'/login'})(req,res,function(){
+           res.redirect('/secret')
+        })
+    }
+    });
+})
+
+app.get('/secret',ensureAuth,(req,res)=>{
+  res.render('secret',{
+    user : req.user.username
+  })
+})
+
+
+//************************* */
+// google auth
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile','email']}));
+  app.get("/auth/google/google_login", 
+  passport.authenticate('google', { failureRedirect: "/login" }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/secret");
+  }); 
+
+
+  
 
 
 
-mongoose.connect('mongodb+srv://vishuddha_crops:vishuddha@prateek@cluster0.zmxnf.mongodb.net/blogs', {
+
+
+
+/*
+mongoose.connect("mongodb://localhost:27017/Profiles",{useNewUrlParser:true,useUnifiedTopology: true});
+mongoose.set("useCreateIndex",true);
+*/
+
+
+mongoose.connect('mongodb+srv://vishuddha_crops:vishuddha@prateek@cluster0.zmxnf.mongodb.net/DATA', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

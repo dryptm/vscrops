@@ -1,0 +1,13 @@
+<%- include('head-foot/header'); -%>
+
+<form action="/register" method = "POST">
+    <input type="text" name = "fname" placeholder="Enter First name" required>
+    <input type="text" name = "lname" placeholder="Enter last name" required>
+    
+    <input type="text" name = "username" placeholder="Enter email" required>
+    <input type="text" name = "password" placeholder="Enter password" required>
+    <button type="submit">Login</button>
+</form>
+<a href="/auth/google">Login with google</a>
+
+<%- include('head-foot/footer'); -%>
