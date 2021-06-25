@@ -528,7 +528,7 @@ body {
 }
 
 .blog_left {
-    height: 75%;
+    height: 80%;
     width: 45%;
     border-style: solid;
     border-width: 1px;
@@ -542,7 +542,7 @@ body {
 
 
 .blog_right {
-    height: 75%;
+    height: 80%;
     width: 45%;
     border-style: solid;
     border-width: 1px;
@@ -556,7 +556,7 @@ body {
 
 
 .blog_center {
-    height: 75%;
+    height: 80%;
     width: 45%;
     display: block;
     margin: 0 auto;
