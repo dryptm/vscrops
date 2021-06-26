@@ -182,6 +182,7 @@ app.post('/register', (req, res) => {
 })
 
 
+
 app.get('/login', (req, res) => {
   if (req.isAuthenticated()) {
     res.redirect('/secret')
@@ -194,6 +195,11 @@ app.post('/login', (req, res) => {
     res.redirect("/secret");
   })
 })
+app.get('/logout', (req, res) => {
+  req.logOut();
+  res.redirect('/')
+})
+
 app.post('/add_to_cart',(req,res)=>{
   if (req.isAuthenticated()) {
     console.log(req.body.tot_price)
@@ -205,10 +211,7 @@ app.post('/add_to_cart',(req,res)=>{
     res.render("needloginfirst",{})
   }
 })
-app.get('/logout', (req, res) => {
-  req.logOut();
-  res.redirect('/')
-})
+
 
 
 app.get('/secret', ensureAuth, (req, res) => {
