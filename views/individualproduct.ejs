@@ -1,0 +1,23 @@
+<%- include('head-foot/header'); -%>
+
+<div class="main_box_blog">
+    <a class="findoutmore" href="/products"><i class="fas fa-caret-left"></i> All Products</a>
+    <div class="product_box_flex">
+        <div class="product_i_image">
+            <img class="product_i_img" src="<%=found.product_image%>" alt="">
+        </div>
+        <div class="product_i_details">
+            <h2 class="product_i_details_heading"><%=found.product_name%></h2>
+            <p class="product_i_details_price" >₹ <%=(found.product_price-((found.product_price*found.product_discount)/100))%></p>
+            <p class="product_i_details_discount" >Discount: ₹ <%=((found.product_price*found.product_discount)/100)%>(<%=found.product_discount%>)</p>
+            
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<%- include('head-foot/footer'); -%>

@@ -60,13 +60,17 @@ app.post("/submit", (req, res) => {
     email: req.body.mail
   }, (err, found) => {
     if (found) {
-      res.render("email_already_exist", {message:"Email already exists!"})
+      res.render("email_already_exist", {
+        message: "Email already exists!"
+      })
     } else {
       const mail = new mailinglist({
         email: req.body.mail
       });
       mail.save();
-      res.render("email_already_exist", {message:"Thank you for the Subscription!"})
+      res.render("email_already_exist", {
+        message: "Thank you for the Subscription!"
+      })
     }
   })
 })
@@ -83,6 +87,18 @@ app.get("/products", function (req, res) {
   })
 
 })
+app.get("/products/:np", function (req, res) {
+  Product.findOne({
+    _id: req.params.np
+  }, (err, found) => {
+    // console.log(found)
+    res.render("individualproduct", {
+      found
+    })
+  })
+})
+
+
 app.get("/contactus", function (req, res) {
   res.render("contactus", {})
 

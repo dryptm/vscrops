@@ -543,6 +543,51 @@ body {
 }
 
 
+/* individualproduct.ejs */
+.product_box_flex {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15vh;
+    height: 500px;
+}
+
+.product_i_image {
+    width: 100%;
+}
+
+.product_i_img {
+    height: 80%;
+    padding: 10%;
+    float: right;
+}
+
+.product_i_details {
+    width: 100%;
+    padding: 10% 0;
+}
+
+.product_i_details_heading {
+    font-size: 32px;
+    font-family: Cabin, arial, sans-serif;
+    color: rgb(27, 27, 27);
+    letter-spacing: 1px;
+
+}
+
+.product_i_details_price {
+    font-family: Lato, arial, sans-serif;
+    color: rgb(138, 117, 34);
+    /*     margin-top:0; */
+    font-size: 25px;
+}
+
+.product_i_details_discount {
+    font-family: Lato, arial, sans-serif;
+    font-size: 15px;
+    opacity: 0.5;
+    color: rgb(0 0 0);
+}
+
 /* founders note */
 .note_flex {
     display: flex;
