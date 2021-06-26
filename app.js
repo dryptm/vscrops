@@ -56,15 +56,7 @@ app.get("/home", function (req, res) {
 
 })
 
-app.post('/add_to_cart',(req,res)=>{
-  if (req.isAuthenticated()) {
-    console.log(req.body.tot_price)
-  }
-  else{
-    res.render("needloginfirst",{})
-    
-  }
-})
+
 app.post("/submit", (req, res) => {
   mailinglist.findOne({
     email: req.body.mail
@@ -130,10 +122,7 @@ app.get("/blog", function (req, res) {
 
 
 })
-app.get('/logout', (req, res) => {
-  req.logOut();
-  res.redirect('/')
-})
+
 
 app.get("/blog/:np", function (req, res) {
   var n_p = req.params.np
@@ -154,21 +143,10 @@ app.get("/blog/:np", function (req, res) {
 })
 
 
-app.get('/login', (req, res) => {
-  if (req.isAuthenticated()) {
-    res.redirect('/secret')
-  } else res.render('login')
-})
 
 app.get('/register', (req, res) => {
   res.render('register')
 })
-app.post('/login', (req, res) => {
-  passport.authenticate("local")(req, res, function () {
-    res.redirect("/secret");
-  })
-})
-
 app.post('/register', (req, res) => {
 
   User.register({
@@ -202,6 +180,36 @@ app.post('/register', (req, res) => {
     }
   });
 })
+
+
+app.get('/login', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.redirect('/secret')
+  } else res.render('login')
+})
+
+
+app.post('/login', (req, res) => {
+  passport.authenticate("local")(req, res, function () {
+    res.redirect("/secret");
+  })
+})
+app.post('/add_to_cart',(req,res)=>{
+  if (req.isAuthenticated()) {
+    console.log(req.body.tot_price)
+    User.findOne({},(err,found)=>{
+      console.log(found)
+    })
+  }
+  else{
+    res.render("needloginfirst",{})
+  }
+})
+app.get('/logout', (req, res) => {
+  req.logOut();
+  res.redirect('/')
+})
+
 
 app.get('/secret', ensureAuth, (req, res) => {
   res.render('secret', {
