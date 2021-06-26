@@ -57,8 +57,13 @@ app.get("/home", function (req, res) {
 })
 
 app.post('/add_to_cart',(req,res)=>{
-  
-  console.log(req.body.tot_price)
+  if (req.isAuthenticated()) {
+    console.log(req.body.tot_price)
+  }
+  else{
+    res.render("needloginfirst",{})
+    
+  }
 })
 app.post("/submit", (req, res) => {
   mailinglist.findOne({

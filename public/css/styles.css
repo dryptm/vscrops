@@ -508,7 +508,7 @@ body {
     text-decoration: none;
 
     padding: 1.953125vw 3vw;
-    transition: all 0.5s;
+    transition: all 0.25s;
     /*     background-color: rgb(133 112 28); */
 }
 
@@ -580,7 +580,7 @@ body {
     border-width: 1px;
     margin-left: 0;
     padding: 0.9765625vw;
-    transition: all 0.5s
+    transition: all 0.25s
 }
 
 .btn-add-to-cart:hover {
