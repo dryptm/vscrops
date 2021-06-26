@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     name : String,
     Id : String,
     password : String,
-    orders : Array
+    orders : Array,
+    cart : Array
 });
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate)

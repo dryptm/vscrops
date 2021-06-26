@@ -35,7 +35,7 @@ module.exports = function(passport)
            number : 4,
            discount : 10
          
-         }]}, function (err, user) {
+         }],cart : []}, function (err, user) {
         return cb(err, user);
       });
     }

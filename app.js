@@ -33,6 +33,7 @@ app.use(passport.session());
 //   origin: true
 // }));
 
+
 var blogSchema = new mongoose.Schema({
   heading: String,
   date: String,
@@ -55,6 +56,10 @@ app.get("/home", function (req, res) {
 
 })
 
+app.post('/add_to_cart',(req,res)=>{
+  
+  console.log(req.body.tot_price)
+})
 app.post("/submit", (req, res) => {
   mailinglist.findOne({
     email: req.body.mail
@@ -177,7 +182,8 @@ app.post('/register', (req, res) => {
         discount: 10
 
       }
-    ]
+    ],
+    cart : []
   }, req.body.password, function (err) {
     if (err) {
       console.log("User already exists")
