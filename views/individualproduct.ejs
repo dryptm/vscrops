@@ -34,7 +34,7 @@
   function myfun() {
 
     var inp = document.getElementById("price").innerHTML.split(" ");
-    var price = Number(inp[1]);
+    var price = Number(inp[inp.length-1]);
     var num = document.getElementById("number_of_items").value
     if (num > 999) {
       document.getElementById("number_of_items").value = 999
