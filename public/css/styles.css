@@ -874,3 +874,69 @@ body {
     padding-top: 10vh;
 
 }
+
+
+
+/* register.ejs */
+.main_box_2 {
+    width: 500px;
+    margin: 0 auto;
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+
+}
+
+.namefield_all {
+    font-size: 30px;
+    font-family: Lato, arial, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+.btn-register-login {
+    letter-spacing: 0.13020833333333334vw;
+    font-size: 1.0416666666666667vw;
+    font-weight: 400;
+    font-family: Lato, arial, sans-serif;
+    color: black;
+    background-color: #D4B435;
+    text-decoration: none;
+    border-color: #D4B435;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 0;
+    margin-top: 50px;
+    padding: 0.9765625vw;
+    transition: all 0.25s
+}
+
+.btn-register-login:hover {
+    box-shadow: rgb(187 187 187) 0px 0px 28px 0px;
+    background-color: rgb(220 189 66);
+    color: rgb(21, 21, 21);
+    border-color: rgb(220 189 66);
+}
+
+.login_with_google {
+    letter-spacing: 0.13020833333333334vw;
+    font-size: 1.0416666666666667vw;
+    font-weight: 400;
+    font-family: Lato, arial, sans-serif;
+    color: white;
+    background-color: #D54836;
+    text-decoration: none;
+    border-color: #D54836;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 0;
+    margin-top: 100px;
+    padding: 0.9765625vw;
+    transition: all 0.5s
+}
+
+.login_with_google:hover {
+    box-shadow: rgb(187 187 187) 0px 0px 28px 0px;
+    background-color: #e65745;
+    color: white;
+    border-color: #e65745;
+}

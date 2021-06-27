@@ -1,13 +1,19 @@
 <%- include('head-foot/header'); -%>
+<div class="main_box_2">
+    <form action="/register" method="POST">
+        <p class="namefield_all" style="margin-bottom: 0;">First Name -</p>
+        <input class="mailinput" type="text" name="fname" placeholder="Enter First name" required><br>
+        <p class="namefield_all" style="margin-bottom: 0;">Last Name -</p>
+        <input class="mailinput" type="text" name="lname" placeholder="Enter last name" required><br>
 
-<form action="/register" method = "POST">
-    <input type="text" name = "fname" placeholder="Enter First name" required>
-    <input type="text" name = "lname" placeholder="Enter last name" required>
-    
-    <input type="text" name = "username" placeholder="Enter email" required>
-    <input type="text" name = "password" placeholder="Enter password" required>
-    <button type="submit">Login</button>
-</form>
-<a href="/auth/google">Login with google</a>
+        <p class="namefield_all" style="margin-bottom: 0;">Email -</p>
+        <input class="mailinput" type="text" name="username" placeholder="Enter email" required><br>
+        <p class="namefield_all" style="margin-bottom: 0;">Password-</p>
+        <input class="mailinput" type="text" name="password" placeholder="Enter password" required><br>
+        <button class="btn-register-login" type="submit">Register</button>
+    </form> <br><br><br>
+    <a class="login_with_google" href="/auth/google">Login-Google</a>
+
+</div>
 
 <%- include('head-foot/footer'); -%>
