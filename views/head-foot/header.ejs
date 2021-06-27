@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>VishuddhaCrops</title>
-    <meta name = "author" content="www.vishuddhacrops.com"> 
+    <meta name="author" content="www.vishuddhacrops.com">
 
     <meta name="description" content="">
 
@@ -43,10 +43,50 @@
             <div class="search-cart-user">
                 <a href="" class="vs-header-icons"><i class="fas fa-search "></i></a>
                 <a href="" class="vs-header-icons"><i class="fas fa-shopping-cart "></i></a>
-                <a href="" class="vs-header-icons"><i class="fas fa-user "></i></a>
+                <a onclick="dropdownclick_1()" class="vs-header-icons"><i class="fas fa-user "></i></a>
             </div>
         </div>
         <div class="head_divider"></div>
 
     </div>
+    <div id="user_dropdown_1" class="user_dropdown" style="visibility: collapse;">
+        <div class="user_d_box">
+            <p class="user_d_box_content"><a href="/login" onclick="dropdownclick()"
+                    style="color: inherit;text-decoration: none;">Login</a></p>
+        </div>
+        <div class="user_d_box">
+            <p class="user_d_box_content"><a href="/register" onclick="dropdownclick()"
+                    style="color: inherit;text-decoration: none;">SignUp</a></p>
+        </div>
+
     </div>
+
+    <script>
+        function dropdownclick() {
+            document.getElementById("user_dropdown_1").style.visibility = "collapse";
+        }
+        var userclick = 0;
+
+        function dropdownclick_1() {
+            if (userclick == 0) {
+                document.getElementById("user_dropdown_1").style.opacity = 1;
+                document.getElementById("user_dropdown_1").style.visibility = "visible";
+                userclick++;
+            } else {
+                document.getElementById("user_dropdown_1").style.opacity = 0;
+                document.getElementById("user_dropdown_1").style.visibility = "collapse";
+                userclick--;
+            }
+        }
+
+
+        document.body.addEventListener("click", function (evt) {
+            console.dir(this);
+            console.log(evt.target.tagName)
+            if(evt.target.tagName!="I"){
+                document.getElementById("user_dropdown_1").style.opacity = 0;
+                document.getElementById("user_dropdown_1").style.visibility = "collapse";
+                userclick=0;
+            }
+        });
+    </script>
