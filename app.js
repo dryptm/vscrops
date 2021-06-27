@@ -108,7 +108,7 @@ app.get("/products/:np", function (req, res) {
             "product_image":found.product_image,
             "quantity":(Number(req.body.tot_price))/(found.product_price-((found.product_price*found.product_discount)/100))
           })
-          User.findOneAndUpdate({Id:req.user.Id},{cart:cart_obj},(err,response)=>{
+          User.findOneAndUpdate({Id:req.user.Id},{cart:cart_obj},{new:true},(err,response)=>{
             if(err){
               console.log(err)
             }else{
