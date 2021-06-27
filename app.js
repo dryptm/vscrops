@@ -202,10 +202,8 @@ app.get('/logout', (req, res) => {
 
 app.post('/add_to_cart',(req,res)=>{
   if (req.isAuthenticated()) {
+    console.log(req.user.username)
     console.log(req.body.tot_price)
-    User.findOne({},(err,found)=>{
-      console.log(found)
-    })
   }
   else{
     res.render("needloginfirst",{})

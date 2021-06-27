@@ -1,50 +1,55 @@
 <%- include('head-foot/header'); -%>
 
 <div class="main_box_blog">
-    <a class="findoutmore" href="/products"><i class="fas fa-caret-left"></i> All Products</a>
-    <div class="product_box_flex">
-        <div class="product_i_image">
-            <img class="product_i_img" src="<%=found.product_image%>" alt="">
-        </div>
-        <div class="product_i_details">
-            <h2 class="product_i_details_heading"><%=found.product_name%></h2>
-            <p class="product_i_details_price"  id = "price">₹ <%=(found.product_price-((found.product_price*found.product_discount)/100))%></p>
-              <input type="number" id = "number_of_items" oninput="myfun()" value="1"/>
-            <p class="product_i_details_discount" >Discount: ₹ <%=((found.product_price*found.product_discount)/100)%>(<%=found.product_discount%>%)</p>
-            <p id="total_price">
-              Total Price :  ₹ <%=(found.product_price-((found.product_price*found.product_discount)/100))%>
-            </p>
-            <form action="/add_to_cart" style="margin:0; width: inherit;" method="POST">
-            
-                <button type="submit" class="btn-add-to-cart">ADD TO CART</button>
-                <input type="number" id = "tot_price" style="visibility: collapse;" value="<%=(found.product_price-((found.product_price*found.product_discount)/100))%>" name ="tot_price">
-            
-            
-            </form>
-        </div>
+  <a class="findoutmore" href="/products"><i class="fas fa-caret-left"></i> All Products</a>
+  <div class="product_box_flex">
+    <div class="product_i_image">
+      <img class="product_i_img" src="<%=found.product_image%>" alt="">
     </div>
+    <div class="product_i_details">
+      <h2 class="product_i_details_heading"><%=found.product_name%></h2>
+      <p class="product_i_details_price" id="price">₹
+        <%=(found.product_price-((found.product_price*found.product_discount)/100))%></p>
+      <input type="number" id="number_of_items" oninput="myfun()" value="1" />
+      <p class="product_i_details_discount">Discount: ₹
+        <%=((found.product_price*found.product_discount)/100)%>(<%=found.product_discount%>%)</p>
+      <p id="total_price">
+        Total Price : ₹ <%=(found.product_price-((found.product_price*found.product_discount)/100))%>
+      </p>
+      <form action="/add_to_cart" style="margin:0; width: inherit;" method="POST">
+
+        <button type="submit" class="btn-add-to-cart">ADD TO CART</button>
+        <input type="number" id="tot_price" style="visibility: collapse;"
+          value="<%=(found.product_price-((found.product_price*found.product_discount)/100))%>" name="tot_price">
+
+
+      </form>
+    </div>
+  </div>
 
 </div>
 
 
 <script>
-   function myfun(){
-       
+  function myfun() {
+
     var inp = document.getElementById("price").innerHTML.split(" ");
-       var price = Number(inp[1]);
-      var num = document.getElementById("number_of_items").value
-      if(num>999){
-        document.getElementById("number_of_items").value = 999
-      }
-      if(num.length===0) {
-        document.getElementById("total_price").innerHTML = ""  
-        document.getElementById("tot_price").value = 0;
-      }
-     else if(num*price!==NaN && num*price!==0 ){
-        document.getElementById("total_price").innerHTML = "Total Price : ₹ "+(num*price).toString()
-        document.getElementById("tot_price").value = (num*price);
+    var price = Number(inp[1]);
+    var num = document.getElementById("number_of_items").value
+    if (num > 999) {
+      document.getElementById("number_of_items").value = 999
     }
-   }
+    if (num < 1) {
+      document.getElementById("number_of_items").value = 1
+    }
+    if (num.length === 0) {
+      document.getElementById("total_price").innerHTML = ""
+      document.getElementById("tot_price").value = 0;
+    } else if (num * price !== NaN && num * price !== 0) {
+      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (num * price).toString()
+      document.getElementById("tot_price").value = (num * price);
+    }
+  }
 </script>
 
 
