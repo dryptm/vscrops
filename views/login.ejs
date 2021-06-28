@@ -2,13 +2,32 @@
 <div class="main_box_2">
     <form action="/login" method="POST">
         <p class="namefield_all" style="margin-bottom: 0;">Email-</p><br>
-        <input class="mailinput" type="text" name="username" placeholder="Enter email" required><br>
+        <input class="mailinput" type="email" name="username" placeholder="Enter email" required><br>
         <p class="namefield_all" style="margin-bottom: 0;">Password</p><br>
-        <input class="mailinput" type="text" name="password" placeholder="Enter password" required><br>
+        <input class="mailinput" type="password" name="password" id = "myInput" placeholder="Enter password" required>
+        <br>
+        <br>
+        <br>
+        <input type="checkbox" onclick="myFunction()">Show Password
+        <br>
+
         <button class="btn-register-login" type="submit">Login</button>
         <a class="login_with_google" href="/auth/google"><i class="fab fa-google-plus-g"></i> Login</a>
-
+        <br>
+        <br>
+        <br>
+        <a class="" href="/forgot" style="font-size: 18px;text-decoration: none;color:#716021;font-family: Lato, arial, sans-serif;">Forgotten password?</a>
     </form><br><br><br>
    
 </div>
+<script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 <%- include('head-foot/footer'); -%>
