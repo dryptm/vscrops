@@ -52,7 +52,26 @@ app.get("/", function (req, res) {
 })
 
 app.get("/home", function (req, res) {
-  res.render("home", {})
+  if(req.isAuthenticated()){
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+      res.render("home", {
+        isLoggedin : "yes",
+        name : found1.name
+      })  
+    
+  })
+
+    
+
+  }
+  else {
+    res.render("home", {
+      isLoggedin : "no"
+    })
+  }
+  
 
 })
 
@@ -78,57 +97,80 @@ app.post("/submit", (req, res) => {
 })
 
 app.get("/products", function (req, res) {
-
-  Product.find({}, (err, found) => {
-    if (found) {
-      res.render("products", {
-        post: found
+  if(req.isAuthenticated()){
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+ 
+      Product.find({}, (err, found) => {
+        if (found) {
+          res.render("products", {
+            post: found,
+            isLoggedin : "yes",
+            name : found1.name
+          })
+    
+        }
       })
+    })
 
-    }
-  })
+    
 
-})
-app.get("/products/:np", function (req, res) {
-  Product.findOne({
-    _id: req.params.np
-  }, (err, found) => {
-    res.render("individualproduct", {
-      found
+  }
+  else {
+    Product.find({}, (err, found) => {
+      if (found) {
+        res.render("products", {
+          post: found,
+          isLoggedin : "no"
+        })
+  
+      }
     })
 
 
-    app.post('/add_to_cart', (req, res) => {
-      if (req.isAuthenticated()) {
+  
+  }
+
+
+  
+ 
+
+})
+app.get("/products/:np", function (req, res) {
+  
+  
+  Product.findOne({
+    _id: req.params.np
+  }, (err, found) => {
+    res.render("individualproduct", { 
+      found : found ,
+      
+  })
+   
+
+    app.post('/add_to_cart',(rq,rs)=>{
+      if (rq.isAuthenticated()) {
         // console.log(req.user.username)
-        var cart_obj = [];
-        User.findOne({
-          Id: req.user.Id
-        }, (err, found1) => {
-          cart_obj = found1.cart;
+        var cart_obj=[];
+        User.findOne({Id:rq.user.Id},(err,found1)=>{
+          cart_obj=found1.cart;
           cart_obj.push({
-            "name": found.product_name,
-            "total_price": Number(req.body.tot_price),
-            "product_image": found.product_image,
-            "quantity": (Number(req.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
+            "name":found.product_name,
+            "total_price":Number(rq.body.tot_price),
+            "product_image":found.product_image,
+            "quantity":(Number(rq.body.tot_price))/(found.product_price-((found.product_price*found.product_discount)/100))
           })
-          User.findOneAndUpdate({
-            Id: req.user.Id
-          }, {
-            cart: cart_obj
-          }, {
-            new: true
-          }, (err, response) => {
-            if (err) {
+          User.updateOne({Id:rq.user.Id},{cart:cart_obj},(err)=>{
+            if(err){
               console.log(err)
-            } else {
-              console.log(response)
             }
           })
         })
-
-      } else {
-        res.render("needloginfirst", {})
+        
+      }
+      else{
+        rs.render("needloginfirst",{})
       }
     })
   })
@@ -136,30 +178,131 @@ app.get("/products/:np", function (req, res) {
 
 
 app.get("/contactus", function (req, res) {
-  res.render("contactus", {})
+  
+  if(req.isAuthenticated()){
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+ 
+      res.render("contactus", {
+        isLoggedin : "yes",
+        name : found1.name
+      })
+    })
+
+    
+
+  }
+  else {
+    res.render("contactus", {
+      isLoggedin : "no"
+    })
+
+
+  
+  }
 
 })
 app.get("/foundersnote", function (req, res) {
-  res.render("foundersnote", {})
+ 
+  if(req.isAuthenticated()){
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+ 
+      res.render("foundersnote", {
+        isLoggedin : "yes",
+        name : found1.name
+      })
+  })
+
+    
+
+  }
+  else {
+   
+  res.render("foundersnote", {
+    isLoggedin : "no"
+  })
+
+  
+  }
+ 
 
 })
 app.get("/ourstory", function (req, res) {
-  res.render("ourstory", {})
+ 
+  if(req.isAuthenticated()){
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+      res.render("ourstory", {
+        isLoggedin : "yes",
+        name : found1.name
+      })
 
+  })
+
+    
+
+  }
+  else {
+    res.render("ourstory", {
+      isLoggedin : "no"
+    })
+
+  
+  }
+  
+  
+ 
+ 
+  
 })
 app.get("/blog", function (req, res) {
-  Blog.find({}, function (err, post) {
-    res.render("blog", {
-      post: post
-    })
+  
+  if(req.isAuthenticated()){
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+      Blog.find({}, function (err, post) {
+        res.render("blog", {
+          post: post,
+          name : found1.name,
+          isLoggedin : "yes"
+
+        })
+      })
   })
+
+    
+
+  }
+  else {
+    Blog.find({}, function (err, post) {
+      res.render("blog", {
+        post: post,
+        isLoggedin : "no"
+
+      })
+    })
+  
+  }
+  
+  
+  
+ 
 
 
 })
 
 
 app.get("/blog/:np", function (req, res) {
-  var n_p = req.params.np
+  if(req.isAuthenticated()){
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+      var n_p = req.params.np
   Blog.findOne({
     _id: n_p
   }, function (err, post) {
@@ -169,17 +312,48 @@ app.get("/blog/:np", function (req, res) {
         title: post.heading,
         date: post.date,
         img: post.image_link,
-        data: post.blog_data.split("<br>")
+        data: post.blog_data.split("<br>"),
+        isLoggedin : "yes",
+        name : found1.name
+     
       });
     }
 
   });
+  })
+
+    
+
+  }
+  else {
+    Blog.findOne({
+      _id: n_p
+    }, function (err, post) {
+  
+      if (post) {
+        res.render("currentblog", {
+          title: post.heading,
+          date: post.date,
+          img: post.image_link,
+          data: post.blog_data.split("<br>"),
+          isLoggedin : "no"
+       
+        });
+      }
+  
+    });
+  
+  }
+  
+  
 })
 
 
 
 app.get('/register', (req, res) => {
-  res.render('register')
+  res.render('register',{
+    isLoggedin : "no"
+  })
 })
 app.post('/register', (req, res) => {
 
@@ -220,8 +394,17 @@ app.post('/register', (req, res) => {
 app.get('/login', (req, res) => {
   if (req.isAuthenticated()) {
     res.redirect('/secret')
-  } else res.render('login')
+  } else res.render('login',{
+    isLoggedin : "no"
+  })
 })
+//*************************/
+app.get('/orders',ensureAuth,(req,res)=>{
+
+
+
+})
+//********************** */
 
 
 app.post('/login', (req, res) => {
@@ -238,9 +421,16 @@ app.get('/logout', (req, res) => {
 
 
 app.get('/secret', ensureAuth, (req, res) => {
-  res.render('secret', {
-    user: req.user.name
-  })
+  
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+      res.render('secret', {
+        user: req.user.name,
+        name : found1.name,
+        isLoggedin : "yes"
+      })  
+  })  
 })
 
 
