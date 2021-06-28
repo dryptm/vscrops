@@ -93,33 +93,42 @@ app.get("/products/:np", function (req, res) {
   Product.findOne({
     _id: req.params.np
   }, (err, found) => {
-    res.render("individualproduct", { found })
-   
+    res.render("individualproduct", {
+      found
+    })
 
-    app.post('/add_to_cart',(req,res)=>{
+
+    app.post('/add_to_cart', (req, res) => {
       if (req.isAuthenticated()) {
         // console.log(req.user.username)
-        var cart_obj=[];
-        User.findOne({Id:req.user.Id},(err,found1)=>{
-          cart_obj=found1.cart;
+        var cart_obj = [];
+        User.findOne({
+          Id: req.user.Id
+        }, (err, found1) => {
+          cart_obj = found1.cart;
           cart_obj.push({
-            "name":found.product_name,
-            "total_price":Number(req.body.tot_price),
-            "product_image":found.product_image,
-            "quantity":(Number(req.body.tot_price))/(found.product_price-((found.product_price*found.product_discount)/100))
+            "name": found.product_name,
+            "total_price": Number(req.body.tot_price),
+            "product_image": found.product_image,
+            "quantity": (Number(req.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
           })
-          User.findOneAndUpdate({Id:req.user.Id},{cart:cart_obj},{new:true},(err,response)=>{
-            if(err){
+          User.findOneAndUpdate({
+            Id: req.user.Id
+          }, {
+            cart: cart_obj
+          }, {
+            new: true
+          }, (err, response) => {
+            if (err) {
               console.log(err)
-            }else{
+            } else {
               console.log(response)
             }
           })
         })
-        
-      }
-      else{
-        res.render("needloginfirst",{})
+
+      } else {
+        res.render("needloginfirst", {})
       }
     })
   })
@@ -191,7 +200,7 @@ app.post('/register', (req, res) => {
 
       }
     ],
-    cart : []
+    cart: []
   }, req.body.password, function (err) {
     if (err) {
       console.log("User already exists")
