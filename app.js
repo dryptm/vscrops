@@ -52,144 +52,181 @@ app.get("/", function (req, res) {
 })
 
 app.get("/home", function (req, res) {
-  if(req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     User.findOne({
       Id: req.user.Id
     }, (err, found1) => {
       res.render("home", {
-        isLoggedin : "yes",
-        name : found1.name
-      })  
-    
-  })
+        isLoggedin: "yes",
+        name: found1.name
+      })
 
-    
+    })
 
-  }
-  else {
+
+
+  } else {
     res.render("home", {
-      isLoggedin : "no"
+      isLoggedin: "no"
     })
   }
-  
+
 
 })
-
 
 app.post("/submit", (req, res) => {
   mailinglist.findOne({
     email: req.body.mail
   }, (err, found) => {
     if (found) {
-      res.render("email_already_exist", {
-        message: "Email already exists!"
-      })
+      if (req.isAuthenticated()) {
+
+        User.findOne({
+          Id: req.user.Id
+        }, (err, found1) => {
+          res.render("email_already_exist", {
+            message: "Email already exists!",
+            isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+            name: (req.isAuthenticated() ? found1.name : "")
+          })
+
+        })
+      } else {
+        res.render("email_already_exist", {
+          message: "Email already exists!",
+          isLoggedin: "no",
+          name: ""
+        })
+      }
+
+
     } else {
       const mail = new mailinglist({
         email: req.body.mail
       });
       mail.save();
-      res.render("email_already_exist", {
-        message: "Thank you for the Subscription!"
-      })
+      if (req.isAuthenticated()) {
+        User.findOne({
+          Id: req.user.Id
+        }, (err, found1) => {
+          res.render("email_already_exist", {
+            message: "Thank you for the Subscription!",
+            isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+            name: (req.isAuthenticated() ? found1.name : "")
+          })
+
+        })
+      } else {
+        res.render("email_already_exist", {
+          message: "Thank you for the Subscription!",
+          isLoggedin: "no",
+          name: ""
+        })
+      }
+
+
     }
   })
 })
 
 app.get("/products", function (req, res) {
-  if(req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     User.findOne({
       Id: req.user.Id
     }, (err, found1) => {
- 
+
       Product.find({}, (err, found) => {
         if (found) {
           res.render("products", {
             post: found,
-            isLoggedin : "yes",
-            name : found1.name
+            isLoggedin: "yes",
+            name: found1.name
           })
-    
+
         }
       })
     })
 
-    
 
-  }
-  else {
+
+  } else {
     Product.find({}, (err, found) => {
       if (found) {
         res.render("products", {
           post: found,
-          isLoggedin : "no"
+          isLoggedin: "no"
         })
-  
+
       }
     })
 
 
-  
+
   }
 
 
-  
- 
+
+
 
 })
 app.get("/products/:np", function (req, res) {
-  
-  
+
+
   Product.findOne({
     _id: req.params.np
   }, (err, found) => {
-   
-     if(req.isAuthenticated()){User.findOne({
-      Id: req.user.Id
-    }, (err, found1) => {
-   res.render("individualproduct", { 
-        found : found ,
-        isLoggedin : (req.isAuthenticated() ? "yes" : "no"),
-        name : (req.isAuthenticated() ? found1.name : "")
-      
-    })
-      
-  })}
-  else {
-    res.render("individualproduct", { 
-      found : found ,
-      isLoggedin : "no"
-  })
-  
-  }
-    
-   
 
-    app.post('/add_to_cart',(rq,rs)=>{
+    if (req.isAuthenticated()) {
+      User.findOne({
+        Id: req.user.Id
+      }, (err, found1) => {
+        res.render("individualproduct", {
+          found: found,
+          isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+          name: (req.isAuthenticated() ? found1.name : "")
+
+        })
+
+      })
+    } else {
+      res.render("individualproduct", {
+        found: found,
+        isLoggedin: "no"
+      })
+
+    }
+
+
+
+    app.post('/add_to_cart', (rq, rs) => {
       if (rq.isAuthenticated()) {
         // console.log(req.user.username)
-        var cart_obj=[];
-        User.findOne({Id:rq.user.Id},(err,found1)=>{
-          cart_obj=found1.cart;
+        var cart_obj = [];
+        User.findOne({
+          Id: rq.user.Id
+        }, (err, found1) => {
+          cart_obj = found1.cart;
           cart_obj.push({
-            "name":found.product_name,
-            "total_price":Number(rq.body.tot_price),
-            "product_image":found.product_image,
-            "quantity":(Number(rq.body.tot_price))/(found.product_price-((found.product_price*found.product_discount)/100))
+            "name": found.product_name,
+            "total_price": Number(rq.body.tot_price),
+            "product_image": found.product_image,
+            "quantity": (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
           })
-          User.updateOne({Id:rq.user.Id},{cart:cart_obj},(err)=>{
-            if(err){
+          User.updateOne({
+            Id: rq.user.Id
+          }, {
+            cart: cart_obj
+          }, (err) => {
+            if (err) {
               console.log(err)
-            }
-            else {
+            } else {
               ///*********AFTER CART UPDATE********* */
             }
           })
         })
-        
-      }
-      else{
-        rs.render("needloginfirst",{})
+
+      } else {
+        rs.render("needloginfirst", {})
       }
     })
   })
@@ -197,181 +234,173 @@ app.get("/products/:np", function (req, res) {
 
 
 app.get("/contactus", function (req, res) {
-  
-  if(req.isAuthenticated()){
+
+  if (req.isAuthenticated()) {
     User.findOne({
       Id: req.user.Id
     }, (err, found1) => {
- 
+
       res.render("contactus", {
-        isLoggedin : "yes",
-        name : found1.name
+        isLoggedin: "yes",
+        name: found1.name
       })
     })
 
-    
 
-  }
-  else {
+
+  } else {
     res.render("contactus", {
-      isLoggedin : "no"
+      isLoggedin: "no"
     })
 
 
-  
+
   }
 
 })
 app.get("/foundersnote", function (req, res) {
- 
-  if(req.isAuthenticated()){
+
+  if (req.isAuthenticated()) {
     User.findOne({
       Id: req.user.Id
     }, (err, found1) => {
- 
+
       res.render("foundersnote", {
-        isLoggedin : "yes",
-        name : found1.name
+        isLoggedin: "yes",
+        name: found1.name
       })
-  })
+    })
 
-    
+
+
+  } else {
+
+    res.render("foundersnote", {
+      isLoggedin: "no"
+    })
+
 
   }
-  else {
-   
-  res.render("foundersnote", {
-    isLoggedin : "no"
-  })
 
-  
-  }
- 
 
 })
 app.get("/ourstory", function (req, res) {
- 
-  if(req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     User.findOne({
       Id: req.user.Id
     }, (err, found1) => {
       res.render("ourstory", {
-        isLoggedin : "yes",
-        name : found1.name
+        isLoggedin: "yes",
+        name: found1.name
       })
-
-  })
-
-    
-
-  }
-  else {
-    res.render("ourstory", {
-      isLoggedin : "no"
     })
-
-  
+  } else {
+    res.render("ourstory", {
+      isLoggedin: "no"
+    })
   }
-  
-  
- 
- 
-  
 })
+
+
+
+
+
+
+
+
+
 app.get("/blog", function (req, res) {
-  
-  if(req.isAuthenticated()){
+
+  if (req.isAuthenticated()) {
     User.findOne({
       Id: req.user.Id
     }, (err, found1) => {
       Blog.find({}, function (err, post) {
         res.render("blog", {
           post: post,
-          name : found1.name,
-          isLoggedin : "yes"
+          name: found1.name,
+          isLoggedin: "yes"
 
         })
       })
-  })
+    })
 
-    
 
-  }
-  else {
+
+  } else {
     Blog.find({}, function (err, post) {
       res.render("blog", {
         post: post,
-        isLoggedin : "no"
+        isLoggedin: "no"
 
       })
     })
-  
+
   }
-  
-  
-  
- 
+
+
+
+
 
 
 })
 
 
 app.get("/blog/:np", function (req, res) {
-  if(req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     User.findOne({
       Id: req.user.Id
     }, (err, found1) => {
       var n_p = req.params.np
-  Blog.findOne({
-    _id: n_p
-  }, function (err, post) {
+      Blog.findOne({
+        _id: n_p
+      }, function (err, post) {
 
-    if (post) {
-      res.render("currentblog", {
-        title: post.heading,
-        date: post.date,
-        img: post.image_link,
-        data: post.blog_data.split("<br>"),
-        isLoggedin : "yes",
-        name : found1.name
-     
+        if (post) {
+          res.render("currentblog", {
+            title: post.heading,
+            date: post.date,
+            img: post.image_link,
+            data: post.blog_data.split("<br>"),
+            isLoggedin: "yes",
+            name: found1.name
+
+          });
+        }
+
       });
-    }
+    })
 
-  });
-  })
 
-    
 
-  }
-  else {
+  } else {
     Blog.findOne({
       _id: n_p
     }, function (err, post) {
-  
+
       if (post) {
         res.render("currentblog", {
           title: post.heading,
           date: post.date,
           img: post.image_link,
           data: post.blog_data.split("<br>"),
-          isLoggedin : "no"
-       
+          isLoggedin: "no"
+
         });
       }
-  
+
     });
-  
+
   }
-  
-  
+
+
 })
 
 
 
 app.get('/register', (req, res) => {
-  res.render('register',{
-    isLoggedin : "no"
+  res.render('register', {
+    isLoggedin: "no"
   })
 })
 app.post('/register', (req, res) => {
@@ -396,13 +425,30 @@ app.post('/register', (req, res) => {
     cart: []
   }, req.body.password, function (err) {
     if (err) {
-      console.log("User already exists")
-      res.redirect('/login')
+      if (req.isAuthenticated()) {
+
+        User.findOne({
+          Id: req.user.Id
+        }, (err, found1) => {
+          res.render("useralreadyexists", {
+            message: "User already exists!",
+            isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+            name: (req.isAuthenticated() ? found1.name : "")
+          })
+
+        })
+      } else {
+        res.render("useralreadyexists", {
+          message: "User already exists!",
+          isLoggedin: "no",
+          name: ""
+        })
+      }
     } else {
       passport.authenticate("local", {
         failureRedirect: '/login'
       })(req, res, function () {
-        res.redirect('/secret')
+        res.redirect('/products')
       })
     }
   });
@@ -412,23 +458,86 @@ app.post('/register', (req, res) => {
 
 app.get('/login', (req, res) => {
   if (req.isAuthenticated()) {
-    res.redirect('/secret')
-  } else res.render('login',{
-    isLoggedin : "no"
+    res.redirect('/products')
+  } else res.render('login', {
+    isLoggedin: "no"
   })
 })
 //*************************/
-app.get('/orders',ensureAuth,(req,res)=>{
+app.get('/orders', (req, res) => {
+  if (req.isAuthenticated()) {
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+      res.render("orders", {
+        isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+        name: (req.isAuthenticated() ? found1.name : ""),
+        orders: found1.orders
+      })
 
-
-
+    })
+  } else res.redirect("/login")
 })
+
+
+app.get('/cart', (req, res) => {
+  if (req.isAuthenticated()) {
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+      res.render("cart", {
+        isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+        name: (req.isAuthenticated() ? found1.name : ""),
+        cart: found1.cart
+      })
+
+    })
+  } else res.redirect("/login")
+})
+
+app.get("/termsandcondition", function (req, res) {
+  if (req.isAuthenticated()) {
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+      res.render("termsandcondition", {
+        isLoggedin: "yes",
+        name: found1.name
+      })
+    })
+  } else {
+    res.render("termsandcondition", {
+      isLoggedin: "no"
+    })
+  }
+})
+
+app.get("/privacypolicy", function (req, res) {
+  if (req.isAuthenticated()) {
+    User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+      res.render("privacypolicy", {
+        isLoggedin: "yes",
+        name: found1.name
+      })
+    })
+  } else {
+    res.render("privacypolicy", {
+      isLoggedin: "no"
+    })
+  }
+})
+
+
+
+
 //********************** */
 
 
 app.post('/login', (req, res) => {
   passport.authenticate("local")(req, res, function () {
-    res.redirect("/secret");
+    res.redirect("/products");
   })
 })
 app.get('/logout', (req, res) => {
@@ -440,16 +549,16 @@ app.get('/logout', (req, res) => {
 
 
 app.get('/secret', ensureAuth, (req, res) => {
-  
-    User.findOne({
-      Id: req.user.Id
-    }, (err, found1) => {
-      res.render('secret', {
-        user: req.user.name,
-        name : found1.name,
-        isLoggedin : "yes"
-      })  
-  })  
+
+  User.findOne({
+    Id: req.user.Id
+  }, (err, found1) => {
+    res.render('secret', {
+      user: req.user.name,
+      name: found1.name,
+      isLoggedin: "yes"
+    })
+  })
 })
 
 
@@ -465,7 +574,7 @@ app.get("/auth/google/google_login",
   }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/secret");
+    res.redirect("/products");
   });
 
 
