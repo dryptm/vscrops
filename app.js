@@ -143,10 +143,26 @@ app.get("/products/:np", function (req, res) {
   Product.findOne({
     _id: req.params.np
   }, (err, found) => {
+   
+     if(req.isAuthenticated()){User.findOne({
+      Id: req.user.Id
+    }, (err, found1) => {
+   res.render("individualproduct", { 
+        found : found ,
+        isLoggedin : (req.isAuthenticated() ? "yes" : "no"),
+        name : (req.isAuthenticated() ? found1.name : "")
+      
+    })
+      
+  })}
+  else {
     res.render("individualproduct", { 
       found : found ,
-      
+      isLoggedin : "no"
   })
+  
+  }
+    
    
 
     app.post('/add_to_cart',(rq,rs)=>{
@@ -164,6 +180,9 @@ app.get("/products/:np", function (req, res) {
           User.updateOne({Id:rq.user.Id},{cart:cart_obj},(err)=>{
             if(err){
               console.log(err)
+            }
+            else {
+              ///*********AFTER CART UPDATE********* */
             }
           })
         })
