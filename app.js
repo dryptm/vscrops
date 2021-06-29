@@ -180,6 +180,7 @@ app.get("/products", function (req, res) {
 
 
 })
+
 app.get("/products/:np", function (req, res) {
 
 
@@ -194,7 +195,8 @@ app.get("/products/:np", function (req, res) {
         res.render("individualproduct", {
           found: found,
           isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
-          name: (req.isAuthenticated() ? found1.name : "")
+          name: (req.isAuthenticated() ? found1.name : ""),
+          id : found._id
 
         })
 
@@ -202,50 +204,71 @@ app.get("/products/:np", function (req, res) {
     } else {
       res.render("individualproduct", {
         found: found,
-        isLoggedin: "no"
+        isLoggedin: "no",
+        id : found._id
       })
 
     }
 
 
 
-    app.post('/add_to_cart', (rq, rs) => {
-      if (rq.isAuthenticated()) {
-        // console.log(req.user.username)
-        var cart_obj = [];
-        User.findOne({
-          _id: rq.user._id
-        }, (err, found1) => {
-          cart_obj = found1.cart;
-          cart_obj.push({
-            "name": found.product_name,
-            "total_price": Number(rq.body.tot_price),
-            "product_image": found.product_image,
-            "quantity": (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
-          })
-          User.updateOne({
-            _id: rq.user._id
-          }, {
-            cart: cart_obj
-          }, (err) => {
-            if (err) {
-              console.log(err)
-            } else {
-              ///*********AFTER CART UPDATE********* */
-              rs.redirect('/cart')
-            }
-          })
-        })
-
-      } else {
-        rs.render("needloginfirst", {
-          isLoggedin:"no"
-        })
-      }
-    })
+    
   })
 })
 
+app.post('/add_to_cart/:id', (rq, rs) => {
+  Product.findOne({
+    _id: rq.params.id
+  }, (err, found) => {
+
+    if (rq.isAuthenticated()) {
+      // console.log(req.user.username)
+      var cart_obj = [];
+      User.findOne({
+        _id: rq.user._id
+      }, (err, found1) => {
+        cart_obj = found1.cart;
+        console.log(found.product_name)
+         if(cart_obj.find(ob=>ob.name===found.product_name))
+        {
+          console.log("found and cart updated")
+          var i = cart_obj.findIndex(ob=>ob.name === found.product_name);
+          cart_obj[i].quantity=(Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
+        }
+        else {
+          console.log("new item added to cart")
+         cart_obj.push({
+          "name": found.product_name,
+          "total_price": Number(rq.body.tot_price),
+          "product_image": found.product_image,
+          "quantity": (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
+        })
+      }
+  
+        User.updateOne({
+          _id: rq.user._id
+        }, {
+          cart: cart_obj
+        }, (err) => {
+          if (err) {
+            console.log(err)
+          } else {
+            ///*********AFTER CART UPDATE********* */
+          
+            rs.redirect('/cart')
+          }
+        })
+      })
+  
+    } else {
+      rs.render("needloginfirst", {
+        isLoggedin:"no"
+      })
+    }
+  })  
+
+  
+})
 
 app.get("/contactus", function (req, res) {
 

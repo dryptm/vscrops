@@ -1,71 +1,68 @@
-/* header.ejs -----footer.ejs */
 body {
-    margin: 0;
+    margin: 0
 }
-
 
 .banner {
     height: 1.3541666666666667vw;
     text-align: center;
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     margin: 0;
-    padding: 4px 0;
-    background-color: rgb(212, 180, 53);
+    padding: 0.2604166666666667vw 0;
+    background-color: #d4b435;
     font-family: Lato, arial, sans-serif;
-    font-weight: 400;
+    font-weight: 400
 }
 
 .banner-p {
     margin: 0;
-    color: rgb(22, 22, 22);
-    letter-spacing: 2px;
-    padding-top: 1.5px;
+    color: #161616;
+    letter-spacing: 0.13020833333333334vw;
+    padding-top: 0.09765625vw
 }
 
 .header-block {
-    background-color: white;
-    height: 9.895833333333334vw;
-    width: 100%;
+    background-color: #fff;
+    height: inherit;
+    width: 100%
 }
 
 .header-block-container {
     margin: auto;
     padding: 2.0833333333333335vw 1.5625vw;
-    background-color: white;
-    position: relative;
+    background-color: #fff;
+    position: relative
 }
 
 .ul-continer {
-
-    list-style: none;
+    list-style: none
 }
 
 .li-div {
     display: flex;
-    padding: 1.3020833333333333vw 20.833333333333332vw;
+    padding: 1.3020833333333333vw 20.833333333333332vw
 }
 
 .li-container {
     font-family: Lato, arial, sans-serif;
     text-decoration: none;
     margin: 0 1.0416666666666667vw;
-    padding: 3px;
-    font-size: 0.9114583333333334vw;
-    letter-spacing: 1.75px;
-    color: rgb(87, 87, 87);
+    padding: 0.1953125vw;
+    font-size: .9114583333333334vw;
+    letter-spacing: 0.11393229166666667vw;
+    color: #575757
 }
 
 .search-cart-user {
     position: absolute;
     right: 8.697916666666666vw;
-    top: 4.361979166666667vw;
+    top: 4.361979166666667vw
 }
 
 .vs-header-icons {
     color: rgb(185 157 48);
-    padding: 0.6510416666666666vw;
-    font-size: 0.9114583333333334vw;
-    transition: all 0.5s;
+    padding: .6510416666666666vw;
+    font-size: .9114583333333334vw;
+    transition: all .5s
 }
 
 .vs-header-icons:hover {
@@ -74,231 +71,220 @@ body {
 
 .footer {
     padding-top: 2.6041666666666665vw;
-    padding-bottom: 2.6041666666666665vw;
+    padding-bottom: 2.6041666666666665vw
 }
 
 .toc-pp {
     text-align: center;
     font-family: Lato, arial, sans-serif;
-    padding-bottom: 40px;
-
+    padding-bottom: 2.604166666666667vw
 }
 
 .toc {
-    color: rgb(138, 117, 34);
+    color: #8a7522;
     text-decoration: none;
-    padding: 0 5px;
-    letter-spacing: 1px
+    padding: 0 0.32552083333333337vw;
+    letter-spacing: 0.06510416666666667vw
 }
 
 .pp {
-    color: rgb(138, 117, 34);
+    color: #8a7522;
     text-decoration: none;
-    padding: 0 5px;
-    letter-spacing: 1px;
+    padding: 0 0.32552083333333337vw;
+    letter-spacing: 0.06510416666666667vw
 }
 
 .share-logo {
-    padding-bottom: 16px;
+    padding-bottom: 1.0416666666666667vw
 }
 
 .share-logo-p {
     text-align: center;
-    font-size: 20px;
-    margin: 0;
+    font-size: 1.3020833333333335vw;
+    margin: 0
 }
 
 .icons {
-    padding: 10px;
+    padding: 0.6510416666666667vw
 }
 
 .website {
-    font-size: 14px;
-    letter-spacing: 0.083em;
-    color: rgb(27, 27, 27);
+    font-size: 0.9114583333333334vw;
+    letter-spacing: .083em;
+    color: #1b1b1b;
     font-family: Lato, arial, sans-serif;
     font-weight: 700;
-    text-align: center;
+    text-align: center
 }
 
 .place {
-    font-size: 14px;
-    letter-spacing: 0.083em;
-    color: rgb(27, 27, 27);
-    padding: 10px;
+    font-size: 0.9114583333333334vw;
+    letter-spacing: .083em;
+    color: #1b1b1b;
+    padding: 0.6510416666666667vw;
     font-family: Lato, arial, sans-serif;
-    text-align: center;
+    text-align: center
 }
 
 .phone-number {
-    font-size: 14px;
-    letter-spacing: 0.083em;
+    font-size: 0.9114583333333334vw;
+    letter-spacing: .083em;
     font-family: Lato, arial, sans-serif;
     text-align: center;
-    padding-bottom: 24px;
+    padding-bottom: 1.5625vw
 }
 
 .flex {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start
 }
 
 .copyright {
     margin: 0 12.994791666666666vw;
     padding: 0 1.5625vw;
-    letter-spacing: 1px;
+    letter-spacing: 0.06510416666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: rgb(89, 89, 89);
-    font-size: 14px;
-
+    color: #595959;
+    font-size: 0.9114583333333334vw
 }
 
 .trademark {
     margin: 0 12.994791666666666vw;
     padding: 0 1.5625vw;
-    letter-spacing: 1px;
+    letter-spacing: 0.06510416666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: rgb(89, 89, 89);
-    font-size: 14px;
-
-
+    color: #595959;
+    font-size: 0.9114583333333334vw
 }
 
 .connect {
     margin: 0 12.994791666666666vw;
     padding: 0 1.5625vw;
-    letter-spacing: 1px;
-    color: rgb(89, 89, 89);
-    font-size: 14px;
-    font-family: Lato, arial, sans-serif;
+    letter-spacing: 0.06510416666666667vw;
+    color: #595959;
+    font-size: 0.9114583333333334vw;
+    font-family: Lato, arial, sans-serif
 }
 
 .head_divider {
-    background-color: rgb(180, 155, 53);
-    height: 1px;
+    background-color: #b49b35;
+    height: 0.06510416666666667vw;
     opacity: 30%;
     display: flex;
     width: 80.20833333333333vw;
-    margin: 0 auto;
-
+    margin: 0 auto
 }
 
 .user_dropdown {
-    width: 250px;
+    width: 16.276041666666668vw;
     height: auto;
-    background-color: white;
+    background-color: #fff;
     position: absolute;
-    right: 140px;
-    top: 120px;
+    right: 9.114583333333334vw;
+    top: 7.8125vw;
     z-index: 2;
-    box-shadow: rgb(187 187 187) 0px 0px 8px 0px;
+    box-shadow: rgb(187 187 187) 0 0 0.5208333333333334vw 0;
     opacity: 0;
-    transition: all 0.25s;
+    transition: all .25s
 }
 
 .user_d_box {
-    width: 100%;
+    width: 100%
 }
 
 .user_d_box_content {
     text-align: left;
-    font-size: 16px;
+    font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: rgb(169, 143, 40);
-    margin: 20px 30px;
-    text-decoration: none;
-
+    color: #a98f28;
+    margin: 1.3020833333333335vw 1.9531250000000002vw;
+    text-decoration: none
 }
 
 .tnm {
-    font-size: 16px;
+    font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: rgb(138, 117, 34);
-    letter-spacing: 2px;
-    font-weight: 400;
+    color: #8a7522;
+    letter-spacing: 0.13020833333333334vw;
+    font-weight: 400
 }
 
 .tnm_box {
     width: 70%;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 .tnm_headings {
     font-family: Lato, arial, sans-serif;
     font-weight: 700;
-    color: rgb(138, 117, 34);
+    color: #8a7522
 }
 
 .tnm_content {
-    color: rgb(94, 94, 94);
-    font-size: 16px;
+    color: #5e5e5e;
+    font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.032552083333333336vw
 }
 
-
-/* home.ejs */
 .img-launching {
     width: 80.20833333333333vw;
     height: 32.552083333333336vw;
     display: block;
     margin: 0 auto;
-    background-image: url("/images/img2.png");
+    background-image: url(/images/img2.png);
     background-position: center;
-    /* background-color: #DCCA13; */
-    /* background-position-x: -100px; */
     background-repeat: repeat;
     background-size: 100%;
-    position: relative;
+    position: relative
 }
 
 .launching {
     float: right;
     height: 100%;
     width: 34%;
-    background-color: rgba(254, 243, 217, 0.8);
+    background-color: rgba(254, 243, 217, .8)
 }
 
 .p_welcome {
     text-align: center;
-    letter-spacing: 2px;
-    font-size: 16px;
+    letter-spacing: 0.13020833333333334vw;
+    font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: rgb(133, 112, 28);
-    margin-top: 9.765625vw;
+    color: #85701c;
+    margin-top: 9.765625vw
 }
 
 .h1_flat_discount {
     text-align: center;
     text-transform: uppercase;
-    font-size: 43px !important;
-    font-family: 'Cabin', arial, sans-serif;
-    color: rgb(21, 21, 21);
-    margin-bottom: 3.2552083333333335vw;
-
+    font-size: 2.799479166666667vw !important;
+    font-family: Cabin, arial, sans-serif;
+    color: #151515;
+    margin-bottom: 3.2552083333333335vw
 }
 
 .a_launch_product {
     position: relative;
     margin: auto;
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: rgb(133, 112, 28);
+    color: #85701c;
     margin-top: 9.765625vw;
     text-decoration: none;
     border-style: solid;
-    border-width: 1px;
-    padding: 0.9765625vw;
+    border-width: 0.06510416666666667vw;
+    padding: .9765625vw;
     margin: 6.966145833333333vw;
-    transition: all 0.5s
+    transition: all .5s
 }
 
 .a_launch_product:hover {
     background-color: rgb(207 175 50);
-    color: rgb(21, 21, 21);
-    border-color: rgb(207 175 50);
+    color: #151515;
+    border-color: rgb(207 175 50)
 }
 
 .about_us {
@@ -306,175 +292,166 @@ body {
     height: 19.765625vw;
     display: block;
     margin: 13.020833333333334vw auto;
-    position: relative;
+    position: relative
 }
 
 .us {
-    color: rgb(173, 146, 38);
-    font-family: 'Cabin', arial, sans-serif;
-    font-size: 43px;
+    color: #ad9226;
+    font-family: Cabin, arial, sans-serif;
+    font-size: 2.799479166666667vw
 }
 
 .us_data {
     font-family: Lato, arial, sans-serif;
-    font-size: 22px;
-    color: rgb(94, 94, 94);
-    margin-bottom: 100px;
-    margin-right: 530px;
-
+    font-size: 1.4322916666666667vw;
+    color: #5e5e5e;
+    margin-bottom: 6.510416666666667vw;
+    margin-right: 34.505208333333336vw
 }
 
 .findoutmore {
     text-decoration: none;
     font-family: Lato, arial, sans-serif;
-    font-size: 16px;
+    font-size: 1.0416666666666667vw;
     border-style: solid;
-    border-width: 0 0 1px 0;
+    border-width: 0 0 0.06510416666666667vw 0;
     font-weight: 700;
-    padding: 0 0 5px 0;
+    padding: 0 0 0.32552083333333337vw 0;
     color: rgb(152 129 39);
-    letter-spacing: 2px;
-    transition: all 0.5s;
+    letter-spacing: 0.13020833333333334vw;
+    transition: all .5s
 }
 
 .findoutmore:hover {
-    letter-spacing: 4px;
+    letter-spacing: 0.2604166666666667vw
 }
 
 .findoutmore_arrow {
-    font-size: 16px;
-    padding: 0 0 5px 10px;
-    color: rgb(152 129 39);
+    font-size: 1.0416666666666667vw;
+    padding: 0 0 0.32552083333333337vw 0.6510416666666667vw;
+    color: rgb(152 129 39)
 }
 
 .productsontheway {
-    font-size: 43px;
-    font-family: 'Cabin', arial, sans-serif;
-    letter-spacing: 1px;
-    color: rgb(173, 146, 38);
-    margin-left: 9.348958333333334vw;
+    font-size: 2.799479166666667vw;
+    font-family: Cabin, arial, sans-serif;
+    letter-spacing: 0.06510416666666667vw;
+    color: #ad9226;
+    margin-left: 9.348958333333334vw
 }
 
 .oils_bottom_flex {
     display: flex;
     flex-direction: row;
     width: 80.20833333333333vw;
-    margin: 0 auto;
-
+    margin: 0 auto
 }
 
 .obf1 {
     width: 48%;
-    margin: 0 auto 0 0;
-
+    margin: 0 auto 0 0
 }
 
 .obf2 {
     width: 48%;
-    margin: 0 0 0 auto;
-
+    margin: 0 0 0 auto
 }
 
 .obf_image1 {
-    background-image: url("/images/img3.png");
+    background-image: url(/images/img3.png);
     background-position-x: center;
-    background-position-y: -140px;
+    background-position-y: -9.114583333333334vw;
     background-size: 200%;
-    height: 600px;
-    background-repeat: no-repeat;
-
+    height: 39.0625vw;
+    background-repeat: no-repeat
 }
 
 .obf_image2 {
-    background-image: url("/images/img4.png");
+    background-image: url(/images/img4.png);
     background-position-x: center;
     background-size: 230%;
-    height: 600px;
-    background-repeat: no-repeat;
+    height: 39.0625vw;
+    background-repeat: no-repeat
 }
 
 .obf-content2 {
-    background-color: #FEF3D9;
+    background-color: #fef3d9;
     margin: 0;
-    height: 300px;
+    height: 19.53125vw
 }
 
 .obf-content1 {
-    background-color: #FEF3D9;
+    background-color: #fef3d9;
     margin: 0;
-    height: 300px;
+    height: 19.53125vw
 }
 
 .mail-list {
     width: 80.20833333333333vw;
-    margin: 100px auto 50px;
+    margin: 6.510416666666667vw auto 3.2552083333333335vw;
     display: flex;
-    height: 100px;
-
+    height: 6.510416666666667vw
 }
 
 .joinmaillist {
-    color: rgb(27, 27, 27);
-    font-size: 32px;
+    color: #1b1b1b;
+    font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    letter-spacing: 1px;
-    width: 70%;
+    letter-spacing: 0.06510416666666667vw;
+    width: 70%
 }
 
 .mailinput {
     width: 100%;
-    font-size: 16px;
-    margin-top: 24px;
-    padding: 0 15px;
+    font-size: 1.0416666666666667vw;
+    margin-top: 1.5625vw;
+    padding: 0 0.9765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: rgb(94, 94, 94);
-    height: 50px;
+    color: #5e5e5e;
+    height: 3.2552083333333335vw;
     border-style: solid;
-    border-width: 0 0 1px 0;
+    border-width: 0 0 0.06510416666666667vw 0
 }
 
 .a_launch_product_1 {
     position: relative;
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: rgb(133, 112, 28);
+    color: #85701c;
     margin-top: 9.765625vw;
     text-decoration: none;
     border-style: solid;
-    border-width: 1px;
-    padding: 0.9765625vw;
+    border-width: 0.06510416666666667vw;
+    padding: .9765625vw;
     margin: 6.966145833333333vw;
-    transition: all 0.5s;
-    background-color: white;
+    transition: all .5s;
+    background-color: #fff;
     width: 20%;
-    height: 55px;
-    margin: 22px 0 0 40px;
+    height: 3.580729166666667vw;
+    margin: 1.4322916666666667vw 0 0 2.604166666666667vw
 }
 
 .a_launch_product_1:hover {
     background-color: rgb(207 175 50);
-    color: rgb(21, 21, 21);
-    border-color: rgb(207 175 50);
+    color: #151515;
+    border-color: rgb(207 175 50)
 }
 
-
-
-/* ourstory.ejs */
 .main_box {
     width: 80.20833333333333vw;
     margin: 0 auto;
-    padding-top: 4.557291666666667vw;
+    padding-top: 4.557291666666667vw
 }
 
 .ourstory_head {
-    font-size: 43px;
-    font-family: 'Cabin', arial, sans-serif;
+    font-size: 2.799479166666667vw;
+    font-family: Cabin, arial, sans-serif;
     font-weight: 700;
-    color: rgb(173, 146, 38);
-    letter-spacing: 1px;
-    margin: 0;
+    color: #ad9226;
+    letter-spacing: 0.06510416666666667vw;
+    margin: 0
 }
 
 .flexboxes {
@@ -482,7 +459,7 @@ body {
     width: 80.20833333333333vw;
     margin: 0 auto;
     padding-top: 4.557291666666667vw;
-    height: inherit;
+    height: inherit
 }
 
 .flexbox_1 {
@@ -492,80 +469,72 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-position-y: 0;
-    background-size: 100%;
-
+    background-size: 100%
 }
 
 .flexbox_2 {
-
     display: flex;
-    width: 5%;
+    width: 5%
 }
 
 .flexbox_3 {
     display: flex;
     width: 60%;
     flex-direction: column;
-
-    position: relative;
+    position: relative
 }
 
 .journey {
-    font-size: 32px;
-    font-family: 'Cabin', arial, sans-serif;
+    font-size: 2.0833333333333335vw;
+    font-family: Cabin, arial, sans-serif;
     font-weight: 700;
-    letter-spacing: 1px;
-    color: rgb(173, 146, 38);
-    margin: 0;
+    letter-spacing: 0.06510416666666667vw;
+    color: #ad9226;
+    margin: 0
 }
 
 .journey_words {
-    font-size: 20px;
+    font-size: 1.3020833333333335vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: rgb(94, 94, 94);
-
+    color: #5e5e5e
 }
 
 .about_vs {
-    font-size: 32px;
-    font-family: 'Cabin', arial, sans-serif;
+    font-size: 2.0833333333333335vw;
+    font-family: Cabin, arial, sans-serif;
     font-weight: 700;
-    letter-spacing: 1px;
-    color: rgb(173, 146, 38);
+    letter-spacing: 0.06510416666666667vw;
+    color: #ad9226;
     margin: 0;
-    padding-top: 4.557291666666667vw;
+    padding-top: 4.557291666666667vw
 }
 
 .about_vs_words {
-    font-size: 20px;
+    font-size: 1.3020833333333335vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: rgb(94, 94, 94);
+    color: #5e5e5e
 }
 
-/* products.ejs */
 .add_to_cart {
     position: absolute;
     bottom: 5%;
     right: 1.623567708333333vw;
     margin: auto;
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     font-size: 2.553125vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
     color: rgb(133 112 28);
     text-decoration: none;
-
     padding: 1.953125vw 3vw;
-    transition: all 0.25s;
-    /*     background-color: rgb(133 112 28); */
+    transition: all .25s
 }
 
 .add_to_cart:hover {
-    /*     background-color: rgb(158 133 35); */
     color: rgb(158 133 35);
-    transform: scale(1.5);
+    transform: scale(1.5)
 }
 
 .blogimg_products {
@@ -573,191 +542,177 @@ body {
     height: 70%;
     margin: 0 5%;
     margin-top: 5%;
-    object-fit: cover;
+    object-fit: cover
 }
 
 .price_products {
     font-family: Lato, arial, sans-serif;
-    color: rgb(138, 117, 34);
-    /*     margin-top:0; */
-    margin-left: 1.623567708333333vw;
-
-
+    color: #8a7522;
+    font-size: 1.0416666666666667vw;
+    margin-left: 1.623567708333333vw
 }
 
 .price_products_font {
     font-family: Lato, arial, sans-serif;
-    color: rgb(138, 117, 34);
-    font-size: 20px;
+    color: #8a7522;
+    font-size: 1.3020833333333333vw;
     margin: 0;
-    margin-left: 1.623567708333333vw;
+    margin-left: 1.623567708333333vw
 }
 
-
-/* individualproduct.ejs */
 .product_box_flex {
     display: flex;
     flex-direction: row;
     margin-top: 15vh;
-    height: 500px;
+    height: 32.552083333333336vw
 }
 
 #number_of_items {
     width: 10%;
-    font-size: 16px;
-    margin-top: 24px;
-    padding: 0 15px;
+    font-size: 1.0416666666666667vw;
+    margin-top: 1.5625vw;
+    padding: 0 0.9765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: rgb(94, 94, 94);
-    height: 50px;
+    color: #5e5e5e;
+    height: 3.2552083333333335vw;
     border-style: solid;
-    border-width: 0 0 1px 0;
+    border-width: 0 0 0.06510416666666667vw 0
 }
 
 .btn-add-to-cart {
     bottom: 8%;
     position: absolute;
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: black;
-    background-color: #D4B435;
-
+    color: #000;
+    background-color: #d4b435;
     text-decoration: none;
-    border-color: #D4B435;
+    border-color: #d4b435;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.06510416666666667vw;
     margin-left: 0;
-    padding: 0.9765625vw;
-    transition: all 0.25s
+    padding: .9765625vw;
+    transition: all .25s
 }
 
 .btn-add-to-cart:hover {
-    box-shadow: rgb(187 187 187) 0px 0px 28px 0px;
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
     background-color: rgb(220 189 66);
-    color: rgb(21, 21, 21);
-    border-color: rgb(220 189 66);
+    color: #151515;
+    border-color: rgb(220 189 66)
 }
 
 .product_i_image {
-    width: 100%;
+    width: 100%
 }
 
 #total_price {
     font-family: Lato, arial, sans-serif;
-    color: rgb(138, 117, 34);
-    /*     margin-top:0; */
-    font-size: 20px;
+    color: #8a7522;
+    font-size: 1.3020833333333335vw
 }
 
 .product_i_img {
     height: 80%;
     padding: 10%;
-    float: right;
+    float: right
 }
 
 .product_i_details {
     position: relative;
     width: 100%;
-    padding: 5% 0;
+    padding: 5% 0
 }
 
 .product_i_details_heading {
-    font-size: 32px;
+    font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    color: rgb(27, 27, 27);
+    color: #1b1b1b;
     margin-top: 0;
-    letter-spacing: 1px;
-
+    letter-spacing: 0.06510416666666667vw
 }
 
 .product_i_details_price {
     font-family: Lato, arial, sans-serif;
-    color: rgb(138, 117, 34);
-    /*     margin-top:0; */
-    font-size: 25px;
+    color: #8a7522;
+    font-size: 1.6276041666666667vw
 }
 
 .product_i_details_discount {
     font-family: Lato, arial, sans-serif;
-    font-size: 15px;
-    opacity: 0.5;
-    color: rgb(0 0 0);
+    font-size: 0.9765625000000001vw;
+    opacity: .5;
+    color: rgb(0 0 0)
 }
 
-/* founders note */
 .note_flex {
     display: flex;
     width: 50%;
     margin: 0 auto;
     flex-direction: column;
     text-align: center;
-    position: relative;
+    position: relative
 }
 
 .note_head {
-    font-size: 32px;
-    font-family: 'Cabin', arial, sans-serif;
+    font-size: 2.0833333333333335vw;
+    font-family: Cabin, arial, sans-serif;
     font-weight: 700;
-    letter-spacing: 1px;
-    color: rgb(173, 146, 38);
+    letter-spacing: 0.06510416666666667vw;
+    color: #ad9226;
     margin: 0;
-    padding-top: 4.557291666666667vw;
+    padding-top: 4.557291666666667vw
 }
 
 .note_p {
-    font-size: 25px;
-    font-family: 'Cabin', arial, sans-serif;
-    color: rgb(173, 146, 38);
+    font-size: 1.6276041666666667vw;
+    font-family: Cabin, arial, sans-serif;
+    color: #ad9226
 }
 
-
-/* contact us */
 .contact_flex {
     display: flex;
     text-align: center;
     flex-direction: column;
     margin: 0 auto;
-    width: 50%;
+    width: 50%
 }
 
 .contact_msg1 {
-    font-size: 22px;
+    font-size: 1.4322916666666667vw;
     font-family: Lato, arial, sans-serif;
     font-weight: 400;
-    color: rgb(27, 27, 27);
-    letter-spacing: 0.045em;
-    padding-top: 50px;
+    color: #1b1b1b;
+    letter-spacing: .045em;
+    padding-top: 3.2552083333333335vw
 }
 
 .contact_msg2 {
-    font-size: 16px;
+    font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: rgb(94, 94, 94);
+    color: #5e5e5e
 }
 
 .whatsapp {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 0.9114583333333334vw;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 1.9531250000000002vw;
     text-decoration: none;
-    padding: 20px;
-    width: 200px;
+    padding: 1.3020833333333335vw;
+    width: 13.020833333333334vw;
     font-weight: 700;
-    color: rgb(255, 255, 255);
-    background-color: #35BC48;
-    border-radius: 5px;
+    color: #fff;
+    background-color: #35bc48;
+    border-radius: 0.32552083333333337vw
 }
 
 .whatsapp:hover {
-    background-color: #309c3f;
+    background-color: #309c3f
 }
 
-
-
-/* blogs */
 .main_box_blog_1 {
     width: 80.20833333333333vw;
     margin: 0 auto;
@@ -765,7 +720,7 @@ body {
     padding-top: 15vh;
     padding-bottom: 10vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: column
 }
 
 .blog_number {
@@ -774,219 +729,202 @@ body {
     width: 90%;
     margin: 0 auto;
     height: 100vh;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 .blog_left {
-    height: 80%;
+    height: 35.807291666666664vw;
     width: 45%;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.06510416666666667vw;
     border-color: rgb(217 217 217);
-    transition: all 0.25s;
-    position: relative;
+    transition: all .25s;
+    position: relative
 }
 
 .blog_left:hover {
-    box-shadow: rgb(187 187 187) 0px 0px 28px -3px;
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw -0.1953125vw
 }
 
-
 .blog_right {
-    height: 80%;
+    height: 35.807291666666664vw;
     width: 45%;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.06510416666666667vw;
     border-color: rgb(217 217 217);
-    transition: all 0.25s;
-    position: relative;
+    transition: all .25s;
+    position: relative
 }
 
 .blog_right:hover {
-    box-shadow: rgb(187 187 187) 0px 0px 28px -3px;
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw -0.1953125vw
 }
 
-
 .blog_center {
-    height: 80%;
+    height: 35.807291666666664vw;
     width: 45%;
     display: block;
     margin: 0 auto;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.06510416666666667vw;
     border-color: rgb(217 217 217);
-    transition: all 0.25s;
-    position: relative;
+    transition: all .25s;
+    position: relative
 }
 
 .blog_center:hover {
-    box-shadow: rgb(187 187 187) 0px 0px 28px -3px;
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw -0.1953125vw
 }
-
 
 .blogimg {
     width: 29.296875vw;
     height: 19.53125vw;
     margin: 0 5%;
     margin-top: 5%;
-    object-fit: cover;
+    object-fit: cover
 }
 
 .blogh1 {
-    color: rgb(27, 27, 27);
-    font-size: 22px;
+    color: #1b1b1b;
+    font-size: 1.4322916666666667vw;
     font-family: Lato, arial, sans-serif;
-    letter-spacing: 0.045em;
-    padding: 0 1.5625vw;
+    letter-spacing: .045em;
+    padding: 0 1.5625vw
 }
 
 .blogdate {
-    padding: 0.6510416666666666vw 1.5625vw;
-    color: rgb(89, 89, 89);
-    font-size: 14px;
-    font-family: Lato, arial, sans-serif;
-
+    padding: .6510416666666666vw 1.5625vw;
+    color: #595959;
+    font-size: 0.9114583333333334vw;
+    font-family: Lato, arial, sans-serif
 }
 
 .findoutmore_1 {
     text-decoration: none;
     font-family: Lato, arial, sans-serif;
-    font-size: 16px;
+    font-size: 1.0416666666666667vw;
     border-style: solid;
-    border-width: 0 0 1px 0;
+    border-width: 0 0 0.06510416666666667vw 0;
     font-weight: 700;
     margin: 0 0 0 1.5625vw;
-    padding-bottom: 5px;
+    padding-bottom: 0.32552083333333337vw;
     color: rgb(152 129 39);
-    letter-spacing: 2px;
-    transition: all 0.5s;
+    letter-spacing: 0.13020833333333334vw;
+    transition: all .5s
 }
 
 .findoutmore_1:hover {
-    letter-spacing: 4px;
+    letter-spacing: 0.2604166666666667vw
 }
 
 .findoutmore_arrow {
-    font-size: 16px;
-    padding: 0 0 0.3255208333333333vw 0.6510416666666666vw;
-    color: rgb(152 129 39);
+    font-size: 1.0416666666666667vw;
+    padding: 0 0 .3255208333333333vw .6510416666666666vw;
+    color: rgb(152 129 39)
 }
 
 .x {
-    width: 100%;
+    width: 100%
 }
-
-/* current blogs */
 
 .main_box_blog {
     width: 80.20833333333333vw;
     margin: 0 auto;
     height: 100%;
     padding-top: 5vh;
-    padding-bottom: 10vh;
+    padding-bottom: 10vh
 }
 
 .data_flex {
     padding-top: 10vh;
     margin: 0 auto;
-    width: 55%;
-
-
+    width: 55%
 }
 
-
-
-
 .currentpost_title {
-    font-size: 32px;
+    font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    color: rgb(27, 27, 27);
-    letter-spacing: 1px;
-
+    color: #1b1b1b;
+    letter-spacing: 0.06510416666666667vw
 }
 
 .currentpost_date {
-    font-size: 14px;
+    font-size: 0.9114583333333334vw;
     font-family: Lato, arial, sans-serif;
-    color: rgb(89, 89, 89);
-
+    color: #595959
 }
 
 .currentpost_image {
-    width: 100%;
+    width: 100%
 }
 
 .currentpost_data {
-    color: rgb(94, 94, 94);
-    font-size: 16px;
-    letter-spacing: 0.5px;
+    color: #5e5e5e;
+    font-size: 1.0416666666666667vw;
+    letter-spacing: 0.032552083333333336vw;
     font-family: Lato, arial, sans-serif;
-    padding-top: 10vh;
-
+    padding-top: 10vh
 }
 
-
-
-/* register.ejs */
 .main_box_2 {
-    width: 500px;
+    width: 32.552083333333336vw;
     margin: 0 auto;
     padding-top: 15vh;
-    padding-bottom: 10vh;
-
+    padding-bottom: 10vh
 }
 
 .namefield_all {
-    font-size: 30px;
+    font-size: 1.9531250000000002vw;
     font-family: Lato, arial, sans-serif;
-    letter-spacing: 1px;
-    font-weight: 100;
+    letter-spacing: 0.06510416666666667vw;
+    font-weight: 100
 }
 
 .btn-register-login {
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: black;
-    background-color: #D4B435;
+    color: #000;
+    background-color: #d4b435;
     text-decoration: none;
-    border-color: #D4B435;
+    border-color: #d4b435;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.06510416666666667vw;
     margin-left: 0;
-    margin-top: 50px;
-    padding: 0.9765625vw;
-    transition: all 0.25s
+    margin-top: 3.2552083333333335vw;
+    padding: .9765625vw;
+    transition: all .25s
 }
 
 .btn-register-login:hover {
-    box-shadow: rgb(187 187 187) 0px 0px 28px 0px;
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
     background-color: rgb(220 189 66);
-    color: rgb(21, 21, 21);
-    border-color: rgb(220 189 66);
+    color: #151515;
+    border-color: rgb(220 189 66)
 }
 
 .login_with_google {
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: white;
-    background-color: #D54836;
+    color: #fff;
+    background-color: #d54836;
     text-decoration: none;
-    border-color: #D54836;
+    border-color: #d54836;
     border-style: solid;
-    border-width: 1px;
-    margin-left: 50px;
-    margin-top: 100px;
-    padding: 0.9765625vw;
-    transition: all 0.5s
+    border-width: 0.06510416666666667vw;
+    margin-left: 3.2552083333333335vw;
+    margin-top: 6.510416666666667vw;
+    padding: .9765625vw;
+    transition: all .5s
 }
 
 .login_with_google:hover {
-    box-shadow: rgb(187 187 187) 0px 0px 28px 0px;
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
     background-color: #e65745;
-    color: white;
-    border-color: #e65745;
+    color: #fff;
+    border-color: #e65745
 }
+

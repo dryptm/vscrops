@@ -16,7 +16,7 @@
       <p id="total_price">
         Total Price : ₹ <%=(found.product_price-((found.product_price*found.product_discount)/100))%>
       </p>
-      <form action="/add_to_cart" style="margin:0; width: inherit;" method="POST">
+      <form action="/add_to_cart/<%= id %>" style="margin:0; width: inherit;" method="POST">
 
         <button type="submit" class="btn-add-to-cart">ADD TO CART</button>
         <input type="number" id="tot_price" style="visibility: collapse;"
