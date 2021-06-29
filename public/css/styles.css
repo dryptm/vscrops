@@ -7,7 +7,7 @@ body {
     text-align: center;
     font-size: .9114583333333334vw;
     margin: 0;
-    padding: 0.2604166666666667vw 0;
+    padding: .2604166666666667vw 0;
     background-color: #d4b435;
     font-family: Lato, arial, sans-serif;
     font-weight: 400
@@ -16,8 +16,8 @@ body {
 .banner-p {
     margin: 0;
     color: #161616;
-    letter-spacing: 0.13020833333333334vw;
-    padding-top: 0.09765625vw
+    letter-spacing: .13020833333333334vw;
+    padding-top: .09765625vw
 }
 
 .header-block {
@@ -46,9 +46,9 @@ body {
     font-family: Lato, arial, sans-serif;
     text-decoration: none;
     margin: 0 1.0416666666666667vw;
-    padding: 0.1953125vw;
+    padding: .1953125vw;
     font-size: .9114583333333334vw;
-    letter-spacing: 0.11393229166666667vw;
+    letter-spacing: .11393229166666667vw;
     color: #575757
 }
 
@@ -83,15 +83,15 @@ body {
 .toc {
     color: #8a7522;
     text-decoration: none;
-    padding: 0 0.32552083333333337vw;
-    letter-spacing: 0.06510416666666667vw
+    padding: 0 .32552083333333337vw;
+    letter-spacing: .06510416666666667vw
 }
 
 .pp {
     color: #8a7522;
     text-decoration: none;
-    padding: 0 0.32552083333333337vw;
-    letter-spacing: 0.06510416666666667vw
+    padding: 0 .32552083333333337vw;
+    letter-spacing: .06510416666666667vw
 }
 
 .share-logo {
@@ -105,11 +105,11 @@ body {
 }
 
 .icons {
-    padding: 0.6510416666666667vw
+    padding: .6510416666666667vw
 }
 
 .website {
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     letter-spacing: .083em;
     color: #1b1b1b;
     font-family: Lato, arial, sans-serif;
@@ -118,16 +118,16 @@ body {
 }
 
 .place {
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     letter-spacing: .083em;
     color: #1b1b1b;
-    padding: 0.6510416666666667vw;
+    padding: .6510416666666667vw;
     font-family: Lato, arial, sans-serif;
     text-align: center
 }
 
 .phone-number {
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     letter-spacing: .083em;
     font-family: Lato, arial, sans-serif;
     text-align: center;
@@ -142,33 +142,33 @@ body {
 .copyright {
     margin: 0 12.994791666666666vw;
     padding: 0 1.5625vw;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     font-family: Lato, arial, sans-serif;
     color: #595959;
-    font-size: 0.9114583333333334vw
+    font-size: .9114583333333334vw
 }
 
 .trademark {
     margin: 0 12.994791666666666vw;
     padding: 0 1.5625vw;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     font-family: Lato, arial, sans-serif;
     color: #595959;
-    font-size: 0.9114583333333334vw
+    font-size: .9114583333333334vw
 }
 
 .connect {
     margin: 0 12.994791666666666vw;
     padding: 0 1.5625vw;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     color: #595959;
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif
 }
 
 .head_divider {
     background-color: #b49b35;
-    height: 0.06510416666666667vw;
+    height: .06510416666666667vw;
     opacity: 30%;
     display: flex;
     width: 80.20833333333333vw;
@@ -183,7 +183,7 @@ body {
     right: 9.114583333333334vw;
     top: 7.8125vw;
     z-index: 2;
-    box-shadow: rgb(187 187 187) 0 0 0.5208333333333334vw 0;
+    box-shadow: rgb(187 187 187) 0 0 .5208333333333334vw 0;
     opacity: 0;
     transition: all .25s
 }
@@ -205,7 +205,7 @@ body {
     font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
     color: #8a7522;
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     font-weight: 400
 }
 
@@ -224,7 +224,7 @@ body {
     color: #5e5e5e;
     font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
-    letter-spacing: 0.032552083333333336vw
+    letter-spacing: .032552083333333336vw
 }
 
 .img-launching {
@@ -248,7 +248,7 @@ body {
 
 .p_welcome {
     text-align: center;
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
     color: #85701c;
@@ -275,7 +275,7 @@ body {
     margin-top: 9.765625vw;
     text-decoration: none;
     border-style: solid;
-    border-width: 0.06510416666666667vw;
+    border-width: .06510416666666667vw;
     padding: .9765625vw;
     margin: 6.966145833333333vw;
     transition: all .5s
@@ -314,28 +314,28 @@ body {
     font-family: Lato, arial, sans-serif;
     font-size: 1.0416666666666667vw;
     border-style: solid;
-    border-width: 0 0 0.06510416666666667vw 0;
+    border-width: 0 0 .06510416666666667vw 0;
     font-weight: 700;
-    padding: 0 0 0.32552083333333337vw 0;
+    padding: 0 0 .32552083333333337vw 0;
     color: rgb(152 129 39);
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     transition: all .5s
 }
 
 .findoutmore:hover {
-    letter-spacing: 0.2604166666666667vw
+    letter-spacing: .2604166666666667vw
 }
 
 .findoutmore_arrow {
     font-size: 1.0416666666666667vw;
-    padding: 0 0 0.32552083333333337vw 0.6510416666666667vw;
+    padding: 0 0 .32552083333333337vw .6510416666666667vw;
     color: rgb(152 129 39)
 }
 
 .productsontheway {
     font-size: 2.799479166666667vw;
     font-family: Cabin, arial, sans-serif;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     color: #ad9226;
     margin-left: 9.348958333333334vw
 }
@@ -397,7 +397,7 @@ body {
     color: #1b1b1b;
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     width: 70%
 }
 
@@ -405,12 +405,12 @@ body {
     width: 100%;
     font-size: 1.0416666666666667vw;
     margin-top: 1.5625vw;
-    padding: 0 0.9765625000000001vw;
+    padding: 0 .9765625000000001vw;
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
     height: 3.2552083333333335vw;
     border-style: solid;
-    border-width: 0 0 0.06510416666666667vw 0
+    border-width: 0 0 .06510416666666667vw 0
 }
 
 .a_launch_product_1 {
@@ -423,7 +423,7 @@ body {
     margin-top: 9.765625vw;
     text-decoration: none;
     border-style: solid;
-    border-width: 0.06510416666666667vw;
+    border-width: .06510416666666667vw;
     padding: .9765625vw;
     margin: 6.966145833333333vw;
     transition: all .5s;
@@ -450,7 +450,7 @@ body {
     font-family: Cabin, arial, sans-serif;
     font-weight: 700;
     color: #ad9226;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     margin: 0
 }
 
@@ -488,7 +488,7 @@ body {
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
     font-weight: 700;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     color: #ad9226;
     margin: 0
 }
@@ -504,7 +504,7 @@ body {
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
     font-weight: 700;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     color: #ad9226;
     margin: 0;
     padding-top: 4.557291666666667vw
@@ -571,12 +571,12 @@ body {
     width: 10%;
     font-size: 1.0416666666666667vw;
     margin-top: 1.5625vw;
-    padding: 0 0.9765625000000001vw;
+    padding: 0 .9765625000000001vw;
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
     height: 3.2552083333333335vw;
     border-style: solid;
-    border-width: 0 0 0.06510416666666667vw 0
+    border-width: 0 0 .06510416666666667vw 0
 }
 
 .btn-add-to-cart {
@@ -591,7 +591,7 @@ body {
     text-decoration: none;
     border-color: #d4b435;
     border-style: solid;
-    border-width: 0.06510416666666667vw;
+    border-width: .06510416666666667vw;
     margin-left: 0;
     padding: .9765625vw;
     transition: all .25s
@@ -631,7 +631,7 @@ body {
     font-family: Cabin, arial, sans-serif;
     color: #1b1b1b;
     margin-top: 0;
-    letter-spacing: 0.06510416666666667vw
+    letter-spacing: .06510416666666667vw
 }
 
 .product_i_details_price {
@@ -642,7 +642,7 @@ body {
 
 .product_i_details_discount {
     font-family: Lato, arial, sans-serif;
-    font-size: 0.9765625000000001vw;
+    font-size: .9765625000000001vw;
     opacity: .5;
     color: rgb(0 0 0)
 }
@@ -660,7 +660,7 @@ body {
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
     font-weight: 700;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     color: #ad9226;
     margin: 0;
     padding-top: 4.557291666666667vw
@@ -697,7 +697,7 @@ body {
 
 .whatsapp {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     margin: 0 auto;
     margin-top: 1.9531250000000002vw;
     text-decoration: none;
@@ -706,7 +706,7 @@ body {
     font-weight: 700;
     color: #fff;
     background-color: #35bc48;
-    border-radius: 0.32552083333333337vw
+    border-radius: .32552083333333337vw
 }
 
 .whatsapp:hover {
@@ -736,28 +736,28 @@ body {
     height: 35.807291666666664vw;
     width: 45%;
     border-style: solid;
-    border-width: 0.06510416666666667vw;
+    border-width: .06510416666666667vw;
     border-color: rgb(217 217 217);
     transition: all .25s;
     position: relative
 }
 
 .blog_left:hover {
-    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw -0.1953125vw
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw -.1953125vw
 }
 
 .blog_right {
     height: 35.807291666666664vw;
     width: 45%;
     border-style: solid;
-    border-width: 0.06510416666666667vw;
+    border-width: .06510416666666667vw;
     border-color: rgb(217 217 217);
     transition: all .25s;
     position: relative
 }
 
 .blog_right:hover {
-    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw -0.1953125vw
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw -.1953125vw
 }
 
 .blog_center {
@@ -766,14 +766,14 @@ body {
     display: block;
     margin: 0 auto;
     border-style: solid;
-    border-width: 0.06510416666666667vw;
+    border-width: .06510416666666667vw;
     border-color: rgb(217 217 217);
     transition: all .25s;
     position: relative
 }
 
 .blog_center:hover {
-    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw -0.1953125vw
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw -.1953125vw
 }
 
 .blogimg {
@@ -795,7 +795,7 @@ body {
 .blogdate {
     padding: .6510416666666666vw 1.5625vw;
     color: #595959;
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif
 }
 
@@ -804,17 +804,17 @@ body {
     font-family: Lato, arial, sans-serif;
     font-size: 1.0416666666666667vw;
     border-style: solid;
-    border-width: 0 0 0.06510416666666667vw 0;
+    border-width: 0 0 .06510416666666667vw 0;
     font-weight: 700;
     margin: 0 0 0 1.5625vw;
-    padding-bottom: 0.32552083333333337vw;
+    padding-bottom: .32552083333333337vw;
     color: rgb(152 129 39);
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     transition: all .5s
 }
 
 .findoutmore_1:hover {
-    letter-spacing: 0.2604166666666667vw
+    letter-spacing: .2604166666666667vw
 }
 
 .findoutmore_arrow {
@@ -845,11 +845,11 @@ body {
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
     color: #1b1b1b;
-    letter-spacing: 0.06510416666666667vw
+    letter-spacing: .06510416666666667vw
 }
 
 .currentpost_date {
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif;
     color: #595959
 }
@@ -861,7 +861,7 @@ body {
 .currentpost_data {
     color: #5e5e5e;
     font-size: 1.0416666666666667vw;
-    letter-spacing: 0.032552083333333336vw;
+    letter-spacing: .032552083333333336vw;
     font-family: Lato, arial, sans-serif;
     padding-top: 10vh
 }
@@ -876,7 +876,7 @@ body {
 .namefield_all {
     font-size: 1.9531250000000002vw;
     font-family: Lato, arial, sans-serif;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     font-weight: 100
 }
 
@@ -890,7 +890,7 @@ body {
     text-decoration: none;
     border-color: #d4b435;
     border-style: solid;
-    border-width: 0.06510416666666667vw;
+    border-width: .06510416666666667vw;
     margin-left: 0;
     margin-top: 3.2552083333333335vw;
     padding: .9765625vw;
@@ -914,7 +914,7 @@ body {
     text-decoration: none;
     border-color: #d54836;
     border-style: solid;
-    border-width: 0.06510416666666667vw;
+    border-width: .06510416666666667vw;
     margin-left: 3.2552083333333335vw;
     margin-top: 6.510416666666667vw;
     padding: .9765625vw;
@@ -928,3 +928,95 @@ body {
     border-color: #e65745
 }
 
+.cart_box_head {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    height: 1.9531250000000002vw;
+    border-style: solid;
+    border-width: 0.1953125vw;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: #e4e4e4
+}
+
+.head_cart_margs {
+    margin: 0 6.380208333333334vw;
+    font-size: 0.9114583333333334vw;
+    font-family: Lato, arial, sans-serif;
+    color: #595959;
+    letter-spacing: 0.06510416666666667vw
+}
+
+.cart_box {
+    width: 80%;
+    margin: 0 auto;
+    height: 6.510416666666667vw;
+    border-style: solid;
+    border-width: 0.13020833333333334vw;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: #e4e4e4;
+    display: flex;
+    flex-direction: row
+}
+
+.cart_box_img {
+    height: 5.208333333333334vw;
+    margin: 0.6510416666666667vw
+}
+
+.cart_obj_name {
+    margin: 2.604166666666667vw 0 0 0;
+    color: #454545;
+    font-family: Lato, arial, sans-serif;
+    letter-spacing: 0.06510416666666667vw;
+    font-weight: 800
+}
+
+.cart_obj_price {
+    margin: 2.604166666666667vw 9.765625vw 0 0;
+    font-size: 0.9114583333333334vw;
+    font-family: Lato, arial, sans-serif;
+    color: #8a7522;
+    letter-spacing: 0.06510416666666667vw
+}
+
+.cart_obj_input {
+    margin: 0 2.2786458333333335vw;
+    font-size: 0.9114583333333334vw;
+    font-family: Lato, arial, sans-serif;
+    color: #8a7522;
+    letter-spacing: 0.06510416666666667vw
+}
+
+.mailinput_width {
+    width: 25%;
+    font-size: 1.0416666666666667vw;
+    margin-top: 1.5625vw;
+    padding: 0 .9765625000000001vw;
+    font-family: Lato, arial, sans-serif;
+    color: #5e5e5e;
+    height: 3.2552083333333335vw;
+    border-style: solid;
+    border-width: 0 0 .06510416666666667vw 0
+}
+
+.xxxxxxx {
+    margin-left: 1.3020833333333335vw;
+    font-family: Lato, arial, sans-serif;
+    text-decoration: none;
+    color: #6c6c6c
+}
+
+.cart_total_price {
+    margin: 0;
+    margin-top: 2.604166666666667vw;
+    font-size: 0.9114583333333334vw;
+    font-family: Lato, arial, sans-serif;
+    color: #8a7522;
+    letter-spacing: 0.06510416666666667vw
+}

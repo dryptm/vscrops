@@ -1,4 +1,58 @@
 <%- include('head-foot/header'); -%>
+<div class="main_box">
+    <h3 class="tnm">Continue shopping</h3>
+    <div class="cart_box_head">
+        <div style="flex: 1;"></div>
+        <p class="head_cart_margs">Price</p>
+        <p class="head_cart_margs">Quantity</p>
+        <p class="head_cart_margs" style="margin-right: 0;">Total</p>
+    </div>
+    <%for(var i=0;i<cart.length;i++){%>
 
+    <div class="cart_box">
+        <img class="cart_box_img" src="<%=cart[i].product_image%>" alt="">
+        <p class="cart_obj_name"><%=cart[i].name%></p>
+        <div style="flex: 1;"></div>
+        <p class="cart_obj_price" id="price">₹ <%=cart[i].total_price%></p>
+        <div class="cart_obj_input">
+            <input class="mailinput_width" type="number" oninput="myfun()" id="number_of_items1" value="<%=cart[i].quantity%>" />
+            <a class="xxxxxxx" href="">X</a>
+        </div>
+        <p class="cart_total_price" id="total_price1" style="margin-right: 0;">₹ <%=(cart[i].total_price*cart[i].quantity)%></p>
+
+    </div>
+    <%}%>
+
+
+
+</div>
+
+
+
+<script>
+    function myfun() {
+  
+      var inp = document.getElementById("price").innerHTML.split(" ");
+      var price = Number(inp[inp.length-1]);
+      var num = document.getElementById("number_of_items1").value
+      if (num > 999) {
+        document.getElementById("number_of_items1").value = 999
+      }
+      if (num < 1) {
+        document.getElementById("number_of_items1").value = 1
+      }
+      if (num.length === 0) {
+        document.getElementById("total_price1").innerHTML = "₹ "+(document.getElementById("number_of_items1").value*price)
+        
+      } 
+      else if (num.length >=4) {
+        document.getElementById("total_price1").innerHTML = "₹ "+(999*price)
+      }
+      else if (num * price !== NaN && num * price !== 0) {
+        document.getElementById("total_price1").innerHTML ="₹ "+ (num * price).toString()
+        
+      }
+    }
+  </script>
 
 <%- include('head-foot/footer'); -%>

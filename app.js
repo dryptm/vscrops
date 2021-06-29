@@ -7,6 +7,7 @@ const passport = require('passport')
 const mongoose = require("mongoose");
 const User = require('./models/users');
 const Product = require('./models/products');
+const coupon=require("./models/coupons");
 const mailinglist = require('./models/mailinglist');
 function makeid(length) {
   var result           = '';
@@ -180,7 +181,6 @@ app.get("/products", function (req, res) {
 
 
 })
-
 app.get("/products/:np", function (req, res) {
 
 
@@ -253,7 +253,7 @@ app.post('/add_to_cart/:id', (rq, rs) => {
           if (err) {
             console.log(err)
           } else {
-            ///*********AFTER CART UPDATE********* */
+            ///****AFTER CART UPDATE**** */
           
             rs.redirect('/cart')
           }
@@ -598,7 +598,7 @@ app.get("/blog/:np", function (req, res) {
 
   } else {
     Blog.findOne({
-      _id: n_p
+      _id: req.params.np
     }, function (err, post) {
 
       if (post) {
