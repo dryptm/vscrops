@@ -18,7 +18,7 @@ module.exports = function (passport) {
   passport.use(new GoogleStrategy({
       clientID: process.env.CLIENT_ID_GOOGLE,
       clientSecret: process.env.CLIENT_SECRET_GOOGLE,
-      callbackURL: "https://vscrop.herokuapp.com/auth/google/google_login",
+      callbackURL: "http://localhost:3000/auth/google/google_login",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
     },
     function (accessToken, refreshToken, profile, cb) {
