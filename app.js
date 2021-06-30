@@ -587,8 +587,8 @@ app.get("/blog/:np", function (req, res) {
             img: post.image_link,
             data: post.blog_data.split("<br>"),
             isLoggedin: "yes",
-            name: found1.name
-
+            name: found1.name,
+            idd_:post._id
           });
         }
 
