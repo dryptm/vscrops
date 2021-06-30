@@ -588,7 +588,7 @@ app.get("/blog/:np", function (req, res) {
             data: post.blog_data.split("<br>"),
             isLoggedin: "yes",
             name: found1.name,
-            idd_:n_p
+            iddx:post._id
           });
         }
 
@@ -608,8 +608,8 @@ app.get("/blog/:np", function (req, res) {
           date: post.date,
           img: post.image_link,
           data: post.blog_data.split("<br>"),
-          isLoggedin: "no"
-
+          isLoggedin: "no",
+          iddx:post._id
         });
       }
 

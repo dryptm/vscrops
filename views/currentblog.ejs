@@ -8,15 +8,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>VishuddhaCrops</title>
+    <title><%=title%></title>
     <meta name="author" content="www.vishuddhacrops.com">
 
     <meta name="description" content="">
 
-    <meta property="og:url" content="vinay-1210.web.app" />
+    <meta property="og:url" content="https://vscrop.herokuapp.com/blog/<%=iddx%>" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Your Website Title" />
-    <meta property="og:description" content="Your description" />
+    <meta property="og:title" content="<%=title%>" />
+    <meta property="og:description" content="" />
     <meta property="og:image" content="<%=img%>" />
 
 
@@ -152,21 +152,11 @@
 
 
     <div id="fb-root"></div>
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+
 
     <!-- Your share button code -->
-    <div class="fb-share-button" data-href="https://vscrop.herokuapp.com/" data-layout="button_count">
+    <div class="fb-share-button" data-href="https://vscrop.herokuapp.com/blog/<%=iddx%>" data-layout="button_count">
     </div>
-
 
     <%- include('head-foot/footer'); -%>
 
@@ -179,4 +169,16 @@
         document.getElementById("blog").style.borderBottom = "2px solid rgb(212, 180, 53)";
         document.getElementById("blog").style.paddingBottom = "5px";
         document.getElementById("blog").style.boxShadow = "0px 5px 5px #e8e8e8";
+
+
+
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
