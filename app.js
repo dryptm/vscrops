@@ -9,16 +9,16 @@ const User = require('./models/users');
 const Product = require('./models/products');
 const coupon=require("./models/coupons");
 const mailinglist = require('./models/mailinglist');
-function makeid(length) {
-  var result           = '';
-  var characters       = 'abcdefghijklmnopqrstuvwxyz123456789';
-  var charactersLength = characters.length;
-  for ( var i = 0; i < length; i++ ) {
-    result += characters.charAt(Math.floor(Math.random() * 
-charactersLength));
- }
- return result;
-}
+// function makeid(length) {
+//   var result           = '';
+//   var characters       = 'abcdefghijklmnopqrstuvwxyz123456789';
+//   var charactersLength = characters.length;
+//   for ( var i = 0; i < length; i++ ) {
+//     result += characters.charAt(Math.floor(Math.random() * 
+// charactersLength));
+//  }
+//  return result;
+// }
 
 const {
   ensureAuth
