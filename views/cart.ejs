@@ -7,18 +7,19 @@
         <p class="head_cart_margs">Quantity</p>
         <p class="head_cart_margs" style="margin-right: 0;">Total</p>
     </div>
+<input type="text" id="length" style="visibility: collapse;" value="<%= cart.length %> ">
     <%for(var i=0;i<cart.length;i++){%>
 
     <div class="cart_box">
         <img class="cart_box_img" src="<%=cart[i].product_image%>" alt="">
         <p class="cart_obj_name"><%=cart[i].name%></p>
         <div style="flex: 1;"></div>
-        <p class="cart_obj_price" id="price">₹ <%=cart[i].total_price%></p>
+        <p class="cart_obj_price" id="price<%=i%>">₹ <%=(cart[i].total_price/cart[i].quantity)%></p>
         <div class="cart_obj_input">
-            <input class="mailinput_width" type="number" oninput="myfun()" id="number_of_items1" value="<%=cart[i].quantity%>" />
+            <input class="mailinput_width" type="number" id="number_of_items<%=i%>" value="<%=cart[i].quantity%>" />
             <a class="xxxxxxx" href="">X</a>
         </div>
-        <p class="cart_total_price" id="total_price1" style="margin-right: 0;">₹ <%=(cart[i].total_price*cart[i].quantity)%></p>
+        <p class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%></p>
 
     </div>
     <%}%>
@@ -30,29 +31,42 @@
 
 
 <script>
-    function myfun() {
-  
-      var inp = document.getElementById("price").innerHTML.split(" ");
+     for(let i = 0;i<(Number(document.getElementById('length').value));++i){
+      document.getElementById('number_of_items'+i).addEventListener("input",()=>{
+
+        var inp = document.getElementById("price"+i).innerHTML.split(" ");
       var price = Number(inp[inp.length-1]);
-      var num = document.getElementById("number_of_items1").value
+      var num = document.getElementById("number_of_items"+i).value
       if (num > 999) {
-        document.getElementById("number_of_items1").value = 999
+        document.getElementById("number_of_items"+i).value = 999
       }
       if (num < 1) {
-        document.getElementById("number_of_items1").value = 1
+        document.getElementById("number_of_items"+i).value = 1
       }
       if (num.length === 0) {
-        document.getElementById("total_price1").innerHTML = "₹ "+(document.getElementById("number_of_items1").value*price)
+        document.getElementById("total_price"+i).innerHTML = "₹ "+(document.getElementById("number_of_items"+i).value*price)
         
       } 
       else if (num.length >=4) {
-        document.getElementById("total_price1").innerHTML = "₹ "+(999*price)
+        document.getElementById("total_price"+i).innerHTML = "₹ "+(999*price)
       }
       else if (num * price !== NaN && num * price !== 0) {
-        document.getElementById("total_price1").innerHTML ="₹ "+ (num * price).toString()
+        document.getElementById("total_price"+i).innerHTML ="₹ "+ (num * price).toString()
         
       }
-    }
-  </script>
+
+
+      })
+    
+    
+    
+    
+    
+      
+
+
+     }
+     
+</script>
 
 <%- include('head-foot/footer'); -%>
