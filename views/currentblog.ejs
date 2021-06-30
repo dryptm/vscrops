@@ -1,191 +1,39 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<%- include('head-foot/header'); -%>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><%=title%></title>
-    <meta name="author" content="www.vishuddhacrops.com">
-
-    <meta name="description" content="">
-
-    <meta property="og:url" content="https://vscrop.herokuapp.com/blog/<%=iddx%>" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="<%=title%>" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="<%=img%>" />
+<div class="main_box_blog">
+    <a class="findoutmore" href="/blog"><i class="fas fa-caret-left"></i> All Posts</a>
+    <div class="data_flex">
+        <div class="data_box">
+            <h3 class="currentpost_title"><%= title %></h3>
+            <p class="currentpost_date"><%= date %></p>
+            <img class="currentpost_image" src="<%=img%>" alt="">
 
 
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <div role="banner" data-ux="PromoBanner" data-aid="BANNER_RENDERED" categoryoverride="accent" class="banner">
-        <p data-ux="PromoBannerText" data-aid="BANNER_TEXT_RENDERED" data-typography="HeadingBeta" class="banner-p">
-            THE PURE LIFE</p>
-    </div>
-    <div class="header-block">
-        <div class="header-block-container">
-            <ul class="ul-continer">
-                <div class="li-div">
-                    <li><a id="home" class="li-container" href="/home">HOME</a></li>
-                    <li><a id="products" class="li-container" href="/products">PRODUCTS</a></li>
-                    <li><a id="ourstory" class="li-container" href="/ourstory">OUR STORY</a></li>
-                    <li><a id="foundersnote" class="li-container" href="/foundersnote">FOUNDER'S NOTE</a></li>
-                    <li><a id="blog" class="li-container" href="/blog">BLOG</a></li>
-                    <li><a id="contactus" class="li-container" href="/contactus">CONTACT US</a></li>
-                </div>
-            </ul>
-            <div class="search-cart-user">
-                <a href="" class="vs-header-icons"><i class="fas fa-search "></i></a>
-                <a href="/cart" class="vs-header-icons"><i class="fas fa-shopping-cart "></i></a>
-                <a onclick="dropdownclick_1()" class="vs-header-icons"><i class="fas fa-user "></i></a>
+            <div class="currentpost_data">
+                <% for(var i=0;i<data.length;i++){%>
+                <p><%=data[i]%></p>
+                <%} %>
             </div>
         </div>
-        <div class="head_divider"></div>
-
-    </div>
-    <div id="user_dropdown_1" class="user_dropdown" style="visibility: collapse;">
-        <% if(isLoggedin==="yes") {%>
-        <div class="user_d_box">
-            <p class="user_d_box_content"><%= name %> </p>
-        </div>
-        <div class="user_d_box">
-            <p class="user_d_box_content"><a href="/orders" onclick="dropdownclick()"
-                    style="color: inherit;text-decoration: none;">Orders</a></p>
-        </div>
-        <div class="user_d_box">
-            <p class="user_d_box_content"><a href="/logout" onclick="dropdownclick()"
-                    style="color: inherit;text-decoration: none;">Logout</a></p>
-        </div>
-
-        <% } %>
-        <% if(isLoggedin==="no") {%>
-        <div class="user_d_box">
-            <p class="user_d_box_content"><a href="/login" onclick="dropdownclick()"
-                    style="color: inherit;text-decoration: none;">Login</a></p>
-        </div>
-        <div class="user_d_box">
-            <p class="user_d_box_content"><a href="/register" onclick="dropdownclick()"
-                    style="color: inherit;text-decoration: none;">SignUp</a></p>
-        </div>
-
-        <% } %>
-    </div>
-
-    <script>
-        function dropdownclick() {
-            document.getElementById("user_dropdown_1").style.visibility = "collapse";
-        }
-        var userclick = 0;
-
-        function dropdownclick_1() {
-            if (userclick == 0) {
-                document.getElementById("user_dropdown_1").style.opacity = 1;
-                document.getElementById("user_dropdown_1").style.visibility = "visible";
-                userclick++;
-            } else {
-                document.getElementById("user_dropdown_1").style.opacity = 0;
-                document.getElementById("user_dropdown_1").style.visibility = "collapse";
-                userclick--;
-            }
-        }
-
-
-        document.body.addEventListener("click", function (evt) {
-            console.dir(this);
-            console.log(evt.target.tagName)
-            if (evt.target.tagName != "I") {
-                document.getElementById("user_dropdown_1").style.opacity = 0;
-                document.getElementById("user_dropdown_1").style.visibility = "collapse";
-                userclick = 0;
-            }
-        });
-    </script>
-
-
-
-
-
-
-
-
-
-
-    <div class="main_box_blog">
-        <a class="findoutmore" href="/blog"><i class="fas fa-caret-left"></i> All Posts</a>
-        <div class="data_flex">
-            <div class="data_box">
-                <h3 class="currentpost_title"><%= title %></h3>
-                <p class="currentpost_date"><%= date %></p>
-                <img class="currentpost_image" src="<%=img%>" alt="">
-
-
-
-
-                <div class="currentpost_data">
-                    <% for(var i=0;i<data.length;i++){%>
-                    <p><%=data[i]%></p>
-                    <%} %>
-                </div>
-            </div>
-        </div>
+        <br>
+        <br>
 
     </div>
 
+</div>
 
 
-
-
-
-    <div id="fb-root"></div>
-
-
-    <!-- Your share button code -->
-    <div class="fb-share-button" data-href="https://vscrop.herokuapp.com/blog/<%=iddx%>" data-layout="button_count">
-    </div>
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-        data-show-count="false">Tweet</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-
-
-
-    <%- include('head-foot/footer'); -%>
+<%- include('head-foot/footer'); -%>
 
 
 
 
 
 
-    <script>
-        document.getElementById("blog").style.borderBottom = "2px solid rgb(212, 180, 53)";
-        document.getElementById("blog").style.paddingBottom = "5px";
-        document.getElementById("blog").style.boxShadow = "0px 5px 5px #e8e8e8";
-
-
-
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+<script>
+    document.getElementById("blog").style.borderBottom = "2px solid rgb(212, 180, 53)";
+    document.getElementById("blog").style.paddingBottom = "5px";
+    document.getElementById("blog").style.boxShadow = "0px 5px 5px #e8e8e8";
+</script>
