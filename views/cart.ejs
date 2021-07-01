@@ -1,29 +1,29 @@
 <%- include('head-foot/header'); -%>
 <div class="main_box">
-    <h3 class="tnm">Continue shopping</h3>
-    <div class="cart_box_head">
-        <div style="flex: 1;"></div>
-        <p class="head_cart_margs">Price</p>
-        <p class="head_cart_margs">Quantity</p>
-        <p class="head_cart_margs" style="margin-right: 0;">Total</p>
+  <h3 class="tnm">Continue shopping</h3>
+  <div class="cart_box_head">
+    <div style="flex: 1;"></div>
+    <p class="head_cart_margs">Price</p>
+    <p class="head_cart_margs">Quantity</p>
+    <p class="head_cart_margs" style="margin-right: 0;">Total</p>
+  </div>
+  <input type="text" id="length" style="visibility: collapse;" value="<%= cart.length %> ">
+
+  <%for(var i=0;i<cart.length;i++){%>
+
+  <div class="cart_box">
+    <img class="cart_box_img" src="<%=cart[i].product_image%>" alt="">
+    <p class="cart_obj_name"><%=cart[i].name%></p>
+    <div style="flex: 1;"></div>
+    <p class="cart_obj_price" id="price<%=i%>">₹ <%=(cart[i].total_price/cart[i].quantity)%></p>
+    <div class="cart_obj_input">
+      <input class="mailinput_width" type="number" id="number_of_items<%=i%>" value="<%=cart[i].quantity%>" />
+      <a class="xxxxxxx" href="">X</a>
     </div>
-<input type="text" id="length" style="visibility: collapse;" value="<%= cart.length %> ">
-    <%for(var i=0;i<cart.length;i++){%>
-
-    <div class="cart_box">
-        <img class="cart_box_img" src="<%=cart[i].product_image%>" alt="">
-        <p class="cart_obj_name"><%=cart[i].name%></p>
-        <div style="flex: 1;"></div>
-        <p class="cart_obj_price" id="price<%=i%>">₹ <%=(cart[i].total_price/cart[i].quantity)%></p>
-        <div class="cart_obj_input">
-            <input class="mailinput_width" type="number" id="number_of_items<%=i%>" value="<%=cart[i].quantity%>" />
-            <a class="xxxxxxx" href="">X</a>
-        </div>
-        <p class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%></p>
-
-    </div>
-    <%}%>
-
+    <p class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%></p>
+  </div>
+  <%}%>
+<h4 class="total_all_cart_price" id="total_all_cart_price"></h4>
 
 
 </div>
@@ -31,6 +31,7 @@
 
 
 <script>
+  // var t=0;
      for(let i = 0;i<(Number(document.getElementById('length').value));++i){
       document.getElementById('number_of_items'+i).addEventListener("input",()=>{
 
@@ -55,17 +56,15 @@
         
       }
 
-
       })
-    
-    
-    
-    
-    
-      
+
+      // t=t+(num * price);
 
 
      }
+
+
+    //  document.getElementById("total_all_cart_price").innerHTML="Total Price to be paid: "+String(t);
      
 </script>
 

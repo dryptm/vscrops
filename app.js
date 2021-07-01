@@ -719,6 +719,22 @@ app.get('/cart', (req, res) => {
   } else res.render("needloginfirst",{isLoggedin:"no"})
 })
 
+app.get('/payment', (req, res) => {
+  if (req.isAuthenticated()) {
+    User.findOne({
+     _id: req.user._id
+    }, (err, found1) => {
+      res.render("payment", {
+        isLoggedin: (req.isAuthenticated() ? "yes" : "no")
+      })
+
+    })
+  } else res.render("needloginfirst",{isLoggedin:"no"})
+})
+
+
+
+
 app.get("/termsandcondition", function (req, res) {
   if (req.isAuthenticated()) {
     User.findOne({
