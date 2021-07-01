@@ -12,7 +12,7 @@
     <%for(var i=0;i<orders.length;i++){%>
 
     <div class="cart_box">
-        <img class="cart_box_img" src="<%=orders[i].product_image%>" alt="">
+        <!-- <img class="cart_box_img" src="<%=orders[i].product_image%>" alt=""> -->
         <p class="cart_obj_name"><%=orders[i].name%></p>
         <div style="flex: 1;"></div>
         <p class="order_obj_price" id="price<%=i%>">₹ <%=(orders[i].price-((orders[i].price*orders[i].discount)/100))%>
