@@ -19,7 +19,7 @@
     <p class="cart_obj_price" id="price<%=i%>">₹ <%=(cart[i].total_price/cart[i].quantity)%></p>
     <div class="cart_obj_input">
       <input class="mailinput_width" type="number" id="number_of_items<%=i%>" value="<%=cart[i].quantity%>" />
-      <a class="xxxxxxx" href="">X</a>
+      <a class="xxxxxxx" href="/delete/<%=cart[i].name%>">X</a>
     </div>
     <p class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%></p>
   </div>

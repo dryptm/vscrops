@@ -718,6 +718,29 @@ app.get('/cart', (req, res) => {
     })
   } else res.render("needloginfirst",{isLoggedin:"no"})
 })
+app.get("/delete/:np",(req,res)=>{
+  var npp=req.params.np
+  if (req.isAuthenticated()) {
+    User.findOne({
+     _id: req.user._id
+    }, (err, found1) => {
+      // console.log(found1.cart)
+      for(var i=0;i<found1.cart.length;i++){
+        if(found1.cart[i].name==npp){
+          found1.cart.splice(i,1)
+          // console.log(found1.cart)
+          User.findOneAndUpdate({
+            _id: req.user._id
+          },{cart:found1.cart},{new:true},(err,data)=>{
+            console.log(data)
+            res.redirect("/cart")
+          })
+        }
+      }
+
+    })
+  } else res.render("needloginfirst",{isLoggedin:"no"})
+})
 
 app.get('/payment', (req, res) => {
   if (req.isAuthenticated()) {
@@ -725,7 +748,8 @@ app.get('/payment', (req, res) => {
      _id: req.user._id
     }, (err, found1) => {
       res.render("payment", {
-        isLoggedin: (req.isAuthenticated() ? "yes" : "no")
+        isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+        name: (req.isAuthenticated() ? found1.name : "")
       })
 
     })
