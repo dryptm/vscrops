@@ -34,6 +34,13 @@
 
 
 <script>
+     var sum = 0;
+     for(let i = 0;i<(Number(document.getElementById('length').value));++i){
+       var c = document.getElementById("total_price"+i).innerHTML.split(' ');
+       sum+=Number(c[1])
+     }
+     document.getElementById("total_all_cart_price").innerHTML = "₹ "+sum;
+
      for(let i = 0;i<(Number(document.getElementById('length').value));++i){
       document.getElementById('number_of_items'+i).addEventListener("input",()=>{
 
@@ -47,23 +54,39 @@
         document.getElementById("number_of_items"+i).value = 1
       }
       if (num.length === 0) {
+        var c = document.getElementById("total_price"+i).innerHTML.split(' ');
+        sum-=Number(c[1])
         document.getElementById("total_price"+i).innerHTML = "₹ "+(document.getElementById("number_of_items"+i).value*price)
-        
+        sum+=Number((document.getElementById("number_of_items"+i).value*price));
+     document.getElementById("total_all_cart_price").innerHTML ="₹ "+ sum;
+
       } 
       else if (num.length >=4) {
+        var c = document.getElementById("total_price"+i).innerHTML.split(' ');
+        sum-=Number(c[1])
         document.getElementById("total_price"+i).innerHTML = "₹ "+(999*price)
+        sum+=Number((999*price));
+     document.getElementById("total_all_cart_price").innerHTML ="₹ "+ sum;
+
+
       }
       else if (num * price !== NaN && num * price !== 0) {
+        var c = document.getElementById("total_price"+i).innerHTML.split(' ');
+        sum-=Number(c[1])
         document.getElementById("total_price"+i).innerHTML ="₹ "+ (num * price).toString()
+        sum+=Number(num*price);
+     document.getElementById("total_all_cart_price").innerHTML ="₹ "+ sum;
+
+
         
       }
      
       })
 
-
+   
 
      }
-
+   
 
 
      
