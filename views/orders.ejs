@@ -1,7 +1,34 @@
 <%- include('head-foot/header'); -%>
 
-<%console.log(orders)%>
 
+<div class="main_box">
+    <h3 class="tnm">My Orders</h3>
+    <div class="cart_box_head">
+        <div style="flex: 1;"></div>
+        <p class="head_cart_margs">Price</p>
+        <p class="head_cart_margs">Quantity</p>
+        <p class="head_cart_margs" style="margin-right: 0;">Total</p>
+    </div>
+    <%for(var i=0;i<orders.length;i++){%>
+
+    <div class="cart_box">
+        <img class="cart_box_img" src="<%=orders[i].product_image%>" alt="">
+        <p class="cart_obj_name"><%=orders[i].name%></p>
+        <div style="flex: 1;"></div>
+        <p class="order_obj_price" id="price<%=i%>">₹ <%=(orders[i].price-((orders[i].price*orders[i].discount)/100))%>
+        </p>
+
+        <p class="order_obj_quantity" id="number_of_items<%=i%>"><%=orders[i].number%></p>
+
+        <p class="order_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹
+            <%=(orders[i].price-((orders[i].price*orders[i].discount)/100))*(orders[i].number)%></p>
+
+    </div>
+    <%}%>
+
+
+
+</div>
 
 
 <%- include('head-foot/footer'); -%>

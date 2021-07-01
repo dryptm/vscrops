@@ -649,7 +649,7 @@ body {
 
 .note_flex {
     display: flex;
-    width: 50%;
+    width: 45%;
     margin: 0 auto;
     flex-direction: column;
     text-align: center;
@@ -668,8 +668,10 @@ body {
 
 .note_p {
     font-size: 1.6276041666666667vw;
-    font-family: Cabin, arial, sans-serif;
-    color: #ad9226
+    font-family: Lato, arial, sans-serif;
+    color: #5e5e5e;
+    font-weight: 400;
+    font-size: 21px
 }
 
 .contact_flex {
@@ -985,6 +987,22 @@ body {
     letter-spacing: .06510416666666667vw
 }
 
+.order_obj_price {
+    margin: 2.604166666666667vw 14.765625vw 0 0;
+    font-size: .9114583333333334vw;
+    font-family: Lato, arial, sans-serif;
+    color: #8a7522;
+    letter-spacing: .06510416666666667vw
+}
+
+.order_obj_quantity {
+    margin: 2.604166666666667vw 13.765625vw 0 0;
+    font-size: .9114583333333334vw;
+    font-family: Lato, arial, sans-serif;
+    color: #8a7522;
+    letter-spacing: .06510416666666667vw
+}
+
 .cart_obj_input {
     margin: 0 2.2786458333333335vw;
     font-size: .9114583333333334vw;
@@ -1013,6 +1031,15 @@ body {
 }
 
 .cart_total_price {
+    margin: 0;
+    margin-top: 2.604166666666667vw;
+    font-size: .9114583333333334vw;
+    font-family: Lato, arial, sans-serif;
+    color: #8a7522;
+    letter-spacing: .06510416666666667vw
+}
+
+.order_total_price {
     margin: 0;
     margin-top: 2.604166666666667vw;
     font-size: .9114583333333334vw;
