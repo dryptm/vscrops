@@ -1,4 +1,6 @@
 <%- include('head-foot/header'); -%>
+<input type="text" id="length" style="visibility: collapse;" value="<%= cart.length %> ">
+
 <div class="main_box">
   <h3 class="tnm">Continue shopping</h3>
   <div class="cart_box_head">
@@ -7,7 +9,6 @@
     <p class="head_cart_margs">Quantity</p>
     <p class="head_cart_margs" style="margin-right: 0;">Total</p>
   </div>
-  <input type="text" id="length" style="visibility: collapse;" value="<%= cart.length %> ">
 
   <%for(var i=0;i<cart.length;i++){%>
 
@@ -23,15 +24,16 @@
     <p class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%></p>
   </div>
   <%}%>
-<h4 class="total_all_cart_price" id="total_all_cart_price"></h4>
-
+<h4 class="total_all_cart_price" id="total_all_cart_price">adadadfgsdfgsdfgs dfg sdg</h4>
+<div class="main_box">
+  <a class="checkout_button" href="/payment">Checkout</a>
+</div>
 
 </div>
 
 
 
 <script>
-  // var t=0;
      for(let i = 0;i<(Number(document.getElementById('length').value));++i){
       document.getElementById('number_of_items'+i).addEventListener("input",()=>{
 
@@ -55,16 +57,15 @@
         document.getElementById("total_price"+i).innerHTML ="₹ "+ (num * price).toString()
         
       }
-
+     
       })
 
-      // t=t+(num * price);
 
 
      }
 
 
-    //  document.getElementById("total_all_cart_price").innerHTML="Total Price to be paid: "+String(t);
+
      
 </script>
 
