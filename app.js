@@ -7,8 +7,12 @@ const passport = require('passport')
 const mongoose = require("mongoose");
 const User = require('./models/users');
 const Product = require('./models/products');
-const coupon=require("./models/coupons");
+const coupon = require("./models/coupons");
 const mailinglist = require('./models/mailinglist');
+
+
+
+
 // function makeid(length) {
 //   var result           = '';
 //   var characters       = 'abcdefghijklmnopqrstuvwxyz123456789';
@@ -94,7 +98,7 @@ app.post("/submit", (req, res) => {
       if (req.isAuthenticated()) {
 
         User.findOne({
-         _id: req.user._id
+          _id: req.user._id
         }, (err, found1) => {
           res.render("email_already_exist", {
             message: "Email already exists!",
@@ -119,7 +123,7 @@ app.post("/submit", (req, res) => {
       mail.save();
       if (req.isAuthenticated()) {
         User.findOne({
-         _id: req.user._id
+          _id: req.user._id
         }, (err, found1) => {
           res.render("email_already_exist", {
             message: "Thank you for the Subscription!",
@@ -144,7 +148,7 @@ app.post("/submit", (req, res) => {
 app.get("/products", function (req, res) {
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
 
       Product.find({}, (err, found) => {
@@ -190,13 +194,13 @@ app.get("/products/:np", function (req, res) {
 
     if (req.isAuthenticated()) {
       User.findOne({
-       _id: req.user._id
+        _id: req.user._id
       }, (err, found1) => {
         res.render("individualproduct", {
           found: found,
           isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
           name: (req.isAuthenticated() ? found1.name : ""),
-          id : found._id
+          id: found._id
 
         })
 
@@ -205,14 +209,14 @@ app.get("/products/:np", function (req, res) {
       res.render("individualproduct", {
         found: found,
         isLoggedin: "no",
-        id : found._id
+        id: found._id
       })
 
     }
 
 
 
-    
+
   })
 })
 
@@ -229,23 +233,21 @@ app.post('/add_to_cart/:id', (rq, rs) => {
       }, (err, found1) => {
         cart_obj = found1.cart;
         console.log(found.product_name)
-         if(cart_obj.find(ob=>ob.name===found.product_name))
-        {
+        if (cart_obj.find(ob => ob.name === found.product_name)) {
           console.log("found and cart updated")
-          var i = cart_obj.findIndex(ob=>ob.name === found.product_name);
-          cart_obj[i].quantity=(Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
+          var i = cart_obj.findIndex(ob => ob.name === found.product_name);
+          cart_obj[i].quantity = (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
           cart_obj[i].total_price = Number(rq.body.tot_price)
-        }
-        else {
+        } else {
           console.log("new item added to cart")
-         cart_obj.push({
-          "name": found.product_name,
-          "total_price": Number(rq.body.tot_price),
-          "product_image": found.product_image,
-          "quantity": (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
-        })
-      }
-  
+          cart_obj.push({
+            "name": found.product_name,
+            "total_price": Number(rq.body.tot_price),
+            "product_image": found.product_image,
+            "quantity": (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
+          })
+        }
+
         User.updateOne({
           _id: rq.user._id
         }, {
@@ -255,27 +257,27 @@ app.post('/add_to_cart/:id', (rq, rs) => {
             console.log(err)
           } else {
             ///****AFTER CART UPDATE**** */
-          
+
             rs.redirect('/cart')
           }
         })
       })
-  
+
     } else {
       rs.render("needloginfirst", {
-        isLoggedin:"no"
+        isLoggedin: "no"
       })
     }
-  })  
+  })
 
-  
+
 })
 
 app.get("/contactus", function (req, res) {
 
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
 
       res.render("contactus", {
@@ -300,7 +302,7 @@ app.get("/foundersnote", function (req, res) {
 
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
 
       res.render("foundersnote", {
@@ -325,7 +327,7 @@ app.get("/foundersnote", function (req, res) {
 app.get("/ourstory", function (req, res) {
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
       res.render("ourstory", {
         isLoggedin: "yes",
@@ -341,190 +343,195 @@ app.get("/ourstory", function (req, res) {
 
 
 ///////////////////////////////////////////////////////////////////////////
-app.get('/forgot',(req,res)=>{
-  if(req.isAuthenticated()){
+app.get('/forgot', (req, res) => {
+  if (req.isAuthenticated()) {
     User.findOne({
       _id: req.user._id
     }, (err, found1) => {
       res.render("forgot_password", {
-        isLoggedin : "yes",
-        name : found1.name
-      })  
-    
+        isLoggedin: "yes",
+        name: found1.name
+      })
+
+    })
+
+  } else {
+    res.render("forgot_password", {
+      isLoggedin: "no"
+    })
+  }
+})
+
+app.post('/forgot', (req, res) => {
+
+  User.findOne({
+    username: req.body.email
+  }, (err, found) => {
+    if (found.Id && found && found.username) {
+      // login with google
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'text789456text@gmail.com',
+          pass: '1@2@3@4@'
+        }
+      });
+      User.findOne({
+        username: req.body.email
+      }, (err, found) => {
+        if (found) {
+          var mailOptions = {
+            from: 'text789456text@gmail.com',
+            to: req.body.email,
+            subject: 'Reset Password',
+            html: "<div marginheight='0' topmargin='0' marginwidth='0' style='margin: 0px; background-color: #f2f3f8;' leftmargin='0'> <table cellspacing='0' border='0' cellpadding='0' width='100%' bgcolor='#f2f3f8' style='@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;'> <tr> <td> <table style='background-color: #f2f3f8; max-width:670px; margin:0 auto;' width='100%' border='0' align='center' cellpadding='0' cellspacing='0'> <tr> <td style='height:80px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <a href='' title='logo' target='_blank'> <img width='60' src='https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/favicon/1da8e68b-6374-48c8-8049-d62292c72173.png' title='logo' alt='logo' style='transform : scale(1.5);'> </a> </td></tr><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td> <table width='95%' border='0' align='center' cellpadding='0' cellspacing='0' style='max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);'> <tr> <td style='height:40px;'>&nbsp;</td></tr><tr> <td style='padding:0 35px;'> <h1 style='color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;'>You have requested to reset your password</h1> <span style='display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;'></span> <p style='color:#455056; font-size:15px;line-height:24px; margin:0;'> You had logged in via google in the past. <br> Please login with Google! </p><a href='http://localhost:3000/login' style='background:#D4B435;text-decoration:none !important; font-weight:500; margin-top:35px; color:#000;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;'>Login</a> </td></tr><tr> <td style='height:40px;'>&nbsp;</td></tr></table> </td><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <p style='font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;'>&copy; <strong>www.vishuddhacrops.com</strong></p></td></tr><tr> <td style='height:80px;'>&nbsp;</td></tr></table> </td></tr></table></div>"
+
+          };
+
+          transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+              console.log(error);
+            } else {
+              if (req.isAuthenticated()) {
+                User.findOne({
+                  _id: req.user._id
+                }, (err, found1) => {
+                  res.render("check_your_email", {
+                    isLoggedin: "yes",
+                    name: found1.name
+                  })
+
+                })
+
+              } else {
+                res.render("check_your_email", {
+                  isLoggedin: "no"
+                })
+              }
+            }
+          });
+
+        }
+      })
+
+    } else if (found && found.username) {
+
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'text789456text@gmail.com',
+          pass: '1@2@3@4@'
+        }
+      });
+      User.findOne({
+        username: req.body.email
+      }, (err, found) => {
+        if (found) {
+          var ht = "<div marginheight='0' topmargin='0' marginwidth='0' style='margin: 0px; background-color: #f2f3f8;' leftmargin='0'> <table cellspacing='0' border='0' cellpadding='0' width='100%' bgcolor='#f2f3f8' style='@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;'> <tr> <td> <table style='background-color: #f2f3f8; max-width:670px; margin:0 auto;' width='100%' border='0' align='center' cellpadding='0' cellspacing='0'> <tr> <td style='height:80px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <a href='' title='logo' target='_blank'> <img width='60' src='https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/favicon/1da8e68b-6374-48c8-8049-d62292c72173.png' title='logo' alt='logo' style='transform : scale(1.5);'> </a> </td></tr><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td> <table width='95%' border='0' align='center' cellpadding='0' cellspacing='0' style='max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);'> <tr> <td style='height:40px;'>&nbsp;</td></tr><tr> <td style='padding:0 35px;'> <h1 style='color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;'>You have requested to reset your password</h1> <span style='display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;'></span> <p style='color:#455056; font-size:15px;line-height:24px; margin:0;'> We cannot simply send you your old password. A unique link to reset your password has been generated for you. To reset your password, click the following link and follow the instructions. </p><a href='http://localhost:3000/change/" + found._id + "' style='background:#D4B435;text-decoration:none !important; font-weight:500; margin-top:35px; color:#000;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;'>Reset Password</a> </td></tr><tr> <td style='height:40px;'>&nbsp;</td></tr></table> </td><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <p style='font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;'>&copy; <strong>www.vishuddhacrops.com</strong></p></td></tr><tr> <td style='height:80px;'>&nbsp;</td></tr></table> </td></tr></table></div>"
+          var mailOptions = {
+            from: 'text789456text@gmail.com',
+            to: req.body.email,
+            subject: 'Reset Password',
+            html: ht
+          };
+
+          transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+              console.log(error);
+            } else {
+              if (req.isAuthenticated()) {
+                User.findOne({
+                  _id: req.user._id
+                }, (err, found1) => {
+                  res.render("check_your_email", {
+                    isLoggedin: "yes",
+                    name: found1.name
+                  })
+
+                })
+
+              } else {
+                res.render("check_your_email", {
+                  isLoggedin: "no"
+                })
+              }
+            }
+          });
+
+        }
+      })
+
+    } else {
+      // account with this email address doesn't exist 
+      if (req.isAuthenticated()) {
+        User.findOne({
+          _id: req.user._id
+        }, (err, found) => {
+          res.render("email_doesnt_exist", {
+            isLoggedin: "yes",
+            name: found.name
+          })
+        })
+      } else {
+        res.render("email_doesnt_exist", {
+          isLoggedin: "no"
+        })
+      }
+
+
+    }
   })
 
-  }
-  else {
-    res.render("forgot_password", {
-      isLoggedin : "no"
-    })
-  }
+
+
+
+
+
 })
 
-app.post('/forgot',(req,res)=>{
-   
-    User.findOne({username : req.body.email},(err,found)=>{
-      if(found.Id && found && found.username){
-    // login with google
-    var transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'text789456text@gmail.com',
-        pass: '1@2@3@4@'
-      }
-    });
-    User.findOne({username : req.body.email},(err,found)=>{
-      if(found){
-    var mailOptions = {
-      from: 'text789456text@gmail.com',
-      to: req.body.email,
-      subject: 'Reset Password',
-      html : "<div marginheight='0' topmargin='0' marginwidth='0' style='margin: 0px; background-color: #f2f3f8;' leftmargin='0'> <table cellspacing='0' border='0' cellpadding='0' width='100%' bgcolor='#f2f3f8' style='@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;'> <tr> <td> <table style='background-color: #f2f3f8; max-width:670px; margin:0 auto;' width='100%' border='0' align='center' cellpadding='0' cellspacing='0'> <tr> <td style='height:80px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <a href='' title='logo' target='_blank'> <img width='60' src='https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/favicon/1da8e68b-6374-48c8-8049-d62292c72173.png' title='logo' alt='logo' style='transform : scale(1.5);'> </a> </td></tr><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td> <table width='95%' border='0' align='center' cellpadding='0' cellspacing='0' style='max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);'> <tr> <td style='height:40px;'>&nbsp;</td></tr><tr> <td style='padding:0 35px;'> <h1 style='color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;'>You have requested to reset your password</h1> <span style='display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;'></span> <p style='color:#455056; font-size:15px;line-height:24px; margin:0;'> You had logged in via google in the past. <br> Please login with Google! </p><a href='http://localhost:3000/login' style='background:#D4B435;text-decoration:none !important; font-weight:500; margin-top:35px; color:#000;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;'>Login</a> </td></tr><tr> <td style='height:40px;'>&nbsp;</td></tr></table> </td><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <p style='font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;'>&copy; <strong>www.vishuddhacrops.com</strong></p></td></tr><tr> <td style='height:80px;'>&nbsp;</td></tr></table> </td></tr></table></div>"
+app.get('/change/:idd', (req, res) => {
 
-    };
-    
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
+  const idd = req.params.idd
+
+  User.findOne({
+    _id: idd
+  }, (err, found) => {
+    if (found) {
+      if (req.isAuthenticated()) {
+        res.render("change_password", {
+          isLoggedin: "yes",
+          name: found.name,
+          id: req.params.idd
+        })
       } else {
-        if(req.isAuthenticated()){
-          User.findOne({
-            _id: req.user._id
-          }, (err, found1) => {
-            res.render("check_your_email", {
-              isLoggedin : "yes",
-              name : found1.name
-            })  
-          
-        })
-      
-        }
-        else {
-          res.render("check_your_email", {
-            isLoggedin : "no"
-          })
-        }
-      }
-    });
-        
-      }
-    })
-       
-      }
-      else if(found && found.username) {
-          
-        var transporter = nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-            user: 'text789456text@gmail.com',
-            pass: '1@2@3@4@'
-          }
-        });
-        User.findOne({username : req.body.email},(err,found)=>{
-          if(found){
-      var ht = "<div marginheight='0' topmargin='0' marginwidth='0' style='margin: 0px; background-color: #f2f3f8;' leftmargin='0'> <table cellspacing='0' border='0' cellpadding='0' width='100%' bgcolor='#f2f3f8' style='@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;'> <tr> <td> <table style='background-color: #f2f3f8; max-width:670px; margin:0 auto;' width='100%' border='0' align='center' cellpadding='0' cellspacing='0'> <tr> <td style='height:80px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <a href='' title='logo' target='_blank'> <img width='60' src='https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/favicon/1da8e68b-6374-48c8-8049-d62292c72173.png' title='logo' alt='logo' style='transform : scale(1.5);'> </a> </td></tr><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td> <table width='95%' border='0' align='center' cellpadding='0' cellspacing='0' style='max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);'> <tr> <td style='height:40px;'>&nbsp;</td></tr><tr> <td style='padding:0 35px;'> <h1 style='color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;'>You have requested to reset your password</h1> <span style='display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;'></span> <p style='color:#455056; font-size:15px;line-height:24px; margin:0;'> We cannot simply send you your old password. A unique link to reset your password has been generated for you. To reset your password, click the following link and follow the instructions. </p><a href='http://localhost:3000/change/"+ found._id+"' style='background:#D4B435;text-decoration:none !important; font-weight:500; margin-top:35px; color:#000;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;'>Reset Password</a> </td></tr><tr> <td style='height:40px;'>&nbsp;</td></tr></table> </td><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <p style='font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;'>&copy; <strong>www.vishuddhacrops.com</strong></p></td></tr><tr> <td style='height:80px;'>&nbsp;</td></tr></table> </td></tr></table></div>"
-        var mailOptions = {
-          from: 'text789456text@gmail.com',
-          to: req.body.email,
-          subject: 'Reset Password',
-          html : ht
-        };
-        
-        transporter.sendMail(mailOptions, function(error, info){
-          if (error) {
-            console.log(error);
-          } else {
-            if(req.isAuthenticated()){
-              User.findOne({
-                _id: req.user._id
-              }, (err, found1) => {
-                res.render("check_your_email", {
-                  isLoggedin : "yes",
-                  name : found1.name
-                })  
-              
-            })
-          
-            }
-            else {
-              res.render("check_your_email", {
-                isLoggedin : "no"
-              })
-            }
-          }
-        });
-            
-          }
-        })
-      
-      }
-      else {
-        // account with this email address doesn't exist 
-        if(req.isAuthenticated()){
-          User.findOne({_id : req.user._id},(err,found)=>{
-              res.render("email_doesnt_exist",{
-                isLoggedin : "yes",
-                name : found.name
-              })
-          })
-        }
-        else {
-          res.render("email_doesnt_exist",{
-            isLoggedin : "no"
-            })
-        }
-         
-          
-      }
-    })
+        res.render("change_password", {
+          isLoggedin: "no",
+          id: req.params.idd
 
-
-
-
-
-  
-})
-
-app.get('/change/:idd',(req,res)=>{
-  
- const idd=req.params.idd 
- 
-  User.findOne({_id : idd},(err,found)=>{
-    if(found){
-      if(req.isAuthenticated()){
-          res.render("change_password",{
-            isLoggedin : "yes",
-            name : found.name,
-            id : req.params.idd
-          })
-      }
-      else {
-        res.render("change_password",{
-          isLoggedin : "no",
-          id : req.params.idd
-          
         })
       }
     }
   })
-  
-  
+
+
 })
-app.post('/change/:idd',(req,res)=>{
+app.post('/change/:idd', (req, res) => {
   const idd = req.params.idd
-  User.findOne({_id : idd},(err,found)=>{
-    if(found){
-      found.setPassword(req.body.password,(err,user)=>{
+  User.findOne({
+    _id: idd
+  }, (err, found) => {
+    if (found) {
+      found.setPassword(req.body.password, (err, user) => {
         user.save();
-        res.render('password_changed',{
-          isLoggedin : (req.isAuthenticated() ? "yes":"no"),
-          name : (req.isAuthenticated() ? found.name :"")
+        res.render('password_changed', {
+          isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+          name: (req.isAuthenticated() ? found.name : "")
         });
       })
     }
   })
 
-  
+
 })
 
 
@@ -537,7 +544,7 @@ app.get("/blog", function (req, res) {
 
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
       Blog.find({}, function (err, post) {
         res.render("blog", {
@@ -573,7 +580,7 @@ app.get("/blog", function (req, res) {
 app.get("/blog/:np", function (req, res) {
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
       var n_p = req.params.np
       Blog.findOne({
@@ -588,7 +595,7 @@ app.get("/blog/:np", function (req, res) {
             data: post.blog_data.split("<br>"),
             isLoggedin: "yes",
             name: found1.name,
-            iddx:post._id
+            iddx: post._id
           });
         }
 
@@ -609,7 +616,7 @@ app.get("/blog/:np", function (req, res) {
           img: post.image_link,
           data: post.blog_data.split("<br>"),
           isLoggedin: "no",
-          iddx:post._id
+          iddx: post._id
         });
       }
 
@@ -691,7 +698,7 @@ app.get('/login', (req, res) => {
 app.get('/orders', (req, res) => {
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
       res.render("orders", {
         isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
@@ -700,14 +707,16 @@ app.get('/orders', (req, res) => {
       })
 
     })
-  } else res.render("needloginfirst",{isLoggedin:"no"})
+  } else res.render("needloginfirst", {
+    isLoggedin: "no"
+  })
 })
 
 
 app.get('/cart', (req, res) => {
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
       res.render("cart", {
         isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
@@ -716,22 +725,28 @@ app.get('/cart', (req, res) => {
       })
 
     })
-  } else res.render("needloginfirst",{isLoggedin:"no"})
+  } else res.render("needloginfirst", {
+    isLoggedin: "no"
+  })
 })
-app.get("/delete/:np",(req,res)=>{
-  var npp=req.params.np
+app.get("/delete/:np", (req, res) => {
+  var npp = req.params.np
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
       // console.log(found1.cart)
-      for(var i=0;i<found1.cart.length;i++){
-        if(found1.cart[i].name==npp){
-          found1.cart.splice(i,1)
+      for (var i = 0; i < found1.cart.length; i++) {
+        if (found1.cart[i].name == npp) {
+          found1.cart.splice(i, 1)
           // console.log(found1.cart)
           User.findOneAndUpdate({
             _id: req.user._id
-          },{cart:found1.cart},{new:true},(err,data)=>{
+          }, {
+            cart: found1.cart
+          }, {
+            new: true
+          }, (err, data) => {
             console.log(data)
             res.redirect("/cart")
           })
@@ -739,13 +754,15 @@ app.get("/delete/:np",(req,res)=>{
       }
 
     })
-  } else res.render("needloginfirst",{isLoggedin:"no"})
+  } else res.render("needloginfirst", {
+    isLoggedin: "no"
+  })
 })
 
 app.get('/payment', (req, res) => {
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
       res.render("payment", {
         isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
@@ -753,7 +770,9 @@ app.get('/payment', (req, res) => {
       })
 
     })
-  } else res.render("needloginfirst",{isLoggedin:"no"})
+  } else res.render("needloginfirst", {
+    isLoggedin: "no"
+  })
 })
 
 
@@ -762,7 +781,7 @@ app.get('/payment', (req, res) => {
 app.get("/termsandcondition", function (req, res) {
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
       res.render("termsandcondition", {
         isLoggedin: "yes",
@@ -779,7 +798,7 @@ app.get("/termsandcondition", function (req, res) {
 app.get("/privacypolicy", function (req, res) {
   if (req.isAuthenticated()) {
     User.findOne({
-     _id: req.user._id
+      _id: req.user._id
     }, (err, found1) => {
       res.render("privacypolicy", {
         isLoggedin: "yes",
@@ -801,16 +820,17 @@ app.get("/privacypolicy", function (req, res) {
 
 app.post('/login', (req, res) => {
 
-  User.findOne({username : req.body.username},(err,found)=>{
-    if(found){
+  User.findOne({
+    username: req.body.username
+  }, (err, found) => {
+    if (found) {
       passport.authenticate("local")(req, res, function () {
         res.redirect("/products");
       })
-    }
-    else {
+    } else {
       if (req.isAuthenticated()) {
         User.findOne({
-         _id: req.user._id
+          _id: req.user._id
         }, (err, found1) => {
           res.render("email_doesnt_exist", {
             isLoggedin: "yes",
@@ -824,7 +844,7 @@ app.post('/login', (req, res) => {
       }
     }
   })
-  
+
 })
 app.get('/logout', (req, res) => {
   req.logOut();
@@ -837,7 +857,7 @@ app.get('/logout', (req, res) => {
 app.get('/secret', ensureAuth, (req, res) => {
 
   User.findOne({
-   _id: req.user._id
+    _id: req.user._id
   }, (err, found1) => {
     res.render('secret', {
       user: req.user.name,
@@ -846,6 +866,49 @@ app.get('/secret', ensureAuth, (req, res) => {
     })
   })
 })
+
+
+
+app.get("/newsletter", (req, res) => {
+  res.render("newsletter", {})
+})
+app.post("/send", (req, res) => {
+var x="";
+  mailinglist.find({},(err,found)=>{
+    for(var i=0;i<found.length;i++){
+      x=x+found[i].email+","
+    }
+    
+    x=x.slice(0,-1)
+    var mailOptions = {
+      from: 'text789456text@gmail.com',
+      to: x,
+      subject: req.body.Subject,
+      html: req.body.textarea
+  
+    };
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'text789456text@gmail.com',
+        pass: '1@2@3@4@'
+      }
+    });
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error)
+      }
+      console.log(info)
+    })
+  })
+
+
+
+
+res.redirect("/home")
+
+})
+
 
 
 //************************* */
