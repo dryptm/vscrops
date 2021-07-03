@@ -594,13 +594,15 @@ body {
     border-width: .06510416666666667vw;
     margin-left: 0;
     padding: .9765625vw;
-    transition: all .25s
+    transition: all .25s;
+    cursor: pointer
 }
 
 .btn-add-to-cart:hover {
-    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
+    box-shadow: rgb(0 0 0 / 30%) 0 0 15px 0;
     background-color: rgb(220 189 66);
     color: #151515;
+    transform: scale(1.1);
     border-color: rgb(220 189 66)
 }
 
@@ -1193,4 +1195,17 @@ body {
     font-size: 20px;
     color: #4c4c4c;
     font-family: Lato, arial, sans-serif;
+}
+
+.chat_button {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    margin: 0;
+    box-shadow: rgb(0 0 0 / 25%) 0px 3px 18px;
+    padding: 10px 15px;
+    font-size: 30px;
+    border-radius: 100px;
+    background-color: #C9B206;
+    position: fixed;
 }
