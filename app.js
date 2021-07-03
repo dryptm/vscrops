@@ -9,6 +9,7 @@ const User = require('./models/users');
 const Product = require('./models/products');
 const coupon = require("./models/coupons");
 const mailinglist = require('./models/mailinglist');
+const Razorpay=require("razorpay")
 
 
 
@@ -901,13 +902,38 @@ var x="";
       console.log(info)
     })
   })
-
-
-
-
 res.redirect("/home")
-
 })
+
+
+
+
+
+
+var instance = new Razorpay({ key_id: 'rzp_test_LR5uE6mamxVSnx', key_secret: 'rVJhk7hQgFW7TK7w2TZLEYzq'})
+
+var options = {
+  amount: 100,  // amount in the smallest currency unit
+  currency: "INR",
+  receipt: "order_rcptid_11"
+};
+instance.orders.create(options, function(err, order) {
+  console.log(order);
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
