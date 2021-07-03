@@ -1222,9 +1222,9 @@ body {
     right: 3.2552083333333335vw;
     margin: 0;
     box-shadow: rgb(0 0 0 / 45%) 0 0.1953125vw 1.171875vw;
-    padding: 0.6510416666666667vw 0.9114583333333334vw;
-    font-size: 1.9531250000000002vw;
+    padding: 0.6510416666666667vw 0.85114583333333334vw;
+    font-size: 1.5531250000000002vw;
     border-radius: 6.510416666666667vw;
-    background-color: #b5a105;
+    background-color: #41b951;
     position: fixed
 }

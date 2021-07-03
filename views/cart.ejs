@@ -26,7 +26,10 @@
   <%}%>
 <h4 class="total_all_cart_price" id="total_all_cart_price">adadadfgsdfgsdfgs dfg sdg</h4>
 <div class="main_box">
-  <a class="checkout_button" href="/payment">Checkout</a>
+  <form action="/checkout_post" method="POST">
+    <input type="text" id="tot" value="" name = "tot_p">
+    <button type="submit">Checkout</button>
+  </form>
 </div>
 
 </div>
@@ -40,6 +43,7 @@
        sum+=Number(c[1])
      }
      document.getElementById("total_all_cart_price").innerHTML = "Total: ₹ "+sum;
+     document.getElementById('tot').value = Number(sum)
 
      for(let i = 0;i<(Number(document.getElementById('length').value));++i){
       document.getElementById('number_of_items'+i).addEventListener("input",()=>{
@@ -59,6 +63,8 @@
         document.getElementById("total_price"+i).innerHTML = "₹ "+(document.getElementById("number_of_items"+i).value*price)
         sum+=Number((document.getElementById("number_of_items"+i).value*price));
      document.getElementById("total_all_cart_price").innerHTML ="Total: ₹ "+ sum;
+     document.getElementById('tot').value = Number(sum)
+
 
       } 
       else if (num.length >=4) {
@@ -67,6 +73,8 @@
         document.getElementById("total_price"+i).innerHTML = "₹ "+(999*price)
         sum+=Number((999*price));
      document.getElementById("total_all_cart_price").innerHTML ="Total: ₹ "+ sum;
+     document.getElementById('tot').value = Number(sum)
+
 
 
       }
@@ -76,6 +84,7 @@
         document.getElementById("total_price"+i).innerHTML ="₹ "+ (num * price).toString()
         sum+=Number(num*price);
      document.getElementById("total_all_cart_price").innerHTML ="Total: ₹ "+ sum;
+     document.getElementById('tot').value = Number(sum)
 
 
         

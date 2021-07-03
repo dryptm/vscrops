@@ -760,20 +760,108 @@ app.get("/delete/:np", (req, res) => {
   })
 })
 
-app.get('/payment', (req, res) => {
-  if (req.isAuthenticated()) {
-    User.findOne({
-      _id: req.user._id
-    }, (err, found1) => {
-      res.render("payment", {
-        isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
-        name: (req.isAuthenticated() ? found1.name : "")
-      })
+// app.get('/payment', (req, res) => {
+//   if (req.isAuthenticated()) {
+//     User.findOne({
+//       _id: req.user._id
+//     }, (err, found1) => {
+      
+// var instance = new Razorpay({ key_id: 'rzp_test_LR5uE6mamxVSnx', key_secret: 'rVJhk7hQgFW7TK7w2TZLEYzq'})
 
+// var options = {
+//   amount: 300,  // amount in the smallest currency unit
+//   currency: "INR",
+//   receipt: "order_rcptid_11"
+// };
+// instance.orders.create(options, function(err, order) {
+//   console.log(order);
+//   res.render("payment", {
+//     isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+//     name: (req.isAuthenticated() ? found1.name : "")
+//   })
+
+// });
+
+
+      
+
+//     })
+//   } else res.render("needloginfirst", {
+//     isLoggedin: "no"
+//   })
+// })
+
+app.post('/checkout_post',(req,res)=>{
+  if(req.isAuthenticated()){
+      const tot_price = req.body.tot_p
+      const name = req.user.name.split(' ')
+      const fname = name[0]
+      const lname = (name.length>1 ? name[1]:"")
+      res.render('payment_middleware',{
+        tot_price : tot_price,
+        fname : fname,
+        lname : lname,
+        email : req.user.username
+      })
+  }
+  else {
+    res.render("needloginfirst", {
+      isLoggedin: "no"
     })
-  } else res.render("needloginfirst", {
-    isLoggedin: "no"
-  })
+  }
+  
+})
+
+//****************************** */
+
+app.post('/payment_confirm',(req,res)=>{
+  console.log(req.body)
+})
+
+app.post('/payment_failed',(req,res)=>{
+
+})
+
+//**************************** */
+
+
+app.post('/full_payment',(req,res)=>{
+  if(req.isAuthenticated()){
+      var instance = new Razorpay({ key_id: 'rzp_test_LR5uE6mamxVSnx', key_secret: 'rVJhk7hQgFW7TK7w2TZLEYzq'})
+
+ var options = {
+   amount: Number(req.body.tot_price)*100,  
+   currency: "INR",
+   receipt: "order_rcptid_11"
+ };
+ instance.orders.create(options, function(err, order) {
+   console.log(order);
+   res.render("payment", {
+     isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+     name: (req.isAuthenticated() ? req.user.name : ""),
+     order_id : order.id,
+     email : req.body.email,
+     phone : req.body.phone,
+     country : req.body.country,
+     state : req.body.state,
+     pincode : req.body.pincode,
+     city : req.body.city,
+     billing_address1 : req.body.billing_address1,
+     billing_address2 : req.body.billing_address2,
+     amount : (order.amount)/100
+
+
+     
+   })
+
+ });
+
+  }
+  else {
+    res.render("needloginfirst", {
+      isLoggedin: "no"
+    })
+  }
 })
 
 
@@ -908,19 +996,6 @@ res.redirect("/home")
 
 
 
-
-
-var instance = new Razorpay({ key_id: 'rzp_test_LR5uE6mamxVSnx', key_secret: 'rVJhk7hQgFW7TK7w2TZLEYzq'})
-
-var options = {
-  amount: 100,  // amount in the smallest currency unit
-  currency: "INR",
-  receipt: "order_rcptid_11"
-};
-instance.orders.create(options, function(err, order) {
-  console.log(order);
-
-});
 
 
 
