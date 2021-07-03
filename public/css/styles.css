@@ -289,7 +289,7 @@ body {
 
 .about_us {
     width: 80.20833333333333vw;
-    height: 19.765625vw;
+    height: auto;
     display: block;
     margin: 13.020833333333334vw auto;
     position: relative
@@ -1152,4 +1152,45 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #6c5c20;
+}
+
+
+
+
+
+.product_description {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.product_description h2 {
+    font-family: Lato, arial, sans-serif;
+    font-weight: 600;
+    font-size: 42px;
+    color: #ae9530;
+    padding-top: 50px;
+}
+
+.product_description p {
+    font-size: 16px;
+    color: #494949;
+    font-family: Lato, arial, sans-serif;
+}
+
+.product_description ul {
+    font-size: 16px;
+    color: #494949;
+    font-family: Lato, arial, sans-serif;
+}
+
+.product_description h4 {
+    font-size: 16px;
+    color: #494949;
+    font-family: Lato, arial, sans-serif;
+}
+
+.product_description h3 {
+    font-size: 20px;
+    color: #4c4c4c;
+    font-family: Lato, arial, sans-serif;
 }
