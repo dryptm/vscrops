@@ -15,28 +15,24 @@
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
-    <script src="" async defer></script>
+    <form action="/send" method="POST">
+
+        <div
+            style="margin: 0 auto;display: inherit; margin-top: 50px;border-radius: 5px;width: 49%;font-family: Lato, arial, sans-serif;color: #b89e37;">
+            <h2>Subject:</h2>
+        </div>
+        <input style="margin: 0 auto;display: inherit;border-radius: 5px;width: 49%;" type="text" name="Subject">
+        <div
+            style="margin: 0 auto;display: inherit; margin-top: 50px;border-radius: 5px;width: 49%;font-family: Lato, arial, sans-serif;color: #b89e37;">
+            <h3>Enter the mail data:</h3>
+        </div>
+        <textarea style="margin: 0 auto;display: inherit;border-radius: 5px;  resize: none;" name="textarea" rows="20"
+            cols="100"></textarea>
+
+        <button class="send_button" type="submit">Send</button>
+
+    </form>
 </body>
 
 </html>
-
-
-<form action="/send" method="POST">
-    
-    <div style="margin: 0 auto;display: inherit; margin-top: 50px;border-radius: 5px;width: 49%;font-family: Lato, arial, sans-serif;color: #b89e37;">
-        <h2>Subject:</h2>
-    </div>
-    <input style="margin: 0 auto;display: inherit;border-radius: 5px;width: 49%;" type="text" name="Subject">
-    <div style="margin: 0 auto;display: inherit; margin-top: 50px;border-radius: 5px;width: 49%;font-family: Lato, arial, sans-serif;color: #b89e37;">
-        <h3>Enter the mail data:</h3>
-    </div>
-    <textarea style="margin: 0 auto;display: inherit;border-radius: 5px;  resize: none;"
-        name="textarea" rows="20" cols="100"></textarea>
-
-    <button class="send_button" type="submit">Send</button>
-
-</form>
