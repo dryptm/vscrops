@@ -827,7 +827,7 @@ app.post('/payment_failed',(req,res)=>{
 
 app.post('/full_payment',(req,res)=>{
   if(req.isAuthenticated()){
-      var instance = new Razorpay({ key_id: 'rzp_test_LR5uE6mamxVSnx', key_secret: 'rVJhk7hQgFW7TK7w2TZLEYzq'})
+      var instance = new Razorpay({ key_id: 'rzp_test_uRdnjYH7dCkuEr', key_secret: 'm3hdeo9pIMEg1DMbIvxtlEQa'})
 
  var options = {
    amount: Number(req.body.tot_price)*100,  
