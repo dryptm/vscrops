@@ -1,58 +1,72 @@
 <%- include('head-foot/header'); -%>
-<form action="/payment_confirm" method="POST" id = 'form'>
-    <input type="text" name="order_id" id="order_id" value="<%= order_id %>">
-    <input type="text" name="name" id="name" value="<%= name %>">
-    <input type="text" name="email" id="email" value="<%= email %>">
-    <input type="text" name="phone" id="phone" value="<%= phone %>">
-    <input type="text" name="payment_signature" id="payment_signature" value="">
-    <input type="text" name="amount" id="amount" value="<%= amount %>">
-    
-    <input type="text" name="country" id="" value="<%= country %>" placeholder="country">
-    <input type="text" name="state" id="" value="<%= state %>" placeholder="state">
-    <input type="text" name="pincode" id="" value="<%= pincode %>" placeholder="pincode">
-    <input type="text" name="city" id="" value="<%= city %>" placeholder="city">
-    <input type="text" name="billing_address1" id="" value="<%= billing_address1 %>" placeholder="billing_address1">
-    <input type="text" name="billing_address2" id="" value="<%= billing_address2%> " placeholder="billing_address2">
-    
-</form>
+<div class="main_box_2">
+    <form action="/payment_confirm" method="POST" id='form'>
+        <input style="visibility: collapse;opacity:0;" type="text" name="order_id" id="order_id" value="<%= order_id %>">
+        <p class="namefield_all" style="margin-bottom: 0;">Name -</p>
+        <input class="mailinput" type="text" name="name" id="name" value="<%= name %>" readonly>
+        <p class="namefield_all" style="margin-bottom: 0;">Email -</p>
+        <input class="mailinput" type="text" name="email" id="email" value="<%= email %>" readonly>
+        <p class="namefield_all" style="margin-bottom: 0;">Phone Number -</p>
+        <input class="mailinput" type="text" name="phone" id="phone" value="<%= phone %>" placeholder="Phone" readonly>
+        <p class="namefield_all" style="margin-bottom: 0;">Total Amount -</p>
+        <input class="mailinput" type="text" name="amount" id="amount" value="<%= amount %>" readonly>
+        <p class="namefield_all" style="margin-bottom: 0;">Address -</p>
+        <input class="mailinput" type="text" name="billing_address1" id="" value="<%= billing_address1 %>" placeholder="Billing Address" >
+        <p class="namefield_all" style="margin-bottom: 0;">City -</p>    
+        <input class="mailinput" type="text" name="city" id="" value="<%= city %>" placeholder="City" >
+        <p class="namefield_all" style="margin-bottom: 0;">Pincode -</p>
+        <input class="mailinput" type="text" name="pincode" id="" value="<%= pincode %>" placeholder="Pincode" >
+        <p class="namefield_all" style="margin-bottom: 0;">State -</p>
+        <input class="mailinput" type="text" name="state" id="" value="<%= state %>" placeholder="State" >
+        <button class="btn-register-login" id="rzp-button1">Pay</button>
+
+        <input style="visibility: collapse;opacity:0;" type="text" name="payment_signature" id="payment_signature" value="" placeholder="payment_signature">
+
+        <!-- <input type="text" name="country" id="" value="<%= country %>" placeholder="Country"> -->
+        <!-- <input type="text" name="billing_address2" id="" value="<%= billing_address2%> " placeholder="Billing Address-2"> -->
+
+    </form>
 
 
-<form action="/payment_failed" method="POST" class="form1">
-    <input type="text" name="failed" id="">
-</form>
+    <form action="/payment_failed" method="POST" class="form1">
+        <input style="visibility: collapse;opacity:0;" type="text" name="failed" id="">
+    </form>
 
-<button id="rzp-button1">Pay</button>
+
+</div>
+<input style="visibility: collapse;opacity:0;" type="text" id="order_id" value="<%= order_id %>">
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-var options = {
-    "key": "rzp_test_uRdnjYH7dCkuEr", // Enter the Key ID generated from the Dashboard
-    "currency": "INR",
-    "name": "Vishuddha Crops",
-    "description": "Order ID:"+String(document.getElementById('order_id').value),
-    "image": "https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/favicon/1da8e68b-6374-48c8-8049-d62292c72173.png/:/rs=w:64,h:64,m",
-    "order_id": String(document.getElementById('order_id').value), //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    "handler": function (response){
-        // alert(response.razorpay_payment_id);
-        // alert(response.razorpay_order_id);
-        // alert(response.razorpay_signature)
-        document.getElementById('form').submit();
-        
-    },
-    "prefill": {
-        "name": String(document.getElementById('name').value),
-        "email": String(document.getElementById('email').value),
-        "contact": String(document.getElementById('phone').value)
-    },
-    "notes": {
-        "address": "Razorpay Corporate Office"
-    },
-    "theme": {
-        "color": "#f8f23f"
-    }
-};
-var rzp1 = new Razorpay(options);
-rzp1.on('payment.failed', function (response){
+    var options = {
+        "key": "rzp_test_uRdnjYH7dCkuEr", // Enter the Key ID generated from the Dashboard
+        "currency": "INR",
+        "name": "Vishuddha Crops",
+        "description": "Order ID:" + String(document.getElementById('order_id').value),
+        "image": "https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/favicon/1da8e68b-6374-48c8-8049-d62292c72173.png/:/rs=w:64,h:64,m",
+        "order_id": String(document.getElementById('order_id')
+            .value), //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "handler": function (response) {
+            // alert(response.razorpay_payment_id);
+            // alert(response.razorpay_order_id);
+            // alert(response.razorpay_signature)
+            document.getElementById('form').submit();
+
+        },
+        "prefill": {
+            "name": String(document.getElementById('name').value),
+            "email": String(document.getElementById('email').value),
+            "contact": String(document.getElementById('phone').value)
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#a88f2b"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response) {
         // alert(response.error.code);
         // alert(response.error.description);
         // alert(response.error.source);
@@ -62,13 +76,12 @@ rzp1.on('payment.failed', function (response){
         // alert(response.error.metadata.payment_id);
         document.getElementById('form1').submit();
 
-});
-document.getElementById('rzp-button1').onclick = function(e){
-    rzp1.open();
-    e.preventDefault();
-}
+    });
+    document.getElementById('rzp-button1').onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    }
 </script>
-<input type="text" id = "order_id" value="<%= order_id %>">
 
 
 <%- include('head-foot/footer'); -%>

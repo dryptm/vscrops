@@ -9,7 +9,7 @@ const User = require('./models/users');
 const Product = require('./models/products');
 const coupon = require("./models/coupons");
 const mailinglist = require('./models/mailinglist');
-const Razorpay=require("razorpay")
+const Razorpay = require("razorpay")
 
 
 
@@ -765,7 +765,7 @@ app.get("/delete/:np", (req, res) => {
 //     User.findOne({
 //       _id: req.user._id
 //     }, (err, found1) => {
-      
+
 // var instance = new Razorpay({ key_id: 'rzp_test_LR5uE6mamxVSnx', key_secret: 'rVJhk7hQgFW7TK7w2TZLEYzq'})
 
 // var options = {
@@ -783,7 +783,7 @@ app.get("/delete/:np", (req, res) => {
 // });
 
 
-      
+
 
 //     })
 //   } else res.render("needloginfirst", {
@@ -791,73 +791,82 @@ app.get("/delete/:np", (req, res) => {
 //   })
 // })
 
-app.post('/checkout_post',(req,res)=>{
-  if(req.isAuthenticated()){
+app.post('/checkout_post', (req, res) => {
+  if (req.isAuthenticated()) {
+    User.findOne({
+      _id: req.user._id
+    }, (err, found1) => {
       const tot_price = req.body.tot_p
       const name = req.user.name.split(' ')
       const fname = name[0]
-      const lname = (name.length>1 ? name[1]:"")
-      res.render('payment_middleware',{
-        tot_price : tot_price,
-        fname : fname,
-        lname : lname,
-        email : req.user.username
+      const lname = (name.length > 1 ? name[1] : "")
+      res.render('payment_middleware', {
+        isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+        name: (req.isAuthenticated() ? found1.name : ""),
+        tot_price: tot_price,
+        fname: fname,
+        lname: lname,
+        email: req.user.username
       })
-  }
-  else {
+
+    })
+
+  } else {
     res.render("needloginfirst", {
       isLoggedin: "no"
     })
   }
-  
+
 })
 
 //****************************** */
 
-app.post('/payment_confirm',(req,res)=>{
+app.post('/payment_confirm', (req, res) => {
   console.log(req.body)
 })
 
-app.post('/payment_failed',(req,res)=>{
+app.post('/payment_failed', (req, res) => {
 
 })
 
 //**************************** */
 
 
-app.post('/full_payment',(req,res)=>{
-  if(req.isAuthenticated()){
-      var instance = new Razorpay({ key_id: 'rzp_test_uRdnjYH7dCkuEr', key_secret: 'm3hdeo9pIMEg1DMbIvxtlEQa'})
+app.post('/full_payment', (req, res) => {
+  if (req.isAuthenticated()) {
+    var instance = new Razorpay({
+      key_id: 'rzp_test_uRdnjYH7dCkuEr',
+      key_secret: 'm3hdeo9pIMEg1DMbIvxtlEQa'
+    })
 
- var options = {
-   amount: Number(req.body.tot_price)*100,  
-   currency: "INR",
-   receipt: "order_rcptid_11"
- };
- instance.orders.create(options, function(err, order) {
-   console.log(order);
-   res.render("payment", {
-     isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
-     name: (req.isAuthenticated() ? req.user.name : ""),
-     order_id : order.id,
-     email : req.body.email,
-     phone : req.body.phone,
-     country : req.body.country,
-     state : req.body.state,
-     pincode : req.body.pincode,
-     city : req.body.city,
-     billing_address1 : req.body.billing_address1,
-     billing_address2 : req.body.billing_address2,
-     amount : (order.amount)/100
+    var options = {
+      amount: Number(req.body.tot_price) * 100,
+      currency: "INR",
+      receipt: "order_rcptid_11"
+    };
+    instance.orders.create(options, function (err, order) {
+      console.log(order);
+      res.render("payment", {
+        isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+        name: (req.isAuthenticated() ? req.user.name : ""),
+        order_id: order.id,
+        email: req.body.email,
+        phone: req.body.phone,
+        country: req.body.country,
+        state: req.body.state,
+        pincode: req.body.pincode,
+        city: req.body.city,
+        billing_address1: req.body.billing_address1,
+        billing_address2: req.body.billing_address2,
+        amount: (order.amount) / 100
 
 
-     
-   })
 
- });
+      })
 
-  }
-  else {
+    });
+
+  } else {
     res.render("needloginfirst", {
       isLoggedin: "no"
     })
@@ -962,19 +971,19 @@ app.get("/newsletter", (req, res) => {
   res.render("newsletter", {})
 })
 app.post("/send", (req, res) => {
-var x="";
-  mailinglist.find({},(err,found)=>{
-    for(var i=0;i<found.length;i++){
-      x=x+found[i].email+","
+  var x = "";
+  mailinglist.find({}, (err, found) => {
+    for (var i = 0; i < found.length; i++) {
+      x = x + found[i].email + ","
     }
-    
-    x=x.slice(0,-1)
+
+    x = x.slice(0, -1)
     var mailOptions = {
       from: 'text789456text@gmail.com',
       to: x,
       subject: req.body.Subject,
       html: req.body.textarea
-  
+
     };
     var transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -990,7 +999,7 @@ var x="";
       console.log(info)
     })
   })
-res.redirect("/home")
+  res.redirect("/home")
 })
 
 

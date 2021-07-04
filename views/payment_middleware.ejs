@@ -1,18 +1,32 @@
-<form action="/full_payment" method="POST">
-    <input type="text" name="tot_price" id="" value="<%= tot_price %> ">
-<input type="text" name="fname" id="" value="<%= fname %> ">
+<%- include('head-foot/header'); -%>
 
-<input type="text" name="lname" id="" value="<%= lname %> ">
+<div class="main_box_2">
 
-<input type="text" name="email" id="" value="<%= email %> ">
-<input type="text" name="phone" id="" value="" placeholder="phone ">
-<input type="text" name="country" id="" value="" placeholder="country">
-<input type="text" name="state" id="" value="" placeholder="state">
-<input type="text" name="pincode" id="" value="" placeholder="pincode">
-<input type="text" name="city" id="" value="" placeholder="city">
-<input type="text" name="billing_address1" id="" value="" placeholder="billing_address1">
-<input type="text" name="billing_address2" id="" value="" placeholder="billing_address2">
+    <form action="/full_payment" method="POST">
+        <p class="namefield_all" style="margin-bottom: 0;">Total Amount -</p>
+        <input class="mailinput" type="text" name="tot_price" id="" value="<%= tot_price %>" readonly>
+        <p class="namefield_all" style="margin-bottom: 0;">First Name -</p>
 
-<button type="submit">Pay</button>
+        <input class="mailinput" type="text" name="fname" id="" value="<%= fname %> " readonly>
+        <p class="namefield_all" style="margin-bottom: 0;">Last Name -</p>
+        <input class="mailinput" type="text" name="lname" id="" value="<%= lname %> " readonly>
+        <p class="namefield_all" style="margin-bottom: 0;">Email -</p>
+        <input class="mailinput" type="text" name="email" id="" value="<%= email %> " readonly>
+        <p class="namefield_all" style="margin-bottom: 0;">Phone Number -</p>
+        <input class="mailinput" type="text" name="phone" id="" value="" placeholder="Phone" required>
+        <p class="namefield_all" style="margin-bottom: 0;">Address -</p>
+        <input class="mailinput" type="text" name="billing_address1" id="" value="" placeholder="Billing Address" required>
+        <p class="namefield_all" style="margin-bottom: 0;">City -</p>
+        <input class="mailinput" type="text" name="city" id="" value="" placeholder="City" required>
+        <p class="namefield_all" style="margin-bottom: 0;">Pincode -</p>
+        <input class="mailinput" type="text" name="pincode" id="" value="" placeholder="Pincode" required>
+        <p class="namefield_all" style="margin-bottom: 0;">State -</p>
+        <input class="mailinput" type="text" name="state" id="" value="" placeholder="State" required>
+        <!-- <input class="mailinput" type="text" name="country" id="" value="" placeholder="Country"> -->
+        <button class="btn-register-login" type="submit">Next</button>
 
-</form>
+    </form>
+</div>
+
+
+<%- include('head-foot/footer'); -%>
