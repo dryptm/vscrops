@@ -11,13 +11,13 @@
         <p class="namefield_all" style="margin-bottom: 0;">Total Amount -</p>
         <input class="mailinput" type="text" name="amount" id="amount" value="<%= amount %>" readonly>
         <p class="namefield_all" style="margin-bottom: 0;">Address -</p>
-        <input class="mailinput" type="text" name="billing_address1" id="" value="<%= billing_address1 %>" placeholder="Billing Address" >
+        <input class="mailinput" type="text" name="billing_address1" id="" value="<%= billing_address1 %>" placeholder="Billing Address" required>
         <p class="namefield_all" style="margin-bottom: 0;">City -</p>    
-        <input class="mailinput" type="text" name="city" id="" value="<%= city %>" placeholder="City" >
+        <input class="mailinput" type="text" name="city" id="" value="<%= city %>" placeholder="City" required>
         <p class="namefield_all" style="margin-bottom: 0;">Pincode -</p>
-        <input class="mailinput" type="text" name="pincode" id="" value="<%= pincode %>" placeholder="Pincode" >
+        <input class="mailinput" type="text" name="pincode" id="" value="<%= pincode %>" placeholder="Pincode" required>
         <p class="namefield_all" style="margin-bottom: 0;">State -</p>
-        <input class="mailinput" type="text" name="state" id="" value="<%= state %>" placeholder="State" >
+        <input class="mailinput" type="text" name="state" id="" value="<%= state %>" placeholder="State" required>
         <button class="btn-register-login" id="rzp-button1">Pay</button>
 
         <input style="visibility: collapse;opacity:0;" type="text" name="payment_signature" id="payment_signature" value="" placeholder="payment_signature">
