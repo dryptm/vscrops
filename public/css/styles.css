@@ -28,7 +28,7 @@ body {
 
 .header-block-container {
     margin: auto;
-    padding: 2.0833333333333335vw 1.5625vw;
+    padding: 2.0833333333333335vw 8.5625vw;
     background-color: #fff;
     position: relative
 }
@@ -705,7 +705,7 @@ body {
 
 .note_flex {
     display: flex;
-    width: 45%;
+    width: 50%;
     margin: 0 auto;
     flex-direction: column;
     text-align: center;
@@ -723,11 +723,10 @@ body {
 }
 
 .note_p {
-    font-size: 1.6276041666666667vw;
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
     font-weight: 400;
-    font-size: 1.3671875vw
+    font-size: 1.1671875vw
 }
 
 .contact_flex {
@@ -1040,6 +1039,7 @@ body {
     border-right: 0;
     border-color: #e4e4e4
 }
+
 .order_box_head {
     width: 70%;
     margin: 0 auto;
@@ -1080,7 +1080,7 @@ body {
     height: 5.208333333333334vw;
     margin: .6510416666666667vw;
     object-fit: cover;
-    width: 90px;
+    width: 5.859375vw
 }
 
 .cart_obj_price {
@@ -1310,7 +1310,7 @@ body {
     height: 8.463541666666668vw;
     width: 9.765625vw;
     object-fit: cover;
-    padding: 0.9765625000000001vw
+    padding: .9765625000000001vw
 }
 
 .ordeer_mid h3 {
