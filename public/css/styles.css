@@ -670,7 +670,9 @@ body {
 
 .product_i_img {
     height: 80%;
+    width: 70%;
     padding: 10%;
+    object-fit: cover;
     float: right
 }
 
@@ -1291,6 +1293,8 @@ body {
 
 .order_image {
     height: 130px;
+    width: 150px;
+    object-fit: cover;
     padding: 15px
 }
 
