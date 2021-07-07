@@ -49,7 +49,7 @@
         <div class="head_divider"></div>
 
     </div>
-    <div id="user_dropdown_1" onmouseover="dropdownover_2()" class="user_dropdown" style="visibility: collapse;">
+    <div id="user_dropdown_1" onmouseout="dropdownout_2()" onmouseover="dropdownover_2()" class="user_dropdown" style="visibility: collapse;">
         <% if(isLoggedin==="yes") {%>
             <div class="user_d_box">
                 <p class="user_d_box_content"><%= name %> </p>
