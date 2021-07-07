@@ -1028,7 +1028,7 @@ body {
 }
 
 .cart_box_head {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -1075,13 +1075,13 @@ body {
     color: #8a7522;
     text-align: left;
     justify-content: center;
-    width: 120px;
+    width: 7.812500000000001vw;
     letter-spacing: .06510416666666667vw
 }
 
 .cart_obj_input {
     margin: 0 2.2786458333333335vw;
-    width: 250px;
+    width: 16.276041666666668vw;
     text-align: center;
     font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif;
@@ -1115,7 +1115,7 @@ body {
     font-family: Lato, arial, sans-serif;
     color: #8a7522;
     text-align: right;
-    width: 100px;
+    width: 6.510416666666667vw;
     letter-spacing: .06510416666666667vw
 }
 
@@ -1123,7 +1123,7 @@ body {
     font-size: 1.3020833333333335vw;
     color: #4c4c4c;
     font-weight: 700;
-    width: 250px;
+    width: 16.276041666666668vw;
     font-family: Lato, arial, sans-serif
 }
 
@@ -1271,7 +1271,7 @@ body {
 }
 
 .order_box {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     height: inherit;
     border-style: solid;
@@ -1292,14 +1292,14 @@ body {
 }
 
 .order_image {
-    height: 130px;
-    width: 150px;
+    height: 8.463541666666668vw;
+    width: 9.765625vw;
     object-fit: cover;
-    padding: 15px
+    padding: 0.9765625000000001vw
 }
 
 .ordeer_mid h3 {
-    padding-top: 45px;
+    padding-top: 2.9296875vw;
     font-size: 1.3020833333333335vw;
     color: #4c4c4c;
     font-weight: 700;
@@ -1307,8 +1307,8 @@ body {
 }
 
 .order_details {
-    width: 200px;
-    font-size: 16px;
+    width: 13.020833333333334vw;
+    font-size: 1.0416666666666667vw;
     color: #4c4c4c;
     font-family: Lato, arial, sans-serif
 }
