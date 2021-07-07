@@ -43,13 +43,13 @@
             <div class="search-cart-user">
                 <a href="" class="vs-header-icons"><i class="fas fa-search "></i></a>
                 <a href="/cart" class="vs-header-icons"><i class="fas fa-shopping-cart "></i></a>
-                <a style="cursor: pointer;"  onclick="dropdownclick_1()" class="vs-header-icons"><i class="fas fa-user "></i></a>
+                <a style="cursor: pointer;" onmouseout="dropdownout_2()" onmouseover="dropdownover_2()" onclick="dropdownclick_1()" class="vs-header-icons"><i class="fas fa-user "></i></a>
             </div>
         </div>
         <div class="head_divider"></div>
 
     </div>
-    <div id="user_dropdown_1" class="user_dropdown" style="visibility: collapse;">
+    <div id="user_dropdown_1" onmouseover="dropdownover_2()" class="user_dropdown" style="visibility: collapse;">
         <% if(isLoggedin==="yes") {%>
             <div class="user_d_box">
                 <p class="user_d_box_content"><%= name %> </p>
@@ -89,7 +89,14 @@
             document.getElementById("user_dropdown_1").style.visibility = "collapse";
         }
         var userclick = 0;
-
+        function dropdownover_2(){
+            document.getElementById("user_dropdown_1").style.opacity = 1;
+            document.getElementById("user_dropdown_1").style.visibility = "visible";
+        }
+        function dropdownout_2(){
+            document.getElementById("user_dropdown_1").style.opacity = 0;
+            document.getElementById("user_dropdown_1").style.visibility = "collapse";
+        }
         function dropdownclick_1() {
             if (userclick == 0) {
                 document.getElementById("user_dropdown_1").style.opacity = 1;

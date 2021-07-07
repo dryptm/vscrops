@@ -954,7 +954,8 @@ body {
     margin-left: 0;
     margin-top: 3.2552083333333335vw;
     padding: .9765625vw;
-    transition: all .25s
+    transition: all .25s;
+    cursor: pointer;
 }
 
 .btn-register-login:hover {
