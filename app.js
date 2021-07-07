@@ -11,17 +11,11 @@ const Coupon = require("./models/coupons");
 const mailinglist = require('./models/mailinglist');
 const Razorpay = require("razorpay")
 const Order = require('./models/orders')
+const fast2sms = require('fast-two-sms')
 
-// function makeid(length) {
-//   var result           = '';
-//   var characters       = 'abcdefghijklmnopqrstuvwxyz123456789';
-//   var charactersLength = characters.length;
-//   for ( var i = 0; i < length; i++ ) {
-//     result += characters.charAt(Math.floor(Math.random() * 
-// charactersLength));
-//  }
-//  return result;
-// }
+
+
+
 
 const {
   ensureAuth
@@ -902,8 +896,8 @@ app.post('/payment_confirm', (req, res) => {
       console.log(error);
     }
   })
-  ///////orderSMS////////////////
-  
+
+
 
   User.updateOne({
     _id: req.user._id
@@ -917,6 +911,30 @@ app.post('/payment_confirm', (req, res) => {
   }, (err) => {
     if (err) console.log(err)
   })
+
+
+  ///////orderSMS////////////////
+  var a = []
+  User.findOne({
+    _id: req.user._id
+  }, (err, foundx) => {
+    // console.log(foundx)
+
+    for (var i = 0; i < foundx.cart.length; i++) {
+      a.push(foundx.cart[i].name)
+    }
+    a = a.join(",")
+    console.log(foundx.phone)
+    var options = {
+      authorization: "89WE7jP3F4HVbLhKtDIAmzqrdYO5cJ2RvpBGNTyoMg0QsS6iZwntmyNAd58o7J94riIPUCLGBqYk2HxT",
+      message: 'Your Order for ' + a + ' is Confirmed!\n@VishuddhaCrops',
+      numbers: [foundx.phone]
+    }
+    fast2sms.sendMessage(options).then(response => {
+      console.log(response)
+    }) //Asynchronous Function
+  })
+
 
   today = yyyy + '-' + mm + '-' + dd;
   const order = new Order({
@@ -972,6 +990,7 @@ app.post('/payment_confirm', (req, res) => {
 
 
 })
+
 
 app.post('/payment_failed', (req, res) => {
 
