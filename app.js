@@ -909,9 +909,9 @@ app.post('/payment_confirm', (req, res) => {
     }
   })
   ///////orderSMS////////////////
-  const from = "VishuddhaCrops"
+  const from = "Vonage APIs"
   const to = "918840245808"
-  const text = 'your order is confirmed!'
+  const text = 'Your order is confirmed!'
 
   vonage.message.sendSms(from, to, text, (err, responseData) => {
     if (err) {
