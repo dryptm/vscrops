@@ -11,19 +11,25 @@
     </div>
     <%for(var i=0;i<orders.length;i++){%>
 
-    <div class="cart_box">
+    
+        <% for(let j = 0;j<orders[i].items.length;++j){ %>
+            <div class="cart_box">   
+            <p class="cart_obj_name"><%=orders[i].items[j].name%></p>
+            <div style="flex: 1;"></div>
+            <p class="order_obj_price" id="price<%=i%>">₹ <%=orders[i].items[j].original_price%>
+            </p>
+    
+            <p class="order_obj_quantity" id="number_of_items<%=i%>"><%=orders[i].items[j].quantity%></p>
+    
+            <p class="order_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹
+                <%=orders[i].items[j].total_price%></p>
+    
+
+
+            </div>
+            <% } %>  
         <!-- <img class="cart_box_img" src="<%=orders[i].product_image%>" alt=""> -->
-        <p class="cart_obj_name"><%=orders[i].name%></p>
-        <div style="flex: 1;"></div>
-        <p class="order_obj_price" id="price<%=i%>">₹ <%=(orders[i].price-((orders[i].price*orders[i].discount)/100))%>
-        </p>
-
-        <p class="order_obj_quantity" id="number_of_items<%=i%>"><%=orders[i].number%></p>
-
-        <p class="order_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹
-            <%=(orders[i].price-((orders[i].price*orders[i].discount)/100))*(orders[i].number)%></p>
-
-    </div>
+       
     <%}%>
 
 

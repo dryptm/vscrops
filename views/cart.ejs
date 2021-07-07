@@ -23,13 +23,22 @@
     </div>
     <p class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%></p>
   </div>
+ <input type="text" id = "op<%=i%>" value="<%=cart[i].original_price %>" style="visibility: collapse;position: absolute;">
   <%}%>
 <h4 class="total_all_cart_price" id="total_all_cart_price">adadadfgsdfgsdfgs dfg sdg</h4>
+
+<form action = "/discount" method = "POST">
+  <input type="text" name="discount" value="">
+  <button type="submit">Check</button>
+</form>
+
+
 <div class="main_box">
   <form action="/checkout_post" method="POST">
     <input style="visibility: collapse;opacity: 0;" type="text" id="tot" value="" name = "tot_p">
     <button class="checkout_button" type="submit">Checkout</button>
   </form>
+
 </div>
 
 </div>
@@ -37,7 +46,17 @@
 
 
 <script>
-     var sum = 0;
+//if coupon checked and is 10%
+
+
+
+
+     
+
+//
+
+
+var sum = 0;
      for(let i = 0;i<(Number(document.getElementById('length').value));++i){
        var c = document.getElementById("total_price"+i).innerHTML.split(' ');
        sum+=Number(c[1])
@@ -96,7 +115,7 @@
 
      }
    
-
+    
 
      
 </script>

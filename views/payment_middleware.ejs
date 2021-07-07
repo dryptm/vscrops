@@ -13,15 +13,15 @@
         <p class="namefield_all" style="margin-bottom: 0;">Email -</p>
         <input class="mailinput" type="text" name="email" id="" value="<%= email %> " readonly>
         <p class="namefield_all" style="margin-bottom: 0;">Phone Number -</p>
-        <input class="mailinput" type="text" name="phone" id="" value="" placeholder="Phone" required>
+        <input class="mailinput" type="text" name="phone" id="" value="<%= user.phone %>" placeholder="Phone" required>
         <p class="namefield_all" style="margin-bottom: 0;">Address -</p>
-        <input class="mailinput" type="text" name="billing_address1" id="" value="" placeholder="Billing Address" required>
+        <input class="mailinput" type="text" name="billing_address1" id="" value="<%= user.billing_address1 %>" placeholder="Billing Address" required>
         <p class="namefield_all" style="margin-bottom: 0;">City -</p>
-        <input class="mailinput" type="text" name="city" id="" value="" placeholder="City" required>
+        <input class="mailinput" type="text" name="city" id="" value="<%= user.city %>" placeholder="City" required>
         <p class="namefield_all" style="margin-bottom: 0;">Pincode -</p>
-        <input class="mailinput" type="text" name="pincode" id="" value="" placeholder="Pincode" required>
+        <input class="mailinput" type="text" name="pincode" id="" value="<%= user.pincode %>" placeholder="Pincode" required>
         <p class="namefield_all" style="margin-bottom: 0;">State -</p>
-        <input class="mailinput" type="text" name="state" id="" value="" placeholder="State" required>
+        <input class="mailinput" type="text" name="state" id="" value="<%= user.state %>" placeholder="State" required>
         <!-- <input class="mailinput" type="text" name="country" id="" value="" placeholder="Country"> -->
         <button class="btn-register-login" type="submit">Next</button>
 

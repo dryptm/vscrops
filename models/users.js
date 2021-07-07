@@ -7,7 +7,12 @@ const userSchema = new mongoose.Schema({
     Id : String,
     password : String,
     orders : Array,
-    cart : Array
+    cart : Array,
+    billing_address1:String,
+    city:String,
+    pincode:String,
+    state:String,
+    phone:String
 });
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate)

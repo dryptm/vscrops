@@ -7,10 +7,10 @@ const passport = require('passport')
 const mongoose = require("mongoose");
 const User = require('./models/users');
 const Product = require('./models/products');
-const coupon = require("./models/coupons");
+const Coupon = require("./models/coupons");
 const mailinglist = require('./models/mailinglist');
 const Razorpay = require("razorpay")
-
+const Order = require('./models/orders')
 
 
 
@@ -66,6 +66,7 @@ var Blog = mongoose.model('Blog', blogSchema);
 
 app.get("/", function (req, res) {
   res.redirect("/home");
+
 })
 
 app.get("/home", function (req, res) {
@@ -239,13 +240,15 @@ app.post('/add_to_cart/:id', (rq, rs) => {
           var i = cart_obj.findIndex(ob => ob.name === found.product_name);
           cart_obj[i].quantity = (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
           cart_obj[i].total_price = Number(rq.body.tot_price)
+          cart_obj[i].original_price = Number(found.product_price)
         } else {
           console.log("new item added to cart")
           cart_obj.push({
             "name": found.product_name,
             "total_price": Number(rq.body.tot_price),
             "product_image": found.product_image,
-            "quantity": (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
+            "quantity": (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100)),
+            "original_price": Number(found.product_price)
           })
         }
 
@@ -640,21 +643,13 @@ app.post('/register', (req, res) => {
   User.register({
     username: req.body.username,
     name: req.body.fname + " " + req.body.lname,
-    orders: [{
-        name: "item_1",
-        price: 100,
-        number: 5,
-        discount: 5
-      },
-      {
-        name: "item_2",
-        price: 200,
-        number: 4,
-        discount: 10
-
-      }
-    ],
-    cart: []
+    orders: [],
+    cart: [],
+    billing_address1: "",
+    city: "",
+    pincode: "",
+    state: "",
+    phone: ""
   }, req.body.password, function (err) {
     if (err) {
       if (req.isAuthenticated()) {
@@ -662,12 +657,15 @@ app.post('/register', (req, res) => {
         User.findOne({
           username: req.user.username
         }, (err, found1) => {
-          res.render("useralreadyexists", {
-            message: "User already exists!",
-            isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
-            name: (req.isAuthenticated() ? found1.name : "")
-          })
 
+
+          if (found1) {
+            res.render("useralreadyexists", {
+              message: "User already exists!",
+              isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+              name: (req.isAuthenticated() ? found1.name : "")
+            })
+          }
         })
       } else {
         res.render("useralreadyexists", {
@@ -677,8 +675,27 @@ app.post('/register', (req, res) => {
         })
       }
     } else {
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'text789456text@gmail.com',
+          pass: '1@2@3@4@'
+        }
+      });
+      var mailOptions = {
+        from: 'text789456text@gmail.com',
+        to: req.body.username,
+        subject: 'Welcome to Vishuddha Crops',
+        html: "<div marginheight='0' topmargin='0' marginwidth='0' style='margin: 0px; background-color: #f2f3f8;' leftmargin='0'> <table cellspacing='0' border='0' cellpadding='0' width='100%' bgcolor='#f2f3f8' style='@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;'> <tr> <td> <table style='background-color: #f2f3f8; max-width:670px; margin:0 auto;' width='100%' border='0' align='center' cellpadding='0' cellspacing='0'> <tr> <td style='height:80px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <a href='' title='logo' target='_blank'> <img width='60' src='https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/favicon/1da8e68b-6374-48c8-8049-d62292c72173.png' title='logo' alt='logo' style='transform : scale(1.5);'> </a> </td></tr><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td> <table width='95%' border='0' align='center' cellpadding='0' cellspacing='0' style='max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);'> <tr> <td style='height:40px;'>&nbsp;</td></tr><tr> <td style='padding:0 35px;'> <h1 style='color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;'>Thank you for choosing us!</h1> <span style='display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;'></span> <p style='color:#455056; font-size:15px;line-height:24px; margin:0;'> We are happy to inform you that you have now become an essential part of Vishuddha Crops. <br> </p><a href='http://localhost:3000/login' style='background:#D4B435;text-decoration:none !important; font-weight:500; margin-top:35px; color:#000;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;'>Login</a> </td></tr><tr> <td style='height:40px;'>&nbsp;</td></tr></table> </td><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <p style='font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;'>&copy; <strong>www.vishuddhacrops.com</strong></p></td></tr><tr> <td style='height:80px;'>&nbsp;</td></tr></table> </td></tr></table></div>"
+
+      };
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        }
+      })
       passport.authenticate("local", {
-        failureRedirect: '/login'
+        failureRedirect: '/auth_failed'
       })(req, res, function () {
         res.redirect('/products')
       })
@@ -701,6 +718,7 @@ app.get('/orders', (req, res) => {
     User.findOne({
       _id: req.user._id
     }, (err, found1) => {
+
       res.render("orders", {
         isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
         name: (req.isAuthenticated() ? found1.name : ""),
@@ -711,6 +729,45 @@ app.get('/orders', (req, res) => {
   } else res.render("needloginfirst", {
     isLoggedin: "no"
   })
+})
+
+
+app.post('/discount', (req, res) => {
+  if (req.isAuthenticated()) {
+
+    Coupon.findOne({
+      coupon_code: req.body.discount.toLowerCase()
+    }, (err, found) => {
+      if (found) {
+
+        console.log(found)
+
+        var arr = req.user.cart
+        for (let i = 0; i < arr.length; ++i) {
+          var dd = arr[i].original_price - arr[i].original_price * Number(found.coupon_discount) / 100;
+          arr[i].total_price = dd * arr[i].quantity
+        }
+        User.updateOne({
+          _id: req.user._id
+        }, {
+          cart: arr
+        }, (err) => {
+          if (err) console.log(err)
+          else {
+            res.redirect('/cart')
+          }
+        })
+      } else {
+        res.redirect('/cart')
+
+      }
+    })
+
+  } else {
+    res.render("needloginfirst", {
+      isLoggedin: "no"
+    })
+  }
 })
 
 
@@ -806,7 +863,8 @@ app.post('/checkout_post', (req, res) => {
         tot_price: tot_price,
         fname: fname,
         lname: lname,
-        email: req.user.username
+        email: req.user.username,
+        user: req.user
       })
 
     })
@@ -822,11 +880,107 @@ app.post('/checkout_post', (req, res) => {
 //****************************** */
 
 app.post('/payment_confirm', (req, res) => {
-  console.log(req.body)
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'text789456text@gmail.com',
+      pass: '1@2@3@4@'
+    }
+  });
+  var mailOptions = {
+    from: 'text789456text@gmail.com',
+    to: req.user.username,
+    subject: 'Order Placed',
+    html: "<div marginheight='0' topmargin='0' marginwidth='0' style='margin: 0px; background-color: #f2f3f8;' leftmargin='0'> <table cellspacing='0' border='0' cellpadding='0' width='100%' bgcolor='#f2f3f8' style='@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;'> <tr> <td> <table style='background-color: #f2f3f8; max-width:670px; margin:0 auto;' width='100%' border='0' align='center' cellpadding='0' cellspacing='0'> <tr> <td style='height:80px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <a href='' title='logo' target='_blank'> <img width='60' src='https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/favicon/1da8e68b-6374-48c8-8049-d62292c72173.png' title='logo' alt='logo' style='transform : scale(1.5);'> </a> </td></tr><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td> <table width='95%' border='0' align='center' cellpadding='0' cellspacing='0' style='max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);'> <tr> <td style='height:40px;'>&nbsp;</td></tr><tr> <td style='padding:0 35px;'> <h1 style='color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;'>Order Placed!</h1> <span style='display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;'></span> <p style='color:#455056; font-size:15px;line-height:24px; margin:0;'> Click below to see your orders - <br> </p><a href='http://localhost:3000/orders' style='background:#D4B435;text-decoration:none !important; font-weight:500; margin-top:35px; color:#000;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;'>My Orders</a> </td></tr><tr> <td style='height:40px;'>&nbsp;</td></tr></table> </td><tr> <td style='height:20px;'>&nbsp;</td></tr><tr> <td style='text-align:center;'> <p style='font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;'>&copy; <strong>www.vishuddhacrops.com</strong></p></td></tr><tr> <td style='height:80px;'>&nbsp;</td></tr></table> </td></tr></table></div>"
+
+  };
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    }
+  })
+
+
+  User.updateOne({
+    _id: req.user._id
+  }, {
+    billing_address1: req.body.billing_address1,
+    city: req.body.city,
+    pincode: req.body.pincode,
+    state: req.body.state,
+    phone: req.body.phone
+
+  }, (err) => {
+    if (err) console.log(err)
+  })
+
+  today = yyyy + '-' + mm + '-' + dd;
+  const order = new Order({
+    order_id: req.body.order_id,
+    customer_name: req.body.name,
+    customer_email: req.body.email,
+    customer_phone: req.body.phone,
+    total_amount: req.body.amount,
+    billing_address: req.body.billing_address1,
+    city: req.body.city,
+    pincode: req.body.pincode,
+    state: req.body.state,
+    payment_signature: req.body.payment_signature,
+    payment_id: req.body.payment_id,
+    items: req.user.cart,
+    date: today
+  })
+  order.save();
+  var arr = req.user.orders
+  arr.push({
+    date: today,
+    total_price: req.body.amount,
+    items: req.user.cart
+  })
+  User.updateOne({
+      _id: req.user._id
+    }, {
+      orders: arr
+    }, (err) => {
+      if (err) console.log(err);
+      else {
+
+        User.updateOne({
+            _id: req.user._id
+          }, {
+            cart: []
+          }, (err) => {
+            if (err) console.log(err);
+            else {
+              res.render("payment_success", {
+                isLoggedin: "yes",
+                name: req.user.name,
+                message: "Payment Successful!"
+              });
+            }
+          }
+
+        )
+      }
+    }
+
+  )
+
+
 })
 
 app.post('/payment_failed', (req, res) => {
 
+  res.render("payment_success", {
+    isLoggedin: "yes",
+    name: req.user.name,
+    message: "Payment Failed!"
+  });
 })
 
 //**************************** */
@@ -922,7 +1076,9 @@ app.post('/login', (req, res) => {
     username: req.body.username
   }, (err, found) => {
     if (found) {
-      passport.authenticate("local")(req, res, function () {
+      passport.authenticate("local", {
+        failureRedirect: "/auth_failed"
+      })(req, res, function () {
         res.redirect("/products");
       })
     } else {
@@ -1018,7 +1174,13 @@ app.post("/send", (req, res) => {
 
 
 
-
+app.get('/auth_failed', (req, res) => {
+  res.render("login_failed", {
+    isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+    name: (req.isAuthenticated() ? req.user.name : ""),
+    message: "Login Failed"
+  })
+})
 
 
 //************************* */
@@ -1029,7 +1191,7 @@ app.get('/auth/google',
   }));
 app.get("/auth/google/google_login",
   passport.authenticate('google', {
-    failureRedirect: "/login"
+    failureRedirect: "/auth_failed"
   }),
   function (req, res) {
     // Successful authentication, redirect home.

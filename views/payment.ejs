@@ -21,6 +21,8 @@
         <button class="btn-register-login" id="rzp-button1">Pay</button>
 
         <input style="visibility: collapse;opacity:0;" type="text" name="payment_signature" id="payment_signature" value="" placeholder="payment_signature">
+        <input style="visibility: collapse;opacity:0;" type="text" name="payment_id" id="payment_id" value="" placeholder="payment_id">
+
 
         <!-- <input type="text" name="country" id="" value="<%= country %>" placeholder="Country"> -->
         <!-- <input type="text" name="billing_address2" id="" value="<%= billing_address2%> " placeholder="Billing Address-2"> -->
@@ -50,6 +52,8 @@
             // alert(response.razorpay_payment_id);
             // alert(response.razorpay_order_id);
             // alert(response.razorpay_signature)
+            document.getElementById('payment_signature').value = response.razorpay_signature
+            document.getElementById('payment_id').value = response.razorpay_payment_id
             document.getElementById('form').submit();
 
         },

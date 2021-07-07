@@ -36,35 +36,35 @@
     document.getElementById("contactus").style.paddingBottom = "5px";
     document.getElementById("contactus").style.boxShadow = "0px 5px 5px #e8e8e8";
 
-                document.querySelectorAll("#status")[0].innerText = "Opening Soon";
+//                document.querySelectorAll("#status")[0].innerText = "Opening Soon";
 
 
 
-    // var d = new Date();
-    // var n = d.getDay();
-    // var n1 = d.getHours()
-    // var n2 = d.getMinutes()
-    // for (var i = 1; i < 6; i++) {
-    //     if (n == i) {
-    //         if (n1 >= 10 && n1 <= 17) {
-    //             document.querySelectorAll("#status")[0].innerText = "Open";
-    //         } else {
-    //             document.querySelectorAll("#status")[0].innerText = "Closed";
-    //         }
-    //     }
-    // }
-    // if (n == 6) {
-    //     if (n1 >= 10 && n2 >= 30) {
-    //         if (n1 <= 16 && n2 <= 30) {
-    //             document.querySelectorAll("#status")[0].innerText = "Open";
-    //         } else {
-    //             document.querySelectorAll("#status")[0].innerText = "Closed";
-    //         }
-    //     } else {
-    //         document.querySelectorAll("#status")[0].innerText = "Closed";
-    //     }
-    // }
-    // if (n == 7) {
-    //     document.querySelectorAll("#status")[0].innerText = "Closed";
-    // }
+    var d = new Date();
+    var n = d.getDay();
+    var n1 = d.getHours()
+    var n2 = d.getMinutes()
+    for (var i = 1; i < 6; i++) {
+        if (n == i) {
+            if (n1 >= 10 && n1 <= 17) {
+                document.querySelectorAll("#status")[0].innerText = "Open";
+            } else {
+                document.querySelectorAll("#status")[0].innerText = "Closed";
+            }
+        }
+    }
+    if (n == 6) {
+        if (n1 >= 10 && n2 >= 30) {
+            if (n1 <= 16 && n2 <= 30) {
+                document.querySelectorAll("#status")[0].innerText = "Open";
+            } else {
+                document.querySelectorAll("#status")[0].innerText = "Closed";
+            }
+        } else {
+            document.querySelectorAll("#status")[0].innerText = "Closed";
+        }
+    }
+    if (n == 7) {
+        document.querySelectorAll("#status")[0].innerText = "Closed";
+    }
 </script>
