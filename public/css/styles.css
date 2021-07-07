@@ -939,7 +939,46 @@ body {
     letter-spacing: .06510416666666667vw;
     font-weight: 100
 }
+.btn-coupon{
+    letter-spacing: .13020833333333334vw;
+    font-size: 1.0416666666666667vw;
+    font-weight: 400;
+    font-family: Lato, arial, sans-serif;
+    color: #000;
+    background-color: #d4b435;
+    text-decoration: none;
+    border-color: #d4b435;
+    border-style: solid;
+    border-width: .06510416666666667vw;
+    margin-left: 0;
+    /* margin-top: .2552083333333335vw; */
+    padding: .5765625vw .9765625vw;
+    transition: all .25s;
+    cursor: pointer;
+}
 
+.btn-coupon:hover {
+    /* box-shadow: rgb(187 187 187) 0 0 1.2229166666666667vw 0; */
+    background-color: rgb(220 189 66);
+    color: #151515;
+    border-color: rgb(220 189 66);
+}
+.coupon_code_h3{
+    letter-spacing: .13020833333333334vw;
+    font-size: 1.0416666666666667vw;
+    font-weight: 700;
+    font-family: Lato, arial, sans-serif;
+    color: #000;
+    
+}
+.coupon_input{
+    letter-spacing: .13020833333333334vw;
+    font-size: 1.0416666666666667vw;
+    font-weight: 400;
+    font-family: Lato, arial, sans-serif;
+    color: #000;
+    padding: .4565625vw;
+}
 .btn-register-login {
     letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
@@ -1030,40 +1069,27 @@ body {
     margin: .6510416666666667vw
 }
 
-.cart_obj_name {
-    margin: 2.604166666666667vw 0 0 0;
-    color: #454545;
-    font-family: Lato, arial, sans-serif;
-    letter-spacing: .06510416666666667vw;
-    font-weight: 800
-}
+
 
 .cart_obj_price {
-    margin: 2.604166666666667vw 9.765625vw 0 0;
+    margin: 2.604166666666667vw 0 0 0;
     font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif;
     color: #8a7522;
+    text-align: left;
+    justify-content: center;
+    width: 120px;
     letter-spacing: .06510416666666667vw
 }
 
-.order_obj_price {
-    margin: 2.604166666666667vw 14.765625vw 0 0;
-    font-size: .9114583333333334vw;
-    font-family: Lato, arial, sans-serif;
-    color: #8a7522;
-    letter-spacing: .06510416666666667vw
-}
 
-.order_obj_quantity {
-    margin: 2.604166666666667vw 13.765625vw 0 0;
-    font-size: .9114583333333334vw;
-    font-family: Lato, arial, sans-serif;
-    color: #8a7522;
-    letter-spacing: .06510416666666667vw
-}
+
+
 
 .cart_obj_input {
     margin: 0 2.2786458333333335vw;
+    width: 250px;
+    text-align: center;
     font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif;
     color: #8a7522;
@@ -1095,16 +1121,17 @@ body {
     font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif;
     color: #8a7522;
+    text-align: right;
+    width: 100px;
     letter-spacing: .06510416666666667vw
 }
 
-.order_total_price {
-    margin: 0;
-    margin-top: 2.604166666666667vw;
-    font-size: .9114583333333334vw;
-    font-family: Lato, arial, sans-serif;
-    color: #8a7522;
-    letter-spacing: .06510416666666667vw
+.cart_obj_name {
+    font-size: 1.3020833333333335vw;
+    color: #4c4c4c;
+    font-weight: 700;
+    width: 250px;
+    font-family: Lato, arial, sans-serif
 }
 
 .total_all_cart_price {
@@ -1248,4 +1275,46 @@ body {
     border-radius: 6.510416666666667vw;
     background-color: #41b951;
     position: fixed
+}
+
+
+.order_box {
+    width: 80%;
+    margin: 0 auto;
+    height: inherit;
+    border-style: solid;
+    border-width: .13020833333333334vw;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: #e4e4e4;
+    display: flex;
+    flex-direction: row
+}
+
+.order_flex {
+    display: flex;
+    width: 100%;
+    height: inherit;
+    flex-direction: row;
+}
+
+.order_image {
+    height: 130px;
+    padding: 15px;
+}
+
+.ordeer_mid h3 {
+    padding-top: 45px;
+    font-size: 1.3020833333333335vw;
+    color: #4c4c4c;
+    font-weight: 700;
+    font-family: Lato, arial, sans-serif
+}
+
+.order_details {
+    width: 200px;
+    font-size: 16px;
+    color: #4c4c4c;
+    font-family: Lato, arial, sans-serif
 }

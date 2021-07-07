@@ -1108,18 +1108,7 @@ app.get('/logout', (req, res) => {
 
 
 
-app.get('/secret', ensureAuth, (req, res) => {
 
-  User.findOne({
-    _id: req.user._id
-  }, (err, found1) => {
-    res.render('secret', {
-      user: req.user.name,
-      name: found1.name,
-      isLoggedin: "yes"
-    })
-  })
-})
 
 
 

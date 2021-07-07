@@ -4,32 +4,31 @@
 <div class="main_box">
     <h3 class="tnm">My Orders</h3>
     <div class="cart_box_head">
-        <div style="flex: 1;"></div>
-        <p class="head_cart_margs">Price</p>
-        <p class="head_cart_margs">Quantity</p>
-        <p class="head_cart_margs" style="margin-right: 0;">Total</p>
+
     </div>
     <%for(var i=0;i<orders.length;i++){%>
 
-    
-        <% for(let j = 0;j<orders[i].items.length;++j){ %>
-            <div class="cart_box">   
-            <p class="cart_obj_name"><%=orders[i].items[j].name%></p>
-            <div style="flex: 1;"></div>
-            <p class="order_obj_price" id="price<%=i%>">₹ <%=orders[i].items[j].original_price%>
-            </p>
-    
-            <p class="order_obj_quantity" id="number_of_items<%=i%>"><%=orders[i].items[j].quantity%></p>
-    
-            <p class="order_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹
-                <%=orders[i].items[j].total_price%></p>
-    
 
-
+    <% for(let j = 0;j<orders[i].items.length;++j){ %>
+    <div class="order_box">
+        <div class="order_flex">
+            <img class="order_image" src="<%=orders[i].items[j].product_image%>"></img>
+            <div class="ordeer_mid" style="flex:1;">
+                <h3><%=orders[i].items[j].name%></h3>
             </div>
-            <% } %>  
-        <!-- <img class="cart_box_img" src="<%=orders[i].product_image%>" alt=""> -->
-       
+            <div class="order_details">
+                <p><span style="font-weight:bolder;">Date:</span> <%=orders[i].date%></p>
+                <p><span style="font-weight:bolder;">Original Price:</span> ₹<%=orders[i].items[j].original_price%></p>
+                <p><span style="font-weight:bolder;">Quantity:</span> <%=orders[i].items[j].quantity%></p>
+                <p><span style="font-weight:bolder;">Price Paid:</span> ₹<%=orders[i].items[j].total_price%></p>
+            </div>
+
+        </div>
+
+    </div>
+    <% } %>
+    <!-- <img class="cart_box_img" src="<%=orders[i].product_image%>" alt=""> -->
+
     <%}%>
 
 

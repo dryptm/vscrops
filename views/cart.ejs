@@ -23,17 +23,20 @@
     </div>
     <p class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%></p>
   </div>
- <input type="text" id = "op<%=i%>" value="<%=cart[i].original_price %>" style="visibility: collapse;position: absolute;">
+  <input type="text" id="op<%=i%>" value="<%=cart[i].original_price %>"
+    style="visibility: collapse;position: absolute;">
   <%}%>
 <h4 class="total_all_cart_price" id="total_all_cart_price">adadadfgsdfgsdfgs dfg sdg</h4>
 
-<form action = "/discount" method = "POST">
-  <input type="text" name="discount" value="">
-  <button type="submit">Check</button>
-</form>
 
 
 <div class="main_box">
+  <form action = "/discount" method = "POST">
+    <h3 class="coupon_code_h3">Coupon Code:</h3>
+    <input class="coupon_input" type="text" name="discount" value="">
+    <button class="btn-coupon" type="submit">Check</button>
+  </form>
+  
   <form action="/checkout_post" method="POST">
     <input style="visibility: collapse;opacity: 0;" type="text" id="tot" value="" name = "tot_p">
     <button class="checkout_button" type="submit">Checkout</button>
