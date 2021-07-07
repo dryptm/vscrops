@@ -11,12 +11,6 @@ const Coupon = require("./models/coupons");
 const mailinglist = require('./models/mailinglist');
 const Razorpay = require("razorpay")
 const Order = require('./models/orders')
-const Vonage = require('@vonage/server-sdk')
-
-const vonage = new Vonage({
-  apiKey: "b139053f",
-  apiSecret: "w1nJSHIO9hX4j3dE"
-})
 
 // function makeid(length) {
 //   var result           = '';
@@ -909,22 +903,7 @@ app.post('/payment_confirm', (req, res) => {
     }
   })
   ///////orderSMS////////////////
-  const from = "Vonage APIs"
-  const to = "918840245808"
-  const text = 'Your order is confirmed!'
-
-  vonage.message.sendSms(from, to, text, (err, responseData) => {
-    if (err) {
-      console.log(err);
-    } else {
-      if (responseData.messages[0]['status'] === "0") {
-        console.log("Message sent successfully.");
-      } else {
-        console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
-      }
-    }
-  })
-
+  
 
   User.updateOne({
     _id: req.user._id
