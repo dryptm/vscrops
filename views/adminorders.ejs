@@ -1,33 +1,46 @@
     <h3 style="color: #b89e37;text-align: center;font-size: 40px;margin-top: 50px;">Orders</h3>
-    <h4 class="totalorder">Total orders: <%=orders.length%></h4>
-    <%for(var i=0;i<orders.length;i++){%>
-    <div class="admin_orders">
-        <% for(let j = 0;j<orders[i].items.length;++j){ %>
-        <p style="margin-bottom: 0;"><span style="font-weight:bolder;">Item name:</span> <%=orders[i].items[j].name%>
-        </p>
-        <p style="margin-top: 0;"><span style="font-weight:bolder;">&ensp; Quantity:</span>
-            <%=orders[i].items[j].quantity%></p>
+    <% for(var i=0;i<orders.length;i++){ %>
 
-        <% } %>
-        <p><span style="font-weight:bolder;">Customer Name:</span> <%=orders[i].customer_name%></p>
-        <p><span style="font-weight:bolder;">Customer Email:</span> <%=orders[i].customer_email%></p>
-        <p><span style="font-weight:bolder;">Phone Number:</span> <%=orders[i].customer_phone%></p>
-        <p><span style="font-weight:bolder;">Billing Address:</span> <%=orders[i].billing_address%></p>
-        <p><span style="font-weight:bolder;">City:</span> <%=orders[i].city%></p>
-        <p><span style="font-weight:bolder;">Pincode:</span> <%=orders[i].pincode%></p>
-        <p><span style="font-weight:bolder;">State:</span> <%=orders[i].state%></p>
-        <p><span style="font-weight:bolder;">Total Amount:</span> ₹<%=orders[i].total_amount%></p>
-        <p><span style="font-weight:bolder;">Date:</span> <%=orders[i].date%></p>
-        <br>
-        <br>
-        <br>
+    <% for(let j = 0;j<orders[i].items.length;++j){ %>
+    <div class="admin_orders">
+        <form action="/order_transition/<%=orders[i]._id%>/<%=j%>" method="POST">
+
+            <p><span style="font-weight:bolder;">Item Name: </span> <%=orders[i].items[j].name%></p>
+            <p><span style="font-weight:bolder;">Quantity: </span><%=orders[i].items[j].quantity%></p>
+            <p><span style="font-weight:bolder;">Total Price: </span> ₹<%=orders[i].items[j].total_price%></p>
+            <p><span style="font-weight:bolder;">Original Price: </span> ₹<%=orders[i].items[j].original_price%></p>
+            <p><span style="font-weight:bolder;">Discount Applied:
+                </span><%=(100*((orders[i].items[j].original_price-(orders[i].items[j].total_price/orders[i].items[j].quantity))/orders[i].items[j].original_price))%>%
+            </p>
+            <p><span style="font-weight:bolder;">Order Id: </span> <%=orders[i].order_id%></p>
+            <p><span style="font-weight:bolder;">Customer Name: </span> <%=orders[i].customer_name%></p>
+            <p><span style="font-weight:bolder;">Customer Email: </span> <%=orders[i].customer_email%></p>
+            <p><span style="font-weight:bolder;">Phone Number: </span> <%=orders[i].customer_phone%></p>
+            <p><span style="font-weight:bolder;">Billing Address: </span> <%=orders[i].billing_address%></p>
+            <p><span style="font-weight:bolder;">City: </span> <%=orders[i].city%></p>
+            <p><span style="font-weight:bolder;">Pincode: </span> <%=orders[i].pincode%></p>
+            <p><span style="font-weight:bolder;">State: </span> <%=orders[i].state%></p>
+            <p><span style="font-weight:bolder;">Total Amount: </span> ₹<%=orders[i].total_amount%></p>
+            <p><span style="font-weight:bolder;">Date: </span> <%=orders[i].date%></p>
+            <input name="length" type="text" placeholder="length">
+            <input name="breadth" type="text" placeholder="breadth">
+            <input name="height" type="text" placeholder="height">
+            <input name="weight" type="text" placeholder="weight">
+            
+            <br>
+            <br>
+            <button type="submit">Button</button>
+        </form>
+
     </div>
-    <%}%>
+    <% } %>
+    <% } %>
 
 
     <style>
-        .admin_orders{
+        .admin_orders {
             width: 60%;
+            font-size: 14px;
             margin: 0 auto;
             border-style: solid;
             border-radius: 10px;
@@ -38,10 +51,15 @@
             border-width: 2px;
             color: #4c4c4c;
         }
-        .totalorder{
+
+        .admin_orders p {
+            margin: 5px 0;
+        }
+
+        .totalorder {
             width: 65%;
             margin: 0 auto;
-            
+
             margin-bottom: 50px;
             font-family: Lato, arial, sans-serif;
             border-color: rgb(116, 116, 116);

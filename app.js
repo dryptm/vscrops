@@ -1169,13 +1169,25 @@ app.post("/send", (req, res) => {
 
 app.get("/admin/orders",(req,res)=>{
   Order.find({},(err,found)=>{
-    console.log(found)
+    // console.log(found[found.length-1])
     res.render("adminorders",{orders:found})
   })
 
 })
 
-
+app.post("/order_transition/:id/:j",(req,res)=>{
+  var id,j;
+  id=req.params.id;
+  j=req.params.j;
+  var l,b,h,w;
+  l=req.body.length;
+  b=req.body.breadth;
+  h=req.body.height;
+  w=req.body.weight;
+  Order.findOne({_id:id},(err,found)=>{
+    
+  })
+})
 
 
 
