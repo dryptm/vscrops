@@ -22,7 +22,15 @@
             <p><span style="font-weight:bolder;">State: </span> <%=orders[i].state%></p>
             <p><span style="font-weight:bolder;">Total Amount: </span> ₹<%=orders[i].total_amount%></p>
             <p><span style="font-weight:bolder;">Date: </span> <%=orders[i].date%></p>
-            <input name="length" type="text" placeholder="length">
+            <%if(orders[i].payment_id=="COD"){%>
+            <p><span style="font-weight:bolder;">Payment Method: </span> COD</p>
+
+            <%}%>
+            <%if(orders[i].payment_id!="COD"){%>
+                <p><span style="font-weight:bolder;">Payment Method: </span> Paid Online</p>
+    
+                <%}%>
+                <input name="length" type="text" placeholder="length">
             <input name="breadth" type="text" placeholder="breadth">
             <input name="height" type="text" placeholder="height">
             <input name="weight" type="text" placeholder="weight">
@@ -34,36 +42,36 @@
 
     </div>
     <% } %>
-    <% } %>
+            <% } %>
 
 
-    <style>
-        .admin_orders {
-            width: 60%;
-            font-size: 14px;
-            margin: 0 auto;
-            border-style: solid;
-            border-radius: 10px;
-            padding: 20px 50px;
-            margin-bottom: 50px;
-            font-family: Lato, arial, sans-serif;
-            border-color: rgb(116, 116, 116);
-            border-width: 2px;
-            color: #4c4c4c;
-        }
+            <style>
+                .admin_orders {
+                    width: 60%;
+                    font-size: 14px;
+                    margin: 0 auto;
+                    border-style: solid;
+                    border-radius: 10px;
+                    padding: 20px 50px;
+                    margin-bottom: 50px;
+                    font-family: Lato, arial, sans-serif;
+                    border-color: rgb(116, 116, 116);
+                    border-width: 2px;
+                    color: #4c4c4c;
+                }
 
-        .admin_orders p {
-            margin: 5px 0;
-        }
+                .admin_orders p {
+                    margin: 5px 0;
+                }
 
-        .totalorder {
-            width: 65%;
-            margin: 0 auto;
+                .totalorder {
+                    width: 65%;
+                    margin: 0 auto;
 
-            margin-bottom: 50px;
-            font-family: Lato, arial, sans-serif;
-            border-color: rgb(116, 116, 116);
-            border-width: 2px;
-            color: #4c4c4c;
-        }
-    </style>
+                    margin-bottom: 50px;
+                    font-family: Lato, arial, sans-serif;
+                    border-color: rgb(116, 116, 116);
+                    border-width: 2px;
+                    color: #4c4c4c;
+                }
+            </style>

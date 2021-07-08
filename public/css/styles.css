@@ -176,7 +176,7 @@ body {
 }
 
 .user_dropdown {
-    width: 16.276041666666668vw;
+    width: 13.276041666666668vw;
     height: auto;
     background-color: #fff;
     position: absolute;
@@ -1001,6 +1001,33 @@ body {
     color: #151515;
     border-color: rgb(220 189 66)
 }
+
+.btn-register-login1 {
+    letter-spacing: .13020833333333334vw;
+    font-size: 1.0416666666666667vw;
+    font-weight: 400;
+    font-family: Lato, arial, sans-serif;
+    color: #000;
+    background-color: #d4b435;
+    text-decoration: none;
+    border-color: #d4b435;
+    border-style: solid;
+    border-width: .06510416666666667vw;
+    margin-left: 0;
+    margin-top: 3.2552083333333335vw;
+    margin-left: 3.2552083333333335vw;
+    padding: .9765625vw;
+    transition: all .25s;
+    cursor: pointer
+}
+
+.btn-register-login1:hover {
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
+    background-color: rgb(220 189 66);
+    color: #151515;
+    border-color: rgb(220 189 66)
+}
+
 
 .login_with_google {
     letter-spacing: .13020833333333334vw;

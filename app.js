@@ -937,29 +937,82 @@ app.post('/payment_confirm', (req, res) => {
 
 
   today = yyyy + '-' + mm + '-' + dd;
-  const order = new Order({
-    order_id: req.body.order_id,
-    customer_name: req.body.name,
-    customer_email: req.body.email,
-    customer_phone: req.body.phone,
-    total_amount: req.body.amount,
-    billing_address: req.body.billing_address1,
-    city: req.body.city,
-    pincode: req.body.pincode,
-    state: req.body.state,
-    payment_signature: req.body.payment_signature,
-    payment_id: req.body.payment_id,
-    items: req.user.cart,
-    date: today
-  })
-  order.save();
-  var arr = req.user.orders
-  arr.push({
-    date: today,
-    total_price: req.body.amount,
-    items: req.user.cart
-  })
-  User.updateOne({
+  if (req.body.payment_id == "") {
+    console.log(req.body)
+    console.log("paid cash")
+    const order = new Order({
+      order_id: req.body.order_id,
+      customer_name: req.body.name,
+      customer_email: req.body.email,
+      customer_phone: req.body.phone,
+      total_amount: String(Number(req.body.amount)+50),
+      billing_address: req.body.billing_address1,
+      city: req.body.city,
+      pincode: req.body.pincode,
+      state: req.body.state,
+      payment_signature: req.body.payment_signature,
+      payment_id: "COD",
+      items: req.user.cart,
+      date: today
+    })
+    order.save();
+    var arr = req.user.orders
+    arr.push({
+      date: today,
+      total_price: req.body.amount,
+      items: req.user.cart
+    })
+    User.updateOne({
+      _id: req.user._id
+    }, {
+      orders: arr
+    }, (err) => {
+      if (err) console.log(err);
+      else {
+
+        User.updateOne({
+            _id: req.user._id
+          }, {
+            cart: []
+          }, (err) => {
+            if (err) console.log(err);
+            else {
+              res.render("payment_success", {
+                isLoggedin: "yes",
+                name: req.user.name,
+                message: "Order Confirmed!"
+              });
+            }
+          }
+
+        )
+      }
+    })
+  } else {
+    console.log("paid online")
+    const order = new Order({
+      order_id: req.body.order_id,
+      customer_name: req.body.name,
+      customer_email: req.body.email,
+      customer_phone: req.body.phone,
+      total_amount: req.body.amount,
+      billing_address: req.body.billing_address1,
+      city: req.body.city,
+      pincode: req.body.pincode,
+      state: req.body.state,
+      payment_signature: req.body.payment_signature,
+      payment_id: req.body.payment_id,
+      items: req.user.cart,
+      date: today
+    })
+    order.save();
+    var arr = req.user.orders
+    arr.push({
+      date: today,
+      total_price: req.body.amount,
+      items: req.user.cart
+    })
+    User.updateOne({
       _id: req.user._id
     }, {
       orders: arr
@@ -984,9 +1037,10 @@ app.post('/payment_confirm', (req, res) => {
 
         )
       }
-    }
+    })
+  }
 
-  )
+
 
 
 })
@@ -1167,25 +1221,29 @@ app.post("/send", (req, res) => {
 
 
 
-app.get("/admin/orders",(req,res)=>{
-  Order.find({},(err,found)=>{
+app.get("/admin/orders", (req, res) => {
+  Order.find({}, (err, found) => {
     // console.log(found[found.length-1])
-    res.render("adminorders",{orders:found})
+    res.render("adminorders", {
+      orders: found
+    })
   })
 
 })
 
-app.post("/order_transition/:id/:j",(req,res)=>{
-  var id,j;
-  id=req.params.id;
-  j=req.params.j;
-  var l,b,h,w;
-  l=req.body.length;
-  b=req.body.breadth;
-  h=req.body.height;
-  w=req.body.weight;
-  Order.findOne({_id:id},(err,found)=>{
-    
+app.post("/order_transition/:id/:j", (req, res) => {
+  var id, j;
+  id = req.params.id;
+  j = req.params.j;
+  var l, b, h, w;
+  l = req.body.length;
+  b = req.body.breadth;
+  h = req.body.height;
+  w = req.body.weight;
+  Order.findOne({
+    _id: id
+  }, (err, found) => {
+
   })
 })
 
