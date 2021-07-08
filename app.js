@@ -1130,7 +1130,7 @@ app.get('/logout', (req, res) => {
 
 
 
-app.get("/newsletter", (req, res) => {
+app.get("/admin/newsletter", (req, res) => {
   res.render("newsletter", {})
 })
 app.post("/send", (req, res) => {
@@ -1165,6 +1165,15 @@ app.post("/send", (req, res) => {
   res.redirect("/home")
 })
 
+
+
+app.get("/admin/orders",(req,res)=>{
+  Order.find({},(err,found)=>{
+    console.log(found)
+    res.render("adminorders",{orders:found})
+  })
+
+})
 
 
 
