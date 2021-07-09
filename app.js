@@ -7,6 +7,7 @@ const passport = require('passport')
 const mongoose = require("mongoose");
 const User = require('./models/users');
 const Product = require('./models/products');
+const Admin = require('./models/admin');
 const Coupon = require("./models/coupons");
 const mailinglist = require('./models/mailinglist');
 const Razorpay = require("razorpay")
@@ -1210,50 +1211,64 @@ app.get('/logout', (req, res) => {
 
 
 app.get("/admin/newsletter", (req, res) => {
-  res.render("newsletter", {})
+  if(req.isAuthenticated()){
+    res.render("adminnewsletter", {})
+
+  }
+  else {
+res.redirect("/adminfailed")
+  }
 })
 app.post("/send", (req, res) => {
-  var x = "";
-  mailinglist.find({}, (err, found) => {
-    for (var i = 0; i < found.length; i++) {
-      x = x + found[i].email + ","
-    }
-
-    x = x.slice(0, -1)
-    var mailOptions = {
-      from: 'text789456text@gmail.com',
-      to: x,
-      subject: req.body.Subject,
-      html: req.body.textarea
-
-    };
-    var transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'text789456text@gmail.com',
-        pass: '1@2@3@4@'
+    var x = "";
+    mailinglist.find({}, (err, found) => {
+      for (var i = 0; i < found.length; i++) {
+        x = x + found[i].email + ","
       }
-    });
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error)
-      }
-      console.log(info)
+  
+      x = x.slice(0, -1)
+      var mailOptions = {
+        from: 'text789456text@gmail.com',
+        to: x,
+        subject: req.body.Subject,
+        html: req.body.textarea
+  
+      };
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'text789456text@gmail.com',
+          pass: '1@2@3@4@'
+        }
+      });
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error)
+        }
+        console.log(info)
+      })
     })
-  })
+    
   res.redirect("/home")
 })
 
 
 
 app.get("/admin/orders", (req, res) => {
-  Order.find({}, (err, found) => {
-    // console.log(found[found.length-1])
-    res.render("adminorders", {
-      orders: found
-    })
-  })
 
+  if(req.isAuthenticated()){
+    Order.find({}, (err, found) => {
+      // console.log(found[found.length-1])
+      res.render("adminorders", {
+        orders: found
+      })
+    })
+  
+  }
+else {
+  res.redirect("/adminfailed")
+}
+  
 })
 
 app.post("/order_transition/:id/:j", (req, res) => {
@@ -1311,6 +1326,34 @@ app.get("/auth/google/google_login",
 
 
 
+app.get('/admin',(req,res)=>{
+  res.render("admin")
+})
+
+app.post('/admin',(req,res)=>{
+  passport.authenticate('userLocal', {
+    failureRedirect: "/adminfailed"
+  })(req, res, function () {
+    res.redirect('/admindashboard')
+  
+  })
+})
+app.get('/adminfailed',(req,res)=>{
+  res.render("admin_login_failed");
+})
+
+app.get('/admindashboard',(req,res)=>{
+  if(req.isAuthenticated()){
+    res.render("admindashboard",{
+      user : req.user.username
+    })
+    
+
+  }
+  else {
+
+  }
+})
 
 
 

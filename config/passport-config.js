@@ -4,17 +4,20 @@ var nodemailer = require('nodemailer')
 const passportLocalMongoose = require('passport-local-mongoose');
 const LocalStrategy = require('passport-local').Strategy
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const Admin = require('../models/admin')
 
 const User = require('../models/users');
 module.exports = function (passport) {
   passport.use(User.createStrategy());
+
+  passport.use('userLocal', new LocalStrategy(Admin.authenticate()));
+
   passport.serializeUser(function (user, done) {
-    done(null, user.id);
+    done(null, user);
   });
-  passport.deserializeUser(function (id, done) {
-    User.findById(id, function (err, user) {
-      done(err, user);
-    });
+  passport.deserializeUser(function (user, done) {
+    console.log(user)
+    done(null,user)
   });
   passport.use(new GoogleStrategy({
       clientID: process.env.CLIENT_ID_GOOGLE,
