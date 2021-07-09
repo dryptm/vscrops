@@ -54,8 +54,33 @@ var Blog = mongoose.model('Blog', blogSchema);
 
 
 
+// product sku maker
+Product.find({}, (err, found) => {
 
+  for (var i = 0; i < found.length; i++) {
+    Product.findOne({
+      _id: found[i]._id
+    }, (err, found1) => {
+      var x = found1.product_name
+      var y = x.split(" ")
+      for (var j = 0; j < y.length; j++) {
+        y[j] = y[j].substring(0, 3)
+      }
+      if (found1.product_sku == "") {
 
+        Product.findOneAndUpdate({
+          _id: found1._id
+        }, {
+          product_sku: y.join("-")
+        }, {
+          new: true
+        }, (err, foundx) => {
+          console.log(found1.product_name+" sku changed")
+        })
+      }
+    })
+  }
+})
 app.get("/", function (req, res) {
   res.redirect("/home");
 
@@ -945,7 +970,7 @@ app.post('/payment_confirm', (req, res) => {
       customer_name: req.body.name,
       customer_email: req.body.email,
       customer_phone: req.body.phone,
-      total_amount: String(Number(req.body.amount)+50),
+      total_amount: String(Number(req.body.amount) + 50),
       billing_address: req.body.billing_address1,
       city: req.body.city,
       pincode: req.body.pincode,

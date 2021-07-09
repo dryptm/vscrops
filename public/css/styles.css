@@ -76,6 +76,7 @@ body {
 
 .toc-pp {
     text-align: center;
+    font-size: 1.1067708333333333vw;
     font-family: Lato, arial, sans-serif;
     padding-bottom: 2.604166666666667vw
 }
@@ -1353,4 +1354,22 @@ body {
     font-size: 1.0416666666666667vw;
     color: #4c4c4c;
     font-family: Lato, arial, sans-serif
+}
+
+.forgot_pass {
+    font-size: 1.171875vw;
+    text-decoration: none;
+    color: #716021;
+    font-family: Lato, arial, sans-serif;
+}
+
+.show_pass {
+    font-size: 0.96875vw;
+    text-decoration: none;
+    color: #555555;
+    font-family: Lato, arial, sans-serif;
+}
+
+.checkbox{
+    height: 0.6510416666666666vw;
 }
