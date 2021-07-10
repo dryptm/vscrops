@@ -55,7 +55,7 @@ module.exports = function (passport) {
             Id: profile.id
           }, (err, found) => {
             if (found) {
-              return cb(err, found)
+              return cb(err, found._id)
             } else {
               var transporter = nodemailer.createTransport({
                 service: 'gmail',
@@ -90,7 +90,7 @@ module.exports = function (passport) {
 
               })
               user.save();
-              return cb(err, user);
+              return cb(err, user._id);
             }
           })
         }

@@ -961,7 +961,7 @@ for(let i = 0;i<req.user.cart.length;++i){
         "billing_state": req.body.state,
         "billing_country": "India",
         "billing_email": String(req.user.username.trim()),
-        "billing_phone": req.user.phone,
+        "billing_phone": req.body.phone,
         "shipping_is_billing": true,
         "order_items": [{
           "name": req.user.cart[i].name,
@@ -997,6 +997,7 @@ for(let i = 0;i<req.user.cart.length;++i){
             shiprocket_order_info : result
           })
           track.save();
+          console.log(result)
         })
         .catch(error => console.log('error', error));
 
