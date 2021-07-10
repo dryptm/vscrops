@@ -1248,7 +1248,7 @@ app.post("/send", (req, res) => {
     })
   })
 
-  res.redirect("/home")
+  res.redirect("/admindashboard")
 })
 
 
