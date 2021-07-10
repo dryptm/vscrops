@@ -13,7 +13,10 @@ const mailinglist = require('./models/mailinglist');
 const Razorpay = require("razorpay")
 const Order = require('./models/orders')
 const fast2sms = require('fast-two-sms')
-
+const axios = require('axios')
+const Track = require('./models/tracking')
+const fetch = require('node-fetch');
+var cors = require('cors')
 
 
 
@@ -39,9 +42,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(cors({
-//   origin: true
-// }));
+app.use(cors({
+  origin: true
+}));
 
 
 var blogSchema = new mongoose.Schema({
@@ -751,6 +754,9 @@ app.get('/orders', (req, res) => {
 
 
 app.post('/discount', (req, res) => {
+  console.log(req.user.cart)
+
+
   if (req.isAuthenticated()) {
 
     Coupon.findOne({
@@ -761,6 +767,7 @@ app.post('/discount', (req, res) => {
         console.log(found)
 
         var arr = req.user.cart
+        
         for (let i = 0; i < arr.length; ++i) {
           var dd = arr[i].original_price - arr[i].original_price * Number(found.coupon_discount) / 100;
           arr[i].total_price = dd * arr[i].quantity
@@ -812,22 +819,35 @@ app.get("/delete/:np", (req, res) => {
       _id: req.user._id
     }, (err, found1) => {
       // console.log(found1.cart)
-      for (var i = 0; i < found1.cart.length; i++) {
-        if (found1.cart[i].name == npp) {
-          found1.cart.splice(i, 1)
-          // console.log(found1.cart)
-          User.findOneAndUpdate({
-            _id: req.user._id
-          }, {
-            cart: found1.cart
-          }, {
-            new: true
-          }, (err, data) => {
-            console.log(data)
-            res.redirect("/cart")
-          })
-        }
+      var arr = found1.cart
+      for(let i = 0;i<found1.cart.length;++i){
+          if(arr[i].name===npp){
+            arr.splice(i,1)
+          }
       }
+      User.updateOne({_id : req.user._id},{cart : arr},(err)=>{
+        if(err) console.log(err)
+        else res.redirect('/cart')
+      })
+
+
+
+      // for (var i = 0; i < found1.cart.length; i++) {
+      //   if (found1.cart[i].name == npp) {
+      //     found1.cart.splice(i, 1)
+      //     // console.log(found1.cart)
+      //     User.findOneAndUpdate({
+      //       _id: req.user._id
+      //     }, {
+      //       cart: found1.cart
+      //     }, {
+      //       new: true
+      //     }, (err, data) => {
+      //       console.log(data)
+      //       res.redirect("/cart")
+      //     })
+      //   }
+      // }
 
     })
   } else res.render("needloginfirst", {
@@ -867,7 +887,24 @@ app.get("/delete/:np", (req, res) => {
 // })
 
 app.post('/checkout_post', (req, res) => {
+  var len = Object.keys(req.body).length - 1
+console.log(req.body)
   if (req.isAuthenticated()) {
+    var arr = req.user.cart
+    for (let i = 0; i < Math.min(len,arr.length); ++i) {
+      var old_price = arr[i].total_price/arr[i].quantity
+      arr[i].quantity = Number(req.body[i+''])
+      arr[i].total_price = arr[i].quantity*old_price
+
+    }
+    User.updateOne({
+      _id: req.user._id
+    }, {
+      cart: arr
+    }, (err) => {
+      if (err) console.log(err)
+    })
+
     User.findOne({
       _id: req.user._id
     }, (err, found1) => {
@@ -898,11 +935,89 @@ app.post('/checkout_post', (req, res) => {
 //****************************** */
 
 app.post('/payment_confirm', (req, res) => {
+
+
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
+  today = yyyy + '-' + mm + '-' + dd;
 
+
+
+for(let i = 0;i<req.user.cart.length;++i){
+
+      const names = req.body.name.split(' ')
+      const lname = names[names.length - 1]
+      const raw = JSON.stringify({
+        "order_id": req.body.order_id + "_" + String(i),
+        "order_date": today,
+        "pickup_location": "WPatelN",
+        "billing_customer_name": names[0],
+        "billing_last_name": lname,
+        "billing_address": req.body.billing_address1,
+        "billing_city": req.body.city,
+        "billing_pincode": req.body.pincode,
+        "billing_state": req.body.state,
+        "billing_country": "India",
+        "billing_email": String(req.user.username.trim()),
+        "billing_phone": req.user.phone,
+        "shipping_is_billing": true,
+        "order_items": [{
+          "name": req.user.cart[i].name,
+          "sku": "Alm-Oil-100",
+          "units": Number(req.user.cart[i].quantity),
+          "selling_price": req.user.cart[i].total_price,
+          "discount": String(((req.user.cart[i].original_price-(req.user.cart[i].total_price/req.user.cart[i].quantity))/req.user.cart[i].original_price)*100)
+        }],
+        "payment_method": (req.body.payment_id === "" ? "COD" : "Prepaid"),
+        "sub_total": (req.body.payment_id === "" ? req.user.cart[i].total_price+50 :req.user.cart[i].total_price),
+        "length": Number(process.env.LENGTH),
+        "breadth": Number(process.env.BREADTH),
+        "height": Number(process.env.HEIGHT),
+        "weight": Number(process.env.WEIGHT)
+      })
+      console.log(raw)
+
+      var requestOptions = {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2MzU2NjksImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjI1OTM5NDkzLCJleHAiOjE2MjY4MDM0OTMsIm5iZiI6MTYyNTkzOTQ5MywianRpIjoiRUdQTWNZVWtBR0Jpc1RkZSJ9.GpxBRPpT1V95YAiYR_2gb-dvnBTBM_K6zcQFjdI9QS0"
+        },
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://apiv2.shiprocket.in/v1/external/orders/create/adhoc", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+          const track = new Track({
+            order_id : req.body.order_id + "_" + String(i),
+            shiprocket_order_info : result
+          })
+          track.save();
+        })
+        .catch(error => console.log('error', error));
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -962,7 +1077,6 @@ app.post('/payment_confirm', (req, res) => {
   })
 
 
-  today = yyyy + '-' + mm + '-' + dd;
   if (req.body.payment_id == "") {
     console.log(req.body)
     console.log("paid cash")
@@ -1211,7 +1325,7 @@ app.get('/logout', (req, res) => {
 
 
 app.get("/admin/newsletter", (req, res) => {
-  if (req.isAuthenticated()) {
+  if (req.isAuthenticated() && req.user.username===process.env.ADMIN_USERNAME) {
     res.render("adminnewsletter", {})
 
   } else {
@@ -1248,20 +1362,31 @@ app.post("/send", (req, res) => {
     })
   })
 
-  res.redirect("/admindashboard")
+  res.redirect("/home")
 })
 
 
 
 app.get("/admin/orders", (req, res) => {
 
-  if (req.isAuthenticated()) {
-    Order.find({}, (err, found) => {
-      // console.log(found[found.length-1])
-      res.render("adminorders", {
-        orders: found
+  if (req.isAuthenticated() && req.user.username===process.env.ADMIN_USERNAME) {
+ 
+
+    Track.find({},(e,f)=>{
+
+      Order.find({}, (err, found) => {
+        // console.log(found[found.length-1])
+        res.render("adminorders", {
+          orders: found,
+          track : f
+        
+        })
       })
+
+
+
     })
+    
 
   } else {
     res.redirect("/adminfailed")
@@ -1269,10 +1394,25 @@ app.get("/admin/orders", (req, res) => {
 
 })
 
+
+/************************************************************************************************************************************************************************* */
+function sku(found) {
+  var x = found
+  var y = x.split(" ")
+  for (var j = 0; j < y.length; j++) {
+    y[j] = y[j].substring(0, 3)
+  }
+  var ret = y.join('-');
+  return ret;
+
+}
+
 app.post("/order_transition/:id/:j", (req, res) => {
+
   var id, j;
   id = req.params.id;
   j = req.params.j;
+  console.log(j)
   var l, b, h, w;
   l = req.body.length;
   b = req.body.breadth;
@@ -1281,10 +1421,98 @@ app.post("/order_transition/:id/:j", (req, res) => {
   Order.findOne({
     _id: id
   }, (err, found) => {
+    if (found) {
+
+      console.log(found.payment_id === "COD" ? "COD" : "Prepaid")
+      const item = found.items[j]
+      // const ob = JSON.stringify({
+      //   "order_id": found.order_id+"_"+String(j),
+      //   "order_date": found.date, 
+      //   "pickup_location": "WPatelN",
+      //   "company_name": "Vishuddha Crops",
+      //   "billing_customer_name": found.customer_name,
+      //   "billing_address": found.billing_address,
+      //   "billing_city": found.city,
+      //   "billing_pincode": Number(found.pincode),
+      //   "billing_state": found.state,
+      //   "billing_country": "INDIA",
+      //   "billing_email": found.customer_email,
+      //   "billing_phone": found.customer_phone,
+      //   "shipping_is_billing": true,
+      //   "order_items": [
+      //       {
+      //           "name": found.items[j].name,
+      //           "sku": sku(found.items[j].name),
+      //           "units": Number(found.items[j].quantity),
+      //           "selling_price": Number(found.items[j].original_price),
+      //           "discount": Number(req.body.discount)
+      //       }
+      //   ],
+      //   "payment_method": (found.payment_id==="COD"?"COD":"Prepaid"),
+      //   "sub_total": Number(found.items[j].original_price),
+      //   "length": Number(l),
+      //   "breadth": Number(b),
+      //   "height": Number(h),
+      //   "weight": Number(w)
+      // })
+
+      const names = found.customer_name.split(' ')
+      const lname = names[names.length - 1]
+      const raw = JSON.stringify({
+        "order_id": found.order_id + "_" + String(j),
+        "order_date": found.date,
+        "pickup_location": "WPatelN",
+        "billing_customer_name": names[0],
+        "billing_last_name": lname,
+        "billing_address": found.billing_address,
+        "billing_city": found.city,
+        "billing_pincode": found.pincode,
+        "billing_state": found.state,
+        "billing_country": "India",
+        "billing_email": String(found.customer_email.trim()),
+        "billing_phone": found.customer_phone,
+        "shipping_is_billing": true,
+        "order_items": [{
+          "name": found.items[j].name,
+          "sku": "Alm-Oil-100",
+          "units": Number(found.items[j].quantity),
+          "selling_price": found.items[j].total_price,
+          "discount": req.body.discount
+        }],
+        "payment_method": (found.payment_id === "COD" ? "COD" : "Prepaid"),
+        "sub_total": found.items[j].total_price,
+        "length": Number(l),
+        "breadth": Number(b),
+        "height": Number(h),
+        "weight": Number(w)
+      })
+
+      var requestOptions = {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2MzU2NjksImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjI1OTM5NDkzLCJleHAiOjE2MjY4MDM0OTMsIm5iZiI6MTYyNTkzOTQ5MywianRpIjoiRUdQTWNZVWtBR0Jpc1RkZSJ9.GpxBRPpT1V95YAiYR_2gb-dvnBTBM_K6zcQFjdI9QS0"
+        },
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://apiv2.shiprocket.in/v1/external/orders/create/adhoc", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+
+
+
+
+
+
+    }
 
   })
 })
-
+/************************************************************************************************************************************************************************* */
 
 
 
@@ -1341,14 +1569,14 @@ app.get('/adminfailed', (req, res) => {
 })
 
 app.get('/admindashboard', (req, res) => {
-  if (req.isAuthenticated()) {
+  if (req.isAuthenticated() && req.user.username===process.env.ADMIN_USERNAME) {
     res.render("admindashboard", {
       user: req.user.username
     })
 
 
   } else {
-
+    res.redirect("/admin")
   }
 })
 

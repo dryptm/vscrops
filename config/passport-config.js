@@ -13,11 +13,27 @@ module.exports = function (passport) {
   passport.use('userLocal', new LocalStrategy(Admin.authenticate()));
 
   passport.serializeUser(function (user, done) {
-    done(null, user);
+    done(null, user._id);
   });
-  passport.deserializeUser(function (user, done) {
-    console.log(user)
-    done(null,user)
+  passport.deserializeUser(function (id, done) {
+    User.findOne({_id : id},(err,user)=>{
+    if(user){
+      return done(err,user)
+
+    }
+    else {
+      Admin.findOne({_id : id},(err2,user2)=>{
+        if(user2){
+          return done(err2,user2);
+        }
+        else {
+          return done(err2,null);
+        }
+      })
+    }
+
+    })
+    
   });
   passport.use(new GoogleStrategy({
       clientID: process.env.CLIENT_ID_GOOGLE,

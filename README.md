@@ -8,6 +8,11 @@ When the whole process is done, open https://localhost:3000 in the browser.
 
 
 
+Mongodb crdentials-\
+email - vishuddhacrops@gmail.com\
+password - Vishuddha@1120
+
+
 Use the following credentials to establish a connection with the database-\
 `"mongodb+srv://vishuddha_crops:vishuddha@prateek@cluster0.zmxnf.mongodb.net/DATA"`\
 Replace myFirstDatabase with the name of the database that connections will use by default.

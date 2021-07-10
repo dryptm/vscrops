@@ -4,7 +4,6 @@
 
     <% for(let j = 0;j<orders[i].items.length;++j){ %>
     <div class="admin_orders">
-        <form action="/order_transition/<%=orders[i]._id%>/<%=j%>" method="POST">
 
             <p><span style="font-weight:bolder;">Item Name: </span> <%=orders[i].items[j].name%></p>
             <p><span style="font-weight:bolder;">Quantity: </span><%=orders[i].items[j].quantity%></p>
@@ -13,7 +12,21 @@
             <p><span style="font-weight:bolder;">Discount Applied:
                 </span><%=(100*((orders[i].items[j].original_price-(orders[i].items[j].total_price/orders[i].items[j].quantity))/orders[i].items[j].original_price))%>%
             </p>
-            <p><span style="font-weight:bolder;">Order Id: </span> <%=orders[i].order_id%></p>
+            <p><span style="font-weight:bolder;">Order Id: </span> <%=orders[i].order_id%>_<%=j%></p>
+             
+            
+           
+                <% { %>
+                    <%var obj = track.find(o => o.order_id === orders[i].order_id+"_"+j)%>
+                 <% if(typeof obj!=='undefined'){ %>
+                    <p><span style="font-weight:bolder;">Shiprocket Id: </span>   <%= JSON.parse(obj.shiprocket_order_info).order_id %> </p>
+                    <p><span style="font-weight:bolder;">Shipment Id: </span>   <%= JSON.parse(obj.shiprocket_order_info).shipment_id %> </p>
+                    
+                    <% } %>  
+                    <% } %> 
+    
+            
+            
             <p><span style="font-weight:bolder;">Customer Name: </span> <%=orders[i].customer_name%></p>
             <p><span style="font-weight:bolder;">Customer Email: </span> <%=orders[i].customer_email%></p>
             <p><span style="font-weight:bolder;">Phone Number: </span> <%=orders[i].customer_phone%></p>
@@ -31,16 +44,7 @@
                 <p><span style="font-weight:bolder;">Payment Method: </span> Paid Online</p>
     
                 <%}%>
-                <input name="length" type="text" placeholder="length">
-            <input name="breadth" type="text" placeholder="breadth">
-            <input name="height" type="text" placeholder="height">
-            <input name="weight" type="text" placeholder="weight">
-            
-            <br>
-            <br>
-            <button type="submit">Button</button>
-        </form>
-
+          
     </div>
     <% } %>
             <% } %>

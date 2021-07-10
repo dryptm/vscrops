@@ -38,6 +38,12 @@
   </form>
   
   <form action="/checkout_post" method="POST">
+
+    <% for(let i = 0;i<cart.length;++i){%>
+      <input class="mailinput_width" type="number" name = "<%= i %>" id="num<%=i%>" value="<%=cart[i].quantity%>" style="visibility: collapse;position: absolute;" />
+   <% }  %> 
+
+
     <input style="visibility: collapse;opacity: 0;" type="text" id="tot" value="" name = "tot_p">
     <button class="checkout_button" type="submit">Checkout</button>
   </form>
@@ -70,14 +76,19 @@ var sum = 0;
      for(let i = 0;i<(Number(document.getElementById('length').value));++i){
       document.getElementById('number_of_items'+i).addEventListener("input",()=>{
 
+        document.getElementById("num"+i).value = document.getElementById('number_of_items'+i).value
         var inp = document.getElementById("price"+i).innerHTML.split(" ");
       var price = Number(inp[inp.length-1]);
       var num = document.getElementById("number_of_items"+i).value
       if (num > 999) {
         document.getElementById("number_of_items"+i).value = 999
+        document.getElementById('num'+i).value = 999
+        
       }
       if (num < 1) {
         document.getElementById("number_of_items"+i).value = 1
+        document.getElementById("num"+i).value = 1
+
       }
       if (num.length === 0) {
         var c = document.getElementById("total_price"+i).innerHTML.split(' ');
