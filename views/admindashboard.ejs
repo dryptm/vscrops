@@ -1,5 +1,31 @@
-<%= user %> 
-<a href="/logout">Logout</a>
-<a href="/admin/newsletter">Newsletter</a>
-<a href="/admin/orders">Orders</a>
+<br><br><br><br><%= user %> 
+<a href="/logout">Logout</a><br><br><br>
+<a class="btn-register-login" href="/admin/newsletter">Newsletter</a><br><br><br>
+<a class="btn-register-login" href="/admin/orders">Orders</a>
 <!-- product add -->
+
+<style>
+    .btn-register-login {
+    letter-spacing: .13020833333333334vw;
+    font-size: 1.0416666666666667vw;
+    font-weight: 400;
+    font-family: Lato, arial, sans-serif;
+    color: #000;
+    background-color: #d4b435;
+    text-decoration: none;
+    border-color: #d4b435;
+    border-style: solid;
+    border-width: .06510416666666667vw;
+    margin: 50px 0px;
+    padding: 5px;
+    transition: all .25s;
+    cursor: pointer
+}
+
+.btn-register-login:hover {
+    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
+    background-color: rgb(220 189 66);
+    color: #151515;
+    border-color: rgb(220 189 66)
+}
+</style>
