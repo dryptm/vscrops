@@ -1192,6 +1192,7 @@ body {
     border-width: .06510416666666667vw;
     padding: .9765625vw;
     transition: all .25s;
+    cursor: pointer;
     margin-left: 64.77864583333334vw
 }
 
@@ -1379,4 +1380,9 @@ body {
     font-size: 0.9vw;
     padding-left: 12vw;
     margin-top: 0.1vw;
+}
+
+.order_shipping_charge {
+    color: red;
+    font-size: 0.8vw;
 }

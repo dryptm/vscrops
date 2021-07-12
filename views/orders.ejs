@@ -21,9 +21,16 @@
                 <p style="margin: 0;"><span style="font-weight:bolder;">Original Price:</span> ₹<%=orders[i].items[j].original_price%></p>
                 <p style="margin: 0;"><span style="font-weight:bolder;">Quantity:</span> <%=orders[i].items[j].quantity%></p>
                 <p style="margin: 0;"><span style="font-weight:bolder;">Price Paid:</span> ₹<%=orders[i].items[j].total_price%></p>
-                <p style="margin: 0;"><span style="font-weight:bolder;">Payment Method:</span> <%=orders[i].items[j].payment_method%></p>
+                
                 <%if(orders[i].items[j].coupon_code){%>
                 <p style="margin: 0;"><span style="font-weight:bolder;">Coupon Applied:</span> <span style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></p>
+                <%}%>
+                <%if(orders[i].items[j].payment_method=="COD"){%>
+                <p style="margin: 0;"><span style="font-weight:bolder;">Payment Method:</span> <%=orders[i].items[j].payment_method%><br>
+                    <span class="order_shipping_charge">(₹50 charged extra as shipping charges)</span></p>
+                <%}%>
+                <%if(orders[i].items[j].payment_method=="Paid Online"){%>
+                    <p style="margin: 0;"><span style="font-weight:bolder;">Payment Method:</span> <%=orders[i].items[j].payment_method%></p>
                 <%}%>
             </div>
 
