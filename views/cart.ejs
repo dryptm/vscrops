@@ -31,7 +31,14 @@
 
 
 <div class="main_box">
-  <h3 class="coupon_code_h3">Coupon Applied: <span style="text-transform: uppercase;font-weight: 400;"><%=cart[0].coupon_code%></span></h3>
+  <%if(cart.length>0){%>
+
+  <%if(cart[0].coupon_code){%>
+  <h3 class="coupon_code_h3">Coupon Applied: <span
+      style="text-transform: uppercase;font-weight: 400;"><%=cart[0].coupon_code%></span></h3>
+  <%}%>
+  <%}%>
+  
   <form action = "/discount" method = "POST">
     <h3 class="coupon_code_h3">Coupon Code:</h3>
     <input class="coupon_input" type="text" name="discount" value="">

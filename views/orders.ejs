@@ -17,23 +17,23 @@
                 <h3><%=orders[i].items[j].name%></h3>
             </div>
             <div class="order_details">
-                <p><span style="font-weight:bolder;">Date:</span> <%=orders[i].date%></p>
-                <p><span style="font-weight:bolder;">Original Price:</span> ₹<%=orders[i].items[j].original_price%></p>
-                <p><span style="font-weight:bolder;">Quantity:</span> <%=orders[i].items[j].quantity%></p>
-                <p><span style="font-weight:bolder;">Price Paid:</span> ₹<%=orders[i].items[j].total_price%></p>
+                <p style="margin-bottom: 0;"><span style="font-weight:bolder;">Date:</span> <%=orders[i].date%></p>
+                <p style="margin: 0;"><span style="font-weight:bolder;">Original Price:</span> ₹<%=orders[i].items[j].original_price%></p>
+                <p style="margin: 0;"><span style="font-weight:bolder;">Quantity:</span> <%=orders[i].items[j].quantity%></p>
+                <p style="margin: 0;"><span style="font-weight:bolder;">Price Paid:</span> ₹<%=orders[i].items[j].total_price%></p>
+                <%if(orders[i].items[j].coupon_code){%>
+                <p style="margin: 0;"><span style="font-weight:bolder;">Coupon Applied:</span> <span style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></p>
+                <%}%>
             </div>
 
         </div>
 
     </div>
-    <% } %>
-    <!-- <img class="cart_box_img" src="<%=orders[i].product_image%>" alt=""> -->
-
-    <%}%>
+    <% }}%>
 
 
 
-</div>
+            </div>
 
 
-<%- include('head-foot/footer'); -%>
+            <%- include('head-foot/footer'); -%>

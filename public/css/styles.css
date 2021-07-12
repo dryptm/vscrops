@@ -1350,7 +1350,7 @@ body {
 }
 
 .order_details {
-    width: 13.020833333333334vw;
+    width: 14.020833333333334vw;
     font-size: 1.0416666666666667vw;
     color: #4c4c4c;
     font-family: Lato, arial, sans-serif
@@ -1372,4 +1372,10 @@ body {
 
 .checkbox{
     height: 0.6510416666666666vw;
+}
+
+.shipping_charges{
+    color: red;
+    font-size: 5vw;
+    padding-left:10vw ;
 }
