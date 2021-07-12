@@ -1105,6 +1105,9 @@ app.post('/payment_confirm', (req, res) => {
     })
     order.save();
     var arr = req.user.orders
+    for(var i=0;i<req.user.cart.length;i++){
+      req.user.cart[i].payment_method="COD"
+    }
     arr.push({
       date: today,
       total_price: req.body.amount,
@@ -1155,6 +1158,9 @@ app.post('/payment_confirm', (req, res) => {
     })
     order.save();
     var arr = req.user.orders
+    for(var i=0;i<req.user.cart.length;i++){
+      req.user.cart[i].payment_method="Paid Online"
+    }
     arr.push({
       date: today,
       total_price: req.body.amount,

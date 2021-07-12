@@ -1370,12 +1370,13 @@ body {
     font-family: Lato, arial, sans-serif;
 }
 
-.checkbox{
+.checkbox {
     height: 0.6510416666666666vw;
 }
 
-.shipping_charges{
+.shipping_charges {
     color: red;
-    font-size: 5vw;
-    padding-left:10vw ;
+    font-size: 0.9vw;
+    padding-left: 12vw;
+    margin-top: 0.1vw;
 }
