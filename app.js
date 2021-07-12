@@ -1241,8 +1241,8 @@ app.post('/full_payment', (req, res) => {
         city: req.body.city,
         billing_address1: req.body.billing_address1,
         billing_address2: req.body.billing_address2,
-        amount: (order.amount) / 100
-
+        amount: (order.amount) / 100,
+        user:req.user
 
 
       })

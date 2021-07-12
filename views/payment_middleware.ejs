@@ -1,37 +1,52 @@
 <%- include('head-foot/header'); -%>
+<div class="main_box_flex_x">
+    <div class="main_box_bfp">
 
-<div class="main_box_2">
+        <form action="/full_payment" method="POST">
+            <p class="namefield_all" style="margin-bottom: 0;">Total Amount -</p>
+            <input class="mailinput" type="text" name="tot_price" id="" value="<%= tot_price %>" readonly>
+            <p class="namefield_all" style="margin-bottom: 0;">First Name -</p>
+    
+            <input class="mailinput" type="text" name="fname" id="" value="<%= fname %> " readonly>
+            <p class="namefield_all" style="margin-bottom: 0;">Last Name -</p>
+            <input class="mailinput" type="text" name="lname" id="" value="<%= lname %> " readonly>
+            <p class="namefield_all" style="margin-bottom: 0;">Email -</p>
+            <input class="mailinput" type="text" name="email" id="" value="<%= email %> " readonly>
+            <p class="namefield_all" style="margin-bottom: 0;">Phone Number -</p>
+            <input class="mailinput" type="text" name="phone" id="phone" maxlength="10" value="<%= user.phone %>"
+                placeholder="Phone" required>
+            <p class="namefield_all" style="margin-bottom: 0;">Address -</p>
+            <input class="mailinput" type="text" name="billing_address1" id="" value="<%= user.billing_address1 %>"
+                placeholder="Billing Address" required>
+            <p class="namefield_all" style="margin-bottom: 0;">City -</p>
+            <input class="mailinput" type="text" name="city" id="" value="<%= user.city %>" placeholder="City" required>
+            <p class="namefield_all" style="margin-bottom: 0;">Pincode -</p>
+            <input class="mailinput" type="text" name="pincode" id="" value="<%= user.pincode %>" placeholder="Pincode"
+                required>
+            <p class="namefield_all" style="margin-bottom: 0;">State -</p>
+            <input class="mailinput" type="text" name="state" id="" value="<%= user.state %>" placeholder="State" required>
+            <!-- <input id="phonecheck" name="phonecheck"> -->
+    
+    
+            <!-- <input class="mailinput" type="text" name="country" id="" value="" placeholder="Country"> -->
+            <button class="btn-register-login" type="submit">Next</button>
+    
+        </form>
+    </div>
+    
+    <div class="main_box_payment_div2">
+        <%for(var i=0;i<user.cart.length;i++){%>
+            <div class="product_images_before_payment_div"><img src="<%=user.cart[i].product_image%>" class="product_images_before_payment" alt=""></div>
+            <div class="product_before_payment_details">
+                <h3><%=user.cart[i].name%></h3>
+                <h4>Total Price: <span style="font-weight: 400;">₹<%=user.cart[i].total_price%></span></h4>
+                <h5>Quantity: <span style="font-weight: 400;"><%=user.cart[i].quantity%></span></h5>
+                <h5>Coupon Applied: <span style="font-weight: 400;"><%=(user.cart[i].coupon_code.toUpperCase())%></span></h5>
+            </div>
+            <br>
 
-    <form action="/full_payment" method="POST">
-        <p class="namefield_all" style="margin-bottom: 0;">Total Amount -</p>
-        <input class="mailinput" type="text" name="tot_price" id="" value="<%= tot_price %>" readonly>
-        <p class="namefield_all" style="margin-bottom: 0;">First Name -</p>
-
-        <input class="mailinput" type="text" name="fname" id="" value="<%= fname %> " readonly>
-        <p class="namefield_all" style="margin-bottom: 0;">Last Name -</p>
-        <input class="mailinput" type="text" name="lname" id="" value="<%= lname %> " readonly>
-        <p class="namefield_all" style="margin-bottom: 0;">Email -</p>
-        <input class="mailinput" type="text" name="email" id="" value="<%= email %> " readonly>
-        <p class="namefield_all" style="margin-bottom: 0;">Phone Number -</p>
-        <input class="mailinput" type="text" name="phone" id="phone" maxlength="10" value="<%= user.phone %>"
-            placeholder="Phone" required>
-        <p class="namefield_all" style="margin-bottom: 0;">Address -</p>
-        <input class="mailinput" type="text" name="billing_address1" id="" value="<%= user.billing_address1 %>"
-            placeholder="Billing Address" required>
-        <p class="namefield_all" style="margin-bottom: 0;">City -</p>
-        <input class="mailinput" type="text" name="city" id="" value="<%= user.city %>" placeholder="City" required>
-        <p class="namefield_all" style="margin-bottom: 0;">Pincode -</p>
-        <input class="mailinput" type="text" name="pincode" id="" value="<%= user.pincode %>" placeholder="Pincode"
-            required>
-        <p class="namefield_all" style="margin-bottom: 0;">State -</p>
-        <input class="mailinput" type="text" name="state" id="" value="<%= user.state %>" placeholder="State" required>
-        <!-- <input id="phonecheck" name="phonecheck"> -->
-
-
-        <!-- <input class="mailinput" type="text" name="country" id="" value="" placeholder="Country"> -->
-        <button class="btn-register-login" type="submit">Next</button>
-
-    </form>
+        <%}%>
+    </div>
 </div>
 
 
