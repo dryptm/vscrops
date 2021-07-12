@@ -13,15 +13,21 @@
         <p class="namefield_all" style="margin-bottom: 0;">Email -</p>
         <input class="mailinput" type="text" name="email" id="" value="<%= email %> " readonly>
         <p class="namefield_all" style="margin-bottom: 0;">Phone Number -</p>
-        <input class="mailinput" type="text" name="phone" id="" maxlength="10" value="<%= user.phone %>" placeholder="Phone" required>
+        <input class="mailinput" type="text" name="phone" id="phone" maxlength="10" value="<%= user.phone %>"
+            placeholder="Phone" required>
         <p class="namefield_all" style="margin-bottom: 0;">Address -</p>
-        <input class="mailinput" type="text" name="billing_address1" id="" value="<%= user.billing_address1 %>" placeholder="Billing Address" required>
+        <input class="mailinput" type="text" name="billing_address1" id="" value="<%= user.billing_address1 %>"
+            placeholder="Billing Address" required>
         <p class="namefield_all" style="margin-bottom: 0;">City -</p>
         <input class="mailinput" type="text" name="city" id="" value="<%= user.city %>" placeholder="City" required>
         <p class="namefield_all" style="margin-bottom: 0;">Pincode -</p>
-        <input class="mailinput" type="text" name="pincode" id="" value="<%= user.pincode %>" placeholder="Pincode" required>
+        <input class="mailinput" type="text" name="pincode" id="" value="<%= user.pincode %>" placeholder="Pincode"
+            required>
         <p class="namefield_all" style="margin-bottom: 0;">State -</p>
         <input class="mailinput" type="text" name="state" id="" value="<%= user.state %>" placeholder="State" required>
+        <!-- <input id="phonecheck" name="phonecheck"> -->
+
+
         <!-- <input class="mailinput" type="text" name="country" id="" value="" placeholder="Country"> -->
         <button class="btn-register-login" type="submit">Next</button>
 
@@ -29,6 +35,22 @@
 </div>
 
 
+<script>
+    // var regx = /^[6-9][0-9]{9}$/
+    // document.getElementById("phone").addEventListener("oninput", () => {
+
+    //     if (document.getElementById("phone").value.length == 10) {
+    //         if (regx.test(document.getElementById("phone").value)) {
+    //             document.getElementById("phonecheck").innerHTML = "valid";
+    //         } else {
+    //             document.getElementById("phonecheck").innerHTML = "invalid";
+
+    //         }
+    //     } else {
+    //         document.getElementById("phonecheck").innerHTML = "";
+    //     }
+    // });
+</script>
 
 
 <%- include('head-foot/footer'); -%>

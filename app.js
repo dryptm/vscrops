@@ -754,7 +754,6 @@ app.get('/orders', (req, res) => {
 
 
 app.post('/discount', (req, res) => {
-  console.log(req.user.cart)
 
 
   if (req.isAuthenticated()) {
@@ -764,10 +763,14 @@ app.post('/discount', (req, res) => {
     }, (err, found) => {
       if (found) {
 
-        console.log(found)
+        // console.log(found)
 
         var arr = req.user.cart
-        
+        for(var i=0;i<arr.length;i++){
+          arr[i].coupon_code=found.coupon_code;
+        }
+        // console.log(arr)
+
         for (let i = 0; i < arr.length; ++i) {
           var dd = arr[i].original_price - arr[i].original_price * Number(found.coupon_discount) / 100;
           arr[i].total_price = dd * arr[i].quantity
@@ -820,13 +823,17 @@ app.get("/delete/:np", (req, res) => {
     }, (err, found1) => {
       // console.log(found1.cart)
       var arr = found1.cart
-      for(let i = 0;i<found1.cart.length;++i){
-          if(arr[i].name===npp){
-            arr.splice(i,1)
-          }
+      for (let i = 0; i < found1.cart.length; ++i) {
+        if (arr[i].name === npp) {
+          arr.splice(i, 1)
+        }
       }
-      User.updateOne({_id : req.user._id},{cart : arr},(err)=>{
-        if(err) console.log(err)
+      User.updateOne({
+        _id: req.user._id
+      }, {
+        cart: arr
+      }, (err) => {
+        if (err) console.log(err)
         else res.redirect('/cart')
       })
 
@@ -888,13 +895,13 @@ app.get("/delete/:np", (req, res) => {
 
 app.post('/checkout_post', (req, res) => {
   var len = Object.keys(req.body).length - 1
-console.log(req.body)
+  console.log(req.body)
   if (req.isAuthenticated()) {
     var arr = req.user.cart
-    for (let i = 0; i < Math.min(len,arr.length); ++i) {
-      var old_price = arr[i].total_price/arr[i].quantity
-      arr[i].quantity = Number(req.body[i+''])
-      arr[i].total_price = arr[i].quantity*old_price
+    for (let i = 0; i < Math.min(len, arr.length); ++i) {
+      var old_price = arr[i].total_price / arr[i].quantity
+      arr[i].quantity = Number(req.body[i + ''])
+      arr[i].total_price = arr[i].quantity * old_price
 
     }
     User.updateOne({
@@ -945,68 +952,63 @@ app.post('/payment_confirm', (req, res) => {
 
 
 
-for(let i = 0;i<req.user.cart.length;++i){
+  for (let i = 0; i < req.user.cart.length; ++i) {
 
-      const names = req.body.name.split(' ')
-      const lname = names[names.length - 1]
-      const raw = JSON.stringify({
-        "order_id": req.body.order_id + "_" + String(i),
-        "order_date": today,
-        "pickup_location": "WPatelN",
-        "billing_customer_name": names[0],
-        "billing_last_name": lname,
-        "billing_address": req.body.billing_address1,
-        "billing_city": req.body.city,
-        "billing_pincode": req.body.pincode,
-        "billing_state": req.body.state,
-        "billing_country": "India",
-        "billing_email": String(req.user.username.trim()),
-        "billing_phone": req.body.phone,
-        "shipping_is_billing": true,
-        "order_items": [{
-          "name": req.user.cart[i].name,
-          "sku": "Alm-Oil-100",
-          "units": Number(req.user.cart[i].quantity),
-          "selling_price": req.user.cart[i].total_price,
-          "discount": String(((req.user.cart[i].original_price-(req.user.cart[i].total_price/req.user.cart[i].quantity))/req.user.cart[i].original_price)*100)
-        }],
-        "payment_method": (req.body.payment_id === "" ? "COD" : "Prepaid"),
-        "sub_total": (req.body.payment_id === "" ? req.user.cart[i].total_price+50 :req.user.cart[i].total_price),
-        "length": Number(process.env.LENGTH),
-        "breadth": Number(process.env.BREADTH),
-        "height": Number(process.env.HEIGHT),
-        "weight": Number(process.env.WEIGHT)
-      })
-      console.log(raw)
+    const names = req.body.name.split(' ')
+    const lname = names[names.length - 1]
+    const raw = JSON.stringify({
+      "order_id": req.body.order_id + "_" + String(i),
+      "order_date": today,
+      "pickup_location": "WPatelN",
+      "billing_customer_name": names[0],
+      "billing_last_name": lname,
+      "billing_address": req.body.billing_address1,
+      "billing_city": req.body.city,
+      "billing_pincode": req.body.pincode,
+      "billing_state": req.body.state,
+      "billing_country": "India",
+      "billing_email": String(req.user.username.trim()),
+      "billing_phone": req.body.phone,
+      "shipping_is_billing": true,
+      "order_items": [{
+        "name": req.user.cart[i].name,
+        "sku": "Alm-Oil-100",
+        "units": Number(req.user.cart[i].quantity),
+        "selling_price": req.user.cart[i].total_price,
+        "discount": String(((req.user.cart[i].original_price - (req.user.cart[i].total_price / req.user.cart[i].quantity)) / req.user.cart[i].original_price) * 100)
+      }],
+      "payment_method": (req.body.payment_id === "" ? "COD" : "Prepaid"),
+      "sub_total": (req.body.payment_id === "" ? req.user.cart[i].total_price + 50 : req.user.cart[i].total_price),
+      "length": Number(process.env.LENGTH),
+      "breadth": Number(process.env.BREADTH),
+      "height": Number(process.env.HEIGHT),
+      "weight": Number(process.env.WEIGHT)
+    })
+    console.log(raw)
 
-      var requestOptions = {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2MzU2NjksImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjI1OTM5NDkzLCJleHAiOjE2MjY4MDM0OTMsIm5iZiI6MTYyNTkzOTQ5MywianRpIjoiRUdQTWNZVWtBR0Jpc1RkZSJ9.GpxBRPpT1V95YAiYR_2gb-dvnBTBM_K6zcQFjdI9QS0"
-        },
-        body: raw,
-        redirect: 'follow'
-      };
+    var requestOptions = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2MzU2NjksImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjI1OTM5NDkzLCJleHAiOjE2MjY4MDM0OTMsIm5iZiI6MTYyNTkzOTQ5MywianRpIjoiRUdQTWNZVWtBR0Jpc1RkZSJ9.GpxBRPpT1V95YAiYR_2gb-dvnBTBM_K6zcQFjdI9QS0"
+      },
+      body: raw,
+      redirect: 'follow'
+    };
 
-      fetch("https://apiv2.shiprocket.in/v1/external/orders/create/adhoc", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-          const track = new Track({
-            order_id : req.body.order_id + "_" + String(i),
-            shiprocket_order_info : result
-          })
-          track.save();
-          console.log(result)
+    fetch("https://apiv2.shiprocket.in/v1/external/orders/create/adhoc", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        const track = new Track({
+          order_id: req.body.order_id + "_" + String(i),
+          shiprocket_order_info: result
         })
-        .catch(error => console.log('error', error));
+        track.save();
+        console.log(result)
+      })
+      .catch(error => console.log('error', error));
 
-}
-
-
-
-
-
+  }
 
 
 
@@ -1018,7 +1020,12 @@ for(let i = 0;i<req.user.cart.length;++i){
 
 
 
-  
+
+
+
+
+
+
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -1201,6 +1208,9 @@ app.post('/payment_failed', (req, res) => {
 
 app.post('/full_payment', (req, res) => {
   if (req.isAuthenticated()) {
+    // if (req.body.phonecheck == "invalid") {
+    // res.redirect("/checkout_post")
+    // } else if ("valid") {
     var instance = new Razorpay({
       key_id: 'rzp_test_uRdnjYH7dCkuEr',
       key_secret: 'm3hdeo9pIMEg1DMbIvxtlEQa'
@@ -1232,7 +1242,7 @@ app.post('/full_payment', (req, res) => {
       })
 
     });
-
+    // }
   } else {
     res.render("needloginfirst", {
       isLoggedin: "no"
@@ -1326,7 +1336,7 @@ app.get('/logout', (req, res) => {
 
 
 app.get("/admin/newsletter", (req, res) => {
-  if (req.isAuthenticated() && req.user.username===process.env.ADMIN_USERNAME) {
+  if (req.isAuthenticated() && req.user.username === process.env.ADMIN_USERNAME) {
     res.render("adminnewsletter", {})
 
   } else {
@@ -1370,24 +1380,24 @@ app.post("/send", (req, res) => {
 
 app.get("/admin/orders", (req, res) => {
 
-  if (req.isAuthenticated() && req.user.username===process.env.ADMIN_USERNAME) {
- 
+  if (req.isAuthenticated() && req.user.username === process.env.ADMIN_USERNAME) {
 
-    Track.find({},(e,f)=>{
+
+    Track.find({}, (e, f) => {
 
       Order.find({}, (err, found) => {
         // console.log(found[found.length-1])
         res.render("adminorders", {
           orders: found,
-          track : f
-        
+          track: f
+
         })
       })
 
 
 
     })
-    
+
 
   } else {
     res.redirect("/adminfailed")
@@ -1570,7 +1580,7 @@ app.get('/adminfailed', (req, res) => {
 })
 
 app.get('/admindashboard', (req, res) => {
-  if (req.isAuthenticated() && req.user.username===process.env.ADMIN_USERNAME) {
+  if (req.isAuthenticated() && req.user.username === process.env.ADMIN_USERNAME) {
     res.render("admindashboard", {
       user: req.user.username
     })
