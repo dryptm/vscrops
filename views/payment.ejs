@@ -56,7 +56,11 @@
             <h3><%=user.cart[i].name%></h3>
             <h4>Total Price: <span style="font-weight: 400;">₹<%=user.cart[i].total_price%></span></h4>
             <h5>Quantity: <span style="font-weight: 400;"><%=user.cart[i].quantity%></span></h5>
+            <%if(user.cart[0].coupon_code){%>  
+
             <h5>Coupon Applied: <span style="font-weight: 400;"><%=(user.cart[i].coupon_code.toUpperCase())%></span>
+                <%}%>
+
             </h5>
         </div>
         <br>

@@ -10,8 +10,25 @@
       <h2 class="product_i_details_heading"><%=found.product_name%></h2>
       <p class="product_i_details_price" id="price">₹
         <%=(found.product_price-((found.product_price*found.product_discount)/100))%></p>
-      <input type="number" id="number_of_items" oninput="myfun()" value="1" />
-      <p class="product_i_details_discount">Discount: ₹
+      
+      
+      
+       <div class="input-value" style="display: flex;flex-direction: row;align-items: center;justify-content: start;">
+          <button id ="minus" class="input-individual-button"><i class="fas fa-minus"></i></button>
+          <input type="number" class="input-individual" id="number_of_items1"  min =1 max=999 oninput="myfun()" value="1" />
+          <button id ="plus" class="input-individual-button"><i class="fas fa-plus"></i></button>
+       </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <p class="product_i_details_discount">Discount: ₹
         <%=((found.product_price*found.product_discount)/100)%>(<%=found.product_discount%>%)</p>
       <p id="total_price">
         Total Price : ₹ <%=(found.product_price-((found.product_price*found.product_discount)/100))%>
@@ -62,24 +79,68 @@
 
 
 <script>
+
+var inp = document.getElementById("price").innerHTML.split(" ");
+    var price = Number(inp[inp.length - 1]);
+  
+document.getElementById("minus").addEventListener("click",()=>{
+  if(document.getElementById("number_of_items1").value<=1){
+    document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (1 * price).toString()
+
+  document.getElementById("number_of_items1").value = 1
+
+  }
+  else {
+
+  
+  document.getElementById("number_of_items1").value = Number(document.getElementById("number_of_items1").value)-1
+
+  document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (Number(document.getElementById("number_of_items1").value) * price).toString()
+  }
+
+})
+document.getElementById("plus").addEventListener("click",()=>{
+  if(document.getElementById("number_of_items1").value>=999){
+    document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (999 * price).toString()
+
+  document.getElementById("number_of_items1").value = 999
+
+  }
+  else {
+
+  
+  document.getElementById("number_of_items1").value = Number(document.getElementById("number_of_items1").value)+1
+
+  document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (Number(document.getElementById("number_of_items1").value) * price).toString()
+  }
+   
+})
   function myfun() {
 
     var inp = document.getElementById("price").innerHTML.split(" ");
     var price = Number(inp[inp.length - 1]);
-    var num = document.getElementById("number_of_items").value
-    if (num > 999) {
-      document.getElementById("number_of_items").value = 999
+    var num = Number(document.getElementById("number_of_items1").value)
+    if (num >=999) {
+
+      document.getElementById("number_of_items1").value = 999;
+      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (999 * price).toString()
+      
+
     }
-    if (num < 1) {
-      document.getElementById("number_of_items").value = 1
+    else if (num < 1) {
+      document.getElementById("number_of_items1").value = 1
+      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (1 * price).toString()
+      
     }
-    if (num.length === 0) {
-      document.getElementById("total_price").innerHTML = ""
-      document.getElementById("tot_price").value = 0;
-    } else if (num * price !== NaN && num * price !== 0) {
+   else  if (num === 0) {
+     console.log(num)
+      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (1 * price).toString()
+      document.getElementById("tot_price").value = (1 * price);
+
+    } 
+    else if (num * price !== NaN && num * price !== 0) {
       document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (num * price).toString()
       document.getElementById("tot_price").value = (num * price);
-      console.log(document.getElementById("tot_price").value)
     }
   }
 </script>

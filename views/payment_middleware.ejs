@@ -2,70 +2,104 @@
 <div class="main_box_flex_x">
     <div class="main_box_bfp">
 
-        <form action="/full_payment" method="POST">
+        <form action="/full_payment" method="POST" onsubmit="return fun(event)" id="form">
             <p class="namefield_all" style="margin-bottom: 0;">Total Amount -</p>
             <input class="mailinput" type="text" name="tot_price" id="" value="<%= tot_price %>" readonly>
             <p class="namefield_all" style="margin-bottom: 0;">First Name -</p>
-    
+
             <input class="mailinput" type="text" name="fname" id="" value="<%= fname %> " readonly>
             <p class="namefield_all" style="margin-bottom: 0;">Last Name -</p>
             <input class="mailinput" type="text" name="lname" id="" value="<%= lname %> " readonly>
             <p class="namefield_all" style="margin-bottom: 0;">Email -</p>
-            <input class="mailinput" type="text" name="email" id="" value="<%= email %> " readonly>
+            <input class="mailinput" type="text" name="email" id="email" value="<%= email %> " readonly>
             <p class="namefield_all" style="margin-bottom: 0;">Phone Number -</p>
             <input class="mailinput" type="text" name="phone" id="phone" maxlength="10" value="<%= user.phone %>"
                 placeholder="Phone" required>
             <p class="namefield_all" style="margin-bottom: 0;">Address -</p>
             <input class="mailinput" type="text" name="billing_address1" id="" value="<%= user.billing_address1 %>"
                 placeholder="Billing Address" required>
-            <p class="namefield_all" style="margin-bottom: 0;">City -</p>
-            <input class="mailinput" type="text" name="city" id="" value="<%= user.city %>" placeholder="City" required>
             <p class="namefield_all" style="margin-bottom: 0;">Pincode -</p>
-            <input class="mailinput" type="text" name="pincode" id="" value="<%= user.pincode %>" placeholder="Pincode"
-                required>
+            <input class="mailinput" type="text" name="pincode" id="pincode" value="<%= user.pincode %>"
+                placeholder="Pincode" required>
+
+            <p class="namefield_all" style="margin-bottom: 0;">City -</p>
+            <input class="mailinput" type="text" name="city" id="city" value="<%= user.city %>" placeholder="City"
+                required readonly>
             <p class="namefield_all" style="margin-bottom: 0;">State -</p>
-            <input class="mailinput" type="text" name="state" id="" value="<%= user.state %>" placeholder="State" required>
-            <!-- <input id="phonecheck" name="phonecheck"> -->
-    
-    
+            <input class="mailinput" type="text" name="state" id="state" value="<%= user.state %>" placeholder="State"
+                required readonly>
+
+
+
+
             <!-- <input class="mailinput" type="text" name="country" id="" value="" placeholder="Country"> -->
             <button class="btn-register-login" type="submit">Next</button>
-    
+
         </form>
     </div>
-    
+
     <div class="main_box_payment_div2">
         <%for(var i=0;i<user.cart.length;i++){%>
-            <div class="product_images_before_payment_div"><img src="<%=user.cart[i].product_image%>" class="product_images_before_payment" alt=""></div>
-            <div class="product_before_payment_details">
-                <h3><%=user.cart[i].name%></h3>
-                <h4>Total Price: <span style="font-weight: 400;">₹<%=user.cart[i].total_price%></span></h4>
-                <h5>Quantity: <span style="font-weight: 400;"><%=user.cart[i].quantity%></span></h5>
-                <h5>Coupon Applied: <span style="font-weight: 400;"><%=(user.cart[i].coupon_code.toUpperCase())%></span></h5>
+        <div class="product_images_before_payment_div"><img src="<%=user.cart[i].product_image%>"
+                class="product_images_before_payment" alt=""></div>
+        <div class="product_before_payment_details">
+            <h3><%=user.cart[i].name%></h3>
+            <h4>Total Price: <span style="font-weight: 400;">₹<%=user.cart[i].total_price%></span></h4>
+            <h5>Quantity: <span style="font-weight: 400;"><%=user.cart[i].quantity%></span></h5>
+            <%if(user.cart[0].coupon_code){%>
+            <h5>Coupon Applied: <span style="font-weight: 400;"><%=(user.cart[i].coupon_code.toUpperCase())%></span>
+            </h5>
+            <%}%>
             </div>
             <br>
 
         <%}%>
+        </div>
     </div>
-</div>
+
+    <script>
+        document.getElementById('pincode').addEventListener('input', () => {
+            var url = "https://api.postalpincode.in/pincode/" + document.getElementById('pincode').value
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    if (data[0].Status === "Error") {
+                        document.getElementById('pincode').style.color = "red";
+                        document.getElementById('city').value = null
+                        document.getElementById('state').value = null
+
+                    } else {
+                        document.getElementById('pincode').style.color = "#5E5E5E";
+
+                        document.getElementById('city').value = data[0].PostOffice[0].District
+                        document.getElementById('state').value = data[0].PostOffice[0].State
+                    }
+                })
+        })
+
+        function fun(e) {
+
+            if ((/^[6-9][0-9]{9}$/.test(document.getElementById("phone").value)) && document.getElementById('city')
+                .value && document.getElementById('state').value) {
+                    document.getElementById("phone").style.color = "#5e5e5e"
+                return true
+
+            } else {
 
 
-<script>
-    // var regx = /^[6-9][0-9]{9}$/
-    // document.getElementById("phone").addEventListener("oninput", () => {
-
-    //     if (document.getElementById("phone").value.length == 10) {
-    //         if (regx.test(document.getElementById("phone").value)) {
-    //             document.getElementById("phonecheck").innerHTML = "valid";
-    //         } else {
-    //             document.getElementById("phonecheck").innerHTML = "invalid";
-
-    //         }
-    //     } else {
-    //         document.getElementById("phonecheck").innerHTML = "";
-    //     }
-    // });
-</script>
+                document.getElementById("phone").style.color = "red"
+                return false
+            }
 
 
-<%- include('head-foot/footer'); -%>
+        }
+
+        document.getElementById('phone').addEventListener("input", () => {
+            if (!(/^[6-9][0-9]{9}$/.test(document.getElementById("phone").value))) document.getElementById(
+                "phone").style.color = "red"
+            else document.getElementById("phone").style.color = "black"
+        })
+    </script>
+
+
+    <%- include('head-foot/footer'); -%>
