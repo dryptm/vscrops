@@ -1124,7 +1124,7 @@ body {
 }
 
 .head_cart_margs {
-    margin: 0 6.380208333333334vw;
+    margin: 0 5.780208333333334vw;
     font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif;
     color: #595959;
@@ -1187,6 +1187,7 @@ body {
 
 .xxxxxxx {
     margin-left: 1.3020833333333335vw;
+    margin-top: 2.4739583333333335vw;
     font-family: Lato, arial, sans-serif;
     text-decoration: none;
     color: #6c6c6c
@@ -1395,12 +1396,13 @@ body {
 
 .order_details {
     width: 14.020833333333334vw;
-    font-size: 0.870416666666666667vw;
+    font-size: .870416666666666667vw;
     color: #4c4c4c;
     font-family: Lato, arial, sans-serif
 }
-.order_details_items{
-    margin-top: 0.3255208333333333vw;
+
+.order_details_items {
+    margin-top: .3255208333333333vw
 }
 
 .forgot_pass {
@@ -1449,7 +1451,7 @@ body {
     color: #5e5e5e;
     height: 1.171875vw;
     border-width: 0 0 .06510416666666667vw 0;
-    border: 0.06510416666666667vw solid;
+    border: .06510416666666667vw solid;
     border-left: 0;
     border-right: 0;
     border-color: #c5c5c5
@@ -1461,7 +1463,7 @@ body {
     border: 0;
     margin-top: 1.5625vw;
     color: #bca41f;
-    border: 0.06510416666666667vw solid #bca41f;
+    border: .06510416666666667vw solid #bca41f;
     opacity: .9;
     background-color: #fff;
     cursor: pointer;
@@ -1488,9 +1490,9 @@ body {
     padding: .9765625000000001vw;
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
-    height: 0.5208333333333334vw;
+    height: .5208333333333334vw;
     border-width: 0 0 .06510416666666667vw 0;
-    border: 0.06510416666666667vw solid;
+    border: .06510416666666667vw solid;
     border: 0;
     border-color: #c5c5c5
 }
@@ -1501,7 +1503,7 @@ body {
     border: 0;
     margin: 0;
     color: #bca41f;
-    border: 0.06510416666666667vw solid #bca41f;
+    border: .06510416666666667vw solid #bca41f;
     opacity: .9;
     background-color: #fff;
     cursor: pointer;
@@ -1511,4 +1513,42 @@ body {
 .input-individual-button1:hover {
     opacity: 1;
     font-size: 1.1067708333333335vw
+}
+
+.linkein-share-post {
+    margin-left: 1.9531250000000002vw;
+    color: #286cb4;
+    text-decoration: none
+}
+
+.twitter-share-post {
+    margin-left: 1.3020833333333335vw;
+    color: #1da1f2;
+    text-decoration: none
+}
+
+.share-this-post {
+    display: inline-block;
+    font-size: 1.171875vw;
+    color: #4c4c4c;
+    font-weight: 700;
+    letter-spacing: 0.032552083333333336vw;
+    font-family: Lato, arial, sans-serif
+}
+
+.fb-share-button {
+    opacity: 0
+}
+
+.fbrex {
+    top: 0.06510416666666667vw;
+    position: absolute;
+    left: 0.9765625000000001vw;
+    color: #1877f2
+}
+
+.fb-button-reletive1 {
+    position: relative;
+    display: inline-block;
+    width: 1.171875vw
 }

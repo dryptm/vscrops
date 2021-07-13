@@ -7,7 +7,7 @@
     <div style="flex: 1;"></div>
     <p class="head_cart_margs">Price</p>
     <p class="head_cart_margs">Quantity</p>
-    <p class="head_cart_margs" style="margin-right: 0;">Total</p>
+    <p class="head_cart_margs" style="margin-right: 3.2552083333333335vw;">Total</p>
   </div>
 
   <%for(var i=0;i<cart.length;i++){%>
@@ -31,8 +31,8 @@
       
       
     </div>
-    <p class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%> <a class="xxxxxxx" href="/delete/<%=cart[i].name%>">X</a>
-    </p>
+    <span class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%> 
+    </span><a class="xxxxxxx" href="/delete/<%=cart[i].name%>">X</a>
 
   </div>
   <input type="text" id="op<%=i%>" value="<%=cart[i].original_price %>"
