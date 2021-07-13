@@ -585,15 +585,15 @@ body {
     text-decoration: none;
     padding: 1.953125vw 3vw;
     padding-left: 0;
-   padding-bottom: 0;
-   
+    padding-bottom: 0;
+
     transition: all .25s
 }
 
 .add_to_cart:hover {
-   
-   color: #B7A11E;
-    transform:  rotateY(180deg)
+
+    color: #B7A11E;
+    transform: rotateY(180deg)
 }
 
 .blogimg_products {
@@ -1460,6 +1460,7 @@ body {
     border: .06510416666666667vw solid;
     border-left: 0;
     border-right: 0;
+    text-align: center;
     border-color: #c5c5c5
 }
 
@@ -1500,6 +1501,7 @@ body {
     border-width: 0 0 .06510416666666667vw 0;
     border: .06510416666666667vw solid;
     border: 0;
+    text-align: center;
     border-color: #c5c5c5
 }
 
