@@ -573,21 +573,27 @@ body {
 .add_to_cart {
     position: absolute;
     bottom: 5%;
+    /* border: 2px solid black; */
     right: 1.623567708333333vw;
     margin: auto;
     letter-spacing: .13020833333333334vw;
-    font-size: 2.553125vw;
+    font-size: 4vw;
     font-weight: 400;
+    transform: rotateY(180deg);
     font-family: Lato, arial, sans-serif;
     color: rgb(133 112 28);
     text-decoration: none;
     padding: 1.953125vw 3vw;
+    padding-left: 0;
+   padding-bottom: 0;
+   
     transition: all .25s
 }
 
 .add_to_cart:hover {
-    color: rgb(158 133 35);
-    transform: scale(1.5)
+   
+   color: #B7A11E;
+    transform:  rotateY(180deg)
 }
 
 .blogimg_products {
