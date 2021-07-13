@@ -17,20 +17,20 @@
                 <h3><%=orders[i].items[j].name%></h3>
             </div>
             <div class="order_details">
-                <p style="margin-bottom: 0;"><span style="font-weight:bolder;">Date:</span> <%=orders[i].date%></p>
-                <p style="margin: 0;"><span style="font-weight:bolder;">Price Paid:</span> ₹<%=orders[i].items[j].total_price%></p>
-                <p style="margin: 0;"><span style="font-weight:bolder;">Original Price:</span> ₹<%=orders[i].items[j].original_price%></p>
-                <p style="margin: 0;"><span style="font-weight:bolder;">Quantity:</span> <%=orders[i].items[j].quantity%></p>
+                <p style="margin-bottom: 0px;"><span style="font-weight:bolder;">Date:</span> <%=orders[i].date%></p>
+                <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Price Paid:</span> ₹<%=orders[i].items[j].total_price%></p>
+                <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Original Price:</span> ₹<%=orders[i].items[j].original_price%></p>
+                <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Quantity:</span> <%=orders[i].items[j].quantity%></p>
                 
                 <%if(orders[i].items[j].coupon_code){%>
-                <p style="margin: 0;"><span style="font-weight:bolder;">Coupon Applied:</span> <span style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></p>
+                <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Coupon Applied:</span> <span style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></p>
                 <%}%>
                 <%if(orders[i].items[j].payment_method=="COD"){%>
-                <p style="margin: 0;"><span style="font-weight:bolder;">Payment Method:</span> <%=orders[i].items[j].payment_method%><br>
+                <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Payment Method:</span> <%=orders[i].items[j].payment_method%><br>
                     <span class="order_shipping_charge">(₹50 charged extra as shipping charges)</span></p>
                 <%}%>
                 <%if(orders[i].items[j].payment_method=="Paid Online"){%>
-                    <p style="margin: 0;"><span style="font-weight:bolder;">Payment Method:</span> <%=orders[i].items[j].payment_method%></p>
+                    <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Payment Method:</span> <%=orders[i].items[j].payment_method%></p>
                 <%}%>
             </div>
 
