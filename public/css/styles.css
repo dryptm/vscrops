@@ -624,7 +624,7 @@ body {
     width: 10%;
     font-size: 1.0416666666666667vw;
     margin-top: 1.5625vw;
-    padding: 0.9765625000000001vw;
+    padding: .9765625000000001vw;
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
     height: 3.2552083333333335vw;
@@ -1205,9 +1205,10 @@ body {
 
 .cart_obj_name {
     font-size: 1.3020833333333335vw;
+    margin-top: 2.34375vw;
     color: #4c4c4c;
     font-weight: 700;
-    width: 16.276041666666668vw;
+    width: 21.276041666666668vw;
     font-family: Lato, arial, sans-serif
 }
 
@@ -1428,39 +1429,83 @@ body {
     color: red;
     font-size: .8vw
 }
-.input-individual::-webkit-outer-spin-button,
-.input-individual::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 
-  -moz-appearance: textfield;
+.input-individual::-webkit-inner-spin-button,
+.input-individual::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield
 }
-.input-individual{
+
+.input-individual {
     width: 10%;
     font-size: 1.0416666666666667vw;
     margin-top: 1.5625vw;
-    padding: 0.9765625000000001vw;
+    padding: .9765625000000001vw;
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
-    height: 3.2552083333333335vw;
-    border-style: solid;
+    height: 1.171875vw;
     border-width: 0 0 .06510416666666667vw 0;
-    border: 1px solid black;
+    border: 0.06510416666666667vw solid;
+    border-left: 0;
+    border-right: 0;
+    border-color: #c5c5c5
 }
 
-
-.input-individual-button{
-    width: 50px;
-    height: 50px;
-    border :0;
-    color:black;
-    opacity : 0.5;
-    cursor:pointer;
-    transition: all 0.2s
-
+.input-individual-button {
+    width: 3.2552083333333335vw;
+    height: 3.2552083333333335vw;
+    border: 0;
+    margin-top: 1.5625vw;
+    color: #bca41f;
+    border: 0.06510416666666667vw solid #bca41f;
+    opacity: .9;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .2s
 }
-.input-individual-button:hover{
-opacity:1;
-font-size:15px
 
+.input-individual-button:hover {
+    opacity: 1;
+    font-size: 1.2369791666666667vw
+}
+
+.input-individual1::-webkit-inner-spin-button,
+.input-individual1::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield
+}
+
+.input-individual1 {
+    width: 12%;
+    font-size: 1.0416666666666667vw;
+    margin: 0;
+    margin-top: 1.9625vw;
+    padding: .9765625000000001vw;
+    font-family: Lato, arial, sans-serif;
+    color: #5e5e5e;
+    height: 0.5208333333333334vw;
+    border-width: 0 0 .06510416666666667vw 0;
+    border: 0.06510416666666667vw solid;
+    border: 0;
+    border-color: #c5c5c5
+}
+
+.input-individual-button1 {
+    width: 2.604166666666667vw;
+    height: 2.604166666666667vw;
+    border: 0;
+    margin: 0;
+    color: #bca41f;
+    border: 0.06510416666666667vw solid #bca41f;
+    opacity: .9;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .2s
+}
+
+.input-individual-button1:hover {
+    opacity: 1;
+    font-size: 1.1067708333333335vw
 }
