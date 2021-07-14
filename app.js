@@ -984,7 +984,6 @@ app.post('/payment_confirm', (req, res) => {
       "height": Number(process.env.HEIGHT),
       "weight": Number(process.env.WEIGHT)
     })
-    console.log(raw)
 
     var requestOptions = {
       method: 'POST',
@@ -1111,6 +1110,7 @@ app.post('/payment_confirm', (req, res) => {
     arr.push({
       date: today,
       total_price: req.body.amount,
+      order_id : req.body.order_id,
       items: req.user.cart
     })
     User.updateOne({
@@ -1599,6 +1599,89 @@ app.get('/admindashboard', (req, res) => {
 
 
 
+
+
+
+//****************************************************************************************************************************/
+// CANCEL ORDER SHIPROCKET
+
+app.get('/shiprocket:/id',(req,res)=>{
+
+  Order.findOne({order_id : req.params.id},(err,found)=>{
+    if(found){
+      var arr = []
+      for(let i = 0;i<found.items.length;++i){
+       Track.findOne({order_id : req.params.id+"_"+String(i)},(e,f)=>{
+         arr.push(JSON.parse(f).order_id)
+       })
+      }
+      var raw = JSON.stringify({
+        "ids": arr
+      });
+
+      var requestOptions = {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2MzU2NjksImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjI1OTM5NDkzLCJleHAiOjE2MjY4MDM0OTMsIm5iZiI6MTYyNTkzOTQ5MywianRpIjoiRUdQTWNZVWtBR0Jpc1RkZSJ9.GpxBRPpT1V95YAiYR_2gb-dvnBTBM_K6zcQFjdI9QS0"
+        },
+        body: raw,
+        redirect: 'follow'
+      };
+      
+      fetch("https://apiv2.shiprocket.in/v1/external/orders/cancel", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+          console.log("canceled")
+        })
+        .catch(error => console.log('error', error));  
+    
+    const payment_id = found.payment_id
+    if(payment_id !=="COD"){
+
+      const total_amount = Number(found.total_amount)
+      var requestOptions = {
+        method: 'POST',
+      };
+      
+      fetch("https://"+process.env.KEY_ID+":"+process.env.KEY_SECRET+"@api.razorpay.com/v1/payments/"+found.payment_id+"/refund", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+          console.log("refunded")
+        })
+        .catch(error => console.log('error', error));        
+
+    }
+    
+    
+    }
+  })
+    
+  
+ 
+})
+
+
+//********************************************************************************************************************* */
+//REFUND RAZORPAY
+app.get('/')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*********************************************************************************************************************** */
 
 
 
