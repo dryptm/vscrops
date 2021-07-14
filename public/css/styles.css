@@ -230,10 +230,10 @@ body {
 
 .img-launching {
     width: 80.20833333333333vw;
-    height: 32.552083333333336vw;
+    height: 38.552083333333336vw;
     display: block;
     margin: 0 auto;
-    background-image: url(/images/img2.png);
+    background-image: url(/images/DSC03519.png);
     background-position: center;
     background-repeat: repeat;
     background-size: 100%;
@@ -359,18 +359,18 @@ body {
 }
 
 .obf_image1 {
-    background-image: url(/images/img3.png);
+    background-image: url(/images/ALMex.png);
     background-position-x: center;
-    background-position-y: -9.114583333333334vw;
-    background-size: 200%;
+    /*     background-position-y: -9.114583333333334vw; */
+    background-size: 138%;
     height: 39.0625vw;
     background-repeat: no-repeat
 }
 
 .obf_image2 {
-    background-image: url(/images/img4.png);
+    background-image: url(/images/COCex.png);
     background-position-x: center;
-    background-size: 230%;
+    background-size: 138%;
     height: 39.0625vw;
     background-repeat: no-repeat
 }
@@ -483,7 +483,8 @@ body {
     background-color: #fff;
     width: 20%;
     height: 3.580729166666667vw;
-    margin: 1.4322916666666667vw 0 0 2.604166666666667vw
+    margin: 1.4322916666666667vw 0 0 2.604166666666667vw;
+    cursor: pointer;
 }
 
 .a_launch_product_1:hover {
@@ -1559,4 +1560,17 @@ body {
     position: relative;
     display: inline-block;
     width: 1.171875vw
+}
+
+.mailinput1 {
+    margin-top: 1.625vw;
+    width: 100%;
+    font-size: 1.0416666666666667vw;
+    /*     margin-top: .6625vw; */
+    padding: 0.35vw .6765625000000001vw;
+    font-family: Lato, arial, sans-serif;
+    color: #5e5e5e;
+    height: 2.5552083333333335vw;
+    border-style: solid;
+    border-width: 0 0 .06510416666666667vw 0
 }
