@@ -12,7 +12,7 @@
 
 
             <div class="product_description" id = "hover<%=i%>"><i class="fas fa-info"></i></div>
-            <div class="description_data" id = "data<%=i%>" style="visibility: collapse;"><p><%=post[i].product_description%></p></div>
+            <div class="description_data" id = "data<%=i%>" style="visibility: collapse;opacity: 0;"><p><%=post[i].product_description%></p></div>
 
 <!-- ********************************************************************************************** -->
 
@@ -42,7 +42,7 @@
 <!-- ********************************************************************************************** -->
 
             <div class="product_description" id = "hover<%=i+1%>"><i class="fas fa-info"></i></div>
-            <div class="description_data" id = "data<%=i+1%>" style="visibility: collapse;"><p><%=post[i+1].product_description%></p></div>
+            <div class="description_data" id = "data<%=i+1%>" style="visibility: collapse;opacity: 0;"><p><%=post[i+1].product_description%></p></div>
 
 <!-- ********************************************************************************************** -->
 
@@ -74,7 +74,7 @@
 <!-- ********************************************************************************************** -->
 
             <div class="product_description" id = "hover<%=i%>"><i class="fas fa-info"></i></div>
-            <div class="description_data" id = "data<%=i%>" style="visibility: collapse;"><p><%=post[i].product_description%></p></div>
+            <div class="description_data" id = "data<%=i%>" style="visibility: collapse;opacity: 0;"><p><%=post[i].product_description%></p></div>
 
 
 <!-- ********************************************************************************************** -->
@@ -101,7 +101,7 @@
 
 </div>
 
-<input type="number" id = "length" value="<%= post.length %>">
+<input type="number" id = "length" value="<%= post.length %>" style="opacity: 0;visibility: collapse; position: absolute;">
 
 <%- include('head-foot/footer'); -%>
 
@@ -116,10 +116,14 @@
         for(let i = 0;i<Number(document.getElementById('length').value);++i){
             document.getElementById('hover'+i).addEventListener('mouseover',()=>{
                 document.getElementById('data'+i).style.visibility = "visible";
+                document.getElementById('data'+i).style.opacity = "0.9";
+                
             })
 
             document.getElementById('hover'+i).addEventListener('mouseleave',()=>{
                 document.getElementById('data'+i).style.visibility = "collapse";
+                document.getElementById('data'+i).style.opacity = "0";
+                
             })
         }
         
