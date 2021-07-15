@@ -6,27 +6,37 @@
 
     <div class="blog_number">
         <div class="blog_left">
-            <img class="blogimg_products" src="<%=post[i].product_image%>" alt="">
+            <div class="product_description"><i class="fas fa-info"></i></div>
+            <div class="image_of_product">
+                
+                <img class="blogimg_products" src="<%=post[i].product_image%>" alt="">
+                <h1 class="blogh1"><%= post[i].product_name%></h1>
+                <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-cart-plus"></i></a>
+                <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
+                <p class="price_products_font">₹ <%=price%></p>
+                <p class="price_products" style="opacity: 0.5;color: rgb(0 0 0);">You save
+                    ₹ <%=(post[i].product_price-price)%></p>
+            </div>
 
-            <h1 class="blogh1"><%= post[i].product_name%></h1>
-            <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-cart-plus"></i></a>
-            <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
-            <p class="price_products_font">₹ <%=price%></p>
-            <p class="price_products" style="opacity: 0.5;color: rgb(0 0 0);">You save
-                ₹ <%=(post[i].product_price-price)%></p>
+
 
 
         </div>
         <div class="blog_right">
-            <img class="blogimg_products" src="<%=post[i+1].product_image%>" alt="">
+            <div class="product_description"><i class="fas fa-info"></i></div>
+
+            <div class="image_of_product">
+                <img class="blogimg_products" src="<%=post[i+1].product_image%>" alt="">
 
 
-            <h1 class="blogh1"><%= post[i+1].product_name%></h1>
-            <a class="add_to_cart" href="/products/<%=post[i+1]._id%>"><i class="fas fa-cart-plus"></i></a>
-            <%var price=post[i+1].product_price-((post[i+1].product_price*post[i+1].product_discount)/100)%>
-            <p class="price_products_font">₹ <%=price%></p>
-            <p class="price_products" style="opacity: 0.5;color: rgb(0 0 0);">You save
-                ₹ <%=(post[i+1].product_price-price)%></p>
+                <h1 class="blogh1"><%= post[i+1].product_name%></h1>
+                <a class="add_to_cart" href="/products/<%=post[i+1]._id%>"><i class="fas fa-cart-plus"></i></a>
+                <%var price=post[i+1].product_price-((post[i+1].product_price*post[i+1].product_discount)/100)%>
+                <p class="price_products_font">₹ <%=price%></p>
+                <p class="price_products" style="opacity: 0.5;color: rgb(0 0 0);">You save
+                    ₹ <%=(post[i+1].product_price-price)%></p>
+
+            </div>
 
 
 
@@ -38,17 +48,21 @@
 
     <div class="blog_number">
         <div class="blog_center">
-            <img class="blogimg_products" src="<%=post[i].product_image%>" alt="">
+            <div class="product_description"><i class="fas fa-info"></i></div>
+
+            <div class="image_of_product">
+
+                <img class="blogimg_products" src="<%=post[i].product_image%>" alt="">
 
 
-            <h1 class="blogh1"><%= post[i].product_name%></h1>
-            <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-cart-plus"></i></a>
-            <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
-            <p class="price_products_font">₹ <%=price%></p>
-            <p class="price_products" style="opacity: 0.5;color: rgb(0 0 0);">You save
-                ₹ <%=(post[i].product_price-price)%></p>
+                <h1 class="blogh1"><%= post[i].product_name%></h1>
+                <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-cart-plus"></i></a>
+                <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
+                <p class="price_products_font">₹ <%=price%></p>
+                <p class="price_products" style="opacity: 0.5;color: rgb(0 0 0);">You save
+                    ₹ <%=(post[i].product_price-price)%></p>
 
-
+            </div>
 
 
         </div>

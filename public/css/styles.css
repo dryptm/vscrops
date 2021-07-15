@@ -1574,3 +1574,21 @@ body {
     border-style: solid;
     border-width: 0 0 .06510416666666667vw 0
 }
+
+.image_of_product {
+    height: inherit;
+    margin: 0;
+}
+
+.product_description {
+    background-color: #A2911B;
+    color: white;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    height: 17px;
+    width: 17px;
+    border-radius: 30px;
+    text-align: center;
+    padding: 5px
+}
