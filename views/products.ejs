@@ -1,13 +1,25 @@
 <%- include('head-foot/header'); -%>
 
 <div class="main_box_blog_1">
-    <%for(var i=0;i<post.length;i+=2){%>
+    
+<%for(var i=0;i<post.length;i+=2){%>
     <% if(i+1<post.length) { %>
 
     <div class="blog_number">
         <div class="blog_left">
-            <div class="product_description"><i class="fas fa-info"></i></div>
-            <div class="description_data"><p><%=post[i].product_description%></p></div>
+
+<!-- ********************************************************************************************** -->
+
+
+            <div class="product_description" id = "hover<%=i%>"><i class="fas fa-info"></i></div>
+            <div class="description_data" id = "data<%=i%>" style="visibility: collapse;"><p><%=post[i].product_description%></p></div>
+
+<!-- ********************************************************************************************** -->
+
+
+
+
+
 
             <div class="image_of_product">
                 
@@ -25,8 +37,15 @@
 
         </div>
         <div class="blog_right">
-            <div class="product_description"><i class="fas fa-info"></i></div>
-            <div class="description_data"><p><%=post[i+1].product_description%></p></div>
+
+
+<!-- ********************************************************************************************** -->
+
+            <div class="product_description" id = "hover<%=i+1%>"><i class="fas fa-info"></i></div>
+            <div class="description_data" id = "data<%=i+1%>" style="visibility: collapse;"><p><%=post[i+1].product_description%></p></div>
+
+<!-- ********************************************************************************************** -->
+
 
             <div class="image_of_product">
                 <img class="blogimg_products" src="<%=post[i+1].product_image%>" alt="">
@@ -51,8 +70,14 @@
 
     <div class="blog_number">
         <div class="blog_center">
-            <div class="product_description"><i class="fas fa-info"></i></div>
-            <div class="description_data"><p><%=post[i].product_description%></p></div>
+
+<!-- ********************************************************************************************** -->
+
+            <div class="product_description" id = "hover<%=i%>"><i class="fas fa-info"></i></div>
+            <div class="description_data" id = "data<%=i%>" style="visibility: collapse;"><p><%=post[i].product_description%></p></div>
+
+
+<!-- ********************************************************************************************** -->
 
             <div class="image_of_product">
 
@@ -76,7 +101,7 @@
 
 </div>
 
-
+<input type="number" id = "length" value="<%= post.length %>">
 
 <%- include('head-foot/footer'); -%>
 
@@ -87,6 +112,18 @@
     <script>
         document.getElementById("products").style.borderBottom = "2px solid rgb(212, 180, 53)";
         document.getElementById("products").style.paddingBottom = "5px";
+         
+        for(let i = 0;i<Number(document.getElementById('length').value);++i){
+            document.getElementById('hover'+i).addEventListener('mouseover',()=>{
+                document.getElementById('data'+i).style.visibility = "visible";
+            })
+
+            document.getElementById('hover'+i).addEventListener('mouseleave',()=>{
+                document.getElementById('data'+i).style.visibility = "collapse";
+            })
+        }
+        
+
 
         // document.getElementById("products").style.boxShadow = "0px 5px 5px #e8e8e8";
     </script>
