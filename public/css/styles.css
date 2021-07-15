@@ -1584,11 +1584,29 @@ body {
     background-color: #A2911B;
     color: white;
     position: absolute;
+    font-size: 14px;
     right: 40px;
     top: 40px;
     height: 17px;
     width: 17px;
     border-radius: 30px;
     text-align: center;
-    padding: 5px
+    padding: 5px;
+    cursor: pointer;
+}
+
+.description_data {
+    width: 200px;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    letter-spacing: 1px;
+    font-family: Lato, arial, sans-serif;
+    text-align: left;
+    border-radius: 5px;
+    height: auto;
+    padding: 10px;
+    position: absolute;
+    font-size: 14px;
+    right: 40px;
+    top: 70px;
 }
