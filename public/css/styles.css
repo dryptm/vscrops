@@ -28,7 +28,7 @@ body {
 
 .header-block-container {
     margin: auto;
-    padding: 2.0833333333333335vw 8.5625vw;
+    padding: 2.0833333333333335vw 9.6625vw;
     background-color: #fff;
     position: relative
 }
@@ -39,7 +39,7 @@ body {
 
 .li-div {
     display: flex;
-    padding: 1.3020833333333333vw 20.833333333333332vw
+    padding: 1.3020833333333333vw 0;
 }
 
 .li-container {
@@ -52,10 +52,24 @@ body {
     color: #575757
 }
 
+.li-container1 {
+    font-family: Lato, arial, sans-serif;
+    text-decoration: none;
+    margin: 0 0.416666666666667vw;
+    padding: .1953125vw;
+    font-size: .9114583333333334vw;
+    letter-spacing: .11393229166666667vw;
+    color: rgb(185 157 48)
+}
+
+.li-container1:hover {
+    color: rgb(113 96 33)
+}
+
 .search-cart-user {
     position: absolute;
-    right: 8.697916666666666vw;
-    top: 4.361979166666667vw
+    right: 9.097916666666666vw;
+    top: 2.961979166666667vw
 }
 
 .vs-header-icons {
@@ -181,8 +195,8 @@ body {
     height: auto;
     background-color: #fff;
     position: absolute;
-    right: 9.114583333333334vw;
-    top: 7.8125vw;
+    right: 9.614583333333334vw;
+    top: 6.3125vw;
     z-index: 2;
     box-shadow: rgb(187 187 187) 0 0 .5208333333333334vw 0;
     opacity: 0;
@@ -230,14 +244,18 @@ body {
 
 .img-launching {
     width: 80.20833333333333vw;
-    height: 38.552083333333336vw;
-    display: block;
+    /*         height: 38.552083333333336vw;
+    display: block; */
     margin: 0 auto;
-    background-image: url(/images/DSC03519.png);
+    /*             background-image: url(/images/DSC03519.png);
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: 100%;
-    position: relative
+    position: relative */
+}
+
+.launchbannerimg {
+    width: 100%;
 }
 
 .launching {
@@ -299,12 +317,13 @@ body {
 .us {
     color: #ad9226;
     font-family: Cabin, arial, sans-serif;
-    font-size: 2.799479166666667vw
+    font-size: 2.399479166666667vw;
+    font-weight: 600
 }
 
 .us_data {
     font-family: Lato, arial, sans-serif;
-    font-size: 1.4322916666666667vw;
+    font-size: 1.1020833333333335vw;
     color: #5e5e5e;
     margin-bottom: 6.510416666666667vw;
     margin-right: 34.505208333333336vw
@@ -334,11 +353,13 @@ body {
 }
 
 .productsontheway {
-    font-size: 2.799479166666667vw;
-    font-family: Cabin, arial, sans-serif;
+    font-size: 2.299479166666667vw;
+    font-family: Lato;
     letter-spacing: .06510416666666667vw;
     color: #ad9226;
-    margin-left: 9.348958333333334vw
+    text-align: center;
+    font-weight: 400;
+    /*         margin-left: 0.348958333333334vw */
 }
 
 .oils_bottom_flex {
@@ -376,48 +397,48 @@ body {
 }
 
 .obf-content2 {
-    background-color: #fef3d9;
+    background-color: white;
     margin: 0;
     height: 19.53125vw
 }
 
 .obf-content2 p {
-    font-size: 1.3020833333333335vw;
+    font-size: 1.1020833333333335vw;
     font-family: Lato, arial, sans-serif;
     text-align: center;
     color: #5e5e5e;
-    padding: 0 2.9296875vw
+    padding: 0
 }
 
-.obf-content2 h3 {
-    font-size: 1.4322916666666667vw;
+.obf-content2 h2 {
+    font-size: 2.0322916666666667vw;
     text-align: center;
     font-family: Lato, arial, sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     padding-top: 1.9531250000000002vw;
     margin-top: 0;
     color: #1b1b1b
 }
 
 .obf-content1 {
-    background-color: #fef3d9;
+    background-color: white;
     margin: 0;
     height: 19.53125vw
 }
 
 .obf-content1 p {
-    font-size: 1.3020833333333335vw;
+    font-size: 1.1020833333333335vw;
     font-family: Lato, arial, sans-serif;
     text-align: center;
     color: #5e5e5e;
-    padding: 0 2.9296875vw
+    padding: 0
 }
 
-.obf-content1 h3 {
-    font-size: 1.4322916666666667vw;
+.obf-content1 h2 {
+    font-size: 2.0322916666666667vw;
     text-align: center;
     font-family: Lato, arial, sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     padding-top: 1.9531250000000002vw;
     margin-top: 0;
     color: #1b1b1b
@@ -447,7 +468,8 @@ body {
     color: #5e5e5e;
     height: 2.5552083333333335vw;
     border-style: solid;
-    border-width: 0 0 .06510416666666667vw 0
+    background-color: #f5f5f5;
+    border-width: 0 0 0 0
 }
 
 ::-webkit-input-placeholder {
@@ -490,6 +512,7 @@ body {
 .a_launch_product_1:hover {
     background-color: rgb(207 175 50);
     color: #151515;
+    font-size: 1.1vw;
     border-color: rgb(207 175 50)
 }
 
@@ -1322,7 +1345,7 @@ body {
 
 .product_description h2 {
     font-family: Lato, arial, sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 2.734375vw;
     color: #ae9530;
     padding-top: 3.2552083333333335vw
@@ -1563,16 +1586,16 @@ body {
 }
 
 .mailinput1 {
+    background-color: #f5f5f5;
     margin-top: 1.625vw;
     width: 100%;
     font-size: 1.0416666666666667vw;
-    /*     margin-top: .6625vw; */
     padding: 0.35vw .6765625000000001vw;
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
-    height: 2.5552083333333335vw;
+    height: 2.622083333333335vw;
     border-style: solid;
-    border-width: 0 0 .06510416666666667vw 0
+    border-width: 0
 }
 
 .image_of_product {
@@ -1580,7 +1603,7 @@ body {
     margin: 0;
 }
 
-.product_description {
+.product_description_i {
     background-color: #A2911B;
     color: white;
     position: absolute;
@@ -1612,4 +1635,20 @@ body {
     right: 40px;
     top: 70px;
     transition: all 0.2s;
+}
+
+.company-logo {
+    /*     background-color: yellow; */
+    /* background-color: yellow; */
+    /*     height:100px; */
+    /*     width:200px; */
+    position: absolute;
+    top: 0;
+    height: 100px;
+    width: 165px;
+    background-image: url(/images/vslogo.png);
+    background-size: 100%;
+    background-position-y: -25px;
+    background-position-x: -20px;
+
 }
