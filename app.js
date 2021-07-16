@@ -258,12 +258,14 @@ app.post('/add_to_cart/:id', (rq, rs) => {
         console.log(found.product_name)
         if (cart_obj.find(ob => ob.name === found.product_name)) {
           console.log("found and cart updated")
+          console.log(rq.body.tot_price)
           var i = cart_obj.findIndex(ob => ob.name === found.product_name);
           cart_obj[i].quantity = (Number(rq.body.tot_price)) / (found.product_price - ((found.product_price * found.product_discount) / 100))
           cart_obj[i].total_price = Number(rq.body.tot_price)
           cart_obj[i].original_price = Number(found.product_price)
         } else {
           console.log("new item added to cart")
+          
           cart_obj.push({
             "name": found.product_name,
             "total_price": Number(rq.body.tot_price),

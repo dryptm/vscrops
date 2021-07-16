@@ -22,12 +22,14 @@ body {
 
 .header-block {
     background-color: #fff;
+
     height: inherit;
     width: 100%;
     z-index: 1;
     position: sticky;
-    box-shadow: rgb(187 187 187) 0 0 .5208333333333334vw 0;
-    top: 0
+    top: 0;
+    border-bottom: 1px solid #b49b3544;
+
 }
 
 .header-block-container {
@@ -185,14 +187,6 @@ body {
     font-family: Lato, arial, sans-serif
 }
 
-.head_divider {
-    background-color: #b49b35;
-    height: .06510416666666667vw;
-    opacity: 30%;
-    display: flex;
-    width: 80.20833333333333vw;
-    margin: 0 auto
-}
 
 .user_dropdown {
     width: 13.276041666666668vw;
@@ -200,7 +194,7 @@ body {
     background-color: #fff;
     position: absolute;
     right: 9.614583333333334vw;
-    top: 6.3125vw;
+    top: 4.3125vw;
     z-index: 2;
     box-shadow: rgb(187 187 187) 0 0 .5208333333333334vw 0;
     opacity: 0;
@@ -286,7 +280,7 @@ body {
     position: absolute;
     margin: 0;
     right: 8.463541666666668vw;
-    top: 18.229166666666668vw;
+    bottom: 5.210416666666667vw;
     letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
     font-weight: 700;
@@ -308,12 +302,12 @@ body {
 .img-launching h2 {
     position: absolute;
     font-family: Lato, arial, sans-serif;
-    font-size: 3.580729166666667vw;
+    font-size: 3.980729166666667vw;
     letter-spacing: 0.13020833333333334vw;
     right: 8.463541666666668vw;
     color: #fff;
     font-weight: 100;
-    top: 6.510416666666667vw;
+    top: 5.210416666666667vw;
     margin: 0
 }
 
@@ -322,9 +316,9 @@ body {
     position: absolute;
     letter-spacing: 0.13020833333333334vw;
     font-family: Lato, arial, sans-serif;
-    font-size: 3.580729166666667vw;
+    font-size: 3.980729166666667vw;
     color: #fff;
-    top: 11.71875vw;
+    top: 10.71875vw;
     font-weight: 100;
     letter-spacing: 0.06510416666666667vw;
     right: 8.463541666666668vw
@@ -1487,7 +1481,7 @@ body {
 .input-individual::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-    -moz-appearance: textfield
+    -moz-appearance: none;
 }
 
 .input-individual {

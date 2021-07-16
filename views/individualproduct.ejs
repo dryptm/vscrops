@@ -86,6 +86,7 @@ var inp = document.getElementById("price").innerHTML.split(" ");
 document.getElementById("minus").addEventListener("click",()=>{
   if(document.getElementById("number_of_items1").value<=1){
     document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (1 * price).toString()
+    document.getElementById("tot_price").value = (1 * price);
 
   document.getElementById("number_of_items1").value = 1
 
@@ -96,12 +97,15 @@ document.getElementById("minus").addEventListener("click",()=>{
   document.getElementById("number_of_items1").value = Number(document.getElementById("number_of_items1").value)-1
 
   document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (Number(document.getElementById("number_of_items1").value) * price).toString()
-  }
+  document.getElementById("tot_price").value = (document.getElementById("number_of_items1").value* price);
+  
+}
 
 })
 document.getElementById("plus").addEventListener("click",()=>{
   if(document.getElementById("number_of_items1").value>=999){
     document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (999 * price).toString()
+    document.getElementById("tot_price").value = (999 * price);
 
   document.getElementById("number_of_items1").value = 999
 
@@ -110,6 +114,7 @@ document.getElementById("plus").addEventListener("click",()=>{
 
   
   document.getElementById("number_of_items1").value = Number(document.getElementById("number_of_items1").value)+1
+  document.getElementById("tot_price").value = (document.getElementById("number_of_items1").value * price);
 
   document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (Number(document.getElementById("number_of_items1").value) * price).toString()
   }
