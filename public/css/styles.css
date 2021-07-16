@@ -23,7 +23,13 @@ body {
 .header-block {
     background-color: #fff;
     height: inherit;
-    width: 100%
+    width: 100%;
+    z-index: 1;
+    /*     position: -webkit-sticky; /* Safari & IE */
+    position: sticky;
+    box-shadow: rgb(187 187 187) 0 0 .5208333333333334vw 0;
+
+    top: 0;
 }
 
 .header-block-container {
@@ -630,7 +636,6 @@ body {
 
 .price_products {
     font-family: Lato, arial, sans-serif;
-    color: #8a7522;
     font-size: 1.0416666666666667vw;
     margin-left: 1.623567708333333vw
 }
@@ -744,9 +749,9 @@ body {
 }
 
 .note_head {
-    font-size: 2.0833333333333335vw;
+    font-size: 1.833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    font-weight: 700;
+    font-weight: 300;
     letter-spacing: .06510416666666667vw;
     color: #ad9226;
     margin: 0;
@@ -757,7 +762,7 @@ body {
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
     font-weight: 400;
-    font-size: 1.1671875vw
+    font-size: 1.0114583333333334vw
 }
 
 .contact_flex {
@@ -948,7 +953,7 @@ body {
 
 .currentpost_data {
     color: #5e5e5e;
-    font-size: 1.0416666666666667vw;
+    font-size: 1.0116666666666667vw;
     letter-spacing: .032552083333333336vw;
     font-family: Lato, arial, sans-serif;
     padding-top: 10vh

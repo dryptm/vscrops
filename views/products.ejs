@@ -1,20 +1,22 @@
 <%- include('head-foot/header'); -%>
 
 <div class="main_box_blog_1">
-    
-<%for(var i=0;i<post.length;i+=2){%>
+
+    <%for(var i=0;i<post.length;i+=2){%>
     <% if(i+1<post.length) { %>
 
     <div class="blog_number">
         <div class="blog_left">
 
-<!-- ********************************************************************************************** -->
+            <!-- ********************************************************************************************** -->
 
 
-            <div class="product_description_i" id = "hover<%=i%>"><i class="fas fa-info"></i></div>
-            <div class="description_data" id = "data<%=i%>" style="visibility: collapse;opacity: 0;"><p><%=post[i].product_description%></p></div>
+            <div class="product_description_i" id="hover<%=i%>"><i class="fas fa-info"></i></div>
+            <div class="description_data" id="data<%=i%>" style="visibility: collapse;opacity: 0;">
+                <p><%=post[i].product_description%></p>
+            </div>
 
-<!-- ********************************************************************************************** -->
+            <!-- ********************************************************************************************** -->
 
 
 
@@ -22,14 +24,14 @@
 
 
             <div class="image_of_product">
-                
+
                 <img class="blogimg_products" src="<%=post[i].product_image%>" alt="">
                 <h1 class="blogh1"><%= post[i].product_name%></h1>
                 <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-cart-plus"></i></a>
                 <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
-                <p class="price_products" style="opacity: 0.5;color: rgb(0 0 0);">You save
-                    ₹ <%=(post[i].product_price-price)%></p>
+                <p class="price_products" id="price_products<%=i%>" style="opacity: 0.5;">You save
+                    ₹ <%=(post[i].product_price-price)%>(<%=post[i].product_discount%>%)</p>
             </div>
 
 
@@ -39,12 +41,14 @@
         <div class="blog_right">
 
 
-<!-- ********************************************************************************************** -->
+            <!-- ********************************************************************************************** -->
 
-            <div class="product_description_i" id = "hover<%=i+1%>"><i class="fas fa-info"></i></div>
-            <div class="description_data" id = "data<%=i+1%>" style="visibility: collapse;opacity: 0;"><p><%=post[i+1].product_description%></p></div>
+            <div class="product_description_i" id="hover<%=i+1%>"><i class="fas fa-info"></i></div>
+            <div class="description_data" id="data<%=i+1%>" style="visibility: collapse;opacity: 0;">
+                <p><%=post[i+1].product_description%></p>
+            </div>
 
-<!-- ********************************************************************************************** -->
+            <!-- ********************************************************************************************** -->
 
 
             <div class="image_of_product">
@@ -55,8 +59,8 @@
                 <a class="add_to_cart" href="/products/<%=post[i+1]._id%>"><i class="fas fa-cart-plus"></i></a>
                 <%var price=post[i+1].product_price-((post[i+1].product_price*post[i+1].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
-                <p class="price_products" style="opacity: 0.5;color: rgb(0 0 0);">You save
-                    ₹ <%=(post[i+1].product_price-price)%></p>
+                <p class="price_products" id="price_products<%=(i+1)%>" style="opacity: 0.5;">You save
+                    ₹ <%=(post[i+1].product_price-price)%>(<%=post[i+1].product_discount%>%)</p>
 
             </div>
 
@@ -71,13 +75,15 @@
     <div class="blog_number">
         <div class="blog_center">
 
-<!-- ********************************************************************************************** -->
+            <!-- ********************************************************************************************** -->
 
-            <div class="product_description_i" id = "hover<%=i%>"><i class="fas fa-info"></i></div>
-            <div class="description_data" id = "data<%=i%>" style="visibility: collapse;opacity: 0;"><p><%=post[i].product_description%></p></div>
+            <div class="product_description_i" id="hover<%=i%>"><i class="fas fa-info"></i></div>
+            <div class="description_data" id="data<%=i%>" style="visibility: collapse;opacity: 0;">
+                <p><%=post[i].product_description%></p>
+            </div>
 
 
-<!-- ********************************************************************************************** -->
+            <!-- ********************************************************************************************** -->
 
             <div class="image_of_product">
 
@@ -88,8 +94,8 @@
                 <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-cart-plus"></i></a>
                 <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
-                <p class="price_products" style="opacity: 0.5;color: rgb(0 0 0);">You save
-                    ₹ <%=(post[i].product_price-price)%></p>
+                <p class="price_products" id="price_products<%=i%>" style="opacity: 0.5;">You save
+                    ₹ <%=(post[i].product_price-price)%>(<%=post[i].product_discount%>%)</p>
 
             </div>
 
@@ -101,32 +107,42 @@
 
 </div>
 
-<input type="number" id = "length" value="<%= post.length %>" style="opacity: 0;visibility: collapse; position: absolute;">
+<input type="number" id = "length" value="<%= post.length %>" style="opacity: 0;visibility: collapse; position:
+    absolute;">
 
-<%- include('head-foot/footer'); -%>
+    <%- include('head-foot/footer'); -%>
 
 
 
 
 
     <script>
-        document.getElementById("products").style.borderBottom = "0.13020833333333334vw solid rgb(212, 180, 53)";
-        document.getElementById("products").style.paddingBottom = "0.3255208333333333vw";
-         
-        for(let i = 0;i<Number(document.getElementById('length').value);++i){
-            document.getElementById('hover'+i).addEventListener('mouseover',()=>{
-                document.getElementById('data'+i).style.visibility = "visible";
-                document.getElementById('data'+i).style.opacity = "0.9";
-                
+        // document.getElementById("products").style.borderBottom = "0.13020833333333334vw solid rgb(212, 180, 53)";
+        // document.getElementById("products").style.paddingBottom = "0.3255208333333333vw";
+
+        for (let i = 0; i < Number(document.getElementById('length').value); ++i) {
+
+            if(Number(document.getElementById("price_products" + i).innerText.split(")")[0].split("(")[1]
+                .split("%")[0])>0){
+                    document.getElementById("price_products" + i).style.color="#41B951";
+                    document.getElementById("price_products" + i).style.opacity="1";
+                    document.getElementById("price_products" + i).style.fontWeight="500"
+                }
+
+
+            document.getElementById('hover' + i).addEventListener('mouseover', () => {
+                document.getElementById('data' + i).style.visibility = "visible";
+                document.getElementById('data' + i).style.opacity = "0.9";
+
             })
 
-            document.getElementById('hover'+i).addEventListener('mouseleave',()=>{
-                document.getElementById('data'+i).style.visibility = "collapse";
-                document.getElementById('data'+i).style.opacity = "0";
-                
+            document.getElementById('hover' + i).addEventListener('mouseleave', () => {
+                document.getElementById('data' + i).style.visibility = "collapse";
+                document.getElementById('data' + i).style.opacity = "0";
+
             })
         }
-        
+
 
 
         // document.getElementById("products").style.boxShadow = "0px 5px 5px #e8e8e8";
