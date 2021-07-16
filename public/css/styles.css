@@ -8,14 +8,14 @@ body {
     font-size: .9114583333333334vw;
     margin: 0;
     padding: .2604166666666667vw 0;
-    background-color: #b4a115f7;
+    background-color: #9a8a17f7;
     font-family: Lato, arial, sans-serif;
     font-weight: 400
 }
 
 .banner-p {
     margin: 0;
-    color: #000;
+    color: white;
     letter-spacing: .13020833333333334vw;
     padding-top: .09765625vw
 }
@@ -291,7 +291,7 @@ body {
     border: 0.22786458333333334vw solid #796b00;
     padding: .9765625vw;
     border-radius: 0.5208333333333334vw;
-    transition: all .5s
+    transition: all .3s
 }
 
 .a_launch_product:hover {
@@ -301,7 +301,7 @@ body {
 
 .img-launching h2 {
     position: absolute;
-    font-family: Lato, arial, sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 3.980729166666667vw;
     letter-spacing: 0.13020833333333334vw;
     right: 8.463541666666668vw;
@@ -315,7 +315,7 @@ body {
     margin: 0;
     position: absolute;
     letter-spacing: 0.13020833333333334vw;
-    font-family: Lato, arial, sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 3.980729166666667vw;
     color: #fff;
     top: 10.71875vw;
@@ -690,7 +690,8 @@ body {
     margin-left: 0;
     padding: .9765625vw;
     transition: all .25s;
-    cursor: pointer
+    cursor: pointer;
+    border-radius: 0.3255208333333333vw;
 }
 
 .btn-add-to-cart:hover {
@@ -1077,7 +1078,8 @@ body {
     margin-top: 3.2552083333333335vw;
     padding: .9765625vw;
     transition: all .25s;
-    cursor: pointer
+    cursor: pointer;
+    border-radius: 0.3255208333333333vw;
 }
 
 .btn-register-login:hover {
@@ -1103,7 +1105,9 @@ body {
     margin-left: 3.2552083333333335vw;
     padding: .9765625vw;
     transition: all .25s;
-    cursor: pointer
+    cursor: pointer;
+    border-radius: 0.3255208333333333vw;
+
 }
 
 .btn-register-login1:hover {
@@ -1127,7 +1131,9 @@ body {
     margin-left: 3.2552083333333335vw;
     margin-top: 6.510416666666667vw;
     padding: .9765625vw;
-    transition: all .5s
+    transition: all .5s;
+    border-radius: 0.3255208333333333vw;
+
 }
 
 .login_with_google:hover {
@@ -1396,7 +1402,7 @@ body {
     padding: .6510416666666667vw .85114583333333334vw;
     font-size: 1.5531250000000002vw;
     border-radius: 6.510416666666667vw;
-    background-color: #41b951;
+    background-color: #72680A;
     position: fixed
 }
 
@@ -1657,5 +1663,6 @@ body {
     background-image: url(/images/vslogo.png);
     background-size: 100%;
     background-position-y: -1.6276041666666667vw;
-    background-position-x: -1.3020833333333335vw
+    background-position-x: -1.3020833333333335vw;
+    cursor: pointer;
 }

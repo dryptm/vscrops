@@ -49,39 +49,43 @@
     </div>
     <div class="header-block">
         <div id="user_dropdown_1" onmouseout="dropdownout_2()" onmouseover="dropdownover_2()" class="user_dropdown"
-        style="visibility: collapse;">
-        <% if(isLoggedin==="yes") {%>
-        <div class="user_d_box">
-            <p class="user_d_box_content"><%= name %> </p>
-        </div>
-        <div class="user_d_box">
-            
-            <a href="/orders" onclick="dropdownclick()"
-                    style="color: inherit;text-decoration: none;"><p class="user_d_box_content">My Orders</p></a>
-        </div>
-        <div class="user_d_box">
-            
-            <a href="/logout" onclick="dropdownclick()"
-                    style="color: inherit;text-decoration: none;"><p class="user_d_box_content">Logout</p></a>
-        </div>
+            style="visibility: collapse;">
+            <% if(isLoggedin==="yes") {%>
+            <div class="user_d_box">
+                <p class="user_d_box_content"><%= name %> </p>
+            </div>
+            <div class="user_d_box">
 
-        <% } %>
-        <% if(isLoggedin==="no") {%>
-        <div class="user_d_box">
-           
-            <a href="/login" onclick="dropdownclick()"
-            style="color: inherit;text-decoration: none;"> <p class="user_d_box_content">Login</p></a>
-       
-                </div>
-        <div class="user_d_box">
-            
-            <a href="/register" onclick="dropdownclick()"
-            style="color: inherit;text-decoration: none;"><p class="user_d_box_content">SignUp</p></a>
-        
-        </div>
+                <a href="/orders" onclick="dropdownclick()" style="color: inherit;text-decoration: none;">
+                    <p class="user_d_box_content">My Orders</p>
+                </a>
+            </div>
+            <div class="user_d_box">
 
-        <% } %>
-    </div>
+                <a href="/logout" onclick="dropdownclick()" style="color: inherit;text-decoration: none;">
+                    <p class="user_d_box_content">Logout</p>
+                </a>
+            </div>
+
+            <% } %>
+            <% if(isLoggedin==="no") {%>
+            <div class="user_d_box">
+
+                <a href="/login" onclick="dropdownclick()" style="color: inherit;text-decoration: none;">
+                    <p class="user_d_box_content">Login</p>
+                </a>
+
+            </div>
+            <div class="user_d_box">
+
+                <a href="/register" onclick="dropdownclick()" style="color: inherit;text-decoration: none;">
+                    <p class="user_d_box_content">SignUp</p>
+                </a>
+
+            </div>
+
+            <% } %>
+        </div>
         <div class="header-block-container">
             <!-- <ul class="ul-continer">
                 <div class="li-div">
@@ -94,7 +98,10 @@
                 </div>
             </ul> -->
             <div class="li-div">
-                <div href="/home" class="company-logo" ></div>
+                <a href="/home">
+                    <div class="company-logo"></div>
+                </a>
+
 
                 <div class="search-cart-user">
                     <a id="home" class="li-container" href="/home">Home</a>
@@ -113,7 +120,7 @@
         <!-- <div class="head_divider"></div> -->
 
     </div>
-  
+
 
     <div class="chat_button">
         <a style="text-decoration: none;" href="https://wa.me/916386417658" target="_blank"><i class="fab fa-whatsapp"
@@ -124,15 +131,15 @@
 
 
     <script>
+        window.onscroll = () => {
+            if (document.querySelector('.header-block').getBoundingClientRect().top === 0) {
+                document.querySelector('.header-block').style.boxShadow =
+                    "rgb(187 187 187) 0 0 .5208333333333334vw 0"
+            } else {
+                document.querySelector('.header-block').style.boxShadow = ""
+            }
+        }
 
-window.onscroll = ()=>{
-           if(document.querySelector('.header-block').getBoundingClientRect().top===0){
-            document.querySelector('.header-block').style.boxShadow ="rgb(187 187 187) 0 0 .5208333333333334vw 0"
-           }
-           else {
-            document.querySelector('.header-block').style.boxShadow =""
-           }
-       }
         function dropdownclick() {
             document.getElementById("user_dropdown_1").style.visibility = "collapse";
         }
