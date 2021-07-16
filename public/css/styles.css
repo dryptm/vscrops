@@ -15,7 +15,7 @@ body {
 
 .banner-p {
     margin: 0;
-    color: #000000;
+    color: #000;
     letter-spacing: .13020833333333334vw;
     padding-top: .09765625vw
 }
@@ -25,11 +25,9 @@ body {
     height: inherit;
     width: 100%;
     z-index: 1;
-    /*     position: -webkit-sticky; /* Safari & IE */
     position: sticky;
     box-shadow: rgb(187 187 187) 0 0 .5208333333333334vw 0;
-
-    top: 0;
+    top: 0
 }
 
 .header-block-container {
@@ -45,7 +43,7 @@ body {
 
 .li-div {
     display: flex;
-    padding: 1.3020833333333333vw 0;
+    padding: 1.3020833333333333vw 0
 }
 
 .li-container {
@@ -61,7 +59,7 @@ body {
 .li-container1 {
     font-family: Lato, arial, sans-serif;
     text-decoration: none;
-    margin: 0 0.416666666666667vw;
+    margin: 0 .416666666666667vw;
     padding: .1953125vw;
     font-size: .9114583333333334vw;
     letter-spacing: .11393229166666667vw;
@@ -250,35 +248,21 @@ body {
 
 .img-launching {
     width: 80.20833333333333vw;
-    /*         height: 38.552083333333336vw;
-    display: block; */
     margin: 0 auto;
-    /*             background-image: url(/images/DSC03519.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: relative */
     position: relative;
-
-    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-    /* FF3.6+ */
-    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-    /* IE10+ */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-    /* W3C */
+    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%);
+    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%);
+    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%);
+    background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%)
 }
 
 .launchbannerimg {
     width: 100%;
     position: relative;
     z-index: -1;
-    display: block;
+    display: block
 }
-
 
 .p_welcome {
     text-align: center;
@@ -301,8 +285,8 @@ body {
 .a_launch_product {
     position: absolute;
     margin: 0;
-    right: 130px;
-    top: 280px;
+    right: 8.463541666666668vw;
+    top: 18.229166666666668vw;
     letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
     font-weight: 700;
@@ -310,42 +294,40 @@ body {
     color: #ececec;
     background-color: #524a08;
     text-decoration: none;
-    border: 3.5px solid #796b00;
-    /* border-style: solid;
-    border-width: .06510416666666667vw; */
+    border: 0.22786458333333334vw solid #796b00;
     padding: .9765625vw;
-    border-radius: 8px;
+    border-radius: 0.5208333333333334vw;
     transition: all .5s
 }
 
 .a_launch_product:hover {
     background-color: #373205;
-    border: 3.5px solid #685c00;
+    border: 0.22786458333333334vw solid #685c00
 }
 
 .img-launching h2 {
     position: absolute;
     font-family: Lato, arial, sans-serif;
-    font-size: 55px;
-    letter-spacing: 2px;
-    right: 130px;
-    color: white;
+    font-size: 3.580729166666667vw;
+    letter-spacing: 0.13020833333333334vw;
+    right: 8.463541666666668vw;
+    color: #fff;
     font-weight: 100;
-    top: 100px;
-    margin: 0;
+    top: 6.510416666666667vw;
+    margin: 0
 }
 
 .img-launching h1 {
     margin: 0;
     position: absolute;
-    letter-spacing: 2px;
+    letter-spacing: 0.13020833333333334vw;
     font-family: Lato, arial, sans-serif;
-    font-size: 55px;
-    color: white;
-    top: 180px;
+    font-size: 3.580729166666667vw;
+    color: #fff;
+    top: 11.71875vw;
     font-weight: 100;
-    letter-spacing: 1px;
-    right: 130px;
+    letter-spacing: 0.06510416666666667vw;
+    right: 8.463541666666668vw
 }
 
 .about_us {
@@ -400,8 +382,7 @@ body {
     letter-spacing: .06510416666666667vw;
     color: #ad9226;
     text-align: center;
-    font-weight: 400;
-    /*         margin-left: 0.348958333333334vw */
+    font-weight: 400
 }
 
 .oils_bottom_flex {
@@ -424,7 +405,6 @@ body {
 .obf_image1 {
     background-image: url(/images/ALMex.png);
     background-position-x: center;
-    /*     background-position-y: -9.114583333333334vw; */
     background-size: 138%;
     height: 39.0625vw;
     background-repeat: no-repeat
@@ -439,7 +419,7 @@ body {
 }
 
 .obf-content2 {
-    background-color: white;
+    background-color: #fff;
     margin: 0;
     height: 19.53125vw
 }
@@ -463,7 +443,7 @@ body {
 }
 
 .obf-content1 {
-    background-color: white;
+    background-color: #fff;
     margin: 0;
     height: 19.53125vw
 }
@@ -511,7 +491,7 @@ body {
     height: 2.5552083333333335vw;
     border-style: solid;
     background-color: #f5f5f5;
-    border-width: 0 0 0 0
+    border-width: 0
 }
 
 ::-webkit-input-placeholder {
@@ -548,7 +528,7 @@ body {
     width: 20%;
     height: 3.580729166666667vw;
     margin: 1.4322916666666667vw 0 0 2.604166666666667vw;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .a_launch_product_1:hover {
@@ -639,7 +619,6 @@ body {
 .add_to_cart {
     position: absolute;
     bottom: 5%;
-    /* border: 2px solid black; */
     right: 1.623567708333333vw;
     margin: auto;
     letter-spacing: .13020833333333334vw;
@@ -652,13 +631,11 @@ body {
     padding: 1.953125vw 3vw;
     padding-left: 0;
     padding-bottom: 0;
-
     transition: all .25s
 }
 
 .add_to_cart:hover {
-
-    color: #B7A11E;
+    color: #b7a11e;
     transform: rotateY(180deg)
 }
 
@@ -1605,7 +1582,7 @@ body {
     font-size: 1.171875vw;
     color: #4c4c4c;
     font-weight: 700;
-    letter-spacing: 0.032552083333333336vw;
+    letter-spacing: .032552083333333336vw;
     font-family: Lato, arial, sans-serif
 }
 
@@ -1614,9 +1591,9 @@ body {
 }
 
 .fbrex {
-    top: 0.06510416666666667vw;
+    top: .06510416666666667vw;
     position: absolute;
-    left: 0.9765625000000001vw;
+    left: .9765625000000001vw;
     color: #1877f2
 }
 
@@ -1631,7 +1608,7 @@ body {
     margin-top: 1.625vw;
     width: 100%;
     font-size: 1.0416666666666667vw;
-    padding: 0.35vw .6765625000000001vw;
+    padding: .35vw .6765625000000001vw;
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
     height: 2.622083333333335vw;
@@ -1641,55 +1618,50 @@ body {
 
 .image_of_product {
     height: inherit;
-    margin: 0;
+    margin: 0
 }
 
 .product_description_i {
-    background-color: #A2911B;
-    color: white;
+    background-color: #a2911b;
+    color: #fff;
     position: absolute;
-    font-size: 11px;
-    right: 40px;
-    top: 40px;
-    height: 12px;
-    width: 12px;
-    border-radius: 30px;
+    font-size: 0.7161458333333334vw;
+    right: 2.604166666666667vw;
+    top: 2.604166666666667vw;
+    height: 0.78125vw;
+    width: 0.78125vw;
+    border-radius: 1.9531250000000002vw;
     text-align: center;
-    padding: 5px;
-    cursor: pointer;
+    padding: 0.32552083333333337vw;
+    cursor: pointer
 }
 
 .description_data {
-    width: 200px;
-    color: black;
+    width: 13.020833333333334vw;
+    color: #000;
     font-weight: 700;
-    background-color: white;
-    border: 1px solid #dbdbdb;
-    letter-spacing: 1px;
+    background-color: #fff;
+    border: 0.06510416666666667vw solid #dbdbdb;
+    letter-spacing: 0.06510416666666667vw;
     font-family: Lato, arial, sans-serif;
     text-align: left;
-    border-radius: 5px;
+    border-radius: 0.32552083333333337vw;
     height: auto;
-    padding: 10px;
+    padding: 0.6510416666666667vw;
     position: absolute;
-    font-size: 12px;
-    right: 40px;
-    top: 70px;
-    transition: all 0.2s;
+    font-size: 0.78125vw;
+    right: 2.604166666666667vw;
+    top: 4.557291666666667vw;
+    transition: all .2s
 }
 
 .company-logo {
-    /*     background-color: yellow; */
-    /* background-color: yellow; */
-    /*     height:100px; */
-    /*     width:200px; */
     position: absolute;
     top: 0;
-    height: 100px;
-    width: 165px;
+    height: 6.510416666666667vw;
+    width: 10.7421875vw;
     background-image: url(/images/vslogo.png);
     background-size: 100%;
-    background-position-y: -25px;
-    background-position-x: -20px;
-
+    background-position-y: -1.6276041666666667vw;
+    background-position-x: -1.3020833333333335vw
 }
