@@ -8,14 +8,14 @@ body {
     font-size: .9114583333333334vw;
     margin: 0;
     padding: .2604166666666667vw 0;
-    background-color: #d4b435;
+    background-color: #b4a115f7;
     font-family: Lato, arial, sans-serif;
     font-weight: 400
 }
 
 .banner-p {
     margin: 0;
-    color: #161616;
+    color: #000000;
     letter-spacing: .13020833333333334vw;
     padding-top: .09765625vw
 }
@@ -258,18 +258,27 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     position: relative */
+    position: relative;
+
+    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    /* FF3.6+ */
+    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    /* IE10+ */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    /* W3C */
 }
 
 .launchbannerimg {
     width: 100%;
+    position: relative;
+    z-index: -1;
+    display: block;
 }
 
-.launching {
-    float: right;
-    height: 100%;
-    width: 34%;
-    background-color: rgba(254, 243, 217, .8)
-}
 
 .p_welcome {
     text-align: center;
@@ -290,26 +299,53 @@ body {
 }
 
 .a_launch_product {
-    position: relative;
-    margin: auto;
+    position: absolute;
+    margin: 0;
+    right: 130px;
+    top: 280px;
     letter-spacing: .13020833333333334vw;
     font-size: 1.0416666666666667vw;
-    font-weight: 400;
+    font-weight: 700;
     font-family: Lato, arial, sans-serif;
-    color: #85701c;
-    margin-top: 9.765625vw;
+    color: #ececec;
+    background-color: #524a08;
     text-decoration: none;
-    border-style: solid;
-    border-width: .06510416666666667vw;
+    border: 3.5px solid #796b00;
+    /* border-style: solid;
+    border-width: .06510416666666667vw; */
     padding: .9765625vw;
-    margin: 6.966145833333333vw;
+    border-radius: 8px;
     transition: all .5s
 }
 
 .a_launch_product:hover {
-    background-color: rgb(207 175 50);
-    color: #151515;
-    border-color: rgb(207 175 50)
+    background-color: #373205;
+    border: 3.5px solid #685c00;
+}
+
+.img-launching h2 {
+    position: absolute;
+    font-family: Lato, arial, sans-serif;
+    font-size: 55px;
+    letter-spacing: 2px;
+    right: 130px;
+    color: white;
+    font-weight: 100;
+    top: 100px;
+    margin: 0;
+}
+
+.img-launching h1 {
+    margin: 0;
+    position: absolute;
+    letter-spacing: 2px;
+    font-family: Lato, arial, sans-serif;
+    font-size: 55px;
+    color: white;
+    top: 180px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    right: 130px;
 }
 
 .about_us {
