@@ -742,11 +742,15 @@ app.get('/orders', (req, res) => {
       _id: req.user._id
     }, (err, found1) => {
 
-      res.render("orders", {
-        isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
-        name: (req.isAuthenticated() ? found1.name : ""),
-        orders: found1.orders
+      Track.find({},(e,f)=>{
+        res.render("orders", {
+          isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
+          name: (req.isAuthenticated() ? found1.name : ""),
+          orders: found1.orders,
+          track : f
+        })
       })
+      
 
     })
   } else res.render("needloginfirst", {

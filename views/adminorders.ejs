@@ -19,8 +19,15 @@
                 <% { %>
                     <%var obj = track.find(o => o.order_id === orders[i].order_id+"_"+j)%>
                  <% if(typeof obj!=='undefined'){ %>
-                    <p><span style="font-weight:bolder;">Shiprocket Id: </span>   <%= JSON.parse(obj.shiprocket_order_info).order_id %> </p>
-                    <p><span style="font-weight:bolder;">Shipment Id: </span>   <%= JSON.parse(obj.shiprocket_order_info).shipment_id %> </p>
+                    
+                    <% if(obj.shiprocket_order_info[0]==='<'){ %>
+                        <p><span style="font-weight:bolder;">Shiprocket Id: </span>  N/A </p>
+                        <p><span style="font-weight:bolder;">Shipment Id: </span>   N/A </p>
+                            <% } %> 
+                        <% if(obj.shiprocket_order_info[0]!=='<'){ %>
+                            <p><span style="font-weight:bolder;">Shiprocket Id: </span>   <%= JSON.parse(obj.shiprocket_order_info).order_id %> </p>
+                            <p><span style="font-weight:bolder;">Shipment Id: </span>   <%= JSON.parse(obj.shiprocket_order_info).shipment_id %> </p>
+                                    <% } %>
                     
                     <% } %>  
                     <% } %> 

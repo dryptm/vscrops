@@ -1,6 +1,117 @@
 <%- include('head-foot/header'); -%>
 
+<button id = "my_orders" style="border: 0;">My orders</button>
+<input type="number" id = "len" value="<%= orders.length %>" style="visibility: collapse;">
+<div class="orders">
 
+    <%for(var i=(orders.length-1);i>=0;i--){%>
+        <% if(typeof orders[i].order_id==='undefined'){ %>
+            <button id = "but<%=i%>" style="border: 0;">Random Id </button>  
+            <% } %>  
+            <% if(typeof orders[i].order_id!=='undefined'){ %>
+                <button id = "but<%=i%>" style="border: 0;"><%= orders[i].order_id %> </button>
+
+                <% } %>  
+
+                
+       <div id="order_info<%= i %>" style="display: none;">
+    
+        <% for(let j = 0;j<orders[i].items.length;++j){ %>
+            
+            <% { %> 
+                <% var obj = track.find(o => o.order_id === orders[i].order_id+"_"+j) %>
+                <% if(obj){ %>
+                    <% if(obj.shiprocket_order_info[0]==='<'){ %>
+                        shipment_id : N/A
+                        Shiprocket order id : N/A
+                        <% } %> 
+                        <% if(obj.shiprocket_order_info[0]!=='<'){ %>
+                            shipment_id : <%= JSON.parse(obj.shiprocket_order_info).shipment_id %> 
+                            Shiprocket order id : <%= JSON.parse(obj.shiprocket_order_info).order_id %>
+                            <% } %>  
+                <% } %>  
+                 
+            <% } %> 
+                 
+                 
+
+
+
+
+                <br>
+                <br>
+            <div class="order_box">
+                <div class="order_flex">
+
+                    <img class="order_image" src="<%=orders[i].items[j].product_image%>"></img>
+                    <div class="ordeer_mid" style="flex:1;">
+                        <h3><%=orders[i].items[j].name%></h3>
+                    </div>
+                    <div class="order_details">
+                        <p style="margin-bottom: 0px;"><span style="font-weight:bolder;">Date:</span> <%=orders[i].date%></p>
+                        <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Price Paid:</span> ₹<%=orders[i].items[j].total_price%></p>
+                        <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Original Price:</span> ₹<%=orders[i].items[j].original_price%></p>
+                        <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Quantity:</span> <%=orders[i].items[j].quantity%></p>
+                        
+                        <%if(orders[i].items[j].coupon_code){%>
+                        <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Coupon Applied:</span> <span style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></p>
+                        <%}%>
+                        <%if(orders[i].items[j].payment_method=="COD"){%>
+                        <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Payment Method:</span> <%=orders[i].items[j].payment_method%><br>
+                            <span class="order_shipping_charge">(₹50 charged extra as shipping charges)</span></p>
+                        <%}%>
+                        <%if(orders[i].items[j].payment_method=="Paid Online"){%>
+                            <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Payment Method:</span> <%=orders[i].items[j].payment_method%></p>
+                        <%}%>
+                    </div>
+        
+                </div>
+        
+            </div>
+            <% }%>
+       
+       </div>
+
+
+    <%}%>
+</div>
+<%- include('head-foot/footer'); -%>
+
+<script>
+for(let i = 0;i<Number(document.getElementById('len').value);++i)
+{
+    document.getElementById('but'+i).addEventListener('click',()=>{
+        document.getElementById('order_info'+i).style.display = "initial"
+
+        for(let j = 0;j<Number(document.getElementById('len').value);++j)
+{
+      if(j!=i)  document.getElementById('but'+j).style.display = "none"
+}
+
+
+
+    })
+}
+
+document.getElementById('my_orders').addEventListener("click",()=>{
+    for(let i = 0;i<Number(document.getElementById('len').value);++i)
+{
+        document.getElementById('order_info'+i).style.display = "none"
+        document.getElementById('but'+i).style.display = "initial"
+   
+}
+})
+</script>
+
+
+
+
+
+
+
+
+
+<!-- 
 <div class="main_box">
     <h3 class="tnm">My Orders</h3>
     <div class="order_box_head">
@@ -41,7 +152,7 @@
 
 
 
-            </div>
+            </div> -->
 
 
-            <%- include('head-foot/footer'); -%>
+           
