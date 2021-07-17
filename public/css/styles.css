@@ -15,21 +15,19 @@ body {
 
 .banner-p {
     margin: 0;
-    color: white;
+    color: #fff;
     letter-spacing: .13020833333333334vw;
     padding-top: .09765625vw
 }
 
 .header-block {
     background-color: #fff;
-
     height: inherit;
     width: 100%;
     z-index: 1;
     position: sticky;
     top: 0;
-    border-bottom: 0.06510416666666667vw solid #b49b3544;
-
+    border-bottom: .06510416666666667vw solid #b49b3544
 }
 
 .header-block-container {
@@ -187,7 +185,6 @@ body {
     font-family: Lato, arial, sans-serif
 }
 
-
 .user_dropdown {
     width: 13.276041666666668vw;
     height: auto;
@@ -288,22 +285,22 @@ body {
     color: #ececec;
     background-color: #524a08;
     text-decoration: none;
-    border: 0.22786458333333334vw solid #796b00;
+    border: .22786458333333334vw solid #796b00;
     padding: .9765625vw;
-    border-radius: 0.5208333333333334vw;
+    border-radius: .5208333333333334vw;
     transition: all .3s
 }
 
 .a_launch_product:hover {
     background-color: #373205;
-    border: 0.22786458333333334vw solid #685c00
+    border: .22786458333333334vw solid #685c00
 }
 
 .img-launching h2 {
     position: absolute;
-    font-family: 'Quicksand', sans-serif;
+    font-family: Quicksand, sans-serif;
     font-size: 3.980729166666667vw;
-    letter-spacing: 0.13020833333333334vw;
+    letter-spacing: .13020833333333334vw;
     right: 8.463541666666668vw;
     color: #fff;
     font-weight: 100;
@@ -314,13 +311,13 @@ body {
 .img-launching h1 {
     margin: 0;
     position: absolute;
-    letter-spacing: 0.13020833333333334vw;
-    font-family: 'Quicksand', sans-serif;
+    letter-spacing: .13020833333333334vw;
+    font-family: Quicksand, sans-serif;
     font-size: 3.980729166666667vw;
     color: #fff;
     top: 10.71875vw;
     font-weight: 100;
-    letter-spacing: 0.06510416666666667vw;
+    letter-spacing: .06510416666666667vw;
     right: 8.463541666666668vw
 }
 
@@ -691,7 +688,7 @@ body {
     padding: .9765625vw;
     transition: all .25s;
     cursor: pointer;
-    border-radius: 0.3255208333333333vw;
+    border-radius: .3255208333333333vw
 }
 
 .btn-add-to-cart:hover {
@@ -1079,14 +1076,15 @@ body {
     padding: .9765625vw;
     transition: all .25s;
     cursor: pointer;
-    border-radius: 0.3255208333333333vw;
+    border-radius: .3255208333333333vw
 }
 
 .btn-register-login:hover {
     box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
     background-color: rgb(220 189 66);
     color: #151515;
-    border-color: rgb(220 189 66)
+    border-color: rgb(220 189 66);
+    transform: scale(1.1)
 }
 
 .btn-register-login1 {
@@ -1106,15 +1104,15 @@ body {
     padding: .9765625vw;
     transition: all .25s;
     cursor: pointer;
-    border-radius: 0.3255208333333333vw;
-
+    border-radius: .3255208333333333vw
 }
 
 .btn-register-login1:hover {
     box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
     background-color: rgb(220 189 66);
     color: #151515;
-    border-color: rgb(220 189 66)
+    border-color: rgb(220 189 66);
+    transform: scale(1.1)
 }
 
 .login_with_google {
@@ -1132,8 +1130,7 @@ body {
     margin-top: 6.510416666666667vw;
     padding: .9765625vw;
     transition: all .5s;
-    border-radius: 0.3255208333333333vw;
-
+    border-radius: .3255208333333333vw
 }
 
 .login_with_google:hover {
@@ -1241,6 +1238,10 @@ body {
     color: #6c6c6c
 }
 
+.xxxxxxx:hover {
+    color: red
+}
+
 .cart_total_price {
     margin: 0;
     margin-top: 2.604166666666667vw;
@@ -1285,13 +1286,15 @@ body {
     padding: .9765625vw;
     transition: all .25s;
     cursor: pointer;
-    margin-left: 64.77864583333334vw
+    margin-left: 64.77864583333334vw;
+    border-radius: 0.32552083333333337vw
 }
 
 .checkout_button:hover {
     box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
     background-color: rgb(220 189 66);
     color: #151515;
+    transform: scale(1.1);
     border-color: rgb(220 189 66)
 }
 
@@ -1402,7 +1405,7 @@ body {
     padding: .6510416666666667vw .85114583333333334vw;
     font-size: 1.5531250000000002vw;
     border-radius: 6.510416666666667vw;
-    background-color: #72680A;
+    background-color: #72680a;
     position: fixed
 }
 
@@ -1487,7 +1490,7 @@ body {
 .input-individual::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-    -moz-appearance: none;
+    -moz-appearance: none
 }
 
 .input-individual {
@@ -1568,13 +1571,15 @@ body {
 .linkein-share-post {
     margin-left: 1.9531250000000002vw;
     color: #286cb4;
-    text-decoration: none
+    text-decoration: none;
+    font-size: 1.0416666666666667vw
 }
 
 .twitter-share-post {
     margin-left: 1.3020833333333335vw;
     color: #1da1f2;
-    text-decoration: none
+    text-decoration: none;
+    font-size: 1.0416666666666667vw
 }
 
 .share-this-post {
@@ -1600,7 +1605,8 @@ body {
 .fb-button-reletive1 {
     position: relative;
     display: inline-block;
-    width: 1.171875vw
+    width: 1.171875vw;
+    font-size: 1.0416666666666667vw
 }
 
 .mailinput1 {
@@ -1625,14 +1631,14 @@ body {
     background-color: #a2911b;
     color: #fff;
     position: absolute;
-    font-size: 0.7161458333333334vw;
+    font-size: .7161458333333334vw;
     right: 2.604166666666667vw;
     top: 2.604166666666667vw;
-    height: 0.78125vw;
-    width: 0.78125vw;
+    height: .78125vw;
+    width: .78125vw;
     border-radius: 1.9531250000000002vw;
     text-align: center;
-    padding: 0.32552083333333337vw;
+    padding: .32552083333333337vw;
     cursor: pointer
 }
 
@@ -1641,15 +1647,15 @@ body {
     color: #000;
     font-weight: 700;
     background-color: #fff;
-    border: 0.06510416666666667vw solid #dbdbdb;
-    letter-spacing: 0.06510416666666667vw;
+    border: .06510416666666667vw solid #dbdbdb;
+    letter-spacing: .06510416666666667vw;
     font-family: Lato, arial, sans-serif;
     text-align: left;
-    border-radius: 0.32552083333333337vw;
+    border-radius: .32552083333333337vw;
     height: auto;
-    padding: 0.6510416666666667vw;
+    padding: .6510416666666667vw;
     position: absolute;
-    font-size: 0.78125vw;
+    font-size: .78125vw;
     right: 2.604166666666667vw;
     top: 4.557291666666667vw;
     transition: all .2s
@@ -1664,15 +1670,15 @@ body {
     background-size: 100%;
     background-position-y: -1.6276041666666667vw;
     background-position-x: -1.3020833333333335vw;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .gov_flex {
     width: 70%;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 .gov_img {
     margin: 0 3.2552083333333335vw;
-    width: 16.276041666666668vw;
+    width: 16.276041666666668vw
 }
