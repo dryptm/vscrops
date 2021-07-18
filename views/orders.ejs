@@ -22,7 +22,7 @@
                 
             <span id="date<%= i%>" class="order_style"><%=orders[i].date%></span>
 
-            <% if(typeof orders[i].order_id==='undefined'){ %>
+            <% if(typeof orders[i].order_id ==='undefined'){ %>
             <button class="order_style2" id="but<%=i%>" style="border: 0;">Random Id </button>
             <% } %>
             <% if(typeof orders[i].order_id!=='undefined'){ %>
@@ -35,12 +35,42 @@
             </div>
            
         <div id="order_info<%= i %>" style="display: none;">
-
+ 
+            <a href="/shiprocket/<%= orders[i].order_id %>"><button id ="cancelorder<%= i %>">Cancel all these orders</button></a>
+            <span id = "add<%=i%>">Address :  </span>
+            <span id = "city<%=i%>">city :  </span>
+            <span id = "state<%=i%>">state :  </span>
+            <span id = "pin<%=i%>">pincode :  </span>
+            <input type="text" id = "date<%= i %>" value="<%=orders[i].date%>" style="display:none;">
             
+
+
+
+            <% { %>
+                <%var obj = track.find(o => o.order_id === orders[i].order_id+"_0")%>
+             <% if(typeof obj!=='undefined'){ %>
+                
+                <% if(obj.shiprocket_order_info[0]==='<'){ %>
+                    <input type="text" name="" id="order_id<%=i%>" value="null" style="display:none;">  
+                    <% } %> 
+                    <% if(obj.shiprocket_order_info[0]!=='<'){ %>
+                    <input type="text" name="" id="order_id<%=i%>" value="<%= JSON.parse(obj.shiprocket_order_info).order_id %>" style="display:none;">  
+                               
+                        <% } %>
+                
+                <% } %>
+                <% if(typeof obj==='undefined') {%>
+                    <input type="text" name="" id="order_id<%=i%>" value="null" style="display:none;">  
+                    
+                    <% } %>    
+                <% } %> 
+
+
+         
 
             <% for(let j = 0;j<orders[i].items.length;++j){ %>
                 <h3><%=orders[i].items[j].name%></h3>
-                <span id="" class="">Date:  <%=orders[i].date%></span>
+                <span id="date<%=i %> " class="">Date:  <%=orders[i].date%></span>
             <span id="" class="">Payment Method :  <%=orders[i].items[j].payment_method%></span>
             <span id="status<%= i%>" class="order_style1">Status : status_bla</span>
             
@@ -131,6 +161,79 @@
 
 
                                 <script>
+
+                               for(let i = 0;i<Number(document.getElementById('len').value);++i){
+
+
+                                var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutationRecord) {
+        
+           if(document.getElementById('order_info'+i).style.display==="initial"){
+               var d = document.getElementById('date'+i).innerHTML
+                var p = d.split('-')
+        var date1 = new Date(p[1]+"/"+p[2]+"/"+p[0])
+        var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = dd + '/' + mm + '/' + yyyy;
+var date2 = new Date(mm + '/' + dd + '/' + yyyy)
+
+var Difference_In_Time = date2.getTime() - date1.getTime();
+var diff = Difference_In_Time / (1000 * 3600 * 24);
+if(diff>2){
+    document.getElementById('cancelorder'+i).style.display = "none"
+}
+        
+            }
+//         if(document.getElementById('order_info'+i).style.display!=="none"){
+
+//             var d = document.getElementById('date'+i).value
+        
+//         }
+    });    
+});
+
+var target = document.getElementById('order_info'+i);
+observer.observe(target, { attributes : true, attributeFilter : ['style'] });
+
+
+                 
+
+                                var id = document.getElementById('order_id'+i).value
+                   if(id!="null"){
+
+                   
+                                var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2MzU2NjksImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjI1OTQyMTIyLCJleHAiOjE2MjY4MDYxMjIsIm5iZiI6MTYyNTk0MjEyMiwianRpIjoienFvUEE2R0F5alRQSjJNMyJ9.oA3ea1cTIPxRBXxR4sZUwWFgRioyAO30OSJsNOe5S5M");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://apiv2.shiprocket.in/v1/external/orders/show/"+id, requestOptions)
+  .then(res => {
+      console.log(res.text().then(rs=>{
+          console.log(JSON.parse(rs).data)
+                                    document.getElementById('add'+i).innerHTML = "Address :"+JSON.parse(rs).data.billing_address
+                                    document.getElementById('city'+i).innerHTML = "City :"+JSON.parse(rs).data.billing_city
+                                    document.getElementById('state'+i).innerHTML = "State :"+JSON.parse(rs).data.billing_state_name
+                                    document.getElementById('pin'+i).innerHTML = "Pincode :"+JSON.parse(rs).data.billing_pincode
+ 
+
+      }))
+     })
+  .catch(error => console.log('error', error));
+          
+                   }
+                               }
+
+
+
                                     for (let i = 0; i < Number(document.getElementById('len').value); ++i) {
                                         
                                         document.getElementById('but' + i).addEventListener('click', () => {
