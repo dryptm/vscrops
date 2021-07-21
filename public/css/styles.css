@@ -11,12 +11,12 @@ body {
     background-color: #bb9e1b;
     font-family: Lato, arial, sans-serif;
     font-weight: 400;
-    opacity: 0.9
+    opacity: .9
 }
 
 .banner-p {
     margin: 0;
-    color: #000000;
+    color: #000;
     letter-spacing: .13020833333333334vw;
     padding-top: .09765625vw
 }
@@ -1138,7 +1138,7 @@ body {
     box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
     background-color: #e65745;
     color: #fff;
-    border-color: #e65745;
+    border-color: #e65745
 }
 
 .cart_box_head {
@@ -1288,7 +1288,7 @@ body {
     transition: all .25s;
     cursor: pointer;
     margin-left: 64.77864583333334vw;
-    border-radius: 0.32552083333333337vw
+    border-radius: .32552083333333337vw
 }
 
 .checkout_button:hover {
@@ -1691,7 +1691,7 @@ body {
     letter-spacing: .13020833333333334vw;
     font-weight: 400;
     background-color: transparent;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .head_orders_margs {
@@ -1705,7 +1705,6 @@ body {
 .order_box_head {
     margin: 0 auto;
     display: flex;
-    /*     width:65%; */
     flex-direction: row;
     height: 1.9531250000000002vw;
     border-style: solid;
@@ -1719,11 +1718,10 @@ body {
 .order_style {
     width: 20%;
     font-family: Lato, arial, sans-serif;
-    font-size: 14px;
+    font-size: 0.9114583333333334vw;
     background-color: transparent;
-    margin: 0 60px;
-    text-align: center;
-
+    margin: 0 3.9062500000000004vw;
+    text-align: center
 }
 
 .order_style2 {
@@ -1732,38 +1730,31 @@ body {
     color: #a28a1d;
     cursor: pointer;
     background-color: transparent;
-    margin: 30px 40px;
-    text-align: center;
-
+    margin: 1.9531250000000002vw 2.604166666666667vw;
+    text-align: center
 }
 
 .order_style1 {
     float: right;
-    font-size: 14px;
+    font-size: 0.9114583333333334vw;
     font-family: Lato, arial, sans-serif;
-    margin: 28px 110px 0px 0px;
-    text-align: right;
-
+    margin: 1.8229166666666667vw 7.161458333333334vw 0 0;
+    text-align: right
 }
 
 .order_box1 {
     width: 70%;
     margin: 0 auto;
     height: inherit;
-    /*     border-style: solid;
-    border-width: .13020833333333334vw;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0; */
     border-color: #e4e4e4;
     display: flex;
     flex-direction: row
 }
 
 .order_bf_click {
-    width: 862px;
+    width: 56.11979166666667vw;
     border-style: solid;
-    border: 1px solid #d9d9d9;
+    border: 0.06510416666666667vw solid #d9d9d9;
     border-top: 0;
     border-left: 0;
     border-right: 0
@@ -1771,22 +1762,22 @@ body {
 
 .id_order_address {
     width: 65%;
-    height: 150px;
+    height: 9.765625vw;
     position: relative;
     font-family: Lato, arial, sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.5px
+    font-size: 0.8463541666666667vw;
+    letter-spacing: 0.032552083333333336vw
 }
 
 .id_order {
     background-color: #fafafa;
     width: 30%;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 0.6510416666666667vw;
+    padding: 1.3020833333333335vw;
     position: absolute;
     margin: 0;
     left: 0;
-    display: inline-block;
+    display: inline-block
 }
 
 .address_af_id {
@@ -1795,9 +1786,8 @@ body {
     position: absolute;
     display: inline-block;
     right: 0;
-    padding: 20px;
-    border-radius: 10px;
-
+    padding: 1.3020833333333335vw;
+    border-radius: 0.6510416666666667vw
 }
 
 .cancel_order {
@@ -1806,9 +1796,9 @@ body {
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
     color: #000;
-    background-color: #E2C027;
+    background-color: #e2c027;
     text-decoration: none;
-    border-color: #E2C027;
+    border-color: #e2c027;
     border-style: solid;
     border-width: .06510416666666667vw;
     margin-left: 0;
@@ -1819,58 +1809,55 @@ body {
     display: inline-block;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 0
 }
 
 .cancel_order:hover {
     background-color: rgb(250 250 250 / 81%);
     color: #151515;
-    border-width: 2px;
+    border-width: 0.13020833333333334vw;
     border-radius: 0;
-    transform: scale(0.9);
+    transform: scale(.9);
     border-color: rgb(236 16 16)
 }
 
 .top_id_adress_box {
-    position: relative;
+    position: relative
 }
 
 .all_ordersinfo_box {
-    border-radius: 10px;
-    margin-top: 50px;
-    /*     border: 1px solid #e0e0e0d9 */
+    border-radius: 0.6510416666666667vw;
+    margin-top: 3.2552083333333335vw
 }
 
 .order_center {
     width: 80%;
-    height: 185px;
-    border: 1px solid #e6e6e6;
-    border-radius: 10px;
+    height: 12.044270833333334vw;
+    border: 0.06510416666666667vw solid #e6e6e6;
+    border-radius: 0.6510416666666667vw;
     margin: 0 auto;
     position: relative;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.032552083333333336vw;
     font-family: Cabin, arial, sans-serif;
-    font-size: 14px;
-    color: #494949;
+    font-size: 0.9114583333333334vw;
+    color: #494949
 }
 
 .order_center_left {
     position: absolute;
-    left: 30px;
-    /*     background-color: aliceblue; */
+    left: 1.9531250000000002vw;
     display: inline-block
 }
 
 .order_center_left h3 {
     margin-bottom: 0;
     letter-spacing: 0;
-    font-size: 24px;
+    font-size: 1.5625vw
 }
 
 .order_center_right {
-    /*     background-color: aliceblue; */
     display: inline-block;
     position: absolute;
-    right: 30px;
-    top: 10px
+    right: 1.9531250000000002vw;
+    top: 0.6510416666666667vw
 }
