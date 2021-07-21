@@ -1721,7 +1721,7 @@ fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
     else {
 
       //*************************************** */
-      console.log("NO REFUND NEEDED (COD BOLTE)")
+      console.log("NO REFUND NEEDED (Payment mode: COD)")
       //**************************************** */
 
     }
