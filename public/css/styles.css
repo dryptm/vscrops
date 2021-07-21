@@ -1779,7 +1779,7 @@ body {
 }
 
 .id_order {
-    background-color: #f8f8f8;
+    background-color: #fafafa;
     width: 30%;
     border-radius: 10px;
     padding: 20px;
@@ -1790,7 +1790,7 @@ body {
 }
 
 .address_af_id {
-    background-color: #f8f8f8;
+    background-color: #fafafa;
     width: 40%;
     position: absolute;
     display: inline-block;
@@ -1806,13 +1806,13 @@ body {
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
     color: #000;
-    background-color: #d4b435;
+    background-color: #E2C027;
     text-decoration: none;
-    border-color: #d4b435;
+    border-color: #E2C027;
     border-style: solid;
     border-width: .06510416666666667vw;
     margin-left: 0;
-    padding: .9765625vw;
+    padding: .5765625vw;
     transition: all .5s;
     cursor: pointer;
     border-radius: .3255208333333333vw;
@@ -1833,4 +1833,15 @@ body {
 
 .top_id_adress_box {
     position: relative;
+}
+
+.all_ordersinfo_box {
+    border-radius: 10px;
+    margin-top: 50px;
+    border: 1px solid #e0e0e0d9
+}
+
+.order_center {
+    width: 70%;
+    margin: 20px auto;
 }
