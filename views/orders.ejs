@@ -99,7 +99,8 @@
                             <span id="status<%= i%>">Status : status_bla</span><br>
                             <span>Quantity : <%=orders[i].items[j].quantity%></span><br>
                             <%if(orders[i].items[j].coupon_code){%>
-                            <span>Coupon Applied : <span style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></span>
+                            <span>Coupon Applied : <span
+                                    style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></span>
                             <%}%>
                         </div>
 
@@ -128,8 +129,6 @@
                     <p style="opacity: 0;visibility: collapse;"> Shiprocket order id : N/A </p>
                     <%}%>
                     <%}%>
-                    <br>
-                    <br>
                     <%}%>
 
                 </div>
