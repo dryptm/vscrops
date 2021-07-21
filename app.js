@@ -962,6 +962,27 @@ app.post('/payment_confirm', (req, res) => {
 
     const names = req.body.name.split(' ')
     const lname = names[names.length - 1]
+
+               
+
+var raw2 = JSON.stringify({
+  "email": "vinay9415756155@gmail.com",
+  "password": "Vishuddha@1120"
+});
+
+var requestOptions2 = {
+  method: 'POST',
+  headers: {
+    "Content-Type" : "application/json"
+  },
+  body: raw2,
+  redirect: 'follow'
+};
+
+fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
+  .then(response => response.text())
+  .then(result => {
+
     const raw = JSON.stringify({
       "order_id": req.body.order_id + "_" + String(i),
       "order_date": today,
@@ -995,7 +1016,7 @@ app.post('/payment_confirm', (req, res) => {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2MzU2NjksImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjI1OTM5NDkzLCJleHAiOjE2MjY4MDM0OTMsIm5iZiI6MTYyNTkzOTQ5MywianRpIjoiRUdQTWNZVWtBR0Jpc1RkZSJ9.GpxBRPpT1V95YAiYR_2gb-dvnBTBM_K6zcQFjdI9QS0"
+        "Authorization": "Bearer "+JSON.parse(result).token
       },
       body: raw,
       redirect: 'follow'
@@ -1012,6 +1033,14 @@ app.post('/payment_confirm', (req, res) => {
         console.log(result)
       })
       .catch(error => console.log('error', error));
+
+  })
+
+
+
+
+
+    
 
   }
 
@@ -1624,27 +1653,51 @@ app.get('/shiprocket/:id',(req,res)=>{
           "ids": [JSON.parse(f.shiprocket_order_info).order_id]
         });
   
-        var requestOptions = {
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2MzU2NjksImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjI1OTM5NDkzLCJleHAiOjE2MjY4MDM0OTMsIm5iZiI6MTYyNTkzOTQ5MywianRpIjoiRUdQTWNZVWtBR0Jpc1RkZSJ9.GpxBRPpT1V95YAiYR_2gb-dvnBTBM_K6zcQFjdI9QS0"
-          },
-          body: raw,
-          redirect: 'follow'
-        };
+
+var raw2 = JSON.stringify({
+  "email": "vinay9415756155@gmail.com",
+  "password": "Vishuddha@1120"
+});
+
+var requestOptions2 = {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: raw2,
+  redirect: 'follow'
+};
+
+fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
+  .then(response => response.text())
+  .then(result => {
+    var requestOptions = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer "+JSON.parse(result).token
+      },
+      body: raw,
+      redirect: 'follow'
+    };
+    
+    fetch("https://apiv2.shiprocket.in/v1/external/orders/cancel", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        console.log(result)
+         //****************************************************************************************************** */
+             
+              //CHANGE ORDER STATUS
+            
+         //****************************************************************************************************** */
+      })
+      .catch(error => console.log('error', error));
+  
+  })
+
+
+
         
-        fetch("https://apiv2.shiprocket.in/v1/external/orders/cancel", requestOptions)
-          .then(response => response.text())
-          .then(result => {
-            console.log(result)
-             //****************************************************************************************************** */
-                 
-                  //CHANGE ORDER STATUS
-                
-             //****************************************************************************************************** */
-          })
-          .catch(error => console.log('error', error));
        })
       }
   

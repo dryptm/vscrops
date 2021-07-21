@@ -218,10 +218,29 @@
                     if (id != "null") {
 
 
-                        var myHeaders = new Headers();
+                        var myHeaders2 = new Headers();
+myHeaders2.append("Content-Type", "application/json");
+
+var raw2= JSON.stringify({
+  "email": "vinay9415756155@gmail.com",
+  "password": "Vishuddha@1120"
+});
+
+var requestOptions2 = {
+  method: 'POST',
+  headers: myHeaders2,
+  body: raw2,
+  redirect: 'follow'
+};
+
+fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
+  .then(response => response.text())
+  .then(result =>{
+
+    var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
                         myHeaders.append("Authorization",
-                            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2MzU2NjksImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjI1OTQyMTIyLCJleHAiOjE2MjY4MDYxMjIsIm5iZiI6MTYyNTk0MjEyMiwianRpIjoienFvUEE2R0F5alRQSjJNMyJ9.oA3ea1cTIPxRBXxR4sZUwWFgRioyAO30OSJsNOe5S5M"
+                            "Bearer "+JSON.parse(result).token
                             );
 
                         var requestOptions = {
@@ -248,7 +267,11 @@
                             })
                             .catch(error => console.log('error', error));
 
-                    }
+      
+  })
+  .catch(error => console.log('error', error));
+
+              }
                 }
 
 
