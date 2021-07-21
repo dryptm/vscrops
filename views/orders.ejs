@@ -91,12 +91,16 @@
                     <% for(let j = 0;j<orders[i].items.length;++j){ %>
 
                     <div class="order_center">
-                        <h3><%=orders[i].items[j].name%></h3>
-                        <span id="date<%=i %> " class="">Date: <%=orders[i].date%></span>
-                        <span id="" class="">Payment Method : <%=orders[i].items[j].payment_method%></span>
-                        <span id="status<%= i%>" class="order_style1">Status : status_bla</span>
+                        <div class="order_center_left">
+                            <h3><%=orders[i].items[j].name%></h3><br>
+                            <span id="date<%=i %> " class="">Date: <%=orders[i].date%></span><br>
+                            <span id="" class="">Payment Method : <%=orders[i].items[j].payment_method%></span><br>
+                            <span id="status<%= i%>" class="order_style1">Status : status_bla</span>
+                        </div>
 
-                        <img class="order_image" src="<%=orders[i].items[j].product_image%>"></img>
+                        <div class="order_center_right">
+                            <img class="order_image" src="<%=orders[i].items[j].product_image%>"></img>
+                        </div>
 
                     </div>
                     <% { %>
