@@ -92,10 +92,15 @@
 
                     <div class="order_center">
                         <div class="order_center_left">
-                            <h3><%=orders[i].items[j].name%></h3><br>
+                            <h3><%=orders[i].items[j].name%></h3>
                             <span id="date<%=i %> " class="">Date: <%=orders[i].date%></span><br>
                             <span id="" class="">Payment Method : <%=orders[i].items[j].payment_method%></span><br>
-                            <span id="status<%= i%>" class="order_style1">Status : status_bla</span>
+                            <span>Price Paid : ₹<%=orders[i].items[j].total_price%></span><br>
+                            <span id="status<%= i%>">Status : status_bla</span><br>
+                            <span>Quantity : <%=orders[i].items[j].quantity%></span><br>
+                            <%if(orders[i].items[j].coupon_code){%>
+                            <span>Coupon Applied : <span style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></span>
+                            <%}%>
                         </div>
 
                         <div class="order_center_right">
