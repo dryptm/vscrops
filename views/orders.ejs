@@ -17,7 +17,6 @@
         <div class="orders">
 
             <%for(var i=(orders.length-1);i>=0;i--){%>
-
             <div id="order_bf_click<%=i%>" class="order_bf_click">
 
                 <span id="date<%= i%>" class="order_style"><%=orders[i].date%></span>
@@ -34,24 +33,36 @@
 
             </div>
 
-            <div id="order_info<%= i %>" style="display: none;">
+            <div class="order_info_box" id="order_info<%= i %>" style="display: none;">
+                <div class="top_id_adress_box">
+                    <div class="id_order_address">
+                        <div class="id_order">
+                            <span style="font-weight: bold;" id="orderid<%=i%>">Order Id-</span><br><br>
 
-                <a href="/shiprocket/<%= orders[i].order_id %>"><button id="cancelorder<%= i %>">Cancel all these
-                        orders</button></a>
-                <span id="orderid<%=i%>">order id:</span>
-                <span id="add<%=i%>">Address : </span>
-                <span id="city<%=i%>">city : </span>
-                <span id="state<%=i%>">state : </span>
-                <span id="pin<%=i%>">pincode : </span>
-                <input type="text" id="date<%= i %>" value="<%=orders[i].date%>" style="display:none;">
-                <% if(typeof orders[i].order_id ==='undefined'){ %>
-                    <button class="order_style2" id="but<%=i%>" style="border: 0;">Random Id </button>
-                    <% } %>
-                    <% if(typeof orders[i].order_id!=='undefined'){ %>
-                    <button class="order_style2" id="but<%=i%>" style="border: 0;"><%= orders[i].order_id %> </button>
-    
-                    <% } %>
+                            <input type="text" id="date<%= i %>" value="<%=orders[i].date%>" style="display:none;">
+                            <% if(typeof orders[i].order_id ==='undefined'){ %>
+                            <span id="but<%=i%>" style="border: 0;">Random Id </span>
+                            <% } %>
+                            <% if(typeof orders[i].order_id!=='undefined'){ %>
+                            <span id="but<%=i%>" style="border: 0;"><%= orders[i].order_id %> </span>
 
+                            <% } %>
+                        </div>
+
+                        <div class="address_af_id">
+                            <span style="font-weight: bold;">Billing Address-</span><br><br>
+                            <span id="add<%=i%>">Address : </span><br>
+                            <span id="city<%=i%>">city : </span><br>
+                            <span id="state<%=i%>">state : </span><br>
+                            <span id="pin<%=i%>">pincode : </span>
+                        </div>
+                    </div>
+
+
+                    <a class="cancel_order" id="cancelorder<%= i %>" href="/shiprocket/<%= orders[i].order_id %>">Cancel
+                        Items</a>
+
+                </div>
 
 
                 <% { %>
@@ -108,54 +119,9 @@
 
             <% } %>
 
-
-
-
-
-
                 <br>
                 <br>
-                <!-- <div class="order_box">
-                <div class="order_flex">
 
-                    <img class="order_image" src="<%=orders[i].items[j].product_image%>"></img>
-                    <div class="ordeer_mid" style="flex:1;">
-                        <h3><%=orders[i].items[j].name%></h3>
-                    </div>
-                    <div class="order_details">
-                        <p style="margin-bottom: 0px;"><span style="font-weight:bolder;">Date:</span>
-                            <%=orders[i].date%>
-                        </p>
-                        <p class="order_details_items" style="margin-bottom: 0;"><span style="font-weight:bolder;">Price
-                                Paid:</span> ₹<%=orders[i].items[j].total_price%></p>
-                        <p class="order_details_items" style="margin-bottom: 0;"><span
-                                style="font-weight:bolder;">Original
-                                Price:</span> ₹<%=orders[i].items[j].original_price%></p>
-                        <p class="order_details_items" style="margin-bottom: 0;"><span
-                                style="font-weight:bolder;">Quantity:</span> <%=orders[i].items[j].quantity%></p>
-
-                        <%if(orders[i].items[j].coupon_code){%>
-                        <p class="order_details_items" style="margin-bottom: 0;"><span
-                                style="font-weight:bolder;">Coupon
-                                Applied:</span> <span
-                                style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></p>
-                        <%}%>
-                        <%if(orders[i].items[j].payment_method=="COD"){%>
-                        <p class="order_details_items" style="margin-bottom: 0;"><span
-                                style="font-weight:bolder;">Payment
-                                Method:</span> <%=orders[i].items[j].payment_method%><br>
-                            <span class="order_shipping_charge">(₹50 charged extra as shipping charges)</span></p>
-                        <%}%>
-                        <%if(orders[i].items[j].payment_method=="Paid Online"){%>
-                        <p class="order_details_items" style="margin-bottom: 0;"><span
-                                style="font-weight:bolder;">Payment
-                                Method:</span> <%=orders[i].items[j].payment_method%></p>
-                        <%}%>
-                    </div>
-        
-                </div>
-        
-            </div> -->
                 <% }%>
 
             </div>
@@ -219,59 +185,57 @@
 
 
                         var myHeaders2 = new Headers();
-myHeaders2.append("Content-Type", "application/json");
+                        myHeaders2.append("Content-Type", "application/json");
 
-var raw2= JSON.stringify({
-  "email": "vinay9415756155@gmail.com",
-  "password": "Vishuddha@1120"
-});
+                        var raw2 = JSON.stringify({
+                            "email": "vinay9415756155@gmail.com",
+                            "password": "Vishuddha@1120"
+                        });
 
-var requestOptions2 = {
-  method: 'POST',
-  headers: myHeaders2,
-  body: raw2,
-  redirect: 'follow'
-};
-
-fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
-  .then(response => response.text())
-  .then(result =>{
-
-    var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/json");
-                        myHeaders.append("Authorization",
-                            "Bearer "+JSON.parse(result).token
-                            );
-
-                        var requestOptions = {
-                            method: 'GET',
-                            headers: myHeaders,
+                        var requestOptions2 = {
+                            method: 'POST',
+                            headers: myHeaders2,
+                            body: raw2,
                             redirect: 'follow'
                         };
 
-                        fetch("https://apiv2.shiprocket.in/v1/external/orders/show/" + id, requestOptions)
-                            .then(res => {
-                                console.log(res.text().then(rs => {
-                                    console.log(JSON.parse(rs).data)
-                                    document.getElementById('add' + i).innerHTML = "Address :" + JSON
-                                        .parse(rs).data.billing_address
-                                    document.getElementById('city' + i).innerHTML = "City :" + JSON
-                                        .parse(rs).data.billing_city
-                                    document.getElementById('state' + i).innerHTML = "State :" + JSON
-                                        .parse(rs).data.billing_state_name
-                                    document.getElementById('pin' + i).innerHTML = "Pincode :" + JSON
-                                        .parse(rs).data.billing_pincode
+                        fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
+                            .then(response => response.text())
+                            .then(result => {
+
+                                var myHeaders = new Headers();
+                                myHeaders.append("Content-Type", "application/json");
+                                myHeaders.append("Authorization",
+                                    "Bearer " + JSON.parse(result).token
+                                );
+
+                                var requestOptions = {
+                                    method: 'GET',
+                                    headers: myHeaders,
+                                    redirect: 'follow'
+                                };
+
+                                fetch("https://apiv2.shiprocket.in/v1/external/orders/show/" + id, requestOptions)
+                                    .then(res => {
+                                        console.log(res.text().then(rs => {
+                                            console.log(JSON.parse(rs).data)
+                                            document.getElementById('add' + i).innerHTML = JSON
+                                                .parse(rs).data.billing_address
+                                            document.getElementById('city' + i).innerHTML = JSON
+                                                .parse(rs).data.billing_city
+                                            document.getElementById('state' + i).innerHTML = JSON
+                                                .parse(rs).data.billing_state_name
+                                            document.getElementById('pin' + i).innerHTML = JSON
+                                                .parse(rs).data.billing_pincode
+                                        }))
+                                    })
+                                    .catch(error => console.log('error', error));
 
 
-                                }))
                             })
                             .catch(error => console.log('error', error));
 
-      
-  })
-  .catch(error => console.log('error', error));
-
-              }
+                    }
                 }
 
 
@@ -290,7 +254,7 @@ fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
                             document.getElementById('but' + j).style.display = "none"
                             document.getElementById("date" + j).style.display = "none"
                             document.getElementById("totalprice" + j).style.display = "none"
-                            document.getElementById("order_bf_click"+j).style.visibility="collapse"
+                            document.getElementById("order_bf_click" + j).style.visibility = "collapse"
                             document.getElementById("status" + j).style.display = "none"
                         }
 
@@ -309,7 +273,7 @@ fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
                         document.getElementById("date" + i).style.display = "initial"
                         document.getElementById("totalprice" + i).style.display = "initial"
                         document.getElementById("status" + i).style.display = "initial"
-                        document.getElementById("order_bf_click"+i).style.visibility="visible"
+                        document.getElementById("order_bf_click" + i).style.visibility = "visible"
 
 
 
