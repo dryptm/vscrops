@@ -15,7 +15,7 @@
       
        <div class="input-value" style="display: flex;flex-direction: row;align-items: center;justify-content: start;">
           <button id ="minus" class="input-individual-button"><i class="fas fa-minus"></i></button>
-          <input type="number" class="input-individual" id="number_of_items1"  min =1 max=999 oninput="myfun()" value="1" />
+          <input type="number" class="input-individual" id="number_of_items1" oninput="myfun()" value="1" />
           <button id ="plus" class="input-individual-button"><i class="fas fa-plus"></i></button>
        </div>
       
@@ -103,11 +103,11 @@ document.getElementById("minus").addEventListener("click",()=>{
 
 })
 document.getElementById("plus").addEventListener("click",()=>{
-  if(document.getElementById("number_of_items1").value>=999){
-    document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (999 * price).toString()
-    document.getElementById("tot_price").value = (999 * price);
+  if(document.getElementById("number_of_items1").value>=20){
+    document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (20 * price).toString()
+    document.getElementById("tot_price").value = (20 * price);
 
-  document.getElementById("number_of_items1").value = 999
+  document.getElementById("number_of_items1").value = 20
 
   }
   else {
@@ -125,10 +125,10 @@ document.getElementById("plus").addEventListener("click",()=>{
     var inp = document.getElementById("price").innerHTML.split(" ");
     var price = Number(inp[inp.length - 1]);
     var num = Number(document.getElementById("number_of_items1").value)
-    if (num >=999) {
+    if (num >=20) {
 
-      document.getElementById("number_of_items1").value = 999;
-      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (999 * price).toString()
+      document.getElementById("number_of_items1").value = 20;
+      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (20 * price).toString()
       
 
     }
