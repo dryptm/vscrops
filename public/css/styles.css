@@ -64,6 +64,7 @@ body {
     padding: .1953125vw;
     font-size: .9114583333333334vw;
     letter-spacing: .11393229166666667vw;
+    position: relative;
     color: rgb(185 157 48)
 }
 
@@ -1902,4 +1903,21 @@ body {
     position: absolute;
     right: 1.9531250000000002vw;
     top: 0.6510416666666667vw
+}
+
+.cart_count {
+    height: 12px;
+    width: 12px;
+    border-radius: 100%;
+    color: #000000;
+    background-color: #dbdbdb;
+    border: 1px solid #ffffffa2;
+    margin: 0;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: Cabin, arial, sans-serif;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    right: 0;
 }

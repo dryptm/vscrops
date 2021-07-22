@@ -110,7 +110,22 @@
                     <a id="blog" class="li-container" href="/blog">Blog</a>
                     <a id="contactus" class="li-container" href="/contactus">Contact Us</a>
                     <a href="" class="li-container1"><i class="fas fa-search "></i></a>
+                    <% if(isLoggedin==="yes") {%>
+                    <a href="/cart" class="li-container1">
+                        <div id="cart_count" class="cart_count"><%= cartlength %></div><i
+                            class="fas fa-shopping-cart "></i>
+                    </a>
+                    <script>
+                        if (Number(document.getElementById("cart_count").innerText) == 0) {
+                            document.getElementById("cart_count").style.display = "none"
+                        } else {
+                            document.getElementById("cart_count").style.display = "initial"
+                        }
+                    </script>
+                    <%}%>
+                        <% if(isLoggedin==="no") {%>
                     <a href="/cart" class="li-container1"><i class="fas fa-shopping-cart "></i></a>
+                    <%}%>
                     <a style="cursor: pointer;" onmouseout="dropdownout_2()" onmouseover="dropdownover_2()"
                         onclick="dropdownclick_1()" class="li-container1"><i class="fas fa-user "></i></a>
                 </div>
@@ -183,69 +198,69 @@
         <div class="data_flex">
             <div class="data_box">
                 <h3 class="currentpost_title"><%= title %></h3>
-                <p class="currentpost_date"><%= date %></p>
-                <img class="currentpost_image" src="<%=img%>" alt="">
+                    <p class="currentpost_date"><%= date %></p>
+                    <img class="currentpost_image" src="<%=img%>" alt="">
 
 
 
-                <div class="currentpost_data">
-                    <% for(var i=0;i<data.length;i++){%>
-                    <p><%=data[i]%></p>
-                    <%} %>
+                    <div class="currentpost_data">
+                        <% for(var i=0;i<data.length;i++){%>
+                        <p><%=data[i]%></p>
+                        <%} %>
+                    </div>
+                    <br><br>
+                    <span class="share-this-post">Share this post on : </span>
+
+                    <!-- Load Facebook SDK for JavaScript -->
+                    <!-- <div id="fb-root"></div> -->
+                    <script>
+                        (function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+                    </script>
+
+                    <!-- Your share button code -->
+                    <div class="fb-button-reletive1">
+                        <i class="fab fa-facebook fbrex"></i>
+                        <i class="fb-share-button" data-href="https://vscrops.herokuapp.com/blog/<%=iddx%>"></i>
+                    </div>
+
+
+
+                    <a class="linkein-share-post"
+                        href="https://www.linkedin.com/sharing/share-offsite/?url=https://vscrops.herokuapp.com/blog/<%=iddx%>"
+                        target="_blank" title="Share on LinkedIn">
+                        <i class="fab fa-linkedin-in"></i></a>
+
+                    <a class="twitter-share-post"
+                        href="http://www.twitter.com/share?url=https://vscrops.herokuapp.com/blog/<%=iddx%>"
+                        target="_blank"><i class="fab fa-twitter"></i></a>
+
+                    <style>
+
+                    </style>
+
                 </div>
-                <br><br>
-                <span class="share-this-post">Share this post on : </span>
-
-                <!-- Load Facebook SDK for JavaScript -->
-                <!-- <div id="fb-root"></div> -->
-                <script>
-                    (function (d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));
-                </script>
-
-                <!-- Your share button code -->
-                <div class="fb-button-reletive1">
-                    <i class="fab fa-facebook fbrex"></i>
-                    <i class="fb-share-button" data-href="https://vscrops.herokuapp.com/blog/<%=iddx%>"></i>
-                </div>
-
-
-
-                <a class="linkein-share-post"
-                    href="https://www.linkedin.com/sharing/share-offsite/?url=https://vscrops.herokuapp.com/blog/<%=iddx%>"
-                    target="_blank" title="Share on LinkedIn">
-                    <i class="fab fa-linkedin-in"></i></a>
-
-                <a class="twitter-share-post"
-                    href="http://www.twitter.com/share?url=https://vscrops.herokuapp.com/blog/<%=iddx%>"
-                    target="_blank"><i class="fab fa-twitter"></i></a>
-
-                <style>
-
-                </style>
+                <br>
+                <br>
 
             </div>
-            <br>
-            <br>
 
         </div>
 
-    </div>
-
-    <%- include('head-foot/footer'); -%>
+        <%- include('head-foot/footer'); -%>
 
 
 
 
 
 
-    <script>
-        document.getElementById("blog").style.borderBottom = "0.13020833333333334vw solid rgb(212, 180, 53)";
-        document.getElementById("blog").style.paddingBottom = "0.3255208333333333vw";
-    </script>
+        <script>
+            document.getElementById("blog").style.borderBottom = "0.13020833333333334vw solid rgb(212, 180, 53)";
+            document.getElementById("blog").style.paddingBottom = "0.3255208333333333vw";
+        </script>

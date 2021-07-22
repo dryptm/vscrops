@@ -95,9 +95,11 @@ app.get("/home", function (req, res) {
     User.findOne({
       username: req.user.username
     }, (err, found1) => {
+      // console.log(found1.cart.length)
       res.render("home", {
         isLoggedin: "yes",
-        name: found1.name
+        name: found1.name,
+        cartlength: found1.cart.length
       })
 
     })
@@ -126,7 +128,8 @@ app.post("/submit", (req, res) => {
           res.render("email_already_exist", {
             message: "Email already exists!",
             isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
-            name: (req.isAuthenticated() ? found1.name : "")
+            name: (req.isAuthenticated() ? found1.name : ""),
+            cartlength: (req.isAuthenticated() ? found1.cart.length : "")
           })
 
         })
@@ -151,7 +154,8 @@ app.post("/submit", (req, res) => {
           res.render("email_already_exist", {
             message: "Thank you for the Subscription!",
             isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
-            name: (req.isAuthenticated() ? found1.name : "")
+            name: (req.isAuthenticated() ? found1.name : ""),
+            cartlength: (req.isAuthenticated() ? found1.cart.length : ""),
           })
 
         })
@@ -179,6 +183,8 @@ app.get("/products", function (req, res) {
           res.render("products", {
             post: found,
             isLoggedin: "yes",
+            cartlength: found1.cart.length,
+
             name: found1.name
           })
 
@@ -223,6 +229,7 @@ app.get("/products/:np", function (req, res) {
           found: found,
           isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
           name: (req.isAuthenticated() ? found1.name : ""),
+          cartlength: (req.isAuthenticated() ? found1.cart.length : ""),
           id: found._id
 
         })
@@ -265,7 +272,7 @@ app.post('/add_to_cart/:id', (rq, rs) => {
           cart_obj[i].original_price = Number(found.product_price)
         } else {
           console.log("new item added to cart")
-          
+
           cart_obj.push({
             "name": found.product_name,
             "total_price": Number(rq.body.tot_price),
@@ -309,6 +316,8 @@ app.get("/contactus", function (req, res) {
 
       res.render("contactus", {
         isLoggedin: "yes",
+        cartlength: found1.cart.length,
+
         name: found1.name
       })
     })
@@ -334,6 +343,8 @@ app.get("/foundersnote", function (req, res) {
 
       res.render("foundersnote", {
         isLoggedin: "yes",
+        cartlength: found1.cart.length,
+
         name: found1.name
       })
     })
@@ -358,6 +369,8 @@ app.get("/ourstory", function (req, res) {
     }, (err, found1) => {
       res.render("ourstory", {
         isLoggedin: "yes",
+        cartlength: found1.cart.length,
+
         name: found1.name
       })
     })
@@ -377,6 +390,8 @@ app.get('/forgot', (req, res) => {
     }, (err, found1) => {
       res.render("forgot_password", {
         isLoggedin: "yes",
+        cartlength: found1.cart.length,
+
         name: found1.name
       })
 
@@ -425,6 +440,8 @@ app.post('/forgot', (req, res) => {
                 }, (err, found1) => {
                   res.render("check_your_email", {
                     isLoggedin: "yes",
+                    cartlength: found1.cart.length,
+
                     name: found1.name
                   })
 
@@ -472,6 +489,8 @@ app.post('/forgot', (req, res) => {
                 }, (err, found1) => {
                   res.render("check_your_email", {
                     isLoggedin: "yes",
+                    cartlength: found1.cart.length,
+
                     name: found1.name
                   })
 
@@ -496,6 +515,8 @@ app.post('/forgot', (req, res) => {
         }, (err, found) => {
           res.render("email_doesnt_exist", {
             isLoggedin: "yes",
+            cartlength: found1.cart.length,
+
             name: found.name
           })
         })
@@ -527,6 +548,8 @@ app.get('/change/:idd', (req, res) => {
       if (req.isAuthenticated()) {
         res.render("change_password", {
           isLoggedin: "yes",
+          cartlength: found1.cart.length,
+
           name: found.name,
           id: req.params.idd
         })
@@ -577,6 +600,7 @@ app.get("/blog", function (req, res) {
         res.render("blog", {
           post: post,
           name: found1.name,
+          cartlength: found1.cart.length,
           isLoggedin: "yes"
 
         })
@@ -621,6 +645,8 @@ app.get("/blog/:np", function (req, res) {
             img: post.image_link,
             data: post.blog_data.split("<br>"),
             isLoggedin: "yes",
+            cartlength: found1.cart.length,
+
             name: found1.name,
             iddx: post._id
           });
@@ -742,15 +768,16 @@ app.get('/orders', (req, res) => {
       _id: req.user._id
     }, (err, found1) => {
 
-      Track.find({},(e,f)=>{
+      Track.find({}, (e, f) => {
         res.render("orders", {
           isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
           name: (req.isAuthenticated() ? found1.name : ""),
+          cartlength: (req.isAuthenticated() ? found1.cart.length : ""),
           orders: found1.orders,
-          track : f
+          track: f
         })
       })
-      
+
 
     })
   } else res.render("needloginfirst", {
@@ -772,8 +799,8 @@ app.post('/discount', (req, res) => {
         // console.log(found)
 
         var arr = req.user.cart
-        for(var i=0;i<arr.length;i++){
-          arr[i].coupon_code=found.coupon_code;
+        for (var i = 0; i < arr.length; i++) {
+          arr[i].coupon_code = found.coupon_code;
         }
         // console.log(arr)
 
@@ -813,6 +840,7 @@ app.get('/cart', (req, res) => {
       res.render("cart", {
         isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
         name: (req.isAuthenticated() ? found1.name : ""),
+        cartlength: (req.isAuthenticated() ? found1.cart.length : ""),
         cart: found1.cart
       })
 
@@ -928,6 +956,7 @@ app.post('/checkout_post', (req, res) => {
       res.render('payment_middleware', {
         isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
         name: (req.isAuthenticated() ? found1.name : ""),
+        cartlength: (req.isAuthenticated() ? found1.cart.length : ""),
         tot_price: tot_price,
         fname: fname,
         lname: lname,
@@ -963,84 +992,84 @@ app.post('/payment_confirm', (req, res) => {
     const names = req.body.name.split(' ')
     const lname = names[names.length - 1]
 
-               
 
-var raw2 = JSON.stringify({
-  "email": "vinay9415756155@gmail.com",
-  "password": "Vishuddha@1120"
-});
 
-var requestOptions2 = {
-  method: 'POST',
-  headers: {
-    "Content-Type" : "application/json"
-  },
-  body: raw2,
-  redirect: 'follow'
-};
+    var raw2 = JSON.stringify({
+      "email": "vinay9415756155@gmail.com",
+      "password": "Vishuddha@1120"
+    });
 
-fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
-  .then(response => response.text())
-  .then(result => {
-
-    const raw = JSON.stringify({
-      "order_id": req.body.order_id + "_" + String(i),
-      "order_date": today,
-      "pickup_location": "WPatelN",
-      "billing_customer_name": names[0],
-      "billing_last_name": lname,
-      "billing_address": req.body.billing_address1,
-      "billing_city": req.body.city,
-      "billing_pincode": req.body.pincode,
-      "billing_state": req.body.state,
-      "billing_country": "India",
-      "billing_email": String(req.user.username.trim()),
-      "billing_phone": req.body.phone,
-      "shipping_is_billing": true,
-      "order_items": [{
-        "name": req.user.cart[i].name,
-        "sku": "Alm-Oil-100",
-        "units": Number(req.user.cart[i].quantity),
-        "selling_price": req.user.cart[i].total_price,
-        "discount": String(((req.user.cart[i].original_price - (req.user.cart[i].total_price / req.user.cart[i].quantity)) / req.user.cart[i].original_price) * 100)
-      }],
-      "payment_method": (req.body.payment_id === "" ? "COD" : "Prepaid"),
-      "sub_total": (req.body.payment_id === "" ? req.user.cart[i].total_price + 50 : req.user.cart[i].total_price),
-      "length": Number(process.env.LENGTH),
-      "breadth": Number(process.env.BREADTH),
-      "height": Number(process.env.HEIGHT),
-      "weight": Number(process.env.WEIGHT)
-    })
-
-    var requestOptions = {
+    var requestOptions2 = {
       method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer "+JSON.parse(result).token
+        "Content-Type": "application/json"
       },
-      body: raw,
+      body: raw2,
       redirect: 'follow'
     };
 
-    fetch("https://apiv2.shiprocket.in/v1/external/orders/create/adhoc", requestOptions)
+    fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
       .then(response => response.text())
       .then(result => {
-        const track = new Track({
-          order_id: req.body.order_id + "_" + String(i),
-          shiprocket_order_info: result
+
+        const raw = JSON.stringify({
+          "order_id": req.body.order_id + "_" + String(i),
+          "order_date": today,
+          "pickup_location": "WPatelN",
+          "billing_customer_name": names[0],
+          "billing_last_name": lname,
+          "billing_address": req.body.billing_address1,
+          "billing_city": req.body.city,
+          "billing_pincode": req.body.pincode,
+          "billing_state": req.body.state,
+          "billing_country": "India",
+          "billing_email": String(req.user.username.trim()),
+          "billing_phone": req.body.phone,
+          "shipping_is_billing": true,
+          "order_items": [{
+            "name": req.user.cart[i].name,
+            "sku": "Alm-Oil-100",
+            "units": Number(req.user.cart[i].quantity),
+            "selling_price": req.user.cart[i].total_price,
+            "discount": String(((req.user.cart[i].original_price - (req.user.cart[i].total_price / req.user.cart[i].quantity)) / req.user.cart[i].original_price) * 100)
+          }],
+          "payment_method": (req.body.payment_id === "" ? "COD" : "Prepaid"),
+          "sub_total": (req.body.payment_id === "" ? req.user.cart[i].total_price + 50 : req.user.cart[i].total_price),
+          "length": Number(process.env.LENGTH),
+          "breadth": Number(process.env.BREADTH),
+          "height": Number(process.env.HEIGHT),
+          "weight": Number(process.env.WEIGHT)
         })
-        track.save();
-        console.log(result)
+
+        var requestOptions = {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + JSON.parse(result).token
+          },
+          body: raw,
+          redirect: 'follow'
+        };
+
+        fetch("https://apiv2.shiprocket.in/v1/external/orders/create/adhoc", requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            const track = new Track({
+              order_id: req.body.order_id + "_" + String(i),
+              shiprocket_order_info: result
+            })
+            track.save();
+            console.log(result)
+          })
+          .catch(error => console.log('error', error));
+
       })
-      .catch(error => console.log('error', error));
-
-  })
 
 
 
 
 
-    
+
 
   }
 
@@ -1139,13 +1168,13 @@ fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
     })
     order.save();
     var arr = req.user.orders
-    for(var i=0;i<req.user.cart.length;i++){
-      req.user.cart[i].payment_method="COD"
+    for (var i = 0; i < req.user.cart.length; i++) {
+      req.user.cart[i].payment_method = "COD"
     }
     arr.push({
       date: today,
       total_price: req.body.amount,
-      order_id : req.body.order_id,
+      order_id: req.body.order_id,
       items: req.user.cart
     })
     User.updateOne({
@@ -1165,6 +1194,8 @@ fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
             else {
               res.render("payment_success", {
                 isLoggedin: "yes",
+                cartlength: req.user.cart.length,
+
                 name: req.user.name,
                 message: "Order Confirmed!"
               });
@@ -1193,13 +1224,13 @@ fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
     })
     order.save();
     var arr = req.user.orders
-    for(var i=0;i<req.user.cart.length;i++){
-      req.user.cart[i].payment_method="Paid Online"
+    for (var i = 0; i < req.user.cart.length; i++) {
+      req.user.cart[i].payment_method = "Paid Online"
     }
     arr.push({
       date: today,
       total_price: req.body.amount,
-      order_id : req.body.order_id,
+      order_id: req.body.order_id,
       items: req.user.cart
     })
     User.updateOne({
@@ -1219,6 +1250,8 @@ fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
             else {
               res.render("payment_success", {
                 isLoggedin: "yes",
+                cartlength: found1.cart.length,
+
                 name: req.user.name,
                 message: "Payment Successful!"
               });
@@ -1240,6 +1273,8 @@ app.post('/payment_failed', (req, res) => {
 
   res.render("payment_success", {
     isLoggedin: "yes",
+    cartlength: found1.cart.length,
+
     name: req.user.name,
     message: "Payment Failed!"
   });
@@ -1268,6 +1303,7 @@ app.post('/full_payment', (req, res) => {
       res.render("payment", {
         isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
         name: (req.isAuthenticated() ? req.user.name : ""),
+        cartlength: (req.isAuthenticated() ? req.user.cart.length : ""),
         order_id: order.id,
         email: req.body.email,
         phone: req.body.phone,
@@ -1278,7 +1314,7 @@ app.post('/full_payment', (req, res) => {
         billing_address1: req.body.billing_address1,
         billing_address2: req.body.billing_address2,
         amount: (order.amount) / 100,
-        user:req.user
+        user: req.user
 
 
       })
@@ -1302,6 +1338,8 @@ app.get("/termsandcondition", function (req, res) {
     }, (err, found1) => {
       res.render("termsandcondition", {
         isLoggedin: "yes",
+        cartlength: found1.cart.length,
+
         name: found1.name
       })
     })
@@ -1319,6 +1357,8 @@ app.get("/privacypolicy", function (req, res) {
     }, (err, found1) => {
       res.render("privacypolicy", {
         isLoggedin: "yes",
+        cartlength: found1.cart.length,
+
         name: found1.name
       })
     })
@@ -1353,6 +1393,8 @@ app.post('/login', (req, res) => {
         }, (err, found1) => {
           res.render("email_doesnt_exist", {
             isLoggedin: "yes",
+            cartlength: found1.cart.length,
+
             name: found1.name
           })
         })
@@ -1583,6 +1625,7 @@ app.get('/auth_failed', (req, res) => {
   res.render("login_failed", {
     isLoggedin: (req.isAuthenticated() ? "yes" : "no"),
     name: (req.isAuthenticated() ? req.user.name : ""),
+    cartlength: (req.isAuthenticated() ? req.user.cart.length : ""),
     message: "Login Failed"
   })
 })
@@ -1641,100 +1684,103 @@ app.get('/admindashboard', (req, res) => {
 //****************************************************************************************************************************/
 // CANCEL ORDER SHIPROCKET
 
-app.get('/shiprocket/:id',(req,res)=>{
+app.get('/shiprocket/:id', (req, res) => {
 
-  Order.findOne({order_id : req.params.id},(err,found)=>{
-    if(found){
+  Order.findOne({
+    order_id: req.params.id
+  }, (err, found) => {
+    if (found) {
       var arr = []
-      for(let i = 0;i<found.items.length;++i){
-       Track.findOne({order_id : req.params.id+"_"+String(i)},(e,f)=>{
-        
-         var raw = JSON.stringify({
-          "ids": [JSON.parse(f.shiprocket_order_info).order_id]
-        });
-  
+      for (let i = 0; i < found.items.length; ++i) {
+        Track.findOne({
+          order_id: req.params.id + "_" + String(i)
+        }, (e, f) => {
 
-var raw2 = JSON.stringify({
-  "email": "vinay9415756155@gmail.com",
-  "password": "Vishuddha@1120"
-});
-
-var requestOptions2 = {
-  method: 'POST',
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: raw2,
-  redirect: 'follow'
-};
-
-fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
-  .then(response => response.text())
-  .then(result => {
-    var requestOptions = {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer "+JSON.parse(result).token
-      },
-      body: raw,
-      redirect: 'follow'
-    };
-    
-    fetch("https://apiv2.shiprocket.in/v1/external/orders/cancel", requestOptions)
-      .then(response => response.text())
-      .then(result => {
-        console.log(result)
-         //****************************************************************************************************** */
-             
-              //CHANGE ORDER STATUS
-            
-         //****************************************************************************************************** */
-      })
-      .catch(error => console.log('error', error));
-  
-  })
+          var raw = JSON.stringify({
+            "ids": [JSON.parse(f.shiprocket_order_info).order_id]
+          });
 
 
+          var raw2 = JSON.stringify({
+            "email": "vinay9415756155@gmail.com",
+            "password": "Vishuddha@1120"
+          });
 
-        
-       })
-      }
-  
-    
-    const payment_id = found.payment_id
-    if(payment_id !=="COD"){
+          var requestOptions2 = {
+            method: 'POST',
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: raw2,
+            redirect: 'follow'
+          };
 
-      const total_amount = Number(found.total_amount)
-      var requestOptions = {
-        method: 'POST',
-      };
-      
-      fetch("https://"+process.env.KEY_ID+":"+process.env.KEY_SECRET+"@api.razorpay.com/v1/payments/"+found.payment_id+"/refund", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-          console.log(result)
+          fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
+            .then(response => response.text())
+            .then(result => {
+              var requestOptions = {
+                method: 'POST',
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer " + JSON.parse(result).token
+                },
+                body: raw,
+                redirect: 'follow'
+              };
+
+              fetch("https://apiv2.shiprocket.in/v1/external/orders/cancel", requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                  console.log(result)
+                  //****************************************************************************************************** */
+
+                  //CHANGE ORDER STATUS
+
+                  //****************************************************************************************************** */
+                })
+                .catch(error => console.log('error', error));
+
+            })
+
+
+
+
         })
-        .catch(error => console.log('error', error));        
+      }
 
-    }
-    else {
 
-      //*************************************** */
-      console.log("NO REFUND NEEDED (Payment mode: COD)")
-      //**************************************** */
+      const payment_id = found.payment_id
+      if (payment_id !== "COD") {
 
-    }
-    
-    
+        const total_amount = Number(found.total_amount)
+        var requestOptions = {
+          method: 'POST',
+        };
+
+        fetch("https://" + process.env.KEY_ID + ":" + process.env.KEY_SECRET + "@api.razorpay.com/v1/payments/" + found.payment_id + "/refund", requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            console.log(result)
+          })
+          .catch(error => console.log('error', error));
+
+      } else {
+
+        //*************************************** */
+        console.log("NO REFUND NEEDED (Payment mode: COD)")
+        //**************************************** */
+
+      }
+
+
     }
   })
-    
+
   //************************************* */
   // AFTER CANCEL REDIRECT AND UPDATE ORDER STATUS
   //************************************** */
 
- 
+
 })
 
 
