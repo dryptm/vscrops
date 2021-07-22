@@ -136,11 +136,14 @@ body {
     font-weight: 700;
     text-align: center
 }
-.website a{
-    color:#8a7522;
-    text-decoration: none;;
+
+.website a {
+    color: #8a7522;
+    text-decoration: none;
+    ;
     text-transform: lowercase;
 }
+
 .place {
     font-size: .9114583333333334vw;
     letter-spacing: .083em;
@@ -223,8 +226,9 @@ body {
     letter-spacing: .13020833333333334vw;
     font-weight: 400
 }
-.tnm a{
-    color: #8a7522 ;
+
+.tnm a {
+    color: #8a7522;
     text-decoration: none;
 }
 
@@ -1770,7 +1774,7 @@ body {
 }
 
 .id_order_address {
-    width: 65%;
+    width: 70%;
     height: 9.765625vw;
     position: relative;
     font-family: Lato, arial, sans-serif;
