@@ -1906,14 +1906,14 @@ body {
 }
 
 .cart_count {
-    height: 12px;
-    width: 12px;
+    height: 0.78125vw;
+    width: 0.78125vw;
     border-radius: 100%;
     color: #000000;
     background-color: #dbdbdb;
-    border: 1px solid #ffffffa2;
+    border: 0.06510416666666667vw solid #ffffffa2;
     margin: 0;
-    font-size: 10px;
+    font-size: 0.6510416666666667vw;
     font-weight: 700;
     font-family: Cabin, arial, sans-serif;
     position: absolute;
