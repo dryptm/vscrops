@@ -775,12 +775,28 @@ body {
     margin: 0;
     padding-top: 4.557291666666667vw
 }
+.note_head_1{
+    font-size: 2.833333333333335vw;
+    font-family: Cabin, arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: .06510416666666667vw;
+    color: #ad9226;
+    margin: 0;
+    padding-top: 4.557291666666667vw
+}
 
 .note_p {
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
     font-weight: 400;
     font-size: 1.0114583333333334vw
+}
+.note_p_1{
+    font-family: Lato, arial, sans-serif;
+    color: #5e5e5e;
+    font-weight: 700;
+    font-size: 1.1114583333333334vw;
+
 }
 
 .contact_flex {
