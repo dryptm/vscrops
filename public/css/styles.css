@@ -1011,13 +1011,13 @@ body {
 .main_box_bfp {
     width: 35%;
     margin: 0 3.2552083333333335vw 0 auto;
-    padding-top: 15vh;
+    padding-top: 5vh;
     padding-bottom: 10vh
 }
 
 .main_box_payment_div2 {
     width: 45%;
-    margin-top: 6.510416666666667vw
+    margin-top: 5vh
 }
 
 .product_images_before_payment_div {
@@ -1923,4 +1923,51 @@ body {
 
 .shop_more:hover {
     transform: scale(1.05)
+}
+
+.payment_gola {
+    padding-top: 8vh;
+    width: 30%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.gola1 {
+    background-color: rgb(217 217 217);
+    border-radius: 100%;
+    border: 0;
+    margin: 0;
+    height: 30.5px;
+    width: 35px;
+    position: relative;
+}
+
+.gole_line {
+    height: 2px;
+    margin: 0;
+    margin-top: 14px;
+    width: 100%;
+    background-color: #9a7e0057;
+}
+
+.gola2 {
+    background-color: rgb(217 217 217);
+    border-radius: 100%;
+    border: 0;
+    margin: 0;
+    height: 30.5px;
+    width: 35px;
+    position: relative;
+}
+
+.andar_gola {
+    /*     position: absolute; */
+    margin: 3px auto;
+    background-color: #C2A832;
+    border: 5px solid white;
+    height: 14px;
+    width: 14px;
+    border-radius: 100%;
+
 }

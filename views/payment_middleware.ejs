@@ -1,5 +1,17 @@
 <%- include('head-foot/header'); -%>
+
+<div class="payment_gola">
+    <div class="gola1">
+        <div class="andar_gola"></div>
+    </div>
+    <div class="gole_line"></div>
+    <div class="gola2">
+        <div class="andar_gola" style="background-color: white;"></div>
+    </div>
+</div>
+
 <div class="main_box_flex_x">
+    
     <div class="main_box_bfp">
 
         <form action="/full_payment" method="POST" onsubmit="return fun(event)" id="form">
@@ -81,7 +93,7 @@
 
             if ((/^[6-9][0-9]{9}$/.test(document.getElementById("phone").value)) && document.getElementById('city')
                 .value && document.getElementById('state').value) {
-                    document.getElementById("phone").style.color = "#5e5e5e"
+                document.getElementById("phone").style.color = "#5e5e5e"
                 return true
 
             } else {
