@@ -10,25 +10,26 @@
       <h2 class="product_i_details_heading"><%=found.product_name%></h2>
       <p class="product_i_details_price" id="price">₹
         <%=(found.product_price-((found.product_price*found.product_discount)/100))%></p>
-      
-      
-      
-       <div class="input-value" style="display: flex;flex-direction: row;align-items: center;justify-content: start;">
-          <button id ="minus" class="input-individual-button"><i class="fas fa-minus"></i></button>
-          <input type="number" class="input-individual" id="number_of_items1" oninput="myfun()" value="1" />
-          <button id ="plus" class="input-individual-button"><i class="fas fa-plus"></i></button>
-       </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <p class="product_i_details_discount">Discount: ₹
+
+
+
+      <div class="input-value" style="display: flex;flex-direction: row;align-items: center;justify-content: start;">
+        <button id="minus" class="input-individual-button"><i class="fas fa-minus"></i></button>
+        <input type="number" class="input-individual" id="number_of_items1" onfocus="blur()" oninput="myfun()"
+          value="1" />
+        <button id="plus" class="input-individual-button"><i class="fas fa-plus"></i></button>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <p class="product_i_details_discount">Discount: ₹
         <%=((found.product_price*found.product_discount)/100)%>(<%=found.product_discount%>%)</p>
       <p id="total_price">
         Total Price : ₹ <%=(found.product_price-((found.product_price*found.product_discount)/100))%>
@@ -79,71 +80,70 @@
 
 
 <script>
+  var inp = document.getElementById("price").innerHTML.split(" ");
+  var price = Number(inp[inp.length - 1]);
 
-var inp = document.getElementById("price").innerHTML.split(" ");
-    var price = Number(inp[inp.length - 1]);
-  
-document.getElementById("minus").addEventListener("click",()=>{
-  if(document.getElementById("number_of_items1").value<=1){
-    document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (1 * price).toString()
-    document.getElementById("tot_price").value = (1 * price);
+  document.getElementById("minus").addEventListener("click", () => {
+    if (document.getElementById("number_of_items1").value <= 1) {
+      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (1 * price).toString()
+      document.getElementById("tot_price").value = (1 * price);
 
-  document.getElementById("number_of_items1").value = 1
+      document.getElementById("number_of_items1").value = 1
 
-  }
-  else {
+    } else {
 
-  
-  document.getElementById("number_of_items1").value = Number(document.getElementById("number_of_items1").value)-1
 
-  document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (Number(document.getElementById("number_of_items1").value) * price).toString()
-  document.getElementById("tot_price").value = (document.getElementById("number_of_items1").value* price);
-  
-}
+      document.getElementById("number_of_items1").value = Number(document.getElementById("number_of_items1")
+        .value) - 1
 
-})
-document.getElementById("plus").addEventListener("click",()=>{
-  if(document.getElementById("number_of_items1").value>=20){
-    document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (20 * price).toString()
-    document.getElementById("tot_price").value = (20 * price);
+      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (Number(document.getElementById(
+        "number_of_items1").value) * price).toString()
+      document.getElementById("tot_price").value = (document.getElementById("number_of_items1").value * price);
 
-  document.getElementById("number_of_items1").value = 20
+    }
 
-  }
-  else {
+  })
+  document.getElementById("plus").addEventListener("click", () => {
+    if (document.getElementById("number_of_items1").value >= 20) {
+      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (20 * price).toString()
+      document.getElementById("tot_price").value = (20 * price);
 
-  
-  document.getElementById("number_of_items1").value = Number(document.getElementById("number_of_items1").value)+1
-  document.getElementById("tot_price").value = (document.getElementById("number_of_items1").value * price);
+      document.getElementById("number_of_items1").value = 20
 
-  document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (Number(document.getElementById("number_of_items1").value) * price).toString()
-  }
-   
-})
+    } else {
+
+
+      document.getElementById("number_of_items1").value = Number(document.getElementById("number_of_items1")
+        .value) + 1
+      document.getElementById("tot_price").value = (document.getElementById("number_of_items1").value * price);
+
+      document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (Number(document.getElementById(
+        "number_of_items1").value) * price).toString()
+    }
+
+  })
+
   function myfun() {
 
     var inp = document.getElementById("price").innerHTML.split(" ");
     var price = Number(inp[inp.length - 1]);
     var num = Number(document.getElementById("number_of_items1").value)
-    if (num >=20) {
+    if (num >= 20) {
 
       document.getElementById("number_of_items1").value = 20;
       document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (20 * price).toString()
-      
 
-    }
-    else if (num < 1) {
+
+    } else if (num < 1) {
       document.getElementById("number_of_items1").value = 1
       document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (1 * price).toString()
-      
-    }
-   else  if (num === 0) {
-     console.log(num)
+
+    } else if (num === 0) {
+      console.log(num)
       document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (1 * price).toString()
       document.getElementById("tot_price").value = (1 * price);
 
-    } 
-    else if (num * price !== NaN && num * price !== 0) {
+    } else if (num * price !== NaN && num * price !== 0) {
       document.getElementById("total_price").innerHTML = "Total Price : ₹ " + (num * price).toString()
       document.getElementById("tot_price").value = (num * price);
     }

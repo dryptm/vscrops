@@ -19,26 +19,30 @@
     <p class="cart_obj_price" id="price<%=i%>">₹ <%=(cart[i].total_price/cart[i].quantity)%></p>
     <div class="cart_obj_input">
 
-      
+
       <div class="input-value">
-      <button class="input-individual-button1" id = "minus<%= i %>"><i class="fas fa-minus"></i></button>
-        <input  type="number" class = "input-individual1" id="number_of_items1<%=i%>" value="<%=cart[i].quantity%>" />
-        <button class="input-individual-button1" id = "plus<%= i %>"><i class="fas fa-plus"></i></button>
+        <button class="input-individual-button1" id="minus<%= i %>"><i class="fas fa-minus"></i></button>
+        <input type="number" class="input-individual1" id="number_of_items1<%=i%>" onfocus="blur()"
+          value="<%=cart[i].quantity%>" />
+        <button class="input-individual-button1" id="plus<%= i %>"><i class="fas fa-plus"></i></button>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
     </div>
-    <span class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%> 
+    <span class="cart_total_price" id="total_price<%=i%>" style="margin-right: 0;">₹ <%=(cart[i].total_price)%>
     </span><a class="xxxxxxx" href="/delete/<%=cart[i].name%>">X</a>
 
   </div>
   <input type="text" id="op<%=i%>" value="<%=cart[i].original_price %>"
     style="visibility: collapse;position: absolute;">
   <%}%>
-<h4 class="total_all_cart_price" id="total_all_cart_price">adadadfgsdfgsdfgs dfg sdg</h4>
+<h4 class="total_all_cart_price" id="total_all_cart_price">adadadfgsdfgsdfgs dfg sdg</h4><br>
+<br><br><br><br><br><br>
+<a href="/products" class="shop_more">Shop More</a>
+
 
 
 
@@ -50,23 +54,23 @@
       style="text-transform: uppercase;font-weight: 400;"><%=cart[0].coupon_code%></span></h3>
   <%}%>
   <%}%>
-  
-  <form action = "/discount" method = "POST">
+
+  <form action="/discount" method="POST">
     <h3 class="coupon_code_h3">Coupon Code:</h3>
     <input class="coupon_input" type="text" name="discount" value="">
     <button class="btn-coupon" type="submit">Check</button>
   </form>
-  
+
   <form action="/checkout_post" method="POST">
 
     <% for(let i = 0;i<cart.length;++i){%>
-  <input class="mailinput_width" type="number" name="<%= i %>" id="num<%=i%>" value="<%=cart[i].quantity%>"
-    style="visibility: collapse;position: absolute;" />
-  <% }  %>
+    <input class="mailinput_width" type="number" name="<%= i %>" id="num<%=i%>" value="<%=cart[i].quantity%>"
+      style="visibility: collapse;position: absolute;" />
+    <% }  %>
 
 
-  <input style="visibility: collapse;opacity: 0;" type="text" id="tot" value="" name="tot_p">
-  <button class="checkout_button" type="submit">Checkout</button>
+    <input style="visibility: collapse;opacity: 0;" type="text" id="tot" value="" name="tot_p">
+    <button class="checkout_button" type="submit">Checkout</button>
   </form>
 
 </div>
@@ -102,78 +106,80 @@
 
 
 
-    document.getElementById('plus'+i).addEventListener("click",()=>{
-   
+    document.getElementById('plus' + i).addEventListener("click", () => {
+
       var c = document.getElementById("total_price" + i).innerHTML.split(' ');
       var inp = document.getElementById("price" + i).innerHTML.split(" ");
       var price = Number(inp[inp.length - 1]);
-   
+
 
       sum -= Number(c[1])
 
-      if(document.getElementById('number_of_items1' + i).value>=20){
-        document.getElementById('number_of_items1' + i).value=20
+      if (document.getElementById('number_of_items1' + i).value >= 20) {
+        document.getElementById('number_of_items1' + i).value = 20
         sum += Number((document.getElementById("number_of_items1" + i).value * price));
-      document.getElementById("total_price" + i).innerHTML = "₹ " + (document.getElementById("number_of_items1" +i).value * price)
-      console.log(document.getElementById("total_price" + i).innerHTML)
-      document.getElementById('tot').value = Number(sum)
-      document.getElementById("total_all_cart_price").innerHTML = "Total: ₹ " + sum;
+        document.getElementById("total_price" + i).innerHTML = "₹ " + (document.getElementById("number_of_items1" +
+          i).value * price)
+        console.log(document.getElementById("total_price" + i).innerHTML)
+        document.getElementById('tot').value = Number(sum)
+        document.getElementById("total_all_cart_price").innerHTML = "Total: ₹ " + sum;
 
+
+      } else {
+        document.getElementById('number_of_items1' + i).value = Number(document.getElementById('number_of_items1' +
+          i).value) + 1
+        sum += Number((document.getElementById("number_of_items1" + i).value * price));
+        document.getElementById("total_price" + i).innerHTML = "₹ " + (document.getElementById("number_of_items1" +
+          i).value * price)
+        console.log(document.getElementById("total_price" + i).innerHTML)
+        document.getElementById('tot').value = Number(sum)
+        document.getElementById("total_all_cart_price").innerHTML = "Total: ₹ " + sum;
 
       }
-      else 
-{
-  document.getElementById('number_of_items1' + i).value = Number(document.getElementById('number_of_items1' + i).value)+1
-      sum += Number((document.getElementById("number_of_items1" + i).value * price));
-      document.getElementById("total_price" + i).innerHTML = "₹ " + (document.getElementById("number_of_items1" +i).value * price)
-      console.log(document.getElementById("total_price" + i).innerHTML)
-      document.getElementById('tot').value = Number(sum)
-      document.getElementById("total_all_cart_price").innerHTML = "Total: ₹ " + sum;
-
-}   
-   
-
-  
-
-    })
-  
-
-    document.getElementById('minus'+i).addEventListener("click",()=>{
-      var c = document.getElementById("total_price" + i).innerHTML.split(' ');
-      var inp = document.getElementById("price" + i).innerHTML.split(" ");
-      var price = Number(inp[inp.length - 1]);
-   
-
-      sum -= Number(c[1])
-
-      if(document.getElementById('number_of_items1' + i).value<=1){
-        document.getElementById('number_of_items1' + i).value=1
-        sum += Number((document.getElementById("number_of_items1" + i).value * price));
-      document.getElementById("total_price" + i).innerHTML = "₹ " + (document.getElementById("number_of_items1" +i).value * price)
-      console.log(document.getElementById("total_price" + i).innerHTML)
-      document.getElementById('tot').value = Number(sum)
-      document.getElementById("total_all_cart_price").innerHTML = "Total: ₹ " + sum;
 
 
-      }
-      else 
-{
-  document.getElementById('number_of_items1' + i).value = Number(document.getElementById('number_of_items1' + i).value)-1
-      sum += Number((document.getElementById("number_of_items1" + i).value * price));
-      document.getElementById("total_price" + i).innerHTML = "₹ " + (document.getElementById("number_of_items1" +i).value * price)
-      console.log(document.getElementById("total_price" + i).innerHTML)
-      document.getElementById('tot').value = Number(sum)
-      document.getElementById("total_all_cart_price").innerHTML = "Total: ₹ " + sum;
-
-}   
-   
 
 
     })
 
 
+    document.getElementById('minus' + i).addEventListener("click", () => {
+      var c = document.getElementById("total_price" + i).innerHTML.split(' ');
+      var inp = document.getElementById("price" + i).innerHTML.split(" ");
+      var price = Number(inp[inp.length - 1]);
 
-    
+
+      sum -= Number(c[1])
+
+      if (document.getElementById('number_of_items1' + i).value <= 1) {
+        document.getElementById('number_of_items1' + i).value = 1
+        sum += Number((document.getElementById("number_of_items1" + i).value * price));
+        document.getElementById("total_price" + i).innerHTML = "₹ " + (document.getElementById("number_of_items1" +
+          i).value * price)
+        console.log(document.getElementById("total_price" + i).innerHTML)
+        document.getElementById('tot').value = Number(sum)
+        document.getElementById("total_all_cart_price").innerHTML = "Total: ₹ " + sum;
+
+
+      } else {
+        document.getElementById('number_of_items1' + i).value = Number(document.getElementById('number_of_items1' +
+          i).value) - 1
+        sum += Number((document.getElementById("number_of_items1" + i).value * price));
+        document.getElementById("total_price" + i).innerHTML = "₹ " + (document.getElementById("number_of_items1" +
+          i).value * price)
+        console.log(document.getElementById("total_price" + i).innerHTML)
+        document.getElementById('tot').value = Number(sum)
+        document.getElementById("total_all_cart_price").innerHTML = "Total: ₹ " + sum;
+
+      }
+
+
+
+    })
+
+
+
+
 
 
     document.getElementById('number_of_items1' + i).addEventListener("input", () => {

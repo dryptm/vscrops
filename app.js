@@ -86,7 +86,26 @@ Product.find({}, (err, found) => {
   }
 })
 app.get("/", function (req, res) {
-  res.redirect("/home");
+  if (req.isAuthenticated()) {
+    User.findOne({
+      username: req.user.username
+    }, (err, found1) => {
+      // console.log(found1.cart.length)
+      res.render("home", {
+        isLoggedin: "yes",
+        name: found1.name,
+        cartlength: found1.cart.length
+      })
+
+    })
+
+
+
+  } else {
+    res.render("home", {
+      isLoggedin: "no"
+    })
+  }
 
 })
 

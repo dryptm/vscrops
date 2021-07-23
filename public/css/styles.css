@@ -1308,7 +1308,7 @@ body {
 }
 
 .total_all_cart_price {
-    margin: 0 8.0078125vw 3.9062500000000004vw 0;
+    margin: 0 8.0078125vw 0 0;
     margin-top: 2.604166666666667vw;
     font-family: Lato, arial, sans-serif;
     color: #8a7522;
@@ -1920,4 +1920,22 @@ body {
     text-align: center;
     top: 0;
     right: 0;
+}
+
+.shop_more {
+    margin: 0 8.0078125vw 0 0;
+    font-family: Lato, arial, sans-serif;
+    color: #8a7522;
+    text-decoration: none;
+    float: right;
+    border: 1px solid #8a7522;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.1020833333333333vw;
+    letter-spacing: .06510416666666667vw;
+    transition: all 0.25s;
+}
+
+.shop_more:hover {
+    transform: scale(1.05)
 }
