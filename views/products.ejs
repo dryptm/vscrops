@@ -110,7 +110,6 @@
 <input type="number" id = "length" value="<%= post.length %>" style="opacity: 0;visibility: collapse; position:
     absolute;">
 
-    <%- include('head-foot/footer'); -%>
 
 
 
@@ -122,12 +121,12 @@
 
         for (let i = 0; i < Number(document.getElementById('length').value); ++i) {
 
-            if(Number(document.getElementById("price_products" + i).innerText.split(")")[0].split("(")[1]
-                .split("%")[0])>0){
-                    document.getElementById("price_products" + i).style.color="rgb(38 168 38)";
-                    document.getElementById("price_products" + i).style.opacity="1";
-                    document.getElementById("price_products" + i).style.fontWeight="500"
-                }
+            if (Number(document.getElementById("price_products" + i).innerText.split(")")[0].split("(")[1]
+                    .split("%")[0]) > 0) {
+                document.getElementById("price_products" + i).style.color = "rgb(38 168 38)";
+                document.getElementById("price_products" + i).style.opacity = "1";
+                document.getElementById("price_products" + i).style.fontWeight = "500"
+            }
 
 
             document.getElementById('hover' + i).addEventListener('mouseover', () => {
@@ -147,3 +146,6 @@
 
         // document.getElementById("products").style.boxShadow = "0px 5px 5px #e8e8e8";
     </script>
+
+
+    <%- include('head-foot/footer'); -%>
