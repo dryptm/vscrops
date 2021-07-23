@@ -141,8 +141,7 @@ body {
 .website a {
     color: #8a7522;
     text-decoration: none;
-    ;
-    text-transform: lowercase;
+    text-transform: lowercase
 }
 
 .place {
@@ -230,7 +229,7 @@ body {
 
 .tnm a {
     color: #8a7522;
-    text-decoration: none;
+    text-decoration: none
 }
 
 .tnm_box {
@@ -323,20 +322,6 @@ body {
     margin: 0
 }
 
-/* 
-.img-launching h1 {
-    margin: 0;
-    position: absolute;
-    letter-spacing: .13020833333333334vw;
-    font-family: Quicksand, sans-serif;
-    font-size: 3.980729166666667vw;
-    color: #fff;
-    top: 10.71875vw;
-    font-weight: 100;
-    letter-spacing: .06510416666666667vw;
-    right: 8.463541666666668vw
-} */
-
 .about_us {
     width: 80.20833333333333vw;
     height: auto;
@@ -410,24 +395,23 @@ body {
 }
 
 .obf_image1 {
-    height: 39.0625vw;
+    height: 39.0625vw
 }
 
 .obf_image1 img {
     height: inherit;
     width: 100%;
-    object-fit: cover;
+    object-fit: cover
 }
 
-
 .obf_image2 {
-    height: 39.0625vw;
+    height: 39.0625vw
 }
 
 .obf_image2 img {
     height: inherit;
     width: 100%;
-    object-fit: cover;
+    object-fit: cover
 }
 
 .obf-content2 {
@@ -509,13 +493,11 @@ body {
 .mailinput2 {
     width: 100%;
     font-size: 1.0416666666666667vw;
-    /*     margin-top: .6625vw; */
     padding: 0 .6765625000000001vw;
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
     height: 2.5552083333333335vw;
     border-style: solid;
-    /*     background-color: #f5f5f5; */
     border-width: 0
 }
 
@@ -796,8 +778,7 @@ body {
     font-family: Lato, arial, sans-serif;
     color: #5e5e5e;
     font-weight: 700;
-    font-size: 1.1114583333333334vw;
-
+    font-size: 1.1114583333333334vw
 }
 
 .contact_flex {
@@ -1747,7 +1728,7 @@ body {
 .order_style {
     width: 20%;
     font-family: Lato, arial, sans-serif;
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     background-color: transparent;
     margin: 0 3.9062500000000004vw;
     text-align: center
@@ -1765,7 +1746,7 @@ body {
 
 .order_style1 {
     float: right;
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif;
     margin: 1.8229166666666667vw 7.161458333333334vw 0 0;
     text-align: right
@@ -1783,11 +1764,11 @@ body {
 .order_bf_click {
     width: 56.11979166666667vw;
     border-style: solid;
-    border: 0.06510416666666667vw solid #d9d9d9;
+    border: .06510416666666667vw solid #d9d9d9;
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .id_order_address {
@@ -1795,14 +1776,14 @@ body {
     height: 9.765625vw;
     position: relative;
     font-family: Lato, arial, sans-serif;
-    font-size: 0.8463541666666667vw;
-    letter-spacing: 0.032552083333333336vw
+    font-size: .8463541666666667vw;
+    letter-spacing: .032552083333333336vw
 }
 
 .id_order {
     background-color: #fafafa;
     width: 30%;
-    border-radius: 0.6510416666666667vw;
+    border-radius: .6510416666666667vw;
     padding: 1.3020833333333335vw;
     position: absolute;
     margin: 0;
@@ -1817,7 +1798,7 @@ body {
     display: inline-block;
     right: 0;
     padding: 1.3020833333333335vw;
-    border-radius: 0.6510416666666667vw
+    border-radius: .6510416666666667vw
 }
 
 .cancel_order {
@@ -1826,9 +1807,9 @@ body {
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
     color: #000;
-    background-color: #ffffff;
+    background-color: #fff;
     text-decoration: none;
-    border: 0.13020833333333334vw solid #e2c027;
+    border: .13020833333333334vw solid #e2c027;
     margin-left: 0;
     padding: .5765625vw;
     transition: all .5s;
@@ -1843,7 +1824,7 @@ body {
 .cancel_order:hover {
     background-color: rgb(250 250 250 / 81%);
     color: #151515;
-    border-width: 0.13020833333333334vw;
+    border-width: .13020833333333334vw;
     transform: scale(.9);
     color: red;
     border-color: rgb(236 16 16)
@@ -1854,20 +1835,20 @@ body {
 }
 
 .all_ordersinfo_box {
-    border-radius: 0.6510416666666667vw;
+    border-radius: .6510416666666667vw;
     margin-top: 3.2552083333333335vw
 }
 
 .order_center {
     width: 80%;
     height: 12.044270833333334vw;
-    border: 0.06510416666666667vw solid #e6e6e6;
-    border-radius: 0.6510416666666667vw;
+    border: .06510416666666667vw solid #e6e6e6;
+    border-radius: .6510416666666667vw;
     margin: 0 auto;
     position: relative;
-    letter-spacing: 0.032552083333333336vw;
+    letter-spacing: .032552083333333336vw;
     font-family: Cabin, arial, sans-serif;
-    font-size: 0.9114583333333334vw;
+    font-size: .9114583333333334vw;
     color: #494949
 }
 
@@ -1887,24 +1868,24 @@ body {
     display: inline-block;
     position: absolute;
     right: 1.9531250000000002vw;
-    top: 0.6510416666666667vw
+    top: .6510416666666667vw
 }
 
 .cart_count {
-    height: 0.78125vw;
-    width: 0.78125vw;
+    height: .78125vw;
+    width: .78125vw;
     border-radius: 100%;
-    color: #000000;
+    color: #000;
     background-color: #dbdbdb;
-    border: 0.06510416666666667vw solid #ffffffa2;
+    border: .06510416666666667vw solid #ffffffa2;
     margin: 0;
-    font-size: 0.6510416666666667vw;
+    font-size: .6510416666666667vw;
     font-weight: 700;
     font-family: Cabin, arial, sans-serif;
     position: absolute;
     text-align: center;
     top: 0;
-    right: 0;
+    right: 0
 }
 
 .shop_more {
@@ -1913,12 +1894,12 @@ body {
     color: #8a7522;
     text-decoration: none;
     float: right;
-    border: 0.06510416666666667vw solid #8a7522;
-    padding: 0.3255208333333333vw 0.6510416666666667vw;
-    border-radius: 0.3255208333333333vw;
+    border: .06510416666666667vw solid #8a7522;
+    padding: .3255208333333333vw .6510416666666667vw;
+    border-radius: .3255208333333333vw;
     font-size: 1.1020833333333333vw;
     letter-spacing: .06510416666666667vw;
-    transition: all 0.25s;
+    transition: all .25s
 }
 
 .shop_more:hover {
@@ -1930,7 +1911,7 @@ body {
     width: 30%;
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: row
 }
 
 .gola1 {
@@ -1938,17 +1919,17 @@ body {
     border-radius: 100%;
     border: 0;
     margin: 0;
-    height: 30.5px;
-    width: 35px;
-    position: relative;
+    height: 1.9856770833333335vw;
+    width: 2.2786458333333335vw;
+    position: relative
 }
 
 .gole_line {
-    height: 2px;
+    height: 0.13020833333333334vw;
     margin: 0;
-    margin-top: 14px;
+    margin-top: 0.9114583333333334vw;
     width: 100%;
-    background-color: #9a7e0057;
+    background-color: #9a7e0057
 }
 
 .gola2 {
@@ -1956,18 +1937,16 @@ body {
     border-radius: 100%;
     border: 0;
     margin: 0;
-    height: 30.5px;
-    width: 35px;
-    position: relative;
+    height: 1.9856770833333335vw;
+    width: 2.2786458333333335vw;
+    position: relative
 }
 
 .andar_gola {
-    /*     position: absolute; */
-    margin: 3px auto;
-    background-color: #C2A832;
-    border: 5px solid white;
-    height: 14px;
-    width: 14px;
-    border-radius: 100%;
-
+    margin: 0.1953125vw auto;
+    background-color: #c2a832;
+    border: 0.32552083333333337vw solid #fff;
+    height: 0.9114583333333334vw;
+    width: 0.9114583333333334vw;
+    border-radius: 100%
 }
