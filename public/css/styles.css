@@ -581,28 +581,6 @@ body {
     height: inherit
 }
 
-.flexbox_1 {
-    display: flex;
-    width: 35%;
-    background-image: url(https://img1.wsimg.com/isteam/ip/3347e55c-bce2-49cf-babe-4e156ce94552/HighRse.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:400,cg:true);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position-y: 0;
-    background-size: 100%
-}
-
-.flexbox_2 {
-    display: flex;
-    width: 5%
-}
-
-.flexbox_3 {
-    display: flex;
-    width: 60%;
-    flex-direction: column;
-    position: relative
-}
-
 .journey {
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
@@ -1713,7 +1691,7 @@ body {
     top: 0;
     height: 6.510416666666667vw;
     width: 10.7421875vw;
-    background-image: url(/images/vslogo.png);
+    background-image: url(https://lh3.googleusercontent.com/pw/AM-JKLX36vsxnsIgK0K9PNwSGrUGeVv2qKqVo8cyrtugDJGvUgnKrVSxWGQRNAom0Cz6M90UIYXAxOBzHBr0T_R5czvN0egQoJb_diod-UYhWI5M8yenOqN0Cm2gW1gYu-NTtSKn72iOytiY4oNY2ZzhKDV5=s225-no?authuser=0);
     background-size: 100%;
     background-position-y: -1.6276041666666667vw;
     background-position-x: -1.3020833333333335vw;
