@@ -17,7 +17,7 @@ const axios = require('axios')
 const Track = require('./models/tracking')
 const fetch = require('node-fetch');
 var cors = require('cors')
-const compression=require("compression")
+const compression = require("compression")
 
 
 
@@ -28,7 +28,11 @@ const {
 const app = express();
 app.set('view engine', 'ejs');
 
-app.use(compression())
+app.use(compression());
+app.use('/robots.txt', function (req, res, next) {
+  res.type('text/plain')
+  res.send("User-agent: *\nDisallow: /");
+});
 app.use(bodyParser.urlencoded({
   extended: true
 }));
