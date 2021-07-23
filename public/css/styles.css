@@ -410,19 +410,24 @@ body {
 }
 
 .obf_image1 {
-    background-image: url(https://lh3.googleusercontent.com/pw/AM-JKLW1jFdJtIMTNaL5n4dPMI37fpw0yNo2Naig6vdN4TVzeiOBFUksozzYW1HxXy9RoA2rPWhDMrGwz9p3MTvqkoA3TKFAYon3GoXBoYgqBgDKh0uWPSfQh1yWwumMQPQnNskZJm_dnYxWl-KzEDAMS6Qu=w1280-h914-no?authuser=0);
-    background-position-x: center;
-    background-size: 138%;
     height: 39.0625vw;
-    background-repeat: no-repeat
 }
 
+.obf_image1 img {
+    height: inherit;
+    width: 100%;
+    object-fit: cover;
+}
+
+
 .obf_image2 {
-    background-image: url(https://lh3.googleusercontent.com/pw/AM-JKLU8ibSSm8Qr-NwiidBg-KHGAK_L8U5_-TRd0yi8VeH1FfaP7kzvDAnad_1dswmjEEEqNe1BcuxeDW55WG8HGO_Gxvaq9VnGhfZ7irGcPOFT8q_Ow2UKyIg1TP9ULCB_lOZBWHnpXBRpVH_oTpQ7GCO0=w1280-h914-no?authuser=0);
-    background-position-x: center;
-    background-size: 138%;
     height: 39.0625vw;
-    background-repeat: no-repeat
+}
+
+.obf_image2 img {
+    height: inherit;
+    width: 100%;
+    object-fit: cover;
 }
 
 .obf-content2 {
@@ -1908,9 +1913,9 @@ body {
     color: #8a7522;
     text-decoration: none;
     float: right;
-    border: 1px solid #8a7522;
-    padding: 5px 10px;
-    border-radius: 5px;
+    border: 0.06510416666666667vw solid #8a7522;
+    padding: 0.3255208333333333vw 0.6510416666666667vw;
+    border-radius: 0.3255208333333333vw;
     font-size: 1.1020833333333333vw;
     letter-spacing: .06510416666666667vw;
     transition: all 0.25s;
