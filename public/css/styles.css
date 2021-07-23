@@ -310,8 +310,9 @@ body {
     border: .22786458333333334vw solid #685c00
 }
 
-.img-launching-h1 {
+.img-launching h1 {
     position: absolute;
+    text-align: right;
     font-family: Quicksand, sans-serif;
     font-size: 3.980729166666667vw;
     letter-spacing: .13020833333333334vw;
@@ -322,7 +323,8 @@ body {
     margin: 0
 }
 
-.img-launching-h12 {
+/* 
+.img-launching h1 {
     margin: 0;
     position: absolute;
     letter-spacing: .13020833333333334vw;
@@ -333,7 +335,7 @@ body {
     font-weight: 100;
     letter-spacing: .06510416666666667vw;
     right: 8.463541666666668vw
-}
+} */
 
 .about_us {
     width: 80.20833333333333vw;
