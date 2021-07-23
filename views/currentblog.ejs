@@ -10,13 +10,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>VishuddhaCrops | Luxury Hair-Skin Oil</title>
     <meta name="author" content="www.vishuddhacrops.com,Prateek Kumar Singh">
+
+
     <meta name="title" content="VishuddhaCrops">
     <meta name="description" content="Vishuddha is a luxury lifestyle brand making pure cold-pressed oils and more.">
     <meta name="keywords"
         content="oil,rig,explosion,change,near,me,cbd,prices,mct,black,seed,coconut,neem,castor,take,5,tea,tree,valvoline,bio,olive,spill,canola,jojoba,crude,peppermint,fish,beard,argan,mineral,price,of,best,hemp,marathon,stock,avocado,walmart,for,dogs,essential,diffuser,moroccan,benefits,express,palm,linseed,today,rick,simpson,pain,grapeseed,krill,coupons,pulling,sesame,hair,flaxseed,news,eucalyptus,oregano,evening,primrose,fram,filter,cod,liver,vitamin,e,rosehip,what,is,cross,reference,clove,coupon,plants,anxiety,tung,painting,city,peanut,truffle,emu,synthetic,full,spectrum,reviews,snake,instant,vegetable,olay,charlotte's,web,marvel,mystery,thc,sunflower,futures,extra,virgin,lavender,lamp,rso,stocks,chili,luxury,vinyl,plank,flooring,cars,suv,apartments,tile,girl,homes,rv,nails,car,brands,rental,2020,watches,real,estate,suvs,synonym,bedding,2021,sale,ball,yacht,midsize,bathroom,sports,bathrooms,furniture,atlanta,motors,house,cheap,hotels,compact,travel,advisor,most,reliable,watch,retreats,galaxy,sparks,imax,luxury+,theatre,green,valley,candles,rose's,men,sedans,bedroom,handbags,shaw,hotel,affordable,home,uptown,lingerie,dining,room,kitchen,motorhomes,vacation,rentals,lifestyle,small,sets,loud,life,riverbank,used,nemo,stargaze,recliner,chair,mission,grove,plans,trailers,top,roses,cadillac,xt5,premium,the,closet,apartment,escapes,elite,garage,eso,vendor,wallpaper,yachts,sedan,jewelry,tax,living,auto,collection,jumbo,cannery,vishuddhacrops,VishuddhaCrops,Vishuddha,vishuddha,crops,Crops,almond,milk,flour,butter,pancakes,cookies,recipes,nutrition,joy,eyes,cow,silk,how,to,make,paste,sweet,banana,bread,chocolate,chip,roca,made,good,you,bark,shaped,cake,oat,vs,breeze,calories,pie,crust,meal,biscuits,pizza,does,go,bad,dairy,unsweetened,extract,recipe,ice,cream,creamer,chicken,tortillas,can,eat,waffles,brownies,with,marc,muffins,facts,blossoms,have,crackers,biscotti,keto,yogurt,carbs,freeze,homemade,skin,fruit,color,long,last,croissant,blossom,simple,mills,gluten,free,short,crescent,chinese,enstrom,toffee,shape,substitute,justin's,califia,blanched,toasted,trees,in,crab,water,aminos,shrimp,rice,sugar,macaroons,crabs,fractionated,open,a,coir,put,lime,kitty,desiccated,your,creek,head,custard,mall,curry,rum,casino,whipped,fl,nude,toast,as,lube,song,chaokoh,thai,soup,macaroon,nekopara,mask,harmless,harvest,kennys,organic,chutney,zico,stranded,deep,flask,flakes,bowls,fiber,point,powder">
     <meta name="robots" content="index, follow">
     <!-- <meta name="language" content="English"> -->
-    <meta http-equiv = "content-language" content = "en">
+    <meta http-equiv="content-language" content="en">
 
     <meta name="revisit-after" content="7 days">
 
@@ -30,7 +32,6 @@
     <link rel="apple-touch-icon" href="/images/favicon.png" />
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -41,6 +42,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- ************************************************************************** -->
+    <meta property="og:url" content="https://vscrops.herokuapp.com/blog/<%=iddx%>" />
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:image" content="<%=img%>" />
+    <!-- ************************************************************************** -->
+
+
 </head>
 
 <body>
@@ -48,7 +57,9 @@
         <p data-ux="PromoBannerText" data-aid="BANNER_TEXT_RENDERED" data-typography="HeadingBeta" class="banner-p">
             THE PURE LIFE</p>
     </div>
+
     <div class="header-block">
+
         <div id="user_dropdown_1" onmouseout="dropdownout_2()" onmouseover="dropdownover_2()" class="user_dropdown"
             style="visibility: collapse;">
             <% if(isLoggedin==="yes") {%>
@@ -88,6 +99,7 @@
             <% } %>
         </div>
         <div class="header-block-container">
+
             <!-- <ul class="ul-continer">
                 <div class="li-div">
                     <li><a id="home" class="li-container" href="/home">HOME</a></li>
@@ -103,17 +115,18 @@
                     <div class="company-logo"></div>
                 </a>
 
-
-                <div class="search-cart-user">
-                    <a id="home" class="li-container" href="/home">Home</a>
-                    <a id="products" class="li-container" href="/products">Products</a>
-                    <a id="corporate_g" class="li-container" href="/foundersnote">Corporate Gifting</a>
-                    <a id="ourstory" class="li-container" href="/ourstory">Our Story</a>
-                    <a id="blog" class="li-container" href="/blog">Blog</a>
-                    <a id="contactus" class="li-container" href="/contactus">Contact Us</a>
-                    <a href="" class="li-container1"><i class="fas fa-search "></i></a>
+                <div class="search-cart-user" id="nav-lap">
+                    <!-- <div style="flex:1"></div> -->
+                    <a id="home" class="li-container" href="/home" name="home">Home</a>
+                    <a id="products" class="li-container" href="/products" name="products">Products</a>
+                    <a id="corporate_g" class="li-container" href="/foundersnote" name="corporate gifting">Corporate
+                        Gifting</a>
+                    <a id="ourstory" class="li-container" href="/ourstory" name="our story">Our Story</a>
+                    <a id="blog" class="li-container" href="/blog" name="blog">Blog</a>
+                    <a id="contactus" class="li-container" href="/contactus" name="contact us">Contact Us</a>
+                    <a href="#" class="li-container1"><i class="fas fa-search " name="search"></i></a>
                     <% if(isLoggedin==="yes") {%>
-                    <a href="/cart" class="li-container1">
+                    <a href="/cart" class="li-container1" name="cart length">
                         <div id="cart_count" class="cart_count"><%= cartlength %></div><i
                             class="fas fa-shopping-cart "></i>
                     </a>
@@ -125,12 +138,13 @@
                         }
                     </script>
                     <%}%>
-                        <% if(isLoggedin==="no") {%>
-                    <a href="/cart" class="li-container1"><i class="fas fa-shopping-cart "></i></a>
+                    <% if(isLoggedin==="no") {%>
+                    <a href="/cart" class="li-container1" name="cart length"><i class="fas fa-shopping-cart "></i></a>
                     <%}%>
                     <a style="cursor: pointer;" onmouseout="dropdownout_2()" onmouseover="dropdownover_2()"
-                        onclick="dropdownclick_1()" class="li-container1"><i class="fas fa-user "></i></a>
+                        onclick="dropdownclick_1()" class="li-container1" name="user"><i class="fas fa-user "></i></a>
                 </div>
+                
             </div>
 
         </div>
@@ -138,11 +152,21 @@
 
     </div>
 
+<!--     
+    <div class="search-cart-user-mob" id = "nav-mob" style="opacity: 1;position: fixed;height: 100vh;width: 100%; background-color: thistle;z-index: 2;top: 0;display: flex;align-items: center;flex-direction: column;">
+        <button id = "close" style="border: 0;background: transparent;margin-left: 80%;">X</button>
+        <a id="" class="" href="/home">Home</a>
+        <a id="" class="" href="/products">Products</a>
+        <a id="" class="" href="/ourstory">Our Story</a>
+        <a id="" class="" href="/blog">Blog</a>
+        <a id="" class="" href="/contactus">Contact Us</a>
+    </div> -->
 
     <div class="chat_button">
-        <a style="text-decoration: none;" href="https://wa.me/916386417658" target="_blank"><i class="fab fa-whatsapp"
+        <a style="text-decoration: none;" href="https://wa.me/916386417658" target="_blank" rel="noreferrer" name="whatsapp icon"><i class="fab fa-whatsapp"
                 style="color: #ffffff;"></i></a>
     </div>
+
 
 
 

@@ -31,7 +31,7 @@ app.set('view engine', 'ejs');
 app.use(compression());
 app.use('/robots.txt', function (req, res, next) {
   res.type('text/plain')
-  // res.send("User-agent: *\nDisallow: /");
+  res.send("User-agent: *");
 });
 app.use(bodyParser.urlencoded({
   extended: true
