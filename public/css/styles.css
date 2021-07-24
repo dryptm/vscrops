@@ -1702,7 +1702,7 @@ body {
 .description_data {
     width: 19.020833333333334vw;
     color: #000;
-    font-weight: 600;
+    font-weight: 500;
     background-color: #fff;
     border: .06510416666666667vw solid #dbdbdb;
     letter-spacing: .06510416666666667vw;
@@ -1712,7 +1712,7 @@ body {
     height: auto;
     padding: .6510416666666667vw;
     position: absolute;
-    font-size: .78125vw;
+    font-size: .818125vw;
     right: 2.604166666666667vw;
     top: 4.557291666666667vw;
     transition: all .2s
