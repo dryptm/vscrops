@@ -261,6 +261,28 @@ body {
     background: linear-gradient(to top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .3) 100%)
 }
 
+.img-launching h1 {
+    position: absolute;
+    text-align: right;
+    /*         font-family: Quicksand, sans-serif; */
+    /*         font-family: 'Elsie', cursive; */
+    /*     font-family: 'Forum', cursive; */
+    /*     font-family: 'New Rocker', cursive; */
+    /*     font-family: 'Nixie One', cursive; */
+    font-family: 'Poiret One', cursive;
+    /*     font-family: 'Rye', cursive; */
+    font-size: 5.480729166666667vw;
+    letter-spacing: .13020833333333334vw;
+    right: 8.463541666666668vw;
+    color: #fff;
+    font-weight: 100;
+    top: 5.210416666666667vw;
+    margin: 0;
+    text-shadow: 0.1953125vw 0.1953125vw #474747;
+
+}
+
+
 .launchbannerimg {
     width: 100%;
     position: relative;
@@ -309,18 +331,6 @@ body {
     border: .22786458333333334vw solid #685c00
 }
 
-.img-launching h1 {
-    position: absolute;
-    text-align: right;
-    font-family: Quicksand, sans-serif;
-    font-size: 3.980729166666667vw;
-    letter-spacing: .13020833333333334vw;
-    right: 8.463541666666668vw;
-    color: #fff;
-    font-weight: 100;
-    top: 5.210416666666667vw;
-    margin: 0
-}
 
 .about_us {
     width: 80.20833333333333vw;
@@ -550,6 +560,20 @@ body {
     margin: 0 auto;
     padding-top: 4.557291666666667vw
 }
+
+.main_box_xx {
+    width: 81%;
+    /*     background-color: antiquewhite; */
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding-top: 4.557291666666667vw
+}
+
+.main_box_xx1 {}
+
+.main_box_xx2 {}
 
 .ourstory_head {
     font-size: 2.799479166666667vw;
@@ -1296,8 +1320,9 @@ body {
     border-width: .06510416666666667vw;
     padding: .9765625vw;
     transition: all .25s;
+    margin-top: 2.34375vw;
     cursor: pointer;
-    margin-left: 64.77864583333334vw;
+    /*     margin-left: 64.77864583333334vw; */
     border-radius: .32552083333333337vw
 }
 

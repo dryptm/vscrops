@@ -40,27 +40,30 @@
     style="visibility: collapse;position: absolute;">
   <%}%>
 <h4 class="total_all_cart_price" id="total_all_cart_price">adadadfgsdfgsdfgs dfg sdg</h4><br>
-<br><br><br><br><br><br>
+<br><br><br><br>
 <a href="/products" class="shop_more">Shop More</a>
 
 
 
 
-<div class="main_box">
-  <%if(cart.length>0){%>
+<div class="main_box_xx">
+  <div class="main_box_xx1">
+    <%if(cart.length>0){%>
 
   <%if(cart[0].coupon_code){%>
   <h3 class="coupon_code_h3">Coupon Applied: <span
       style="text-transform: uppercase;font-weight: 400;"><%=cart[0].coupon_code%></span></h3>
   <%}%>
-  <%}%>
+      <%}%>
 
   <form action="/discount" method="POST">
     <h3 class="coupon_code_h3">Coupon Code:</h3>
     <input class="coupon_input" type="text" name="discount" value="">
     <button class="btn-coupon" type="submit">Check</button>
   </form>
+</div>
 
+<div class="main_box_xx2">
   <form action="/checkout_post" method="POST">
 
     <% for(let i = 0;i<cart.length;++i){%>
@@ -72,6 +75,8 @@
     <input style="visibility: collapse;opacity: 0;" type="text" id="tot" value="" name="tot_p">
     <button class="checkout_button" type="submit">Checkout</button>
   </form>
+</div>
+
 
 </div>
 
