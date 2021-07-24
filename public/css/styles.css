@@ -271,7 +271,7 @@ body {
     /*     font-family: 'Nixie One', cursive; */
     font-family: 'Poiret One', cursive;
     /*     font-family: 'Rye', cursive; */
-    font-size: 5.480729166666667vw;
+    font-size: 5.780729166666667vw;
     letter-spacing: .13020833333333334vw;
     right: 8.463541666666668vw;
     color: #fff;
@@ -282,6 +282,27 @@ body {
 
 }
 
+.vishuddha_oils_are {
+    text-align: center;
+    font-size: 2.299479166666667vw;
+    font-family: Cabin, arial, sans-serif;
+    letter-spacing: .06510416666666667vw;
+    color: #ad9226;
+    text-align: center;
+    font-weight: 400
+}
+
+.vishuddha_oils_are_quality_flex {
+    margin: 0 auto;
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.vishuddha_oils_are_quality_flex img {
+    opacity: 0.85
+}
 
 .launchbannerimg {
     width: 100%;
