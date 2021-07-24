@@ -1,4 +1,10 @@
 <%- include('head-foot/header'); -%>
+<h1 style="opacity: 0;position: absolute;">EXPERIENCE THE LUXURY</h1>
+<h2 style="opacity: 0;position: absolute;">Almond oil</h2>
+<h2 style="opacity: 0;position: absolute;">Coconut oil</h2>
+<h2 style="opacity: 0;position: absolute;">Luxury</h2>
+<h2 style="opacity: 0;position: absolute;">Luxury Almond oil</h2>
+<h2 style="opacity: 0;position: absolute;">Luxury Coconut oil</h2>
 
 <div class="main_box_blog_1">
 
@@ -26,7 +32,7 @@
             <div class="image_of_product">
 
                 <img class="blogimg_products" src="<%=post[i].product_image%>" alt="product image">
-                <h1 class="blogh1"><%= post[i].product_name%></h1>
+                <h2 class="blogh1"><%= post[i].product_name%></h2>
                 <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-cart-plus"></i></a>
                 <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
@@ -55,7 +61,7 @@
                 <img class="blogimg_products" src="<%=post[i+1].product_image%>" alt="product image">
 
 
-                <h1 class="blogh1"><%= post[i+1].product_name%></h1>
+                <h2 class="blogh1"><%= post[i+1].product_name%></h2>
                 <a class="add_to_cart" href="/products/<%=post[i+1]._id%>"><i class="fas fa-cart-plus"></i></a>
                 <%var price=post[i+1].product_price-((post[i+1].product_price*post[i+1].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
@@ -90,7 +96,7 @@
                 <img class="blogimg_products" src="<%=post[i].product_image%>" alt="product image">
 
 
-                <h1 class="blogh1"><%= post[i].product_name%></h1>
+                <h2 class="blogh1"><%= post[i].product_name%></h2>
                 <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-cart-plus"></i></a>
                 <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
