@@ -1679,13 +1679,13 @@ body {
 }
 
 .description_data {
-    width: 13.020833333333334vw;
+    width: 19.020833333333334vw;
     color: #000;
-    font-weight: 700;
+    font-weight: 600;
     background-color: #fff;
     border: .06510416666666667vw solid #dbdbdb;
     letter-spacing: .06510416666666667vw;
-    font-family: Lato, arial, sans-serif;
+    font-family: Cabin, arial, sans-serif;
     text-align: left;
     border-radius: .32552083333333337vw;
     height: auto;
