@@ -1091,27 +1091,7 @@ app.post('/payment_confirm', (req, res) => {
 
 
 
-
-
-
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -1180,7 +1160,7 @@ app.post('/payment_confirm', (req, res) => {
       customer_name: req.body.name,
       customer_email: req.body.email,
       customer_phone: req.body.phone,
-      total_amount: String(Number(req.body.amount) + 50),
+      total_amount: String(Number(req.body.amount.split(" ")[1]) + 50),
       billing_address: req.body.billing_address1,
       city: req.body.city,
       pincode: req.body.pincode,
@@ -1236,7 +1216,7 @@ app.post('/payment_confirm', (req, res) => {
       customer_name: req.body.name,
       customer_email: req.body.email,
       customer_phone: req.body.phone,
-      total_amount: req.body.amount,
+      total_amount: req.body.amount.split(" ")[1],
       billing_address: req.body.billing_address1,
       city: req.body.city,
       pincode: req.body.pincode,
@@ -1274,7 +1254,7 @@ app.post('/payment_confirm', (req, res) => {
             else {
               res.render("payment_success", {
                 isLoggedin: "yes",
-                cartlength: found1.cart.length,
+                cartlength: req.user.cart.length,
 
                 name: req.user.name,
                 message: "Payment Successful!"
@@ -1297,7 +1277,7 @@ app.post('/payment_failed', (req, res) => {
 
   res.render("payment_success", {
     isLoggedin: "yes",
-    cartlength: found1.cart.length,
+    cartlength: req.user.cart.length,
 
     name: req.user.name,
     message: "Payment Failed!"
