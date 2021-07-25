@@ -65,7 +65,8 @@ var Blog = mongoose.model('Blog', blogSchema);
 
 // product sku maker
 Product.find({}, (err, found) => {
-
+ if(found)
+ {
   for (var i = 0; i < found.length; i++) {
     Product.findOne({
       _id: found[i]._id
@@ -89,6 +90,8 @@ Product.find({}, (err, found) => {
       }
     })
   }
+ }
+  
 })
 app.get("/", function (req, res) {
   if (req.isAuthenticated()) {

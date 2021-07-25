@@ -59,7 +59,7 @@
                     </div>
 
 
-                    <a class="cancel_order" id="cancelorder<%= i %>" href="/shiprocket/<%= orders[i].order_id %>">Cancel
+                    <a class="cancel_order" id="cancelorder<%=i%>" href="/shiprocket/<%= orders[i].order_id %>">Cancel
                         Items</a>
 
                 </div>
@@ -86,7 +86,8 @@
                 <% } %>
 
 
-
+                <input type="number" style="visibility: collapse; position: absolute;" id="len2<%=i%>"
+                    value="<%= orders[i].items.length %>">
                 <div class="all_ordersinfo_box">
                     <% for(let j = 0;j<orders[i].items.length;++j){ %>
 
@@ -96,7 +97,7 @@
                             <span id="date<%=i %> " class="">Date: <%=orders[i].date%></span><br>
                             <span id="" class="">Payment Method : <%=orders[i].items[j].payment_method%></span><br>
                             <span>Price Paid : ₹<%=orders[i].items[j].total_price%></span><br>
-                            <span id="status<%= i%>">Status : status_bla</span><br>
+                            <span id="statu<%=i%><%=j%>">Status : status_bla</span><br>
                             <span>Quantity : <%=orders[i].items[j].quantity%></span><br>
                             <%if(orders[i].items[j].coupon_code){%>
                             <span>Coupon Applied : <span
@@ -114,18 +115,18 @@
                     <% if(obj){ %>
 
                     <% if(obj.shiprocket_order_info[0]==='<'){ %>
-                    <p style="opacity: 0;visibility: collapse;"> shipment_id : N/A </p>
+                    <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>"> shipment_id : N/A </p>
                     <p style="opacity: 0;visibility: collapse;"> Shiprocket order id : N/A </p>
                     <% } %>
                     <% if(obj.shiprocket_order_info[0]!=='<'){ %>
-                    <p style="opacity: 0;visibility: collapse;">shipment_id :
+                    <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>">shipment_id :
                         <%= JSON.parse(obj.shiprocket_order_info).shipment_id %> </p>
                     <p style="opacity: 0;visibility: collapse;">Shiprocket order id :
                         <%= JSON.parse(obj.shiprocket_order_info).order_id %></p>
                     <% } %>
                     <% } %>
                     <%if(typeof obj==='undefined'){%>
-                    <p style="opacity: 0;visibility: collapse;"> shipment_id : N/A </p>
+                    <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>"> shipment_id : N/A </p>
                     <p style="opacity: 0;visibility: collapse;"> Shiprocket order id : N/A </p>
                     <%}%>
                     <%}%>
@@ -145,7 +146,22 @@
 
 
         <script>
+         var stat = ["Awb Assigned", "Label Generated",
+                "Pickup Scheduled/Generated", "Pickup Queued",
+                "Manifest Generated", "Shipped", "Delivered", "Cancelled",
+                "RTO Initiated", "RTO Delivered", "Pending", "Lost",
+                "Pickup Error", "RTO Acknowledged", "Pickup Rescheduled", "Cancellation Requested",
+                "Out For Delivery",
+                "In Transit", "Out For Pickup", "Pickup Exception", "Undelivered", "Delayed", "Partial_Delivered",
+                "Destroyed", "Damaged",
+                "Fulfilled", 
+                "","","","","","","","","","","",
+                "Reached at Destination", "Misrouted", "RTO NDR", "RTO OFD", "Picked Up",
+                "Self Fulfilled", "DISPOSED_OFF", "CANCELLED_BEFORE_DISPATCHED",
+                "RTO_IN_TRANSIT"
+            ]
             for (let i = 0; i < Number(document.getElementById('len').value); ++i) {
+
 
 
                 var observer = new MutationObserver(function (mutations) {
@@ -215,17 +231,23 @@
                             myHeaders.append("Authorization",
                                 "Bearer " + JSON.parse(result).token
                             );
-
                             var requestOptions = {
                                 method: 'GET',
                                 headers: myHeaders,
                                 redirect: 'follow'
                             };
 
+
+
+
+
+
+
+
                             fetch("https://apiv2.shiprocket.in/v1/external/orders/show/" + id, requestOptions)
                                 .then(res => {
                                     console.log(res.text().then(rs => {
-                                        console.log(JSON.parse(rs).data)
+                                        //console.log(JSON.parse(rs).data)
                                         document.getElementById('add' + i).innerHTML = JSON
                                             .parse(rs).data.billing_address
                                         document.getElementById('city' + i).innerHTML = JSON
@@ -247,7 +269,72 @@
 
 
 
+
+
+
+
             for (let i = 0; i < Number(document.getElementById('len').value); ++i) {
+
+
+                for (let k = 0; k < Number(document.getElementById('len2' + i).value); ++k) {
+
+
+
+
+
+                    var myHeaders4 = new Headers();
+                    myHeaders4.append("Content-Type", "application/json");
+
+                    var raw4 = JSON.stringify({
+                        "email": "vinay9415756155@gmail.com",
+                        "password": "Vishuddha@1120"
+                    });
+
+                    var requestOptions4 = {
+                        method: 'POST',
+                        headers: myHeaders4,
+                        body: raw4,
+                        redirect: 'follow'
+                    };
+
+                    fetch("https://apiv2.shiprocket.in/v1/external/auth/login", requestOptions2)
+                        .then(response => response.text())
+                        .then(result => {
+                            var myHeaders3 = new Headers();
+                            myHeaders3.append("Content-Type", "application/json");
+                            myHeaders3.append("Authorization", "Bearer " + JSON.parse(result).token);
+                            var requestOptions3 = {
+                                method: 'GET',
+                                headers: myHeaders3,
+                                redirect: 'follow'
+                            };
+                            if (document.getElementById('ship' + i + k).innerHTML.split(':')[1].trim() !== "N/A") {
+                                fetch("https://apiv2.shiprocket.in/v1/external/shipments/" + document
+                                        .getElementById('ship' + i + k).innerHTML.split(':')[1].trim(),
+                                        requestOptions3)
+                                    .then(response => response.text())
+                                    .then(result => {
+                                        document.getElementById(
+                                            'statu' + i + k).innerHTML = "Status : " + stat[JSON.parse(
+                                            result).data.status - 1]
+                                            if (JSON.parse(
+                                            result).data.status === 8) {
+                        document.getElementById('cancelorder' + i).style.display = "none"
+                    }
+
+                                    })
+                                    .catch(error => console.log('error', error));
+                            } else {
+                                document.getElementById('statu' + i + k).innerHTML = "Status : Cancelled"
+                            }
+                        })
+
+                    
+
+
+                }
+
+
 
                 document.getElementById('order_bf_click' + i).addEventListener('click', () => {
                     document.getElementById('order_info' + i).style.display = "initial"
