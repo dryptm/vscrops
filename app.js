@@ -65,33 +65,32 @@ var Blog = mongoose.model('Blog', blogSchema);
 
 // product sku maker
 Product.find({}, (err, found) => {
- if(found)
- {
-  for (var i = 0; i < found.length; i++) {
-    Product.findOne({
-      _id: found[i]._id
-    }, (err, found1) => {
-      var x = found1.product_name
-      var y = x.split(" ")
-      for (var j = 0; j < y.length; j++) {
-        y[j] = y[j].substring(0, 3)
-      }
-      if (found1.product_sku == "") {
+  if (found) {
+    for (var i = 0; i < found.length; i++) {
+      Product.findOne({
+        _id: found[i]._id
+      }, (err, found1) => {
+        var x = found1.product_name
+        var y = x.split(" ")
+        for (var j = 0; j < y.length; j++) {
+          y[j] = y[j].substring(0, 3)
+        }
+        if (found1.product_sku == "") {
 
-        Product.findOneAndUpdate({
-          _id: found1._id
-        }, {
-          product_sku: y.join("-")
-        }, {
-          new: true
-        }, (err, foundx) => {
-          console.log(found1.product_name + " sku changed")
-        })
-      }
-    })
+          Product.findOneAndUpdate({
+            _id: found1._id
+          }, {
+            product_sku: y.join("-")
+          }, {
+            new: true
+          }, (err, foundx) => {
+            console.log(found1.product_name + " sku changed")
+          })
+        }
+      })
+    }
   }
- }
-  
+
 })
 app.get("/", function (req, res) {
   if (req.isAuthenticated()) {
@@ -1779,12 +1778,14 @@ app.get('/shiprocket/:id', (req, res) => {
 
       }
 
+      res.redirect("/orders")
 
     }
   })
 
   //************************************* */
   // AFTER CANCEL REDIRECT AND UPDATE ORDER STATUS
+
   //************************************** */
 
 

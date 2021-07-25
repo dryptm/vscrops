@@ -7,10 +7,9 @@
         <p class="head_orders_margs">Date</p>
         <p class="head_orders_margs">Order Id</p>
         <p class="head_orders_margs" style="margin-right: 3.2552083333333335vw;">Total</p>
-        <p class="head_orders_margs">Status</p>
+        <p class="head_orders_margs">Coupon</p>
         <p style="flex: 1;"></p>
     </div>
-
 
     <div class="order_box1">
 
@@ -29,8 +28,8 @@
 
                 <% } %>
                 <span id="totalprice<%= i%>" class="order_style"><%=orders[i].total_price%></span>
-                <span id="status<%= i%>" class="order_style1">status_bla</span>
 
+                <span id="status<%= i%>" class="order_style1" style="text-transform:uppercase"><%=orders[i].items[0].coupon_code%></span>
             </div>
 
             <div class="order_info_box" id="order_info<%= i %>" style="display: none;">
