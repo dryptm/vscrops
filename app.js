@@ -1776,15 +1776,15 @@ app.get('/shiprocket/:id', (req, res) => {
         console.log("NO REFUND NEEDED (Payment mode: COD)")
         //**************************************** */
 
+
+
       }
-
-      res.redirect("/orders")
-
     }
   })
 
   //************************************* */
   // AFTER CANCEL REDIRECT AND UPDATE ORDER STATUS
+  res.redirect("/orders")
 
   //************************************** */
 
