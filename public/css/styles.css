@@ -533,18 +533,20 @@ body {
     border-width: 0
 }
 
-.carousel{
+.carousel {
     width: 80.20833333333333vw;
     margin: 0 auto;
 }
-.carousel-control-prev{
+
+.carousel-control-prev {
     background-color: rgba(0, 0, 0, 0.473);
     height: 150px;
     width: 100px;
     margin: auto 0;
     transition: all 0.25s;
 }
-.carousel-control-next{
+
+.carousel-control-next {
     background-color: rgba(0, 0, 0, 0.473);
     height: 150px;
     width: 100px;
@@ -1474,7 +1476,7 @@ body {
     right: 3.2552083333333335vw;
     margin: 0;
     box-shadow: rgb(0 0 0 / 45%) 0 .1953125vw 1.171875vw;
-    padding: .6510416666666667vw .85114583333333334vw;
+    padding: .50416666666667vw .95114583333333334vw;
     font-size: 1.5531250000000002vw;
     border-radius: 6.510416666666667vw;
     background-color: #62b00f;
