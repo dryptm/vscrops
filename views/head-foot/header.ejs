@@ -23,8 +23,6 @@
     <meta name="revisit-after" content="7 days">
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
@@ -144,7 +142,7 @@
                     <a href="/cart" class="li-container1" name="cart length"><i class="fas fa-shopping-cart "></i></a>
                     <%}%>
                     <a style="cursor: pointer;" onmouseout="dropdownout_2()" onmouseover="dropdownover_2()"
-                        onclick="dropdownclick_1()" class="li-container1" name="user"><i class="fas fa-user" id ="li-container1" style="color: #B99D30;"></i></a>
+                        onclick="dropdownclick_1()" class="li-container1" name="user"><i class="fas fa-user" style="color: #B99D30;"></i></a>
                 </div>
                 
             </div>
@@ -180,13 +178,11 @@
         function dropdownover_2() {
             document.getElementById("user_dropdown_1").style.opacity = 1;
             document.getElementById("user_dropdown_1").style.visibility = "visible";
-            document.getElementById("li-container1").style.color = "rgb(113 96 33)"
 
         }
 
         function dropdownout_2() {
             document.getElementById("user_dropdown_1").style.opacity = 0;
-            document.getElementById("li-container1").style.color = "#B99D30"
 
             document.getElementById("user_dropdown_1").style.visibility = "collapse";
         }
