@@ -536,22 +536,49 @@ body {
 .carousel {
     width: 80.20833333333333vw;
     margin: 0 auto;
+    position: relative;
+    object-fit: cover;
+    height: fit-content;
 }
 
-.carousel-control-prev {
-    background-color: rgba(0, 0, 0, 0.473);
-    height: 9.765625vw;
-    width: 6.510416666666667vw;
-    margin: auto 0;
-    transition: all 0.25s;
+.carousel img {
+    width: 100%;
+    transition: all 1s;
+
+}
+
+.carousel a {
+    color: white;
+    font-size: 50px;
+    text-decoration: none;
 }
 
 .carousel-control-next {
+    position: absolute;
+    right: 0;
+    top: 40%;
     background-color: rgba(0, 0, 0, 0.473);
-    height: 9.765625vw;
-    width: 6.510416666666667vw;
+    padding: 40px;
     margin: auto 0;
-    transition: all 0.25s;
+    /* transition: all 0.25s; */
+    cursor: pointer;
+}
+.carousel-control-next:hover{
+    background-color: rgba(0, 0, 0, 0.664);
+}
+
+.carousel-control-prev {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    background-color: rgba(0, 0, 0, 0.473);
+    padding: 40px;
+    margin: auto 0;
+    /* transition: all 0.25s; */
+    cursor: pointer;
+}
+.carousel-control-prev:hover{
+    background-color: rgba(0, 0, 0, 0.664);
 }
 
 ::-webkit-input-placeholder {
