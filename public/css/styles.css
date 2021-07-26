@@ -532,6 +532,25 @@ body {
     border-width: 0
 }
 
+.carousel{
+    width: 80.20833333333333vw;
+    margin: 0 auto;
+}
+.carousel-control-prev{
+    background-color: rgba(0, 0, 0, 0.473);
+    height: 150px;
+    width: 100px;
+    margin: auto 0;
+    transition: all 0.25s;
+}
+.carousel-control-next{
+    background-color: rgba(0, 0, 0, 0.473);
+    height: 150px;
+    width: 100px;
+    margin: auto 0;
+    transition: all 0.25s;
+}
+
 ::-webkit-input-placeholder {
     opacity: .5
 }
@@ -1450,7 +1469,6 @@ body {
 }
 
 .chat_button {
-    position: absolute;
     bottom: 1.9531250000000002vw;
     right: 3.2552083333333335vw;
     margin: 0;
