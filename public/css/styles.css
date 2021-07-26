@@ -302,7 +302,7 @@ body {
 }
 
 .vishuddha_oils_are_quality_flex img {
-    opacity: 0.85
+    opacity: 0.85;
 }
 
 .launchbannerimg {
@@ -541,15 +541,13 @@ body {
     height: fit-content;
 }
 
-.carousel img {
+.ca_img {
     width: 100%;
-    transition: all 1s;
-
 }
 
 .carousel a {
-    color: white;
-    font-size: 50px;
+    color: rgba(255, 255, 255, 0.877);
+    font-size: 3.2552083333333335vw;
     text-decoration: none;
 }
 
@@ -558,12 +556,12 @@ body {
     right: 0;
     top: 40%;
     background-color: rgba(0, 0, 0, 0.473);
-    padding: 40px;
+    padding: 2.6041666666666665vw;
     margin: auto 0;
-    /* transition: all 0.25s; */
     cursor: pointer;
 }
-.carousel-control-next:hover{
+
+.carousel-control-next:hover {
     background-color: rgba(0, 0, 0, 0.664);
 }
 
@@ -572,12 +570,12 @@ body {
     left: 0;
     top: 40%;
     background-color: rgba(0, 0, 0, 0.473);
-    padding: 40px;
+    padding: 2.6041666666666665vw;
     margin: auto 0;
-    /* transition: all 0.25s; */
     cursor: pointer;
 }
-.carousel-control-prev:hover{
+
+.carousel-control-prev:hover {
     background-color: rgba(0, 0, 0, 0.664);
 }
 
