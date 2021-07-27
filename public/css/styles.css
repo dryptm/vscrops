@@ -538,12 +538,18 @@ body {
     width: 80.20833333333333vw;
     margin: 0 auto;
     position: relative;
-    object-fit: cover;
-    height: fit-content;
+    overflow:hidden;
+    height: 45.818684895833336vw;
 }
 
 .ca_img {
-    width: 100%;
+    width: 80.20833333333333vw;
+    height: 45.818684895833336vw;
+    float: left;
+    margin: 0;
+    padding: 0;
+    transition: all 1s;
+
 }
 
 .carousel a {
