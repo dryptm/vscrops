@@ -562,11 +562,11 @@ body {
 .shopnow {
     background-color: white;
     font-family: Lato, arial, sans-serif;
-    font-size: 24px;
+    font-size: 1.5625vw;
     font-weight: 700;
     color: #6b6031;
-    border-radius: 10px;
-    border: 2px solid #aa901e;
+    border-radius: 0.6510416666666666vw;
+    border: 0.13020833333333334vw solid #aa901e;
     text-decoration: none;
     position: absolute;
     left: 47%;
