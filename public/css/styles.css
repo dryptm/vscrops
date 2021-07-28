@@ -536,6 +536,8 @@ body {
 
 .carousel-container {
     width: 80.20833333333333vw;
+    height: 37.818684895833336vw;
+
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -544,7 +546,8 @@ body {
 .carousel-slide {
     width: 100%;
     height: 45.818684895833336vw;
-    display: flex;
+    margin-top: -4vw;
+    display:flex;
 }
 
 .carousel-container a {
@@ -557,9 +560,9 @@ body {
 .carousel-control-next {
     position: absolute;
     right: 0;
-    top: 40%;
+    top: 35%;
     opacity: 0.7;
-    padding: 3.6041666666666665vw;
+    padding: 3.6041666666666665vw 2.6041666666666665vw;
     background-color: rgba(0, 0, 0, 0.288);
     margin: auto 0;
     cursor: pointer;
@@ -567,23 +570,25 @@ body {
 
 .carousel-control-next:hover {
     opacity: 1;
-    transform: scaleY(1.3) scaleX(1.1);
+    transform: scaleY(1.3) scaleX(1.2);
+    background-color: rgba(0, 0, 0, 0.445);
 }
 
 .carousel-control-prev {
     position: absolute;
     left: 0;
-    top: 40%;
+    top: 35%;
     opacity: 0.7;
     background-color: rgba(0, 0, 0, 0.288);
-    padding: 3.6041666666666665vw;
+    padding: 3.6041666666666665vw 2.6041666666666665vw;
     margin: auto 0;
     cursor: pointer;
 }
 
 .carousel-control-prev:hover {
     opacity: 1;
-    transform: scaleY(1.3) scaleX(1.1);
+    transform: scaleY(1.3) scaleX(1.2);
+    background-color: rgba(0, 0, 0, 0.445);
 }
 
 ::-webkit-input-placeholder {
