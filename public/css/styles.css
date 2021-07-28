@@ -65,7 +65,8 @@ body {
     font-size: .9114583333333334vw;
     letter-spacing: .11393229166666667vw;
     position: relative;
-    color: rgb(185 157 48)
+    color: rgb(185 157 48);
+    transform: rotateY(180deg);
 }
 
 .li-container1:hover {
@@ -295,7 +296,7 @@ body {
 
 .vishuddha_oils_are_quality_flex {
     margin: 0 auto;
-    width: 55%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -364,7 +365,7 @@ body {
 }
 
 .us {
-    color: #ad9226;
+    color: #444444;
     font-family: Cabin, arial, sans-serif;
     font-size: 2.399479166666667vw;
     font-weight: 600
@@ -385,8 +386,9 @@ body {
     border-style: solid;
     border-width: 0 0 .06510416666666667vw 0;
     font-weight: 700;
+    border-color: rgb(131 131 131);
     padding: 0 0 .32552083333333337vw 0;
-    color: rgb(152 129 39);
+    color: rgb(131 131 131);
     letter-spacing: .13020833333333334vw;
     transition: all .5s
 }
@@ -398,14 +400,14 @@ body {
 .findoutmore_arrow {
     font-size: 1.0416666666666667vw;
     padding: 0 0 .32552083333333337vw .6510416666666667vw;
-    color: rgb(152 129 39)
+    color: rgb(131 131 131)
 }
 
 .productsontheway {
     font-size: 2.299479166666667vw;
     font-family: Lato;
     letter-spacing: .06510416666666667vw;
-    color: #ad9226;
+    color: #444444;
     text-align: center;
     font-weight: 400
 }
@@ -537,7 +539,6 @@ body {
 .carousel-container {
     width: 80.20833333333333vw;
     height: 37.818684895833336vw;
-
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -546,8 +547,8 @@ body {
 .carousel-slide {
     width: 100%;
     height: 45.818684895833336vw;
-    margin-top: -4vw;
-    display:flex;
+    margin-top: -5.5vw;
+    display: flex;
 }
 
 .carousel-container a {
@@ -707,7 +708,7 @@ body {
     right: 1.623567708333333vw;
     margin: auto;
     letter-spacing: .13020833333333334vw;
-    font-size: 4vw;
+    font-size: 3vw;
     font-weight: 400;
     transform: rotateY(180deg);
     font-family: Lato, arial, sans-serif;
@@ -820,7 +821,7 @@ body {
 .product_i_details_heading {
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    color: #1b1b1b;
+    color: #444444;
     margin-top: 0;
     letter-spacing: .06510416666666667vw
 }
@@ -852,7 +853,7 @@ body {
     font-family: Cabin, arial, sans-serif;
     font-weight: 300;
     letter-spacing: .06510416666666667vw;
-    color: #ad9226;
+    color: #444444;
     margin: 0;
     padding-top: 4.557291666666667vw
 }
@@ -862,7 +863,7 @@ body {
     font-family: Cabin, arial, sans-serif;
     font-weight: 300;
     letter-spacing: .06510416666666667vw;
-    color: #ad9226;
+    color: #444444;
     margin: 0;
     padding-top: 4.557291666666667vw
 }
@@ -994,7 +995,7 @@ body {
 }
 
 .blogh1 {
-    color: #1b1b1b;
+    color: #444444;
     font-size: 1.4322916666666667vw;
     font-family: Lato, arial, sans-serif;
     letter-spacing: .045em;
@@ -1016,8 +1017,10 @@ body {
     border-width: 0 0 .06510416666666667vw 0;
     font-weight: 700;
     margin: 0 0 0 1.5625vw;
+    border-color: rgb(131 131 131);
+
     padding-bottom: .32552083333333337vw;
-    color: rgb(152 129 39);
+    color: rgb(131 131 131);
     letter-spacing: .13020833333333334vw;
     transition: all .5s
 }
@@ -1026,11 +1029,7 @@ body {
     letter-spacing: .2604166666666667vw
 }
 
-.findoutmore_arrow {
-    font-size: 1.0416666666666667vw;
-    padding: 0 0 .3255208333333333vw .6510416666666666vw;
-    color: rgb(152 129 39)
-}
+
 
 .x {
     width: 100%
@@ -1480,7 +1479,7 @@ body {
     font-family: Lato, arial, sans-serif;
     font-weight: 400;
     font-size: 2.734375vw;
-    color: #ae9530;
+    color: #444444;
     padding-top: 3.2552083333333335vw
 }
 
@@ -1624,9 +1623,10 @@ body {
     width: 3.2552083333333335vw;
     height: 3.2552083333333335vw;
     border: 0;
+    font-size: 1.0369791666666667vw;
     margin-top: 1.5625vw;
-    color: #bca41f;
-    border: .06510416666666667vw solid #bca41f;
+    color: #948845;
+    border: .06510416666666667vw solid #948845;
     opacity: .9;
     background-color: #fff;
     cursor: pointer;
@@ -1666,8 +1666,9 @@ body {
     height: 2.604166666666667vw;
     border: 0;
     margin: 0;
-    color: #bca41f;
-    border: .06510416666666667vw solid #bca41f;
+    font-size: 1.0067708333333335vw;
+    color: #877c3e;
+    border: .06510416666666667vw solid #877c3e;
     opacity: .9;
     background-color: #fff;
     cursor: pointer;
@@ -1676,7 +1677,7 @@ body {
 
 .input-individual-button1:hover {
     opacity: 1;
-    font-size: 1.1067708333333335vw
+    font-size: 1.2067708333333335vw
 }
 
 .linkein-share-post {
@@ -1972,20 +1973,21 @@ body {
 }
 
 .cart_count {
-    height: .78125vw;
-    width: .78125vw;
+    height: .58125vw;
+    width: .58125vw;
     border-radius: 100%;
     color: #000;
-    background-color: #dbdbdb;
-    border: .06510416666666667vw solid #ffffffa2;
+    background-image: radial-gradient(white,#d3d3d3);
+    border: .06510416666666667vw solid #d4d4d4a2;
     margin: 0;
-    font-size: .6510416666666667vw;
+    font-size: .5510416666666667vw;
     font-weight: 700;
     font-family: Cabin, arial, sans-serif;
     position: absolute;
     text-align: center;
     top: 0;
-    right: 0
+    left: 0;
+    z-index: 1;
 }
 
 .shop_more {

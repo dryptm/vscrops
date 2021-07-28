@@ -28,21 +28,13 @@
         <img src="https://lh3.googleusercontent.com/pw/AM-JKLWay46ZhpGoPFhepSLUEXgLHyZw6ENp_gDBXVI6cuc_29huc5evJJ4vQg_1wK1fwkJx0YUwrayPPCP9S0vPMHz9v_n1Ho334KwiD8lGDnb9skSu6GmHkEefH2Y1vBg453emIWj-rKytt8qMAum-v6Pf=w1600-h914-no?authuser=0"
             alt="first slide" id="firstclone">
     </div>
-    <a class="carousel-control-prev" id="prev"><i class="fas fa-angle-left"></i></a>
-    <a class="carousel-control-next" id="next"><i class="fas fa-angle-right"></i></a>
+    <!-- <a class="carousel-control-prev" id="prev"><i class="fas fa-angle-left"></i></a>
+    <a class="carousel-control-next" id="next"><i class="fas fa-angle-right"></i></a> -->
 
 </div>
 
-
-<!-- <div class="img-launching">
-    <h1>EXPERIENCE THE<br>LUXURY</h1>
-    <a href="/products" class="a_launch_product">SHOP NOW</a>
-
-    <img class="launchbannerimg" src="/images/img2_2.jpeg" alt="background banner">
-</div> -->
-<br><br><br><br>
+<br><br>
 <div>
-    <h2 class="vishuddha_oils_are">VISHUDDHA OILS ARE</h2>
     <div class="vishuddha_oils_are_quality_flex">
         <img src="/images/w1.png" alt="quality 1 image">
         <img src="/images/w2.png" alt="quality 2 image">
@@ -52,7 +44,6 @@
         <img src="/images/w6.png" alt="quality 6 image">
     </div>
 </div>
-<br><br><br><br>
 
 
 
@@ -60,8 +51,8 @@
 <script>
     const carouselslide = document.querySelector(".carousel-slide");
     const carouselimages = document.querySelectorAll(".carousel-slide img");
-    const prevbtn = document.getElementById("prev")
-    const nextbtn = document.getElementById("next")
+    const prevbtn = document.getElementById("prev");
+    const nextbtn = document.getElementById("next");
 
     let counter = 1
     const size = carouselimages[0].clientWidth;
@@ -73,35 +64,46 @@
         counter++;
         carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
 
-
+        carouselslide.addEventListener("transitionend", () => {
+            if (carouselimages[counter].id === "lastclone") {
+                carouselslide.style.transition = "none"
+                counter = carouselimages.length - 2;
+                carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
+            }
+            if (carouselimages[counter].id === "firstclone") {
+                carouselslide.style.transition = "none"
+                counter = carouselimages.length - counter;
+                carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
+            }
+        });
     }, 4000);
 
-    nextbtn.addEventListener("click", () => {
-        if (counter >= carouselimages.length - 1) return;
-        carouselslide.style.transition = "transform 1s ease-in-out";
-        counter++;
-        carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
-    })
+    // nextbtn.addEventListener("click", () => {
+    //     if (counter >= carouselimages.length - 1) return;
+    //     carouselslide.style.transition = "transform 1s ease-in-out";
+    //     counter++;
+    //     carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
+    // })
 
-    prevbtn.addEventListener("click", () => {
-        if (counter <= 0) return;
-        carouselslide.style.transition = "transform 1s ease-in-out";
-        counter--;
-        carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
-    })
+    // prevbtn.addEventListener("click", () => {
+    //     if (counter <= 0) return;
+    //     carouselslide.style.transition = "transform 1s ease-in-out";
+    //     counter--;
+    //     carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
+    // })
 
-    carouselslide.addEventListener("transitionend", () => {
-        if (carouselimages[counter].id === "lastclone") {
-            carouselslide.style.transition = "none"
-            counter = carouselimages.length - 2;
-            carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
-        }
-        if (carouselimages[counter].id === "firstclone") {
-            carouselslide.style.transition = "none"
-            counter = carouselimages.length - counter;
-            carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
-        }
-    })
+    // carouselslide.addEventListener("transitionend", () => {
+    //     if (carouselimages[counter].id === "lastclone") {
+    //         carouselslide.style.transition = "none"
+    //         counter = carouselimages.length - 2;
+    //         carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
+    //     }
+    //     if (carouselimages[counter].id === "firstclone") {
+    //         carouselslide.style.transition = "none"
+    //         counter = carouselimages.length - counter;
+    //         carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
+    //     }
+    // });
 </script>
 
 
