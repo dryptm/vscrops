@@ -52,9 +52,9 @@ body {
     text-decoration: none;
     margin: 0 1.0416666666666667vw;
     padding: .1953125vw;
-    font-size: .9114583333333334vw;
+    font-size: 0.9814583333333334vw;
     letter-spacing: .11393229166666667vw;
-    color: #575757
+    color: rgb(90 90 90)
 }
 
 .li-container1 {
@@ -326,7 +326,7 @@ body {
 .h1_flat_discount {
     text-align: center;
     text-transform: uppercase;
-    font-size: 2.799479166666667vw !important;
+    font-size: 2.799479166666667vw;
     font-family: Cabin, arial, sans-serif;
     color: #151515;
     margin-bottom: 3.2552083333333335vw
@@ -366,7 +366,7 @@ body {
 
 .us {
     color: #444444;
-    font-family: Cabin, arial, sans-serif;
+    font-family: 'Cabin', arial, sans-serif;
     font-size: 2.399479166666667vw;
     font-weight: 600
 }
@@ -405,11 +405,11 @@ body {
 
 .productsontheway {
     font-size: 2.299479166666667vw;
-    font-family: Lato;
+    font-family: Lato, arial, sans-serif;
     letter-spacing: .06510416666666667vw;
     color: #444444;
     text-align: center;
-    font-weight: 400
+    font-weight: 600
 }
 
 .oils_bottom_flex {
@@ -466,7 +466,7 @@ body {
 .obf-content2 h2 {
     font-size: 2.0322916666666667vw;
     text-align: center;
-    font-family: Lato, arial, sans-serif;
+    font-family: 'Cabin', arial, sans-serif;
     font-weight: 700;
     padding-top: 1.9531250000000002vw;
     margin-top: 0;
@@ -490,7 +490,7 @@ body {
 .obf-content1 h2 {
     font-size: 2.0322916666666667vw;
     text-align: center;
-    font-family: Lato, arial, sans-serif;
+    font-family: 'Cabin', arial, sans-serif;
     font-weight: 700;
     padding-top: 1.9531250000000002vw;
     margin-top: 0;
@@ -551,11 +551,32 @@ body {
     display: flex;
 }
 
-.carousel-container a {
+
+/* .carousel-container a {
     color: rgba(255, 255, 255, 0.877);
     font-size: 3.2552083333333335vw;
     text-decoration: none;
     transition: all 0.5s;
+} */
+
+.shopnow {
+    background-color: white;
+    font-family: Lato, arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #6b6031;
+    border-radius: 10px;
+    border: 2px solid #aa901e;
+    text-decoration: none;
+    position: absolute;
+    left: 47%;
+    top: 77%;
+    padding: 1.06041666666666665vw 1.6041666666666665vw;
+    margin: 0;
+    transition: all 0.25s;
+}
+.shopnow:hover{
+    transform: scale(1.1);
 }
 
 .carousel-control-next {
@@ -849,9 +870,9 @@ body {
 }
 
 .note_head {
-    font-size: 1.833333333333335vw;
+    font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: .06510416666666667vw;
     color: #444444;
     margin: 0;
@@ -997,6 +1018,7 @@ body {
 .blogh1 {
     color: #444444;
     font-size: 1.4322916666666667vw;
+    font-weight: 600;
     font-family: Lato, arial, sans-serif;
     letter-spacing: .045em;
     padding: 0 1.5625vw
@@ -1052,7 +1074,7 @@ body {
 .currentpost_title {
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    color: #1b1b1b;
+    color: #444444;
     letter-spacing: .06510416666666667vw
 }
 
@@ -1366,7 +1388,7 @@ body {
 .cart_obj_name {
     font-size: 1.3020833333333335vw;
     margin-top: 2.34375vw;
-    color: #4c4c4c;
+    color: #444444;
     font-weight: 700;
     width: 21.276041666666668vw;
     font-family: Lato, arial, sans-serif
@@ -1977,7 +1999,7 @@ body {
     width: .58125vw;
     border-radius: 100%;
     color: #000;
-    background-image: radial-gradient(white,#d3d3d3);
+    background-image: radial-gradient(white, #d3d3d3);
     border: .06510416666666667vw solid #d4d4d4a2;
     margin: 0;
     font-size: .5510416666666667vw;
