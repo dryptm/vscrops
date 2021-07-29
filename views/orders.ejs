@@ -29,14 +29,15 @@
                 <% } %>
                 <span id="totalprice<%= i%>" class="order_style"><%=orders[i].total_price%></span>
 
-                <span id="status<%= i%>" class="order_style1" style="text-transform:uppercase"><%=orders[i].items[0].coupon_code%></span>
+                <span id="status<%= i%>" class="order_style1"
+                    style="text-transform:uppercase"><%=orders[i].items[0].coupon_code%></span>
             </div>
 
             <div class="order_info_box" id="order_info<%= i %>" style="display: none;">
                 <div class="top_id_adress_box">
                     <div class="id_order_address">
                         <div class="id_order">
-                            <span style="font-weight: bold;" id="orderid<%=i%>">Order Id-</span><br><br>
+                            <span style="font-weight: bold;" id="orderid<%=i%>">Order Id-</span><br>
 
                             <input type="text" id="date<%= i %>" value="<%=orders[i].date%>" style="display:none;">
                             <% if(typeof orders[i].order_id ==='undefined'){ %>
@@ -46,100 +47,120 @@
                             <span id="but<%=i%>" style="border: 0;"><%= orders[i].order_id %> </span>
 
                             <% } %>
-                        </div>
-
-                        <div class="address_af_id">
-                            <span style="font-weight: bold;">Billing Address-</span><br><br>
+                            <br><br>
+                            <span style="font-weight: bold;">Billing Address-</span><br>
                             <span id="add<%=i%>">Address : </span><br>
                             <span id="city<%=i%>">city : </span><br>
                             <span id="state<%=i%>">state : </span><br>
-                            <span id="pin<%=i%>">pincode : </span>
-                        </div>
-                    </div>
+                            <span id="pin<%=i%>">pincode : </span><br><br>
 
-
-                    <a class="cancel_order" id="cancelorder<%=i%>" href="/shiprocket/<%= orders[i].order_id %>">Cancel
-                        Items</a>
-
-                </div>
-
-
-                <% { %>
-                <%var obj = track.find(o => o.order_id === orders[i].order_id+"_0")%>
-                <% if(typeof obj!=='undefined'){ %>
-
-                <% if(obj.shiprocket_order_info[0]==='<'){ %>
-                <input type="text" name="" id="order_id<%=i%>" value="null" style="display:none;">
-                <% } %>
-                <% if(obj.shiprocket_order_info[0]!=='<'){ %>
-                <input type="text" name="" id="order_id<%=i%>"
-                    value="<%= JSON.parse(obj.shiprocket_order_info).order_id %>" style="display:none;">
-
-                <% } %>
-
-                <% } %>
-                <% if(typeof obj==='undefined') {%>
-                <input type="text" name="" id="order_id<%=i%>" value="null" style="display:none;">
-
-                <% } %>
-                <% } %>
-
-
-                <input type="number" style="visibility: collapse; position: absolute;" id="len2<%=i%>"
-                    value="<%= orders[i].items.length %>">
-                <div class="all_ordersinfo_box">
-                    <% for(let j = 0;j<orders[i].items.length;++j){ %>
-
-                    <div class="order_center">
-                        <div class="order_center_left">
-                            <h3><%=orders[i].items[j].name%></h3>
-                            <span id="date<%=i %> " class="">Date: <%=orders[i].date%></span><br>
-                            <span id="" class="">Payment Method : <%=orders[i].items[j].payment_method%></span><br>
-                            <span>Price Paid : ₹<%=orders[i].items[j].total_price%></span><br>
-                            <span id="statu<%=i%><%=j%>">Status : status_bla</span><br>
-                            <span>Quantity : <%=orders[i].items[j].quantity%></span><br>
-                            <%if(orders[i].items[j].coupon_code){%>
-                            <span>Coupon Applied : <span
-                                    style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span></span>
+                            <% for(let j = 0;j<orders[i].items.length;++j){ %>
+                                <span style="font-weight: bold;" id="orderid<%=i%>">Total Price-</span><br>
+                                <span><%=orders[i].total_price%></span><br><br>
+                                <span style="font-weight: bold;">Payment Method-</span><br>
+                                <span><%=orders[i].items[0].payment_method%></span><br><br>
+                                <%if(orders[i].items[0].coupon_code){%>
+                                    <span style="font-weight: bold;">Coupon Applied-</span><br>
+                                    <span style="text-transform:uppercase"><%=orders[i].items[j].coupon_code%></span>
+                                    <%}%>
+                                    <%break%>
                             <%}%>
-                        </div>
+                            </div>
+                        <a class="cancel_order" id="cancelorder<%=i%>"
+                            href="/shiprocket/<%= orders[i].order_id %>">Cancel
+                            Items</a>
 
-                        <div class="order_center_right">
-                            <img class="order_image" src="<%=orders[i].items[j].product_image%>"></img>
+
+                            <!-- <div class="address_af_id">
+                            <span style="font-weight: bold;">Billing Address-</span><br>
+                            <span id="add<%=i%>">Address : </span><br>
+                        <span id="city<%=i%>">city : </span><br>
+                        <span id="state<%=i%>">state : </span><br>
+                        <span id="pin<%=i%>">pincode : </span>
+                    </div> -->
+                            <div class="all_ordersinfo_box">
+                                <% for(let j = 0;j<orders[i].items.length;++j){ %>
+
+                                <div class="order_center">
+                                    <div class="order_center_left">
+                                        <h3><%=orders[i].items[j].name%></h3>
+                                        <span id="date<%=i %> " class="">Date: <%=orders[i].date%></span><br>
+                                        <span>Price Paid : ₹<%=orders[i].items[j].total_price%></span><br>
+                                        <span id="statu<%=i%><%=j%>">Status : status_bla</span><br>
+                                        <span>Quantity : <%=orders[i].items[j].quantity%></span><br>
+
+                                    </div>
+
+                                    <div class="order_center_right">
+                                        <img class="order_image" src="<%=orders[i].items[j].product_image%>"></img>
+                                    </div>
+
+                                </div>
+                                <% { %>
+                                <% var obj = track.find(o => o.order_id === orders[i].order_id+"_"+j) %>
+                                <% if(obj){ %>
+
+                                <% if(obj.shiprocket_order_info[0]==='<'){ %>
+                                <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>"> shipment_id : N/A
+                                </p>
+                                <p style="opacity: 0;visibility: collapse;"> Shiprocket order id : N/A </p>
+                                <% } %>
+                                <% if(obj.shiprocket_order_info[0]!=='<'){ %>
+                                <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>">shipment_id :
+                                    <%= JSON.parse(obj.shiprocket_order_info).shipment_id %> </p>
+                                <p style="opacity: 0;visibility: collapse;">Shiprocket order id :
+                                    <%= JSON.parse(obj.shiprocket_order_info).order_id %></p>
+                                <% } %>
+                                <% } %>
+                                <%if(typeof obj==='undefined'){%>
+                                <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>"> shipment_id : N/A
+                                </p>
+                                <p style="opacity: 0;visibility: collapse;"> Shiprocket order id : N/A </p>
+                                <%}%>
+                            <%}%>
+                                <%}%>
+        
                         </div>
+                    </div>
+
+
+                    
 
                     </div>
+
+
                     <% { %>
-                    <% var obj = track.find(o => o.order_id === orders[i].order_id+"_"+j) %>
-                    <% if(obj){ %>
+                                <%var obj = track.find(o => o.order_id === orders[i].order_id+"_0")%>
+                                <% if(typeof obj!=='undefined'){ %>
 
-                    <% if(obj.shiprocket_order_info[0]==='<'){ %>
-                    <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>"> shipment_id : N/A </p>
-                    <p style="opacity: 0;visibility: collapse;"> Shiprocket order id : N/A </p>
-                    <% } %>
-                    <% if(obj.shiprocket_order_info[0]!=='<'){ %>
-                    <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>">shipment_id :
-                        <%= JSON.parse(obj.shiprocket_order_info).shipment_id %> </p>
-                    <p style="opacity: 0;visibility: collapse;">Shiprocket order id :
-                        <%= JSON.parse(obj.shiprocket_order_info).order_id %></p>
-                    <% } %>
-                    <% } %>
-                    <%if(typeof obj==='undefined'){%>
-                    <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>"> shipment_id : N/A </p>
-                    <p style="opacity: 0;visibility: collapse;"> Shiprocket order id : N/A </p>
-                    <%}%>
-                    <%}%>
-                    <%}%>
+                                <% if(obj.shiprocket_order_info[0]==='<'){ %>
+                                <input type="text" name="" id="order_id<%=i%>" value="null" style="display:none;">
+                                <% } %>
+                                <% if(obj.shiprocket_order_info[0]!=='<'){ %>
+                                <input type="text" name="" id="order_id<%=i%>"
+                                    value="<%= JSON.parse(obj.shiprocket_order_info).order_id %>" style="display:none;">
 
+                                <% } %>
+
+                                <% } %>
+                                <% if(typeof obj==='undefined') {%>
+                                <input type="text" name="" id="order_id<%=i%>" value="null" style="display:none;">
+
+                                <% } %>
+                                <% } %>
+
+
+                                <input type="number" style="visibility: collapse; position: absolute;" id="len2<%=i%>"
+                                    value="<%= orders[i].items.length %>">
+
+
+                            </div>
+                            <%}%>
                 </div>
-                
             </div>
-            <%}%>
-                </div>
-            </div>
-        </div>
+        
 
-
+        
 
 
 
@@ -371,7 +392,7 @@
 
 
                 }
-            })
+            });
         </script>
 
         <%- include('head-foot/footer'); -%>

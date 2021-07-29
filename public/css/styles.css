@@ -575,7 +575,8 @@ body {
     margin: 0;
     transition: all 0.25s;
 }
-.shopnow:hover{
+
+.shopnow:hover {
     transform: scale(1.1);
 }
 
@@ -1876,7 +1877,7 @@ body {
 }
 
 .order_box1 {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     height: inherit;
     border-color: #e4e4e4;
@@ -1885,7 +1886,7 @@ body {
 }
 
 .order_bf_click {
-    width: 56.11979166666667vw;
+    width: 65.11979166666667vw;
     border-style: solid;
     border: .06510416666666667vw solid #d9d9d9;
     border-top: 0;
@@ -1895,8 +1896,8 @@ body {
 }
 
 .id_order_address {
-    width: 70%;
-    height: 9.765625vw;
+    width: 100%;
+    height: inherit;
     position: relative;
     font-family: Lato, arial, sans-serif;
     font-size: .8463541666666667vw;
@@ -1909,7 +1910,7 @@ body {
     border-radius: .6510416666666667vw;
     padding: 1.3020833333333335vw;
     position: absolute;
-    margin: 0;
+    margin: 0.9765625vw 0;
     left: 0;
     display: inline-block
 }
@@ -1929,7 +1930,7 @@ body {
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #000;
+    color: #444444;
     background-color: #fff;
     text-decoration: none;
     border: .13020833333333334vw solid #e2c027;
@@ -1940,8 +1941,8 @@ body {
     border-radius: .3255208333333333vw;
     display: inline-block;
     position: absolute;
-    top: 0;
-    right: 0
+    top: 22.786458333333332vw;
+    left: 0
 }
 
 .cancel_order:hover {
@@ -1954,21 +1955,24 @@ body {
 }
 
 .top_id_adress_box {
-    position: relative
+    position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .all_ordersinfo_box {
     border-radius: .6510416666666667vw;
-    margin-top: 3.2552083333333335vw
+    /*     margin-top: 3.2552083333333335vw; */
 }
 
 .order_center {
-    width: 80%;
+    width: 60%;
     height: 12.044270833333334vw;
     border: .06510416666666667vw solid #e6e6e6;
     border-radius: .6510416666666667vw;
-    margin: 0 auto;
+    float: right;
     position: relative;
+    margin-bottom: 2vw;
     letter-spacing: .032552083333333336vw;
     font-family: Cabin, arial, sans-serif;
     font-size: .9114583333333334vw;
