@@ -1,13 +1,14 @@
 <%- include('head-foot/header'); -%>
 <div class="main_box">
 
-    <button id="my_orders" style="border: 0;">My orders</button>
+    <button id="my_orders" style="border: 0;">My Orders</button>
     <input type="number" id="len" value="<%= orders.length %>" style="visibility: collapse;display: none;">
+    <br><br><br>
     <div id="cart_box_head" class="order_box_head">
-        <p class="head_orders_margs">Date</p>
-        <p class="head_orders_margs">Order Id</p>
-        <p class="head_orders_margs" style="margin-right: 3.2552083333333335vw;">Total</p>
-        <p class="head_orders_margs">Coupon</p>
+        <p class="head_orders_margs1">Date</p>
+        <p class="head_orders_margs2">Order Id</p>
+        <p class="head_orders_margs3" style="margin-right: 3.2552083333333335vw;">Total</p>
+        <p class="head_orders_margs4">Coupon</p>
         <p style="flex: 1;"></p>
     </div>
 
@@ -36,7 +37,7 @@
             <div class="order_info_box" id="order_info<%= i %>" style="display: none;">
                 <div class="top_id_adress_box">
                     <div class="id_order_address">
-                        <div class="id_order">
+                        <span class="id_order">
                             <span style="font-weight: bold;" id="orderid<%=i%>">Order Id-</span><br>
 
                             <input type="text" id="date<%= i %>" value="<%=orders[i].date%>" style="display:none;">
@@ -65,19 +66,13 @@
                                     <%}%>
                                     <%break%>
                             <%}%>
-                            </div>
+                                </span>
                         <a class="cancel_order" id="cancelorder<%=i%>"
                             href="/shiprocket/<%= orders[i].order_id %>">Cancel
                             Items</a>
 
 
-                            <!-- <div class="address_af_id">
-                            <span style="font-weight: bold;">Billing Address-</span><br>
-                            <span id="add<%=i%>">Address : </span><br>
-                        <span id="city<%=i%>">city : </span><br>
-                        <span id="state<%=i%>">state : </span><br>
-                        <span id="pin<%=i%>">pincode : </span>
-                    </div> -->
+                           
                             <div class="all_ordersinfo_box">
                                 <% for(let j = 0;j<orders[i].items.length;++j){ %>
 
