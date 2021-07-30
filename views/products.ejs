@@ -33,7 +33,7 @@
 
                 <img class="blogimg_products" src="<%=post[i].product_image%>" alt="product image">
                 <h2 class="blogh1"><%= post[i].product_name%></h2>
-                <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-shopping-cart"></i></a>
+                <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
                 <p class="price_products" id="price_products<%=i%>" style="opacity: 0.5;">You save
@@ -62,7 +62,7 @@
 
 
                 <h2 class="blogh1"><%= post[i+1].product_name%></h2>
-                <a class="add_to_cart" href="/products/<%=post[i+1]._id%>"><i class="fas fa-shopping-cart"></i></a>
+                <a class="add_to_cart" href="/products/<%=post[i+1]._id%>"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 <%var price=post[i+1].product_price-((post[i+1].product_price*post[i+1].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
                 <p class="price_products" id="price_products<%=(i+1)%>" style="opacity: 0.5;">You save
@@ -97,7 +97,7 @@
 
 
                 <h2 class="blogh1"><%= post[i].product_name%></h2>
-                <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-shopping-cart"></i></a>
+                <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
                 <p class="price_products" id="price_products<%=i%>" style="opacity: 0.5;">You save

@@ -127,8 +127,7 @@
                     <a href="#" class="li-container1"><i class="fas fa-search " name="search"></i></a>
                     <% if(isLoggedin==="yes") {%>
                     <a href="/cart" class="li-container1" name="cart length">
-                        <div id="cart_count" class="cart_count"><%= cartlength %></div><i
-                            style="transform:rotateY(180deg);" class="fas fa-shopping-cart "></i>
+                        <div id="cart_count" class="cart_count"><%= cartlength %></div><i class="fas fa-shopping-cart "></i>
                     </a>
                     <script>
                         if (Number(document.getElementById("cart_count").innerText) == 0) {
@@ -139,8 +138,7 @@
                     </script>
                     <%}%>
                     <% if(isLoggedin==="no") {%>
-                    <a href="/cart" class="li-container1" name="cart length"><i style="transform:rotateY(180deg);"
-                            class="fas fa-shopping-cart "></i></a>
+                    <a href="/cart" class="li-container1" name="cart length"><i class="fas fa-shopping-cart"></i></a>
                     <%}%>
                     
                     <a style="cursor: pointer;" onmouseout="dropdownout_2()" onmouseover="dropdownover_2()"

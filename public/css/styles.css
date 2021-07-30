@@ -8,7 +8,7 @@ body {
     font-size: .9114583333333334vw;
     margin: 0;
     padding: .2604166666666667vw 0;
-    background-color: #bb9e1b;
+    background-color: #040404;
     font-family: Lato, arial, sans-serif;
     font-weight: 400;
     opacity: .9
@@ -16,7 +16,8 @@ body {
 
 .banner-p {
     margin: 0;
-    color: #000;
+    font-weight: 600;
+    color: #f4f4f4;
     letter-spacing: .13020833333333334vw;
     padding-top: .09765625vw
 }
@@ -28,7 +29,7 @@ body {
     z-index: 1;
     position: sticky;
     top: 0;
-    border-bottom: .06510416666666667vw solid #b49b3544
+    border-bottom: .06510416666666667vw solid #a6a6a644
 }
 
 .header-block-container {
@@ -52,9 +53,10 @@ body {
     text-decoration: none;
     margin: 0 1.0416666666666667vw;
     padding: .1953125vw;
-    font-size: 0.8814583333333334vw;
+    font-weight: 400;
+    font-size: 0.9714583333333334vw;
     letter-spacing: .11393229166666667vw;
-    color: rgb(90 90 90)
+    color: rgb(0 0 0)
 }
 
 .li-container1 {
@@ -62,15 +64,15 @@ body {
     text-decoration: none;
     margin: 0 .416666666666667vw;
     padding: .1953125vw;
-    font-size: 0.8814583333333334vw;
+    font-size: 0.9714583333333334vw;
     letter-spacing: .11393229166666667vw;
     position: relative;
-    color: rgb(185 157 48);
+    color: rgb(0 0 0);
     transform: rotateY(180deg);
 }
 
 .li-container1:hover {
-    color: rgb(113 96 33)
+    color: rgb(98 98 98)
 }
 
 
@@ -246,7 +248,7 @@ body {
 }
 
 .tnm_content {
-    color: #5e5e5e;
+    color: #313131;
     font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
     letter-spacing: .032552083333333336vw
@@ -303,7 +305,7 @@ body {
 }
 
 .vishuddha_oils_are_quality_flex img {
-    opacity: 0.85;
+    /*     opacity: 1; */
     width: 6.510416666666667vw;
 }
 
@@ -365,7 +367,7 @@ body {
 }
 
 .us {
-    color: #444444;
+    color: black;
     font-family: 'Cabin', arial, sans-serif;
     font-size: 2.399479166666667vw;
     font-weight: 600
@@ -374,7 +376,7 @@ body {
 .us_data {
     font-family: Lato, arial, sans-serif;
     font-size: 1.1020833333333335vw;
-    color: #5e5e5e;
+    color: #313131;
     margin-bottom: 6.510416666666667vw;
     margin-right: 34.505208333333336vw
 }
@@ -386,9 +388,9 @@ body {
     border-style: solid;
     border-width: 0 0 .06510416666666667vw 0;
     font-weight: 700;
-    border-color: rgb(131 131 131);
+    border-color: rgb(96 96 96);
     padding: 0 0 .32552083333333337vw 0;
-    color: rgb(131 131 131);
+    color: rgb(96 96 96);
     letter-spacing: .13020833333333334vw;
     transition: all .5s
 }
@@ -400,14 +402,14 @@ body {
 .findoutmore_arrow {
     font-size: 1.0416666666666667vw;
     padding: 0 0 .32552083333333337vw .6510416666666667vw;
-    color: rgb(131 131 131)
+    color: rgb(96 96 96)
 }
 
 .productsontheway {
     font-size: 2.299479166666667vw;
     font-family: Lato, arial, sans-serif;
     letter-spacing: .06510416666666667vw;
-    color: #444444;
+    color: black;
     text-align: center;
     font-weight: 600
 }
@@ -459,7 +461,7 @@ body {
     font-size: 1.1020833333333335vw;
     font-family: Lato, arial, sans-serif;
     text-align: center;
-    color: #5e5e5e;
+    color: #333333;
     padding: 0
 }
 
@@ -483,7 +485,7 @@ body {
     font-size: 1.1020833333333335vw;
     font-family: Lato, arial, sans-serif;
     text-align: center;
-    color: #5e5e5e;
+    color: #313131;
     padding: 0
 }
 
@@ -519,7 +521,7 @@ body {
     margin-top: .6625vw;
     padding: 0 .6765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     height: 2.5552083333333335vw;
     border-style: solid;
     background-color: #f5f5f5;
@@ -533,7 +535,7 @@ body {
     margin-top: .6625vw;
     padding: 0 .6765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     height: 2.5552083333333335vw;
     border-style: solid;
     background-color: #f5f5f5;
@@ -545,7 +547,7 @@ body {
     font-size: 1.0416666666666667vw;
     padding: 0 .6765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     height: 2.5552083333333335vw;
     border-style: solid;
     border-width: 0
@@ -573,21 +575,27 @@ body {
     text-decoration: none;
     transition: all 0.5s;
 } */
+.exp_l {
+    font-family: 'Cabin', arial, sans-serif;
+    font-size: 67px;
+    font-weight: 900;
+    margin-top: 55px;
+    text-align: center;
+    letter-spacing: 1px;
+}
 
 .shopnow {
     background-color: white;
     font-family: Lato, arial, sans-serif;
     font-size: 1.5625vw;
     font-weight: 700;
-    color: #6b6031;
+    position: relative;
+    color: #000000;
     border-radius: 0.6510416666666666vw;
-    border: 0.13020833333333334vw solid #aa901e;
+    border: 0.13020833333333334vw solid #000000;
     text-decoration: none;
-    position: absolute;
-    left: 47%;
-    top: 77%;
     padding: 1.06041666666666665vw 1.6041666666666665vw;
-    margin: 0;
+    margin: 0 auto;
     transition: all 0.25s;
 }
 
@@ -651,7 +659,7 @@ body {
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #85701c;
+    color: #f6f6f6;
     margin-top: 9.765625vw;
     text-decoration: none;
     border-style: solid;
@@ -659,7 +667,7 @@ body {
     padding: .9765625vw;
     margin: 6.966145833333333vw;
     transition: all .5s;
-    background-color: #fff;
+    background-color: #2d2d2d;
     width: 20%;
     height: 3.580729166666667vw;
     margin: 1.4322916666666667vw 0 0 2.604166666666667vw;
@@ -667,10 +675,10 @@ body {
 }
 
 .a_launch_product_1:hover {
-    background-color: rgb(207 175 50);
-    color: #151515;
+    background-color: rgb(34 34 34);
+    color: #ffffff;
     font-size: 1.1vw;
-    border-color: rgb(207 175 50)
+    border-color: rgb(26 26 26)
 }
 
 .main_box {
@@ -719,7 +727,7 @@ body {
     font-size: 1.3020833333333335vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e
+    color: #313131
 }
 
 .about_vs {
@@ -736,30 +744,30 @@ body {
     font-size: 1.3020833333333335vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e
+    color: #313131
 }
 
 .add_to_cart {
     position: absolute;
-    bottom: 5%;
+    bottom: 2.5%;
     right: 1.623567708333333vw;
     margin: auto;
     letter-spacing: .13020833333333334vw;
-    font-size: 3vw;
+    font-size: 1.3vw;
+    background-color: #272727;
     font-weight: 400;
-    transform: rotateY(180deg);
+    /*     transform: rotateY(180deg); */
     font-family: Lato, arial, sans-serif;
-    color: rgb(133 112 28);
+    color: white;
     text-decoration: none;
-    padding: 1.953125vw 3vw;
-    padding-left: 0;
-    padding-bottom: 0;
+    padding: 1.253125vw;
+    border-radius: 10px;
     transition: all .25s
 }
 
 .add_to_cart:hover {
     color: #b7a11e;
-    transform: rotateY(180deg)
+    /*     transform: rotateY(180deg) */
 }
 
 .blogimg_products {
@@ -797,7 +805,7 @@ body {
     margin-top: 1.5625vw;
     padding: .9765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     height: 3.2552083333333335vw;
     border-style: solid;
     border-width: 0 0 .06510416666666667vw 0
@@ -858,7 +866,7 @@ body {
 .product_i_details_heading {
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    color: #444444;
+    color: black;
     margin-top: 0;
     letter-spacing: .06510416666666667vw
 }
@@ -890,7 +898,7 @@ body {
     font-family: Cabin, arial, sans-serif;
     font-weight: 700;
     letter-spacing: .06510416666666667vw;
-    color: #444444;
+    color: black;
     margin: 0;
     padding-top: 4.557291666666667vw
 }
@@ -900,21 +908,21 @@ body {
     font-family: Cabin, arial, sans-serif;
     font-weight: 300;
     letter-spacing: .06510416666666667vw;
-    color: #444444;
+    color: black;
     margin: 0;
     padding-top: 4.557291666666667vw
 }
 
 .note_p {
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     font-weight: 400;
     font-size: 1.0114583333333334vw
 }
 
 .note_p_1 {
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     font-weight: 700;
     font-size: 1.1114583333333334vw
 }
@@ -939,7 +947,7 @@ body {
 .contact_msg2 {
     font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e
+    color: #313131
 }
 
 .whatsapp {
@@ -1032,7 +1040,7 @@ body {
 }
 
 .blogh1 {
-    color: #444444;
+    color: black;
     font-size: 1.4322916666666667vw;
     font-weight: 600;
     font-family: Lato, arial, sans-serif;
@@ -1055,10 +1063,10 @@ body {
     border-width: 0 0 .06510416666666667vw 0;
     font-weight: 700;
     margin: 0 0 0 1.5625vw;
-    border-color: rgb(131 131 131);
+    border-color: rgb(96 96 96);
 
     padding-bottom: .32552083333333337vw;
-    color: rgb(131 131 131);
+    color: rgb(96 96 96);
     letter-spacing: .13020833333333334vw;
     transition: all .5s
 }
@@ -1090,7 +1098,7 @@ body {
 .currentpost_title {
     font-size: 2.0833333333333335vw;
     font-family: Cabin, arial, sans-serif;
-    color: #444444;
+    color: black;
     letter-spacing: .06510416666666667vw
 }
 
@@ -1105,7 +1113,7 @@ body {
 }
 
 .currentpost_data {
-    color: #5e5e5e;
+    color: #313131;
     font-size: 1.0116666666666667vw;
     letter-spacing: .032552083333333336vw;
     font-family: Lato, arial, sans-serif;
@@ -1392,7 +1400,7 @@ body {
     margin-top: 1.5625vw;
     padding: 0 .9765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     height: 3.2552083333333335vw;
     border-style: solid;
     border-width: 0 0 .06510416666666667vw 0
@@ -1424,7 +1432,7 @@ body {
 .cart_obj_name {
     font-size: 1.3020833333333335vw;
     margin-top: 2.34375vw;
-    color: #444444;
+    color: black;
     font-weight: 700;
     width: 21.276041666666668vw;
     font-family: Lato, arial, sans-serif
@@ -1537,7 +1545,7 @@ body {
     font-family: Lato, arial, sans-serif;
     font-weight: 400;
     font-size: 2.734375vw;
-    color: #444444;
+    color: black;
     padding-top: 3.2552083333333335vw
 }
 
@@ -1667,7 +1675,7 @@ body {
     margin-top: 1.5625vw;
     padding: .9765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     height: 1.171875vw;
     border-width: 0 0 .06510416666666667vw 0;
     border: .06510416666666667vw solid;
@@ -1710,7 +1718,7 @@ body {
     margin-top: 1.9625vw;
     padding: .9765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     height: .5208333333333334vw;
     border-width: 0 0 .06510416666666667vw 0;
     border: .06510416666666667vw solid;
@@ -1786,10 +1794,10 @@ body {
     font-size: 1.0416666666666667vw;
     padding: .35vw .6765625000000001vw;
     font-family: Lato, arial, sans-serif;
-    color: #5e5e5e;
+    color: #313131;
     height: 2.622083333333335vw;
     border-style: solid;
-    border-width: 0
+    border-width: 0;
 }
 
 .image_of_product {
@@ -1993,7 +2001,7 @@ body {
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #444444;
+    color: black;
     background-color: #fff;
     text-decoration: none;
     border: .13020833333333334vw solid #e2c027;
@@ -2084,7 +2092,7 @@ body {
     position: absolute;
     text-align: center;
     top: 0;
-    left: 0;
+    right: 0;
     z-index: 1;
 }
 
