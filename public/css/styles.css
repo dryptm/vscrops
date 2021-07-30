@@ -1139,8 +1139,8 @@ body {
 }
 
 .product_images_before_payment_div {
-    height: 9.114583333333334vw;
-    width: 9.114583333333334vw;
+    height: 5.514583333333334vw;
+    width: 6.114583333333334vw;
     display: inline-block;
     padding: 1.9531250000000002vw 1.9531250000000002vw
 }
@@ -1152,6 +1152,18 @@ body {
     letter-spacing: .06510416666666667vw;
     font-weight: 400;
     color: #474747
+}
+
+.product_before_payment_details h5 {
+    margin: 5px;
+}
+
+.product_before_payment_details h4 {
+    margin: 5px;
+}
+
+.product_before_payment_details h3 {
+    margin: 5px;
 }
 
 .product_images_before_payment {
@@ -2013,21 +2025,26 @@ body {
 
 .all_ordersinfo_box {
     border-radius: .6510416666666667vw;
-    width: 60%;
+    width: 63%;
     margin: 0;
+    height: 405px;
+    overflow-y: scroll;
     float: right;
-    /*     margin-top: 3.2552083333333335vw; */
+    border: 1px solid #dbdbdb;
+    background-color: #FAFAFA;
+    /*         margin-top: 3.2552083333333335vw; */
 }
 
 .order_center {
-    width: 100%;
+    width: 95%;
     height: 9.744270833333334vw;
-    border: .06510416666666667vw solid #e6e6e6;
+    border: .06510416666666667vw solid #c9c9c9;
     border-radius: .6510416666666667vw;
-    float: right;
+    background-color: white;
+    /*     float: right; */
     position: relative;
-    margin: 0;
-    /*     margin-bottom: 2vw; */
+    margin: 0 auto;
+    margin-top: 1vw;
     letter-spacing: .032552083333333336vw;
     font-family: Cabin, arial, sans-serif;
     font-size: .9114583333333334vw;

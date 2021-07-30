@@ -96,21 +96,21 @@
                                 <% if(obj){ %>
 
                                 <% if(obj.shiprocket_order_info[0]==='<'){ %>
-                                <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>"> shipment_id : N/A
+                                <p style="opacity: 0;visibility: collapse;position: absolute;" id="ship<%=i%><%=j%>"> shipment_id : N/A
                                 </p>
-                                <p style="opacity: 0;visibility: collapse;"> Shiprocket order id : N/A </p>
+                                <p style="opacity: 0;visibility: collapse;position: absolute;"> Shiprocket order id : N/A </p>
                                 <% } %>
                                 <% if(obj.shiprocket_order_info[0]!=='<'){ %>
-                                <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>">shipment_id :
+                                <p style="opacity: 0;visibility: collapse;position: absolute;" id="ship<%=i%><%=j%>">shipment_id :
                                     <%= JSON.parse(obj.shiprocket_order_info).shipment_id %> </p>
                                 <p style="opacity: 0;visibility: collapse;">Shiprocket order id :
                                     <%= JSON.parse(obj.shiprocket_order_info).order_id %></p>
                                 <% } %>
                                 <% } %>
                                 <%if(typeof obj==='undefined'){%>
-                                <p style="opacity: 0;visibility: collapse;" id="ship<%=i%><%=j%>"> shipment_id : N/A
+                                <p style="opacity: 0;visibility: collapse;position: absolute;" id="ship<%=i%><%=j%>"> shipment_id : N/A
                                 </p>
-                                <p style="opacity: 0;visibility: collapse;"> Shiprocket order id : N/A </p>
+                                <p style="opacity: 0;visibility: collapse;position: absolute;"> Shiprocket order id : N/A </p>
                                 <%}%>
                             <%}%>
                                 <%}%>
@@ -145,7 +145,7 @@
                                 <% } %>
 
 
-                                <input type="number" style="visibility: collapse; position: absolute;" id="len2<%=i%>"
+                                <input type="number" style="visibility: collapse; position: absolute;position: absolute;" id="len2<%=i%>"
                                     value="<%= orders[i].items.length %>">
 
 
@@ -197,7 +197,8 @@
                             var Difference_In_Time = date2.getTime() - date1.getTime();
                             var diff = Difference_In_Time / (1000 * 3600 * 24);
                             if (diff > 2) {
-                                document.getElementById('cancelorder' + i).style.display = "none"
+                                document.getElementById('cancelorder' + i).style.display = "none";
+                                
                             }
 
                         }
