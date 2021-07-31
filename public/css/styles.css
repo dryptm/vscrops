@@ -950,7 +950,9 @@ body {
     font-family: Lato, arial, sans-serif;
     color: #313131;
     font-weight: 400;
-    font-size: 1.0114583333333334vw
+    font-size: 1.0114583333333334vw;
+    line-height: 1.6;
+
 }
 
 .note_p_1 {
