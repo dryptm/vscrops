@@ -218,7 +218,7 @@ body {
     text-align: left;
     font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: #a98f28;
+    color: #313131;
     margin: 1.3020833333333335vw 1.9531250000000002vw;
     text-decoration: none
 }
@@ -226,13 +226,13 @@ body {
 .tnm {
     font-size: 1.0416666666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: #8a7522;
+    color: #161616;
     letter-spacing: .13020833333333334vw;
     font-weight: 400
 }
 
 .tnm a {
-    color: #8a7522;
+    color: #2b2b2b;
     text-decoration: none
 }
 
@@ -244,7 +244,7 @@ body {
 .tnm_headings {
     font-family: Lato, arial, sans-serif;
     font-weight: 700;
-    color: #8a7522
+    color: #1e1e1e
 }
 
 .tnm_content {
@@ -291,7 +291,7 @@ body {
     font-size: 2.299479166666667vw;
     font-family: Cabin, arial, sans-serif;
     letter-spacing: .06510416666666667vw;
-    color: #ad9226;
+    color: #292929;
     text-align: center;
     font-weight: 400
 }
@@ -555,7 +555,7 @@ body {
 
 .carousel-container {
     width: 80.20833333333333vw;
-    height: 37.818684895833336vw;
+    height: 38.818684895833336vw;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -584,6 +584,11 @@ body {
     letter-spacing: 1px;
 }
 
+.shopnow_div {
+    width: 11vw;
+    margin: 0 auto;
+}
+
 .shopnow {
     background-color: white;
     font-family: Lato, arial, sans-serif;
@@ -591,7 +596,7 @@ body {
     font-weight: 700;
     position: relative;
     color: #000000;
-    border-radius: 0.6510416666666666vw;
+    border-radius: 0.3510416666666666vw;
     border: 0.13020833333333334vw solid #000000;
     text-decoration: none;
     padding: 1.06041666666666665vw 1.6041666666666665vw;
@@ -600,7 +605,8 @@ body {
 }
 
 .shopnow:hover {
-    transform: scale(1.1);
+    background-color: #1a1a1a;
+    color: white;
 }
 
 .carousel-control-next {
@@ -752,7 +758,7 @@ body {
     bottom: 2.5%;
     right: 1.623567708333333vw;
     margin: auto;
-    letter-spacing: .13020833333333334vw;
+    letter-spacing: .03020833333333334vw;
     font-size: 1.3vw;
     background-color: #272727;
     font-weight: 400;
@@ -766,7 +772,7 @@ body {
 }
 
 .add_to_cart:hover {
-    color: #b7a11e;
+    background-color: #1a1a1a;
     /*     transform: rotateY(180deg) */
 }
 
@@ -786,7 +792,7 @@ body {
 
 .price_products_font {
     font-family: Lato, arial, sans-serif;
-    color: #8a7522;
+    color: #1c1c1c;
     font-size: 1.3020833333333333vw;
     margin: 0;
     margin-left: 1.623567708333333vw
@@ -818,10 +824,10 @@ body {
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #000;
-    background-color: #d4b435;
+    color: #eee;
+    background-color: #161616;
     text-decoration: none;
-    border-color: #d4b435;
+    border-color: #161616;
     border-style: solid;
     border-width: .06510416666666667vw;
     margin-left: 0;
@@ -832,11 +838,8 @@ body {
 }
 
 .btn-add-to-cart:hover {
-    box-shadow: rgb(0 0 0 / 30%) 0 0 .9765625000000001vw 0;
-    background-color: rgb(220 189 66);
-    color: #151515;
-    transform: scale(1.1);
-    border-color: rgb(220 189 66)
+    box-shadow: 0px 3px #606060;
+
 }
 
 .product_i_image {
@@ -845,7 +848,7 @@ body {
 
 #total_price {
     font-family: Lato, arial, sans-serif;
-    color: #8a7522;
+    color: #3d3d3d;
     font-size: 1.3020833333333335vw
 }
 
@@ -873,7 +876,7 @@ body {
 
 .product_i_details_price {
     font-family: Lato, arial, sans-serif;
-    color: #8a7522;
+    color: #3b3b3b;
     font-size: 1.6276041666666667vw
 }
 
@@ -992,7 +995,7 @@ body {
     width: 45%;
     border-style: solid;
     border-width: .06510416666666667vw;
-    border-color: rgb(217 217 217);
+    border-color: rgb(199 199 199);
     transition: all .25s;
     position: relative
 }
@@ -1006,7 +1009,7 @@ body {
     width: 45%;
     border-style: solid;
     border-width: .06510416666666667vw;
-    border-color: rgb(217 217 217);
+    border-color: rgb(199 199 199);
     transition: all .25s;
     position: relative
 }
@@ -1022,7 +1025,7 @@ body {
     margin: 0 auto;
     border-style: solid;
     border-width: .06510416666666667vw;
-    border-color: rgb(217 217 217);
+    border-color: rgb(199 199 199);
     transition: all .25s;
     position: relative
 }
@@ -1201,10 +1204,10 @@ body {
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #000;
-    background-color: #d4b435;
+    color: #fff;
+    background-color: #1e1e1e;
     text-decoration: none;
-    border-color: #d4b435;
+    border-color: #1e1e1e;
     border-style: solid;
     border-width: .06510416666666667vw;
     margin-left: 0;
@@ -1214,9 +1217,9 @@ body {
 }
 
 .btn-coupon:hover {
-    background-color: rgb(220 189 66);
+    background-color: rgb(255 255 255);
     color: #151515;
-    border-color: rgb(220 189 66)
+    border-color: rgb(28 28 28)
 }
 
 .coupon_code_h3 {
@@ -1256,11 +1259,8 @@ body {
 }
 
 .btn-register-login:hover {
-    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
-    background-color: rgb(220 189 66);
-    color: #151515;
-    border-color: rgb(220 189 66);
-    transform: scale(1.1)
+    box-shadow: 0px 3px #606060;
+
 }
 
 .btn-register-login1 {
@@ -1284,11 +1284,8 @@ body {
 }
 
 .btn-register-login1:hover {
-    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
-    background-color: rgb(220 189 66);
-    color: #151515;
-    border-color: rgb(220 189 66);
-    transform: scale(1.1)
+    box-shadow: 0px 3px #606060;
+
 }
 
 .login_with_google {
@@ -1310,10 +1307,8 @@ body {
 }
 
 .login_with_google:hover {
-    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
-    background-color: #e65745;
-    color: #fff;
-    border-color: #e65745
+    box-shadow: 0px 3px #606060;
+
 }
 
 .cart_box_head {
@@ -1377,7 +1372,7 @@ body {
     margin: 2.604166666666667vw 0 0 0;
     font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif;
-    color: #8a7522;
+    color: #333333;
     text-align: left;
     justify-content: center;
     width: 7.812500000000001vw;
@@ -1423,7 +1418,7 @@ body {
     margin-top: 2.604166666666667vw;
     font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif;
-    color: #8a7522;
+    color: #2d2d2d;
     text-align: right;
     width: 6.510416666666667vw;
     letter-spacing: .06510416666666667vw
@@ -1442,10 +1437,10 @@ body {
     margin: 0 8.0078125vw 0 0;
     margin-top: 2.604166666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: #8a7522;
+    color: #272727;
     float: right;
     font-size: 1.3020833333333333vw;
-    letter-spacing: .06510416666666667vw
+    letter-spacing: .01510416666666667vw
 }
 
 .checkout_button {
@@ -1453,26 +1448,23 @@ body {
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #000;
-    background-color: #d4b435;
+    color: #fff;
+    background-color: #1e1e1e;
     text-decoration: none;
-    border-color: #d4b435;
+    border-color: #1e1e1e;
     border-style: solid;
     border-width: .06510416666666667vw;
-    padding: .9765625vw;
+    padding: .765625vw 1.5vw;
     transition: all .25s;
     margin-top: 2.34375vw;
     cursor: pointer;
     /*     margin-left: 64.77864583333334vw; */
-    border-radius: .32552083333333337vw
+    border-radius: .52552083333333337vw
 }
 
 .checkout_button:hover {
-    box-shadow: rgb(187 187 187) 0 0 1.8229166666666667vw 0;
-    background-color: rgb(220 189 66);
-    color: #151515;
-    transform: scale(1.1);
-    border-color: rgb(220 189 66)
+    box-shadow: 0px 3px #606060;
+
 }
 
 .send_button {
@@ -1528,12 +1520,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #a89037;
+    background: #b9b9b9;
     transition: all .5s
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #6c5c20
+    background: #919191
 }
 
 .product_description {
@@ -1691,10 +1683,10 @@ body {
     border: 0;
     font-size: 1.0369791666666667vw;
     margin-top: 1.5625vw;
-    color: #948845;
-    border: .06510416666666667vw solid #948845;
+    color: #3b3b3b;
+    border: .06510416666666667vw solid #3f3f3f;
     opacity: .9;
-    background-color: #fff;
+    background-color: #fcfcfc;
     cursor: pointer;
     transition: all .2s
 }
@@ -1733,10 +1725,10 @@ body {
     border: 0;
     margin: 0;
     font-size: 1.0067708333333335vw;
-    color: #877c3e;
-    border: .06510416666666667vw solid #877c3e;
+    color: #2f2f2f;
+    border: .06510416666666667vw solid #626262;
     opacity: .9;
-    background-color: #fff;
+    background-color: #fcfcfc;
     cursor: pointer;
     transition: all .2s
 }
@@ -1806,7 +1798,7 @@ body {
 }
 
 .product_description_i {
-    background-color: #a2911b;
+    background-color: #353535;
     color: #fff;
     position: absolute;
     font-size: .7161458333333334vw;
@@ -2079,14 +2071,14 @@ body {
 }
 
 .cart_count {
-    height: .58125vw;
-    width: .58125vw;
+    height: .68125vw;
+    width: .68125vw;
     border-radius: 100%;
     color: #000;
     background-image: radial-gradient(white, #d3d3d3);
     border: .06510416666666667vw solid #d4d4d4a2;
     margin: 0;
-    font-size: .5510416666666667vw;
+    font-size: .5810416666666667vw;
     font-weight: 700;
     font-family: Cabin, arial, sans-serif;
     position: absolute;
@@ -2099,10 +2091,10 @@ body {
 .shop_more {
     margin: 0 8.0078125vw 0 0;
     font-family: Lato, arial, sans-serif;
-    color: #8a7522;
+    color: #1e1e1e;
     text-decoration: none;
     float: right;
-    border: .06510416666666667vw solid #8a7522;
+    border: .06510416666666667vw solid #222222;
     padding: .3255208333333333vw .6510416666666667vw;
     border-radius: .3255208333333333vw;
     font-size: 1.1020833333333333vw;
