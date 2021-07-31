@@ -95,28 +95,40 @@ body {
 
 .footer {
     padding-top: 2.6041666666666665vw;
-    padding-bottom: 2.6041666666666665vw
+    padding-bottom: 2.6041666666666665vw;
+    background-color: #141414;
 }
 
 .toc-pp {
     text-align: center;
     font-size: 1.1067708333333333vw;
     font-family: Lato, arial, sans-serif;
-    padding-bottom: 2.604166666666667vw
+    padding-bottom: 2.604166666666667vw;
+    color: white;
 }
 
 .toc {
-    color: #8a7522;
+    color: #ffffff;
     text-decoration: none;
     padding: 0 .32552083333333337vw;
-    letter-spacing: .06510416666666667vw
+    letter-spacing: .06510416666666667vw;
+    transition: all 0.25s
+}
+
+.toc:hover {
+    letter-spacing: 2px;
 }
 
 .pp {
-    color: #8a7522;
+    color: #ffffff;
     text-decoration: none;
     padding: 0 .32552083333333337vw;
-    letter-spacing: .06510416666666667vw
+    letter-spacing: .06510416666666667vw;
+    transition: all 0.25s
+}
+
+.pp:hover {
+    letter-spacing: 2px;
 }
 
 .share-logo {
@@ -130,7 +142,8 @@ body {
 }
 
 .icons {
-    padding: .6510416666666667vw
+    padding: .6510416666666667vw;
+    color: white;
 }
 
 .website {
@@ -143,9 +156,14 @@ body {
 }
 
 .website a {
-    color: #8a7522;
+    color: #ffffff;
     text-decoration: none;
-    text-transform: lowercase
+    text-transform: lowercase;
+    transition: all 0.25s;
+}
+
+.website a:hover {
+    letter-spacing: 2px;
 }
 
 .place {
@@ -162,7 +180,19 @@ body {
     letter-spacing: .083em;
     font-family: Lato, arial, sans-serif;
     text-align: center;
-    padding-bottom: 1.5625vw
+    padding-bottom: 1.5625vw;
+}
+
+
+
+.phone-number a {
+    text-decoration: none;
+    color: rgb(255 255 255);
+    transition: all 0.25s
+}
+
+.phone-number a:hover {
+    letter-spacing: 2px;
 }
 
 .flex {
@@ -175,7 +205,7 @@ body {
     padding: 0 1.5625vw;
     letter-spacing: .06510416666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: #595959;
+    color: #e0e0e0;
     font-size: .9114583333333334vw
 }
 
@@ -184,7 +214,7 @@ body {
     padding: 0 1.5625vw;
     letter-spacing: .06510416666666667vw;
     font-family: Lato, arial, sans-serif;
-    color: #595959;
+    color: #e0e0e0;
     font-size: .9114583333333334vw
 }
 
@@ -192,7 +222,7 @@ body {
     margin: 0 12.994791666666666vw;
     padding: 0 1.5625vw;
     letter-spacing: .06510416666666667vw;
-    color: #595959;
+    color: #e0e0e0;
     font-size: .9114583333333334vw;
     font-family: Lato, arial, sans-serif
 }
