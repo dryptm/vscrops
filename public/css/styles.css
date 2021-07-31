@@ -1274,10 +1274,10 @@ body {
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #000;
-    background-color: #d4b435;
+    color: #fff;
+    background-color: #141414;
     text-decoration: none;
-    border-color: #d4b435;
+    border-color: #141414;
     border-style: solid;
     border-width: .06510416666666667vw;
     margin-left: 0;
@@ -1298,10 +1298,10 @@ body {
     font-size: 1.0416666666666667vw;
     font-weight: 400;
     font-family: Lato, arial, sans-serif;
-    color: #000;
-    background-color: #d4b435;
+    color: #f2f2f2;
+    background-color: #0e0e0e;
     text-decoration: none;
-    border-color: #d4b435;
+    border-color: #181818;
     border-style: solid;
     border-width: .06510416666666667vw;
     margin-left: 0;
@@ -2159,7 +2159,7 @@ body {
     margin: 0;
     margin-top: 0.9114583333333334vw;
     width: 100%;
-    background-color: #9a7e0057
+    background-color: #8d8d8d57
 }
 
 .gola2 {
@@ -2174,7 +2174,7 @@ body {
 
 .andar_gola {
     margin: 0.1953125vw auto;
-    background-color: #c2a832;
+    background-color: #242424;
     border: 0.32552083333333337vw solid #fff;
     height: 0.9114583333333334vw;
     width: 0.9114583333333334vw;
