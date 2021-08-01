@@ -715,8 +715,8 @@ body {
 }
 
 .a_launch_product_1:hover {
-    background-color: rgb(34 34 34);
-    color: #ffffff;
+    background-color: rgb(250 250 250);
+    color: #121212;
     font-size: 1.1vw;
     border-color: rgb(26 26 26)
 }
@@ -789,18 +789,18 @@ body {
 
 .add_to_cart {
     position: absolute;
-    bottom: 2.5%;
+    bottom: 3%;
     right: 1.623567708333333vw;
     margin: auto;
     letter-spacing: .03020833333333334vw;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     background-color: #272727;
     font-weight: 400;
     /*     transform: rotateY(180deg); */
     font-family: Lato, arial, sans-serif;
     color: white;
     text-decoration: none;
-    padding: 1.253125vw;
+    padding: 1.053125vw;
     border-radius: 10px;
     transition: all .25s
 }
@@ -821,6 +821,7 @@ body {
 .price_products {
     font-family: Lato, arial, sans-serif;
     font-size: 1.0416666666666667vw;
+    margin: 0;
     margin-left: 1.623567708333333vw
 }
 
@@ -828,7 +829,19 @@ body {
     font-family: Lato, arial, sans-serif;
     color: #1c1c1c;
     font-size: 1.3020833333333333vw;
+    /*         font-weight:500; */
     margin: 0;
+    margin-top: 10px;
+    margin-left: 1.623567708333333vw
+}
+
+.price_products_font1 {
+    font-family: Lato, arial, sans-serif;
+    color: #1c1c1c;
+    font-size: 1.120833333333333vw;
+    font-weight: 500;
+    margin: 0px;
+
     margin-left: 1.623567708333333vw
 }
 
@@ -1084,6 +1097,7 @@ body {
     font-weight: 600;
     font-family: Lato, arial, sans-serif;
     letter-spacing: .045em;
+    margin-bottom: 0;
     padding: 0 1.5625vw
 }
 
@@ -1339,12 +1353,12 @@ body {
     margin-left: 3.2552083333333335vw;
     margin-top: 6.510416666666667vw;
     padding: .9765625vw;
-    transition: all .5s;
+    transition: all .25s;
     border-radius: .3255208333333333vw
 }
 
 .login_with_google:hover {
-    box-shadow: 0px 3px #606060;
+    box-shadow: 0px 3px #d7897f;
 
 }
 
@@ -1664,7 +1678,7 @@ body {
 .forgot_pass {
     font-size: 1.171875vw;
     text-decoration: none;
-    color: #716021;
+    color: #313131;
     font-family: Lato, arial, sans-serif
 }
 
@@ -2189,4 +2203,23 @@ body {
     height: 0.9114583333333334vw;
     width: 0.9114583333333334vw;
     border-radius: 100%
+}
+
+.switch_pure {
+    color: black;
+    font-size: 32px;
+    letter-spacing: 0.09vw;
+    font-family: 'Cabin', arial, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.switch_coupon {
+    color: rgb(105, 105, 105);
+    font-size: 20px;
+    letter-spacing: 0.05vw;
+    font-weight: 500;
+    font-family: 'Cabin', arial, sans-serif;
+    /* text-transform: uppercase; */
+    text-align: center;
 }
