@@ -563,10 +563,13 @@ body {
 }
 
 .mailinput_middleware {
-    width: 100%;
+    width: 60%;
     overflow: hidden;
+    position: absolute;
+    border-radius: 5px;
+    right: 0;
     font-size: 1.0416666666666667vw;
-    margin-top: .6625vw;
+    margin-top: -0.5625vw;
     padding: 0 .6765625000000001vw;
     font-family: Lato, arial, sans-serif;
     color: #313131;
@@ -885,7 +888,7 @@ body {
 }
 
 .btn-add-to-cart:hover {
-    box-shadow: 0px 3px #606060;
+    box-shadow: 0px 3px #858585;
 
 }
 
@@ -1253,10 +1256,12 @@ body {
 }
 
 .namefield_all_middleware {
-    font-size: 1.2531250000000002vw;
+    font-size: 1.1531250000000002vw;
     font-family: Lato, arial, sans-serif;
     letter-spacing: .06510416666666667vw;
     font-weight: 400;
+    margin-top: 15px;
+    position: relative;
     color: #474747
 }
 
@@ -1320,7 +1325,7 @@ body {
 }
 
 .btn-register-login:hover {
-    box-shadow: 0px 3px #606060;
+    box-shadow: 0px 3px #858585;
 
 }
 
@@ -1345,7 +1350,7 @@ body {
 }
 
 .btn-register-login1:hover {
-    box-shadow: 0px 3px #606060;
+    box-shadow: 0px 3px #858585;
 
 }
 
@@ -1524,7 +1529,7 @@ body {
 }
 
 .checkout_button:hover {
-    box-shadow: 0px 3px #606060;
+    box-shadow: 0px 3px #858585;
 
 }
 
@@ -1922,7 +1927,7 @@ body {
     font-weight: 400;
     padding: 5px 10px;
     border-radius: 5px;
-    box-shadow: 0px 3px #606060;
+    box-shadow: 0px 3px #858585;
 
     background-color: black;
     cursor: pointer

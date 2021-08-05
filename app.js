@@ -75,6 +75,7 @@ Product.find({}, (err, found) => {
         for (var j = 0; j < y.length; j++) {
           y[j] = y[j].substring(0, 3)
         }
+        y[y.length]=found1.product_quantity.substring(0, 3);
         if (found1.product_sku == "") {
 
           Product.findOneAndUpdate({
