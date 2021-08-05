@@ -1101,6 +1101,16 @@ body {
     padding: 0 1.5625vw
 }
 
+.blogh2 {
+    color: black;
+    font-size: 1.4322916666666667vw;
+    font-weight: 600;
+    font-family: Lato, arial, sans-serif;
+    letter-spacing: .045em;
+    /*     margin-bottom: 0; */
+    padding: 0 1.5625vw
+}
+
 .blogdate {
     padding: .6510416666666666vw 1.5625vw;
     color: #595959;

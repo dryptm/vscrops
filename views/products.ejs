@@ -44,7 +44,7 @@
                 <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
-                <p class="price_products_font1">100ml</p>
+                <p class="price_products_font1"><%=post[i].product_quantity%></p>
                 <p class="price_products" id="price_products<%=i%>" style="opacity: 0.5;">You save
                     ₹ <%=(post[i].product_price-price)%>(<%=post[i].product_discount%>%)</p>
             </div>
@@ -74,7 +74,7 @@
                 <a class="add_to_cart" href="/products/<%=post[i+1]._id%>"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 <%var price=post[i+1].product_price-((post[i+1].product_price*post[i+1].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
-                <p class="price_products_font1">100ml</p>
+                <p class="price_products_font1"><%=post[i].product_quantity%></p>
                 <p class="price_products" id="price_products<%=(i+1)%>" style="opacity: 0.5;">You save
                     ₹ <%=(post[i+1].product_price-price)%>(<%=post[i+1].product_discount%>%)</p>
 
@@ -110,7 +110,7 @@
                 <a class="add_to_cart" href="/products/<%=post[i]._id%>"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 <%var price=post[i].product_price-((post[i].product_price*post[i].product_discount)/100)%>
                 <p class="price_products_font">₹ <%=price%></p>
-                <p class="price_products_font1">100ml</p>
+                <p class="price_products_font1"><%=post[i].product_quantity%></p>
                 <p class="price_products" id="price_products<%=i%>" style="opacity: 0.5;">You save
                     ₹ <%=(post[i].product_price-price)%>(<%=post[i].product_discount%>%)</p>
 
