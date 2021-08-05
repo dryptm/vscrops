@@ -1742,13 +1742,6 @@ app.get('/shiprocket/:id', (req, res) => {
                   //****************************************************************************************************** */
 
                   //CHANGE ORDER STATUS
-                  res.render("payment_success", {
-                    isLoggedin: "yes",
-                    cartlength: req.user.cart.length,
-    
-                    name: req.user.name,
-                    message: "Order Canceled!"
-                  });
                   //****************************************************************************************************** */
                 })
                 .catch(error => console.log('error', error));
@@ -1791,8 +1784,14 @@ app.get('/shiprocket/:id', (req, res) => {
 
   //************************************* */
   // AFTER CANCEL REDIRECT AND UPDATE ORDER STATUS
-  
-  res.redirect("/orders")
+  res.render("order_canceled", {
+    isLoggedin: "yes",
+    cartlength: req.user.cart.length,
+
+    name: req.user.name,
+    message: "Order Canceled!"
+  });
+
 
   //************************************** */
 
