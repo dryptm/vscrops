@@ -956,9 +956,10 @@ app.get("/delete/:np", (req, res) => {
 
 app.post('/checkout_post', (req, res) => {
   var len = Object.keys(req.body).length - 1
-  console.log(req.body)
+  
   if (req.isAuthenticated()) {
     var arr = req.user.cart
+    console.log(req.body)
     for (let i = 0; i < Math.min(len, arr.length); ++i) {
       var old_price = arr[i].total_price / arr[i].quantity
       arr[i].quantity = Number(req.body[i + ''])
