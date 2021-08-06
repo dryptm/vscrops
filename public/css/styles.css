@@ -431,7 +431,7 @@ body {
     letter-spacing: .06510416666666667vw;
     color: #000;
     text-align: center;
-    font-weight: 600
+    font-weight: 500
 }
 
 .oils_bottom_flex {
@@ -443,16 +443,24 @@ body {
 
 .obf1 {
     width: 48%;
+    padding: 1%;
     margin: 0 auto 0 0
 }
 
 .obf2 {
     width: 48%;
+    padding: 1%;
+    margin: 0 0 0 auto
+}
+
+.obf3 {
+    width: 48%;
+    padding: 1%;
     margin: 0 0 0 auto
 }
 
 .obf_image1 {
-    height: 39.0625vw
+    height: 25.0625vw
 }
 
 .obf_image1 img {
@@ -462,13 +470,48 @@ body {
 }
 
 .obf_image2 {
-    height: 39.0625vw
+    height: 25.0625vw
 }
 
 .obf_image2 img {
     height: inherit;
     width: 100%;
     object-fit: cover
+}
+
+.obf_image3 {
+    height: 25.0625vw
+}
+
+.obf_image3 img {
+    height: inherit;
+    width: 100%;
+    object-fit: cover
+}
+
+.obf-content1 {
+    background-color: #fff;
+    margin: 0;
+    height: 19.53125vw
+}
+
+.obf-content1 p {
+    font-size: 1.020833333333335vw;
+    font-family: Lato, arial, sans-serif;
+    text-align: center;
+    color: #313131;
+    padding: 0;
+    line-height: 1.6
+}
+
+.obf-content1 h2 {
+    font-size: 2.0322916666666667vw;
+    text-align: center;
+    font-family: Cabin, arial, sans-serif;
+    font-weight: 700;
+    padding-top: 1.9531250000000002vw;
+    margin-top: 0;
+    color: #1b1b1b
 }
 
 .obf-content2 {
@@ -478,7 +521,7 @@ body {
 }
 
 .obf-content2 p {
-    font-size: 1.1020833333333335vw;
+    font-size: 1.020833333333335vw;
     font-family: Lato, arial, sans-serif;
     text-align: center;
     color: #333;
@@ -496,22 +539,22 @@ body {
     color: #1b1b1b
 }
 
-.obf-content1 {
+.obf-content3 {
     background-color: #fff;
     margin: 0;
     height: 19.53125vw
 }
 
-.obf-content1 p {
-    font-size: 1.1020833333333335vw;
+.obf-content3 p {
+    font-size: 1.020833333333335vw;
     font-family: Lato, arial, sans-serif;
     text-align: center;
-    color: #313131;
+    color: #333;
     padding: 0;
     line-height: 1.6
 }
 
-.obf-content1 h2 {
+.obf-content3 h2 {
     font-size: 2.0322916666666667vw;
     text-align: center;
     font-family: Cabin, arial, sans-serif;
