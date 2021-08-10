@@ -168,7 +168,7 @@ body {
 .place {
     font-size: .9114583333333334vw;
     letter-spacing: .083em;
-    color: #1b1b1b;
+    color: white;
     padding: .6510416666666667vw;
     font-family: Lato, arial, sans-serif;
     text-align: center
@@ -194,7 +194,7 @@ body {
 
 .flex {
     display: flex;
-    justify-content: flex-start
+    flex-direction: row;
 }
 
 .copyright {
@@ -1924,7 +1924,7 @@ body {
 
 .gov_img {
     margin: 0 3.2552083333333335vw;
-    width: 16.276041666666668vw
+    width: 16.076041666666668vw
 }
 
 #my_orders {
@@ -2237,4 +2237,330 @@ body {
     font-weight: 500;
     font-family: Cabin, arial, sans-serif;
     text-align: center
+}
+
+@media only screen and (max-width: 1024px) {
+    .header-block {
+        height: 70px;
+    }
+
+    .company-logo {
+        height: 70px;
+        width: 110px;
+        background-position-y: -20px;
+        background-position-x: -1.3020833333333335vw;
+    }
+
+    .banner {
+        height: 18px;
+    }
+
+    .banner-p {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+
+    .search-cart-user {
+        position: absolute;
+        right: 9.097916666666666vw;
+        top: 25px;
+    }
+
+    .li-container {
+        display: none;
+    }
+
+    .li-container1 {
+        font-size: 12px;
+        padding: 5px
+    }
+
+    .vishuddha_oils_are_quality_flex {
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between
+    }
+
+    .vishuddha_oils_are_quality_flex img {
+        width: 60px;
+    }
+
+    .exp_l {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 40px;
+    }
+
+    .shopnow_div {
+        width: 100px;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    .shopnow {
+        font-size: 15px;
+        border-radius: 5px;
+        border: 2px solid #000;
+        text-decoration: none;
+        padding: 5px 10px;
+        margin: 0 auto;
+        transition: all .25s
+    }
+
+    .us {
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .us_data {
+        font-size: 14px;
+        margin: 30px 0;
+        text-align: center
+    }
+
+    .findoutmore {
+        font-size: 12px;
+        margin-left: 33.5vw;
+    }
+
+    .findoutmore_arrow {
+        font-size: 12px;
+    }
+
+    .productsontheway {
+        font-size: 22px
+    }
+
+    .oils_bottom_flex {
+        flex-direction: column;
+        width: 60%;
+    }
+
+    .obf1 {
+        width: 100%;
+        /*     padding: %; */
+        /*     margin: 0 auto 0 0 */
+    }
+
+    .obf2 {
+        width: 100%;
+        /*     padding: 1%; */
+        /*     margin: 0 0 0 auto */
+    }
+
+    .obf3 {
+        width: 100%;
+        /*     padding: 1%; */
+        /*     margin: 0 0 0 auto */
+    }
+
+    .obf_image1 {
+        height: 50vw
+    }
+
+    .obf_image1 img {
+        height: inherit;
+        width: 100%;
+        object-fit: cover
+    }
+
+    .obf_image2 {
+        height: 50vw
+    }
+
+    .obf_image2 img {
+        height: inherit;
+        width: 100%;
+        object-fit: cover
+    }
+
+    .obf_image3 {
+        height: 50vw
+    }
+
+    .obf_image3 img {
+        height: inherit;
+        width: 100%;
+        object-fit: cover
+    }
+
+    .obf-content1 {
+        background-color: #fff;
+        margin: 0;
+        height: 250px
+    }
+
+    .obf-content1 p {
+        font-size: 13px;
+        font-family: Lato, arial, sans-serif;
+        text-align: center;
+        color: #313131;
+        padding: 0;
+        line-height: 1.6
+    }
+
+    .obf-content1 h2 {
+        font-size: 17px;
+        text-align: center;
+        font-family: Cabin, arial, sans-serif;
+        font-weight: 700;
+        padding-top: 1.9531250000000002vw;
+        margin-top: 0;
+        color: #1b1b1b
+    }
+
+    .obf-content2 {
+        background-color: #fff;
+        margin: 0;
+        height: 250px
+    }
+
+    .obf-content2 p {
+        font-size: 13px;
+        font-family: Lato, arial, sans-serif;
+        text-align: center;
+        color: #333;
+        padding: 0;
+        line-height: 1.6
+    }
+
+    .obf-content2 h2 {
+        font-size: 17px;
+        text-align: center;
+        font-family: Cabin, arial, sans-serif;
+        font-weight: 700;
+        padding-top: 1.9531250000000002vw;
+        margin-top: 0;
+        color: #1b1b1b
+    }
+
+    .obf-content3 {
+        background-color: #fff;
+        margin: 0;
+        height: 250px
+    }
+
+    .obf-content3 p {
+        font-size: 13px;
+        font-family: Lato, arial, sans-serif;
+        text-align: center;
+        color: #333;
+        padding: 0;
+        line-height: 1.6
+    }
+
+    .obf-content3 h2 {
+        font-size: 17px;
+        text-align: center;
+        font-family: Cabin, arial, sans-serif;
+        font-weight: 700;
+        padding-top: 1.9531250000000002vw;
+        margin-top: 0;
+        color: #1b1b1b
+    }
+
+    @media only screen and (max-width: 600px) {
+        .gov_flex {
+            width: 40%;
+        }
+
+        .gov_img {
+            width: 80%;
+            margin: 10%;
+        }
+
+        .vishuddha_oils_are_quality_flex img {
+            width: 40px;
+        }
+
+        .findoutmore {
+            font-size: 12px;
+            margin-left: 28vw;
+        }
+
+        .findoutmore_arrow {
+            font-size: 12px;
+        }
+
+        .shopnow_div {
+            width: 100px;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+
+        .mail-list {
+            width: 50.20833333333333vw;
+            margin: 18.510416666666667vw auto 0;
+            display: flex;
+            flex-direction: column;
+            height: 6.510416666666667vw
+        }
+
+        .joinmaillist {
+            text-align: center;
+            width: 50.20833333333333vw;
+            font-size: 18px
+        }
+
+        .mailinput1 {
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .a_launch_product_1 {
+            margin: 20px;
+            margin-left: 25%;
+            border-radius: 5px;
+            font-size: 12px;
+            width: 55%;
+            height: 100%;
+        }
+
+        .footer {
+            height: 200px;
+        }
+
+        .toc-pp {
+            font-size: 12px;
+        }
+
+        .share-logo-p {
+            font-size: 15px
+        }
+
+        .website {
+            font-size: 11px;
+        }
+
+        .phone-number {
+            font-size: 11px;
+        }
+
+        .place {
+            font-size: 11px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 7px;
+            margin-bottom: 10px
+        }
+
+        .flex {
+            flex-direction: column;
+            text-align: center
+        }
+
+        .trademark {
+            font-size: 7px
+        }
+
+        .connect {
+            font-size: 7px
+        }
+    }
 }
