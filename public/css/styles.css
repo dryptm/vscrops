@@ -2547,20 +2547,27 @@ body {
         .copyright {
             text-align: center;
             font-size: 7px;
-            margin-bottom: 10px
+            margin-bottom: 10px;
+            letter-spacing: 0.7px
         }
 
         .flex {
-            flex-direction: column;
-            text-align: center
+            flex-direction: row;
+            width: 70%;
+            margin: 0 auto;
+            /*             text-align: center */
         }
 
         .trademark {
-            font-size: 7px
+            font-size: 7px;
+            margin: 0;
+            float: left;
         }
 
         .connect {
-            font-size: 7px
+            font-size: 7px;
+            margin: 0;
+            float: right;
         }
     }
 }
