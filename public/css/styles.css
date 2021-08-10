@@ -2496,18 +2496,20 @@ body {
         padding: 7px 10px;
         font-size: 25px;
         border-radius: 100%;
+        opacity: 1;
         background-color: #62b00f;
         position: fixed
     }
 
     @media only screen and (max-width: 600px) {
         .chat_button {
-            bottom: 20px;
-            right: 20px;
+            bottom: 15px;
+            right: 15px;
             margin: 0;
+            opacity: 1;
             box-shadow: rgb(0 0 0 / 45%) 0 .1953125vw 1.171875vw;
-            padding: 10px 14px;
-            font-size: 30px;
+            padding: 7px 10px;
+            font-size: 25px;
             border-radius: 100%;
             background-color: #62b00f;
             position: fixed
