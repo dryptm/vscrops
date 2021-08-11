@@ -1026,6 +1026,8 @@ body {
 
 .contact_msg2 {
     font-size: 1.0416666666666667vw;
+    font-weight: 400;
+
     font-family: Lato, arial, sans-serif;
     color: #313131
 }
@@ -2247,6 +2249,35 @@ body {
     text-align: center
 }
 
+.contact_current {
+    font-weight: 100;
+    font-family: Lato, arial, sans-serif;
+    font-size: 2.6041666666666665vw;
+}
+
+.contact_timing {
+    font-size: 1.4322916666666667vw;
+    font-family: Lato, arial, sans-serif;
+    font-weight: 400;
+    color: #1b1b1b;
+    letter-spacing: .045em;
+    padding-top: 3.2552083333333335vw;
+    padding-top: 0;
+}
+
+.contact_flex p {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: Lato, arial, sans-serif;
+}
+
+.contact_flex a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: Lato, arial, sans-serif;
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 1024px) {
     .header-block {
         height: 70px;
@@ -2541,7 +2572,79 @@ body {
         margin-top: 80px;
     }
 
+    .note_flex {
+        width: 60%;
+    }
+
+    .note_head {
+        font-size: 18px
+    }
+
+    .note_p {
+        font-size: 12px
+    }
+
+    .note_head_1 {
+        font-size: 24px;
+    }
+
+    .note_p_1 {
+        font-size: 13px
+    }
+
+    .contact_flex {
+        width: 80%;
+    }
+
+    .contact_msg1 {
+        font-size: 12px
+    }
+
+    .contact_msg2 {
+        font-size: 11px
+    }
+
+    .contact_current {
+        font-weight: 100;
+        font-family: Lato, arial, sans-serif;
+        font-size: 22px;
+    }
+
+    .contact_timing {
+        font-size: 15px;
+        font-family: Lato, arial, sans-serif;
+        font-weight: 400;
+        color: #1b1b1b;
+        letter-spacing: .045em;
+        padding-top: 3.2552083333333335vw;
+        padding-top: 0;
+    }
+
+    .contact_flex p {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-size: 12px;
+        font-family: Lato, arial, sans-serif;
+    }
+
+    .contact_flex a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-size: 12px;
+        font-family: Lato, arial, sans-serif;
+        font-weight: bold;
+    }
+
+
     @media only screen and (max-width: 600px) {
+        .note_flex {
+            width: 70%;
+        }
+
+        .note_head_1 {
+            margin-top: 15vh;
+        }
+
         .chat_button {
             bottom: 15px;
             right: 15px;
