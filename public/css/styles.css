@@ -2641,6 +2641,111 @@ body {
             width: 70%;
         }
 
+        .switch_pure {
+            font-size: 20px;
+        }
+
+        .blog_number {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            margin: 0 auto;
+            height: inherit;
+        }
+
+        .blog_left {
+            height: 77vw;
+            width: 100%;
+            border-style: solid;
+            border-width: 1.5px;
+            border-color: rgb(199 199 199);
+            transition: all .25s;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .blog_right {
+            height: 77vw;
+            width: 100%;
+            border-style: solid;
+            border-width: 1.5px;
+            border-color: rgb(199 199 199);
+            transition: all .25s;
+            position: relative;
+            margin-bottom: 50px;
+
+        }
+
+        .blog_center {
+            height: 77vw;
+            width: 100%;
+            border-style: solid;
+            border-width: 1.5px;
+            border-color: rgb(199 199 199);
+            transition: all .25s;
+            position: relative;
+            margin-bottom: 50px;
+
+        }
+
+        .blogimg_products {
+            width: 65vw;
+            height: 50vw;
+            margin: 0 5%;
+            margin-top: 5%;
+            object-fit: cover
+        }
+
+        .blogh1 {
+            font-size: 15px;
+            margin-left: 5%;
+            padding: 0
+        }
+
+        .price_products_font {
+            font-size: 15px;
+            margin-left: 5%;
+            padding: 0
+        }
+
+        .price_products_font1 {
+            font-size: 13px;
+            margin-left: 5%;
+            padding: 0
+        }
+
+        .price_products {
+            font-size: 11px;
+            margin-left: 5%;
+            padding: 0
+        }
+
+        .add_to_cart {
+            font-size: 14px;
+            margin-right: 10px;
+            padding: 5px;
+
+        }
+
+        .switch_coupon {
+            font-size: 14px;
+        }
+
+        .product_description_i {
+            background-color: #353535;
+            color: #fff;
+            position: absolute;
+            font-size: 13px;
+            right: 20px;
+            top: 20px;
+            height: 15px;
+            width: 15px;
+            border-radius: 100%;
+            text-align: center;
+            padding: 2px;
+            cursor: pointer
+        }
+
         .note_head_1 {
             margin-top: 15vh;
         }
