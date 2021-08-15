@@ -2322,10 +2322,12 @@ body {
 
     .btn-register-login {
         font-size: 15px;
+        border-radius: 5px;
     }
 
     .login_with_google {
-        font-size: 15px
+        font-size: 15px;
+        border-radius: 5px;
     }
 
     .user_dropdown {
