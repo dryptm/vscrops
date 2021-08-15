@@ -2723,7 +2723,7 @@ body {
         .add_to_cart {
             font-size: 14px;
             margin-right: 10px;
-            padding: 5px;
+            padding: 10px 20px;
 
         }
 
@@ -2744,6 +2744,25 @@ body {
             text-align: center;
             padding: 2px;
             cursor: pointer
+        }
+
+        .description_data {
+            width: 70%;
+            color: #000;
+            font-weight: 500;
+            background-color: #fff;
+            border: 1.5px solid #dbdbdb;
+            letter-spacing: 0;
+            font-family: Cabin, arial, sans-serif;
+            text-align: left;
+            border-radius: 5px;
+            height: auto;
+            padding: 0px 20px;
+            position: absolute;
+            font-size: 12px;
+            right: 20px;
+            top: 40px;
+            transition: all .2s
         }
 
         .note_head_1 {
