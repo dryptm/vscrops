@@ -2764,6 +2764,51 @@ body {
             width: 70%;
         }
 
+        .payment_gola {
+            padding-top: 50px;
+            width: 50%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row
+        }
+
+        .gola1 {
+            background-color: rgb(217 217 217);
+            border-radius: 100%;
+            border: 0;
+            margin: 0;
+            height: 25px;
+            width: 30px;
+            position: relative
+        }
+
+        .gole_line {
+            height: 2px;
+            margin: 0;
+            margin-top: 11px;
+            width: 100%;
+            background-color: #8d8d8d57
+        }
+
+        .gola2 {
+            background-color: rgb(217 217 217);
+            border-radius: 100%;
+            border: 0;
+            margin: 0;
+            height: 25px;
+            width: 30px;
+            position: relative
+        }
+
+        .andar_gola {
+            margin: 5px auto;
+            background-color: #242424;
+            border: 4px solid #fff;
+            height: 7px;
+            width: 7px;
+            border-radius: 100%
+        }
+
         .head_cart_margs {
             display: none
         }
