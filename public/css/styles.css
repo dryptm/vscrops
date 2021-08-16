@@ -2840,6 +2840,44 @@ body {
             flex-direction: column
         }
 
+        .main_box_xx {
+            width: 70%;
+            padding: 0;
+            flex-direction: column
+        }
+
+        .main_box_xx2 {
+            width: 100%
+        }
+
+        .main_box_xx1 {
+            width: 100%
+        }
+
+        .checkout_button {
+            width: 100%;
+            /*     margin-top:50px; */
+            font-size: 15px;
+            /*     margin-left:40%; */
+            border-radius: 5px
+        }
+
+        .coupon_code_h3 {
+            font-size: 12px
+        }
+
+        .coupon_input {
+            width: 70%;
+            font-size: 12px;
+
+        }
+
+        .btn-coupon {
+            font-size: 12px;
+            padding-left: 4%;
+            padding-right: 4%;
+        }
+
         .product_box_flex {
             display: flex;
             flex-direction: column;
