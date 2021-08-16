@@ -2737,6 +2737,27 @@ body {
         z-index: 1
     }
 
+    .btn-register-login1 {
+        font-size: 15px;
+        border-radius: 5px;
+        margin-left: 0
+    }
+
+    .shipping_charges {
+        margin: 0;
+        font-size: 11px;
+        letter-spacing: 0;
+        text-align: left;
+        padding-left: 0;
+        padding-top: 2px;
+    }
+
+    .mailinput2 {
+        font-size: 12px;
+        /*             padding: 5px */
+    }
+
+
 
     @media only screen and (max-width: 600px) {
         .note_flex {
