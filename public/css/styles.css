@@ -2719,6 +2719,25 @@ body {
         font-family: Lato, arial, sans-serif
     }
 
+    .cart_count {
+        height: 11px;
+        width: 11px;
+        border-radius: 100%;
+        color: #000;
+        background-image: radial-gradient(white, #d3d3d3);
+        border: 1.5px solid #d4d4d4a2;
+        margin: 0;
+        font-size: 9px;
+        font-weight: 700;
+        font-family: Cabin, arial, sans-serif;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        right: 0;
+        z-index: 1
+    }
+
+
     @media only screen and (max-width: 600px) {
         .note_flex {
             width: 70%;
