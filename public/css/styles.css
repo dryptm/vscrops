@@ -2792,6 +2792,75 @@ body {
             width: 70%;
         }
 
+        .cancel_order {
+            /*     letter-spacing: .13020833333333334vw; */
+            font-size: 14px;
+            font-weight: 400;
+            font-family: Lato, arial, sans-serif;
+            color: #000;
+            background-color: #fff;
+            text-decoration: none;
+            border: .13020833333333334vw solid #3b3b3b;
+            margin: 0;
+            padding: 5px 0;
+            transition: all .5s;
+            cursor: pointer;
+            border-radius: 5px;
+            display: inline-block;
+            position: relative;
+            width: 50%;
+            text-align: center;
+            margin-top: 0px;
+            margin-left: 80px
+        }
+
+        .id_order {
+            width: 100%;
+            font-size: 12px;
+            text-align: left;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .all_ordersinfo_box {
+            border-radius: 5px;
+            width: 100%;
+            margin: 0;
+            height: 250px;
+            overflow-y: scroll;
+            float: none;
+            margin-top: 20px;
+            border: 1px solid #dbdbdb;
+            background-color: #fafafa
+        }
+
+        .order_center {
+            height: 102px;
+            width: 95%;
+            margin-top: 10px;
+        }
+
+        .order_center_left h3 {
+            font-size: 15px;
+            margin-top: 5%
+        }
+
+        .order_center_left span {
+            font-size: 12px;
+            margin-top: 5%
+        }
+
+        .order_center_right {
+            height: 80px;
+            width: 80px;
+        }
+
+        .order_image {
+            width: 100%;
+            height: 100%;
+            padding: 10% 10% 0 0;
+        }
+
         #my_orders {
             font-size: 12px;
             padding: 1px 10px;
