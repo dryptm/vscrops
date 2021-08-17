@@ -2914,7 +2914,9 @@ body {
         }
 
         .order_style1 {
-            display: none
+            font-size: 0;
+            display: none;
+            position: absolute;
         }
 
         .order_style {
