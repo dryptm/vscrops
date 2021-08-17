@@ -124,7 +124,7 @@
                     <a id="ourstory" class="li-container" href="/ourstory" name="our story">Our Story</a>
                     <a id="blog" class="li-container" href="/blog" name="blog">Blog</a>
                     <a id="contactus" class="li-container" href="/contactus" name="contact us">Contact Us</a>
-                    <a href="#" class="li-container3"><i class="fas fa-bars" name="menu"></i></a>
+                    <a href="#" onclick="sidemenu()" class="li-container3"><i class="fas fa-bars" name="menu"></i></a>
                     <a href="#" class="li-container2"><i class="fas fa-search " name="search"></i></a>
                     <% if(isLoggedin==="yes") {%>
                     <a href="/cart" class="li-container1" name="cart length">
@@ -156,7 +156,7 @@
     
     <div class="search-cart-user-mob" id = "nav-mob">
         <h2 class="menu-heading">Menu</h2>
-        <button class="menu-close" id = "close"><i class="fas fa-times"></i></button>
+        <button onclick="sidemenuclose()" class="menu-close"><i class="fas fa-times"></i></button>
         <a id="" class="menu-nav-items" href="/home">Home</a>
         <a id="" class="menu-nav-items" href="/products">Products</a>
         <a id="" class="menu-nav-items" href="/foundersnote">Corporate Gifting</a>
@@ -220,4 +220,23 @@
                 userclick = 0;
             }
         });
+
+
+        var sidemenuC=0;
+        function sidemenu(){
+            if(sidemenuC==0){
+                document.getElementById("nav-mob").style.width="70%";
+                sidemenuC++;
+            }
+            else{
+                document.getElementById("nav-mob").style.width="0%";
+                sidemenuC--;
+            }
+        }
+        function sidemenuclose(){
+            document.getElementById("nav-mob").style.width="0%";
+            sidemenuC=0;
+        }
+
+
     </script>
