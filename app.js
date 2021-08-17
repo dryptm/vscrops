@@ -575,7 +575,7 @@ app.get('/change/:idd', (req, res) => {
       if (req.isAuthenticated()) {
         res.render("change_password", {
           isLoggedin: "yes",
-          cartlength: found1.cart.length,
+          cartlength: found.cart.length,
 
           name: found.name,
           id: req.params.idd
