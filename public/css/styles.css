@@ -698,16 +698,16 @@ body {
 }
 
 .carousel-container {
-    width: 80.20833333333333vw;
-    height: 38.818684895833336vw;
+    width: 77rem;
+    height: 37.266rem;
     margin: 0 auto;
     overflow: hidden;
     position: relative
 }
 
 .carousel-slide {
-    width: 80.20833333333333vw;
-    height: 45.818684895833336vw;
+    width: 77rem;
+    height: 43.986rem;
     margin-top: -5.5vw;
     display: flex;
     object-fit: cover;
