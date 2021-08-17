@@ -706,7 +706,7 @@ body {
 }
 
 .carousel-slide {
-    width: 100%;
+    width: 80.20833333333333vw;
     height: 45.818684895833336vw;
     margin-top: -5.5vw;
     display: flex
