@@ -2764,6 +2764,79 @@ body {
             width: 70%;
         }
 
+        .currentpost_title {
+            font-size: 15px;
+        }
+
+        .data_flex {
+            width: 90%;
+            padding-top: 20px;
+        }
+
+        .currentpost_date {
+            font-size: 11px
+        }
+
+        .currentpost_data {
+            padding-top: 15px;
+            font-size: 14px
+        }
+
+        .share-this-post {
+            font-size: 14px
+        }
+
+        .fb-button-reletive1 {
+            width: 50px;
+            /*                         background-color:black; */
+            height: 14px;
+            font-size: 14px;
+            /*             overflow-x: hidden; */
+        }
+
+        .fb-share-button {
+            opacity: 0
+        }
+
+        .fbrex {
+            top: 1px;
+
+            position: absolute;
+            left: 35px;
+            color: #1877f2
+        }
+
+        .linkein-share-post {
+            font-size: 14px;
+            margin-left: 10px
+        }
+
+        .twitter-share-post {
+            font-size: 14px;
+            margin-left: 15px
+        }
+
+        .blogimg {
+            width: 90%;
+            height: 170px
+        }
+
+        .blogdate {
+            font-size: 11px;
+            padding-left: 5%
+        }
+
+        .blogh2 {
+            font-size: 13px;
+            padding-left: 5%
+        }
+
+        .findoutmore_1 {
+            font-size: 12px;
+            padding-left: 0;
+            margin-left: 5%
+        }
+
         .payment_gola {
             padding-top: 50px;
             width: 50%;
