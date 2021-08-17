@@ -701,7 +701,7 @@ body {
     width: 80.20833333333333vw;
     height: 38.818684895833336vw;
     margin: 0 auto;
-    /* overflow: hidden; */
+    overflow: hidden;
     position: relative
 }
 
