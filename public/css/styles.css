@@ -2351,6 +2351,54 @@ body {
         height: 70px;
     }
 
+    .menu-heading {
+        color: white;
+        font-family: Cabin, arial, sans-serif;
+        font-size: 50px;
+        padding: 20px;
+        border: 1px solid white;
+        border-width: 0px 0 1px 0;
+        margin: 50px 20px 10px 20px;
+        letter-spacing: 4px
+    }
+
+    .search-cart-user-mob {
+        opacity: 1;
+        position: fixed;
+        height: 100vh;
+        width: 0%;
+        background-color: black;
+        z-index: 2;
+        top: 0;
+        display: flex;
+        align-items: left;
+        overflow: hidden;
+        overflow-y: scroll;
+        flex-direction: column;
+        transition: all 0.25s;
+    }
+
+    .menu-close {
+        border: 0;
+        background: transparent;
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
+
+    .menu-nav-items {
+        color: white;
+        margin: 0 40px;
+        text-decoration: none;
+        padding: 20px 20px;
+        font-family: Lato, arial, sans-serif;
+        font-size: 19px;
+        border: 1px solid white;
+        border-width: 0px 0 1px 0;
+    }
+
     .main_box_2 {
         width: 60%
     }
