@@ -2757,6 +2757,34 @@ body {
         /*             padding: 5px */
     }
 
+    .fb-button-reletive1 {
+        width: 50px;
+        /*                         background-color:black; */
+        height: 14px;
+        font-size: 12px;
+        /*             overflow-x: hidden; */
+    }
+
+    .fb-share-button {
+        opacity: 0
+    }
+
+    .fbrex {
+        top: 1px;
+        position: absolute;
+        left: 35px;
+        color: #1877f2
+    }
+
+    .linkein-share-post {
+        font-size: 12px;
+        margin-left: 15px
+    }
+
+    .twitter-share-post {
+        font-size: 12px;
+        margin-left: 15px
+    }
 
 
     @media only screen and (max-width: 600px) {
@@ -2800,7 +2828,6 @@ body {
 
         .fbrex {
             top: 1px;
-
             position: absolute;
             left: 35px;
             color: #1877f2
@@ -2808,7 +2835,7 @@ body {
 
         .linkein-share-post {
             font-size: 14px;
-            margin-left: 10px
+            margin-left: 15px
         }
 
         .twitter-share-post {
