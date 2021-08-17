@@ -124,10 +124,12 @@
                     <a id="ourstory" class="li-container" href="/ourstory" name="our story">Our Story</a>
                     <a id="blog" class="li-container" href="/blog" name="blog">Blog</a>
                     <a id="contactus" class="li-container" href="/contactus" name="contact us">Contact Us</a>
-                    <a href="#" class="li-container1"><i class="fas fa-search " name="search"></i></a>
+                    <a href="#" class="li-container3"><i class="fas fa-bars" name="menu"></i></a>
+                    <a href="#" class="li-container2"><i class="fas fa-search " name="search"></i></a>
                     <% if(isLoggedin==="yes") {%>
                     <a href="/cart" class="li-container1" name="cart length">
-                        <div id="cart_count" class="cart_count"><%= cartlength %></div><i class="fas fa-shopping-cart "></i>
+                        <div id="cart_count" class="cart_count"><%= cartlength %></div><i
+                            class="fas fa-shopping-cart "></i>
                     </a>
                     <script>
                         if (Number(document.getElementById("cart_count").innerText) == 0) {
@@ -148,19 +150,20 @@
             </div>
 
         </div>
-        <!-- <div class="head_divider"></div> -->
 
     </div>
 
-<!--     
-    <div class="search-cart-user-mob" id = "nav-mob" style="opacity: 1;position: fixed;height: 100vh;width: 100%; background-color: thistle;z-index: 2;top: 0;display: flex;align-items: center;flex-direction: column;">
-        <button id = "close" style="border: 0;background: transparent;margin-left: 80%;">X</button>
-        <a id="" class="" href="/home">Home</a>
-        <a id="" class="" href="/products">Products</a>
-        <a id="" class="" href="/ourstory">Our Story</a>
-        <a id="" class="" href="/blog">Blog</a>
-        <a id="" class="" href="/contactus">Contact Us</a>
-    </div> -->
+    
+    <div class="search-cart-user-mob" id = "nav-mob">
+        <h2 class="menu-heading">Menu</h2>
+        <button class="menu-close" id = "close"><i class="fas fa-times"></i></button>
+        <a id="" class="menu-nav-items" href="/home">Home</a>
+        <a id="" class="menu-nav-items" href="/products">Products</a>
+        <a id="" class="menu-nav-items" href="/foundersnote">Corporate Gifting</a>
+        <a id="" class="menu-nav-items" href="/ourstory">Our Story</a>
+        <a id="" class="menu-nav-items" href="/blog">Blog</a>
+        <a id="" class="menu-nav-items" href="/contactus">Contact Us</a>
+    </div>
 
         <a class="chat_button" style="text-decoration: none;" href="https://wa.me/916386417658" target="_blank" rel="noreferrer" name="whatsapp icon"><i class="fab fa-whatsapp"
                 style="color: #ffffff;"></i></a>

@@ -2,6 +2,52 @@ body {
     margin: 0
 }
 
+.menu-heading {
+    color: white;
+    font-family: Cabin, arial, sans-serif;
+    font-size: 50px;
+    padding: 20px;
+    border: 1px solid white;
+    border-width: 0px 0 1px 0;
+    margin: 50px 20px 10px 20px;
+    letter-spacing: 4px
+}
+
+.search-cart-user-mob {
+    opacity: 1;
+    position: fixed;
+    height: 100vh;
+    width: 70%;
+    background-color: black;
+    z-index: 2;
+    top: 0;
+    display: flex;
+    align-items: left;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.menu-close {
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.menu-nav-items {
+    color: white;
+    margin: 0 40px;
+    text-decoration: none;
+    padding: 20px 20px;
+    font-family: Lato, arial, sans-serif;
+    font-size: 19px;
+    border: 1px solid white;
+    border-width: 0px 0 1px 0;
+}
+
 .prompt_msg {
     text-align: center;
     font-size: 2.734375vw;
@@ -79,8 +125,29 @@ body {
     transform: rotateY(180deg)
 }
 
+
 .li-container1:hover {
     color: rgb(98 98 98)
+}
+
+.li-container2 {
+    font-family: Lato, arial, sans-serif;
+    text-decoration: none;
+    margin: 0 .416666666666667vw;
+    padding: .1953125vw;
+    font-size: .9714583333333334vw;
+    letter-spacing: .11393229166666667vw;
+    position: relative;
+    color: rgb(0 0 0);
+    transform: rotateY(180deg)
+}
+
+.li-container2:hover {
+    color: rgb(98 98 98)
+}
+
+.li-container3 {
+    display: none;
 }
 
 .search-cart-user {
@@ -2382,6 +2449,23 @@ body {
 
     .li-container1:hover {
         color: black;
+    }
+
+    .li-container2 {
+        display: none;
+    }
+
+    .li-container3 {
+        font-family: Lato, arial, sans-serif;
+        text-decoration: none;
+        margin: 0 .416666666666667vw;
+        padding: .1953125vw;
+        font-size: 12px;
+        padding: 5px;
+        letter-spacing: .11393229166666667vw;
+        position: relative;
+        color: rgb(0 0 0);
+        display: inline-block;
     }
 
     .vishuddha_oils_are_quality_flex {
