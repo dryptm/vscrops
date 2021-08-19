@@ -2532,17 +2532,17 @@ body {
     }
 
     .vishuddha_oils_are_quality_flex_1 {
-        width: 80%;
+        width: 100%;
         display: flex;
-        margin: 0 10%;
+        margin: 0;
         flex-direction: row;
         justify-content: space-between;
     }
 
     .vishuddha_oils_are_quality_flex_2 {
-        width: 80%;
+        width: 100%;
         display: flex;
-        margin: 0 10%;
+        margin: 0;
 
         flex-direction: row;
         justify-content: space-between;
@@ -3613,7 +3613,7 @@ body {
         }
 
         .vishuddha_oils_are_quality_flex img {
-            width: 60px;
+            width: 80px;
         }
 
         .findoutmore {
