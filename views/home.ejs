@@ -43,7 +43,7 @@
     carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
     setInterval(function () {
         if (counter >= carouselimages.length - 1) return;
-        carouselslide.style.transition = "transform 0.5s ease-in-out";
+        carouselslide.style.transition = "all 0.5s";
         counter++;
         carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
 
