@@ -401,6 +401,20 @@ body {
     justify-content: space-between
 }
 
+.vishuddha_oils_are_quality_flex_1 {
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.vishuddha_oils_are_quality_flex_2 {
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .vishuddha_oils_are_quality_flex img {
     width: 6.510416666666667vw
 }
@@ -2512,12 +2526,30 @@ body {
         margin: 0 auto;
         width: 80%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between
     }
 
+    .vishuddha_oils_are_quality_flex_1 {
+        width: 80%;
+        display: flex;
+        margin: 0 10%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .vishuddha_oils_are_quality_flex_2 {
+        width: 80%;
+        display: flex;
+        margin: 0 10%;
+
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     .vishuddha_oils_are_quality_flex img {
-        width: 60px;
+        width: 80px;
+        margin: 0 0 20px 0;
     }
 
     .exp_l {
@@ -3580,7 +3612,7 @@ body {
         }
 
         .vishuddha_oils_are_quality_flex img {
-            width: 40px;
+            width: 60px;
         }
 
         .findoutmore {
