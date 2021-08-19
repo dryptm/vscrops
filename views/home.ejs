@@ -35,16 +35,15 @@
 <script>
     const carouselslide = document.querySelector(".carousel-slide");
     const carouselimages = document.querySelectorAll(".carousel-slide img");
-    const prevbtn = document.getElementById("prev");
-    const nextbtn = document.getElementById("next");
+
 
     let counter = 1
-    const size = carouselimages[0].clientWidth;
+    const size = carouselslide.clientWidth;
 
     carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
     setInterval(function () {
         if (counter >= carouselimages.length - 1) return;
-        carouselslide.style.transition = "transform 1s ease-in-out";
+        carouselslide.style.transition = "transform 0.5s ease-in-out";
         counter++;
         carouselslide.style.transform = "translateX(" + (-size * counter) + "px)";
 
