@@ -3621,10 +3621,20 @@ body {
         }
 
         .shopnow_div {
-            width: 100px;
+            width: 120px;
             margin: 0 auto;
             margin-top: 50px;
             margin-bottom: 100px;
+        }
+
+        .shopnow {
+            font-size: 20px;
+            border-radius: 5px;
+            border: 2px solid #000;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 auto;
+            transition: all .25s
         }
 
         .mail-list {
