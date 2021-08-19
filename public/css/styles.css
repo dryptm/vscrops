@@ -746,23 +746,18 @@ body {
 }
 
 .shopnow {
-    background-color: #fff;
+    background-color: #000;
     font-family: Lato, arial, sans-serif;
     font-size: 1.5625vw;
     font-weight: 700;
     position: relative;
-    color: #000;
+    color: #fff;
     border-radius: .3510416666666666vw;
     border: .13020833333333334vw solid #000;
     text-decoration: none;
     padding: 1.06041666666666665vw 1.6041666666666665vw;
     margin: 0 auto;
     transition: all .25s
-}
-
-.shopnow:hover {
-    background-color: #1a1a1a;
-    color: #fff
 }
 
 
