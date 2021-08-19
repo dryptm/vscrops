@@ -7,13 +7,14 @@
 <style>
      .container {
 	 max-width: 80%;
-	 width: 80%;
+	 width: 100%;
 	 padding: 2rem 2rem;
 	 margin: 0 auto;
 }
  .main .container .swiper-container .swiper-wrapper .swiper-slide .card-image {
 	 background: #fff;
 	 border: none;
+   z-index: -99;
 	 outline: none;
      background-position: center;
 	 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
@@ -79,7 +80,7 @@
 </div> -->
 
 <!-- ****************************************************************************************************************************************************** -->
-<main class="main" style="background-color: transparent; display: flex;justify-content: center;align-items: center;">
+<main class="main" style="background-color: transparent; display: flex;justify-content: center;align-items: center;text-align: center;">
     <div class="container">
       <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -133,15 +134,16 @@
   </main>
 
 <script>
-    console.log("he")
     // Swiper Configuration
 var swiper = new Swiper(".swiper-container", {
-  slidesPerView: 1.5,
-  spaceBetween: 10,
+  slidesPerView: 1,
+  spaceBetween: 0,
   centeredSlides: true,
   freeMode: true,
   grabCursor: true,
   loop: true,
+  autoHeight:true,
+  effect:'coverflow',
   pagination: {
     el: ".swiper-pagination",
     clickable: true
