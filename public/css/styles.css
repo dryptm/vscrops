@@ -2527,18 +2527,17 @@ body {
     }
 
     .vishuddha_oils_are_quality_flex_1 {
-        width: 100%;
+        width: 80%;
         display: flex;
-        margin: 0;
+        margin: 0 auto;
         flex-direction: row;
         justify-content: space-between;
     }
 
     .vishuddha_oils_are_quality_flex_2 {
-        width: 100%;
+        width: 80%;
         display: flex;
-        margin: 0;
-
+        margin: 0 auto;
         flex-direction: row;
         justify-content: space-between;
     }
@@ -3605,6 +3604,22 @@ body {
         .gov_img {
             width: 80%;
             margin: 10%;
+        }
+
+        .vishuddha_oils_are_quality_flex_1 {
+            width: 100%;
+            display: flex;
+            margin: 0;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .vishuddha_oils_are_quality_flex_2 {
+            width: 100%;
+            display: flex;
+            margin: 0;
+            flex-direction: row;
+            justify-content: space-between;
         }
 
         .vishuddha_oils_are_quality_flex img {
