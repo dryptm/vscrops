@@ -742,7 +742,8 @@ body {
 
 .shopnow_div {
     width: 11vw;
-    margin: 0 auto
+    margin: 0 auto;
+    margin-top: 5vw
 }
 
 .shopnow {
