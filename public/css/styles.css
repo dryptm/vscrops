@@ -2,54 +2,6 @@ body {
     margin: 0
 }
 
-.menu-heading {
-    color: white;
-    font-family: Cabin, arial, sans-serif;
-    font-size: 50px;
-    padding: 20px;
-    border: 1px solid white;
-    border-width: 0px 0 1px 0;
-    margin: 50px 20px 10px 20px;
-    letter-spacing: 4px
-}
-
-.search-cart-user-mob {
-    opacity: 1;
-    position: fixed;
-    height: 100vh;
-    width: 0%;
-    background-color: black;
-    z-index: 2;
-    top: 0;
-    display: flex;
-    align-items: left;
-    overflow: hidden;
-    flex-direction: column;
-    transition: all 0.25s;
-    z-index: 3;
-}
-
-.menu-close {
-    border: 0;
-    background: transparent;
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    right: 30px;
-    top: 30px;
-}
-
-.menu-nav-items {
-    color: white;
-    margin: 0 40px;
-    text-decoration: none;
-    padding: 20px 20px;
-    font-family: Lato, arial, sans-serif;
-    font-size: 19px;
-    border: 1px solid white;
-    border-width: 0px 0 1px 0;
-}
-
 .prompt_msg {
     text-align: center;
     font-size: 2.734375vw;
@@ -533,20 +485,20 @@ body {
 }
 
 .obf1 {
-    width: 48%;
-    padding: 1%;
+    width: 44%;
+    padding: 3%;
     margin: 0 auto 0 0
 }
 
 .obf2 {
-    width: 48%;
-    padding: 1%;
+    width: 44%;
+    padding: 3%;
     margin: 0 0 0 auto
 }
 
 .obf3 {
-    width: 48%;
-    padding: 1%;
+    width: 44%;
+    padding: 3%;
     margin: 0 0 0 auto
 }
 
@@ -1709,7 +1661,8 @@ body {
     font-size: 1.5531250000000002vw;
     border-radius: 6.510416666666667vw;
     background-color: #62b00f;
-    position: fixed
+    position: fixed;
+    z-index: 1
 }
 
 .order_box {
@@ -2358,8 +2311,10 @@ body {
         font-family: Cabin, arial, sans-serif;
         font-size: 50px;
         padding: 20px;
-        border: 1px solid white;
-        border-width: 0px 0 1px 0;
+        padding-top: 50px;
+        padding-bottom: 70px;
+        /*         border: 1px solid white; */
+        /*         border-width: 0px 0 1px 0; */
         margin: 50px 20px 10px 20px;
         letter-spacing: 4px
     }
@@ -2373,7 +2328,7 @@ body {
         z-index: 10;
         top: 0;
         display: flex;
-        align-items: left;
+        align-items: center;
         overflow: hidden;
         overflow-y: scroll;
         flex-direction: column;
@@ -2397,8 +2352,8 @@ body {
         padding: 20px 20px;
         font-family: Lato, arial, sans-serif;
         font-size: 19px;
-        border: 1px solid white;
-        border-width: 0px 0 1px 0;
+        /*         border: 1px solid white; */
+        /*         border-width: 0px 0 1px 0; */
     }
 
     .main_box_2 {

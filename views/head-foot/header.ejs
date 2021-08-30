@@ -164,12 +164,12 @@
     <div class="search-cart-user-mob" id = "nav-mob">
         <h2 class="menu-heading">Menu</h2>
         <button onclick="sidemenuclose()" class="menu-close"><i class="fas fa-times"></i></button>
-        <a id="" class="menu-nav-items" href="/home">Home</a>
-        <a id="" class="menu-nav-items" href="/products">Products</a>
-        <a id="" class="menu-nav-items" href="/foundersnote">Corporate Gifting</a>
-        <a id="" class="menu-nav-items" href="/ourstory">Our Story</a>
-        <a id="" class="menu-nav-items" href="/blog">Blog</a>
-        <a id="" class="menu-nav-items" href="/contactus">Contact Us</a>
+        <a id="" class="menu-nav-items" onclick="widthzero()" href="/home">Home</a>
+        <a id="" class="menu-nav-items" onclick="widthzero()" href="/products">Products</a>
+        <a id="" class="menu-nav-items" onclick="widthzero()" href="/foundersnote">Corporate Gifting</a>
+        <a id="" class="menu-nav-items" onclick="widthzero()" href="/ourstory">Our Story</a>
+        <a id="" class="menu-nav-items" onclick="widthzero()" href="/blog">Blog</a>
+        <a id="" class="menu-nav-items" onclick="widthzero()" href="/contactus">Contact Us</a>
     </div>
 
         <a class="chat_button" style="text-decoration: none;" href="https://wa.me/916386417658" target="_blank" rel="noreferrer" name="whatsapp icon"><i class="fab fa-whatsapp"
@@ -230,17 +230,38 @@
 
 
         var sidemenuC=0;
+        var x = window.matchMedia("(max-width: 600px)")
+        var y = window.matchMedia("(max-width: 1024px)")
         function sidemenu(){
-            if(sidemenuC==0){
-                document.getElementById("nav-mob").style.width="70%";
-                sidemenuC++;
-            }
-            else{
-                document.getElementById("nav-mob").style.width="0%";
-                sidemenuC--;
+            if(y.matches){
+                if(x.matches){
+                    if(sidemenuC==0){
+                        document.getElementById("nav-mob").style.width="100%";
+                        sidemenuC++;
+                    }
+                    else{
+                        document.getElementById("nav-mob").style.width="0%";
+                        sidemenuC--;
+                    }
+                }
+                else{
+                    if(sidemenuC==0){
+                        document.getElementById("nav-mob").style.width="60%";
+                        sidemenuC++;
+                    }
+                    else{
+                        document.getElementById("nav-mob").style.width="0%";
+                        sidemenuC--;
+                    }
+                }
+                
             }
         }
         function sidemenuclose(){
+            document.getElementById("nav-mob").style.width="0%";
+            sidemenuC=0;
+        }
+        function widthzero(){
             document.getElementById("nav-mob").style.width="0%";
             sidemenuC=0;
         }
