@@ -2,6 +2,10 @@ body {
     margin: 0
 }
 
+.search-cart-user-mob {
+    overflow: hidden;
+}
+
 .prompt_msg {
     text-align: center;
     font-size: 2.734375vw;
@@ -2311,8 +2315,8 @@ body {
         font-family: Cabin, arial, sans-serif;
         font-size: 50px;
         padding: 20px;
-        padding-top: 50px;
-        padding-bottom: 70px;
+        padding-top: 40px;
+        padding-bottom: 40px;
         /*         border: 1px solid white; */
         /*         border-width: 0px 0 1px 0; */
         margin: 50px 20px 10px 20px;
