@@ -3,7 +3,10 @@ body {
 }
 
 .search-cart-user-mob {
+    position: fixed;
+
     overflow: hidden;
+    width: 0%;
 }
 
 .prompt_msg {
