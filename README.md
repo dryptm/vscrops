@@ -12,7 +12,7 @@ When the whole process is done, open https://localhost:3000 in the browser.
 ->google auth credentials from localhost to main website\
 ->vscrops.herokuapp.com->vishuddhacrops.com\
 ->SEO checker otmization\
-->add www.\
+->add www. \
 ->backlinks\
 ->razorpay live mode\
 ->cancel order mobile text\
