@@ -7,7 +7,7 @@ Follow the commands written below-\
 When the whole process is done, open https://localhost:3000 in the browser.
 
 
-##things to be updated befor publishing
+## things to be updated befor publishing
 ->text789456text@gmail.com->vishuddhacrops@gmail.com\
 ->google auth credentials from localhost to main website\
 ->vscrops.herokuapp.com->vishuddhacrops.com\
