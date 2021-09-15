@@ -20,7 +20,7 @@ When the whole process is done, open https://localhost:3000 in the browser.
 
 
 
-Paid services-
+Paid services-\
 ->FAST2SMS ---to be replaced with twilio for worldwide coverage----\
 ->mongoDB\
 ->nodemailer\
