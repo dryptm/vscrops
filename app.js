@@ -1415,12 +1415,18 @@ app.post('/login', (req, res) => {
   })
 
 })
-app.get('/logout', (req, res) => {
-  req.logOut();
-  res.redirect('/')
-})
 
+// app.get('/logout', (req, res,next) => {
+//   req.logOut();
+//   res.redirect('/')
+// })
 
+app.get('/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
 
 
 
